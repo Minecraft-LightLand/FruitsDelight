@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:taiga",
+  "features": "fruitsdelight:tree/hawberry_tree",
+  "step": "vegetal_decoration"
+}

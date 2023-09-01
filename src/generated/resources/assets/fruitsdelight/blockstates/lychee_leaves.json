@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=flowers": {
+      "model": "fruitsdelight:block/lychee_flowers"
+    },
+    "type=fruits": {
+      "model": "fruitsdelight:block/lychee_fruits"
+    },
+    "type=leaves": {
+      "model": "fruitsdelight:block/lychee_leaves"
+    }
+  }
+}

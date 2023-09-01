@@ -1,6 +1,18 @@
 {
+  "block.fruitsdelight.hawberry_leaves": "sǝʌɐǝꞀ ʎɹɹǝqʍɐH",
+  "block.fruitsdelight.hawberry_sapling": "buıןdɐS ʎɹɹǝqʍɐH",
+  "block.fruitsdelight.lychee_leaves": "sǝʌɐǝꞀ ǝǝɥɔʎꞀ",
+  "block.fruitsdelight.lychee_sapling": "buıןdɐS ǝǝɥɔʎꞀ",
+  "block.fruitsdelight.mango_leaves": "sǝʌɐǝꞀ obuɐW",
+  "block.fruitsdelight.mango_sapling": "buıןdɐS obuɐW",
   "block.fruitsdelight.pear_leaves": "sǝʌɐǝꞀ ɹɐǝԀ",
   "block.fruitsdelight.pear_sapling": "buıןdɐS ɹɐǝԀ",
+  "block.fruitsdelight.persimmon_leaves": "sǝʌɐǝꞀ uoɯɯısɹǝԀ",
+  "block.fruitsdelight.persimmon_sapling": "buıןdɐS uoɯɯısɹǝԀ",
+  "item.fruitsdelight.hawberry": "ʎɹɹǝqʍɐH",
+  "item.fruitsdelight.lychee": "ǝǝɥɔʎꞀ",
+  "item.fruitsdelight.mango": "obuɐW",
   "item.fruitsdelight.pear": "ɹɐǝԀ",
+  "item.fruitsdelight.persimmon": "uoɯɯısɹǝԀ",
   "itemGroup.fruitsdelight.fruits_delight": "ʇɥbıןǝᗡ sʇınɹℲ"
 }

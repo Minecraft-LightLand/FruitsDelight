@@ -57,14 +57,19 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public enum FDTrees {
-	PEAR(() -> Blocks.OAK_LOG, 5, 30);
+	PEAR(() -> Blocks.BIRCH_LOG, 5, 30),
+	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 30),
+	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 30),
+	MANGO(() -> Blocks.JUNGLE_LOG, 5, 30),
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 30);
 
 	private final BlockEntry<PassableLeavesBlock> leaves;
 	private final BlockEntry<SaplingBlock> sapling;
 	private final ItemEntry<Item> fruit;
 	private final Lazy<TreeConfiguration> treeConfig;
-	private final ResourceKey<ConfiguredFeature<?, ?>> configKey;
-	private final ResourceKey<PlacedFeature> placementKey;
+
+	public final ResourceKey<ConfiguredFeature<?, ?>> configKey;
+	public final ResourceKey<PlacedFeature> placementKey;
 
 	FDTrees(Supplier<Block> log, int height, int flowers) {
 		String name = name().toLowerCase(Locale.ROOT);

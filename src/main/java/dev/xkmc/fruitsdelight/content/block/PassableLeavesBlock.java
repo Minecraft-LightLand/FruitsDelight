@@ -65,6 +65,11 @@ public class PassableLeavesBlock extends LeavesBlock {
 	}
 
 	@Override
+	public boolean isRandomlyTicking(BlockState state) {
+		return state.getValue(STATE) != State.LEAVES || super.isRandomlyTicking(state);
+	}
+
+	@Override
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		if (!decaying(state)) {
 			State st = state.getValue(STATE);

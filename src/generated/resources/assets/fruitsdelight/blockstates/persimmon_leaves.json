@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=flowers": {
+      "model": "fruitsdelight:block/persimmon_flowers"
+    },
+    "type=fruits": {
+      "model": "fruitsdelight:block/persimmon_fruits"
+    },
+    "type=leaves": {
+      "model": "fruitsdelight:block/persimmon_leaves"
+    }
+  }
+}

@@ -1,3 +1,16 @@
-// 1.20.1	2023-09-02T00:23:49.698901	Fruits Delight Data
-a785d053049dfe7fb645f35e6a3fb1d4d26aec03 data/fruitsdelight/worldgen/configured_feature/tree/pear_tree.json
+// 1.20.1	2023-09-02T01:21:39.875074	Fruits Delight Data
+74990144eee2a41994d307ba52f4599b69f7a122 data/fruitsdelight/forge/biome_modifier/hawberry.json
+c5534229e3aa8bcddd5a5cda6be9ebde59d57363 data/fruitsdelight/forge/biome_modifier/lychee.json
+cb8c94450b1b05380fa769078dfe8849013d8792 data/fruitsdelight/forge/biome_modifier/mango.json
+b9fcadda654fb51c395a68f6e26c0e014da039f1 data/fruitsdelight/forge/biome_modifier/pear.json
+6160b22c2be92cab88c49efa2be6567614834c79 data/fruitsdelight/forge/biome_modifier/persimmon.json
+f12e96ea2809514863a981abe1b901472ef6d2cc data/fruitsdelight/worldgen/configured_feature/tree/hawberry_tree.json
+2e3607cceb6e1751d6a18624c875e4d4c5409f77 data/fruitsdelight/worldgen/configured_feature/tree/lychee_tree.json
+55f429b999080106fb365ed356053deff3c501e9 data/fruitsdelight/worldgen/configured_feature/tree/mango_tree.json
+67ca8890c5ba3556c7eeee0aa19fb35c897cecbd data/fruitsdelight/worldgen/configured_feature/tree/pear_tree.json
+88c2380b0857427cca7ce0f97fa4a094e87159fb data/fruitsdelight/worldgen/configured_feature/tree/persimmon_tree.json
+742f3d06efaa688012a51077cf2241c9c0a353fd data/fruitsdelight/worldgen/placed_feature/tree/hawberry_tree.json
+f4e5783d025fb5ae58ff898275c9e7e50baede85 data/fruitsdelight/worldgen/placed_feature/tree/lychee_tree.json
+9a3b1c92d31caa1e8b2db5e351f0c1a3b66678eb data/fruitsdelight/worldgen/placed_feature/tree/mango_tree.json
 0daa52774352a8b28fdd5d1c7ce7b4b3ce11170f data/fruitsdelight/worldgen/placed_feature/tree/pear_tree.json
+03ee43babf7587d1b5145998d2a09de7186043ea data/fruitsdelight/worldgen/placed_feature/tree/persimmon_tree.json

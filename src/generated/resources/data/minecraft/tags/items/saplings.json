@@ -1,5 +1,9 @@
 {
   "values": [
-    "fruitsdelight:pear_sapling"
+    "fruitsdelight:pear_sapling",
+    "fruitsdelight:hawberry_sapling",
+    "fruitsdelight:lychee_sapling",
+    "fruitsdelight:mango_sapling",
+    "fruitsdelight:persimmon_sapling"
   ]
 }

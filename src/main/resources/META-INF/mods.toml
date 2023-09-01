@@ -21,7 +21,7 @@ modId="fruitsdelight" #mandatory
 # see the associated build.gradle script for how to populate this completely automatically during a build
 version="${file.jarVersion}" #mandatory
  # A display name for the mod
-displayName="Twilight's Flavor & Delight" #mandatory
+displayName="Fruits Delight" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -30,9 +30,9 @@ displayName="Twilight's Flavor & Delight" #mandatory
 logoFile="logo.png" #optional
 logoBlur=false
 # A text field displayed in the mod UI
-credits="LightLand Team and Goulixiaoji" #optional
+credits="LightLand Team" #optional
 # A text field displayed in the mod UI
-authors="lcy0x1 and Goulixiaoji" #optional
+authors="lcy0x1" #optional
 # Display Test controls the display for your mod in the server connection screen
 # MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
 # IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.
@@ -43,7 +43,7 @@ authors="lcy0x1 and Goulixiaoji" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Adds food from Twilight Forest in the styles of Farmer's Delight and Neapolitan
+Adds fruit trees and bushes
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.fruitsdelight]] #optional

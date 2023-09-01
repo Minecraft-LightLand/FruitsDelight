@@ -8,7 +8,7 @@ public class FDBlocks {
 
 	public static final RegistryEntry<CreativeModeTab> TAB =
 			FruitsDelight.REGISTRATE.buildModCreativeTab("fruits_delight", "Fruits Delight",
-					e -> e.icon(() -> FDTrees.PEAR.getLeaves().asItem().getDefaultInstance()));
+					e -> e.icon(() -> FDTrees.PEAR.getFruit().getDefaultInstance()));
 
 	public static void register() {
 	}
