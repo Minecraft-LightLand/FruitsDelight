@@ -1,0 +1,18 @@
+// 1.20.1	2023-09-02T00:23:00.536429	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+64882cfd7f932701a5ca57d0f224708552b50a0f assets/fruitsdelight/blockstates/pear_leaves.json
+484bfd9bd4fed95fe630001d1e6370e480f58340 assets/fruitsdelight/blockstates/pear_sapling.json
+75c1118245d6cfef83d16e997af2bf6b94ca8d51 assets/fruitsdelight/lang/en_ud.json
+6606d220193ee8478543b4ced59d5192fcc89b87 assets/fruitsdelight/lang/en_us.json
+c5586c59a009a5942cd827478c8089d114800477 assets/fruitsdelight/models/block/pear_flowers.json
+dd3c507cceddbbcd50acdc6957326ce090ba62ef assets/fruitsdelight/models/block/pear_fruits.json
+30ab7c68a4ed0c305a13e54322da5c5f51cc53a6 assets/fruitsdelight/models/block/pear_leaves.json
+a17fb62b3c2496b90fcecbcd1ebd9187977a0925 assets/fruitsdelight/models/block/pear_sapling.json
+16f99ff56f83c683d145f24f10de812992dae575 assets/fruitsdelight/models/item/pear.json
+e35e38cba00c110f7bfd214b82343745233f547c assets/fruitsdelight/models/item/pear_leaves.json
+1f2bf17c425517f031154f77f8216de8511600b2 assets/fruitsdelight/models/item/pear_sapling.json
+57d3899008361f3f8bf529e1608400f1beef479a data/fruitsdelight/loot_tables/blocks/pear_leaves.json
+3237fcbfdb07f4d40a8e7588b30a35740235606a data/fruitsdelight/loot_tables/blocks/pear_sapling.json
+dce6799cb40931aa34e4936569cc5cd52c379c76 data/minecraft/tags/blocks/leaves.json
+2fe1ccd8b07086af76de97617e8b1c8a1e9a6e05 data/minecraft/tags/blocks/saplings.json
+dce6799cb40931aa34e4936569cc5cd52c379c76 data/minecraft/tags/items/leaves.json
+2fe1ccd8b07086af76de97617e8b1c8a1e9a6e05 data/minecraft/tags/items/saplings.json

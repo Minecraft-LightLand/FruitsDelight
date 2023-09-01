@@ -1,6 +1,11 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
+import dev.xkmc.fruitsdelight.init.data.FDDatapackRegistriesGen;
+import dev.xkmc.fruitsdelight.init.data.FDModConfig;
+import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import dev.xkmc.fruitsdelight.init.registrate.FDItems;
+import dev.xkmc.fruitsdelight.init.registrate.FDTrees;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +22,10 @@ public class FruitsDelight {
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
 	public FruitsDelight() {
+		FDBlocks.register();
+		FDTrees.register();
+		FDItems.register();
+		FDModConfig.init();
 	}
 
 	@SubscribeEvent
@@ -26,6 +35,9 @@ public class FruitsDelight {
 
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
+		var output = event.getGenerator().getPackOutput();
+		var reg = new FDDatapackRegistriesGen(output, event.getLookupProvider());
+		event.getGenerator().addProvider(event.includeServer(), reg);
 	}
 
 }

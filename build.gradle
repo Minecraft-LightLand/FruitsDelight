@@ -121,7 +121,7 @@ dependencies {
     }
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    compileOnly fg.deobf(jarJar("com.tterrag.registrate:Registrate:${registrate_version}")){
+    implementation fg.deobf(jarJar("com.tterrag.registrate:Registrate:${registrate_version}")){
         transitive = false
         jarJar.ranged(it, "[MC1.20-1.3.3,)")
     }
