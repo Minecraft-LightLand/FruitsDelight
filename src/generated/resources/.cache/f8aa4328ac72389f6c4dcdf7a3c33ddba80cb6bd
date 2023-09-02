@@ -1,4 +1,5 @@
-// 1.20.1	2023-09-02T01:21:39.877078	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-09-02T20:05:34.295134	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+8d2f3d7abd719019e710b3a3db23ed55738adb0f assets/fruitsdelight/blockstates/blueberry_bush.json
 4b9fca8f0b9c8d04467c88f2c6cd8c2189960df1 assets/fruitsdelight/blockstates/hawberry_leaves.json
 07114c0033833bd1baed46b40af2d085a8346fec assets/fruitsdelight/blockstates/hawberry_sapling.json
 d958a29184c03588f6e5c27f53eb2998a93bfa40 assets/fruitsdelight/blockstates/lychee_leaves.json
@@ -9,8 +10,12 @@ f4baa65afdb4999742b1c7864b40f23c6cf023a5 assets/fruitsdelight/blockstates/mango_
 484bfd9bd4fed95fe630001d1e6370e480f58340 assets/fruitsdelight/blockstates/pear_sapling.json
 9bea4ce75c88b91e11470ba7393ea332db309529 assets/fruitsdelight/blockstates/persimmon_leaves.json
 58edbd5de74813e5afec3df0541b0a6ec003bb47 assets/fruitsdelight/blockstates/persimmon_sapling.json
-0c8cdd4c59c72a9e304ee4b6879810a72fb84bd2 assets/fruitsdelight/lang/en_ud.json
-db28617f5da9e12133657737b12562fae270d0ad assets/fruitsdelight/lang/en_us.json
+0021141f07c34b2ec8fe9f35c5040206bf43459b assets/fruitsdelight/lang/en_ud.json
+40f5e726da924f5f3c78800b550e0c3fb628924c assets/fruitsdelight/lang/en_us.json
+778a12b801f244b647590f79e21a56787cfd152e assets/fruitsdelight/models/block/blueberry_bush.json
+648bc4f9db0b0e60c10e6f17c82777a7e2354820 assets/fruitsdelight/models/block/blueberry_bush_flowers.json
+d24c58612b52faaea790bda10ad0bb512ea0b3d3 assets/fruitsdelight/models/block/blueberry_bush_fruits.json
+d1bff80a2d2d5a2779e362aca449b2e4bd229031 assets/fruitsdelight/models/block/blueberry_bush_small.json
 a57537e9bbe622de28e444d2426b28ad3e29b561 assets/fruitsdelight/models/block/hawberry_flowers.json
 e7a0f64009f88bc364735b6af7c8b7accccbe3aa assets/fruitsdelight/models/block/hawberry_fruits.json
 4835e4cd1e0ada4b28f2c667fccff973023df4b2 assets/fruitsdelight/models/block/hawberry_leaves.json
@@ -31,6 +36,8 @@ a17fb62b3c2496b90fcecbcd1ebd9187977a0925 assets/fruitsdelight/models/block/pear_
 d66c80175e08d8031ad385c872d1ab18626f557e assets/fruitsdelight/models/block/persimmon_fruits.json
 a5191f5ff01e683448274a734f5ac671675b2482 assets/fruitsdelight/models/block/persimmon_leaves.json
 5ad54a36e94fb3fec1ff91808c6ed6e003320959 assets/fruitsdelight/models/block/persimmon_sapling.json
+8c40501391bd652b36d8042d012b553ee7336479 assets/fruitsdelight/models/item/blueberry.json
+df3049eb7f9bcd9f67e2a3dd52095cfc6e97cf7b assets/fruitsdelight/models/item/blueberry_bush.json
 2539902abecc4006ce0500b68b24662f286bf513 assets/fruitsdelight/models/item/hawberry.json
 e1ea0b6a2d194657a927f315eb120f4a08562186 assets/fruitsdelight/models/item/hawberry_leaves.json
 9753dad3815bed465171663e49fc6ac939fe2a18 assets/fruitsdelight/models/item/hawberry_sapling.json
@@ -46,6 +53,7 @@ e35e38cba00c110f7bfd214b82343745233f547c assets/fruitsdelight/models/item/pear_l
 7af669d5a2e21138a5bfb36f6251a12edc281363 assets/fruitsdelight/models/item/persimmon.json
 b0a96f4c664002c58db129752cf78379b35c6b1b assets/fruitsdelight/models/item/persimmon_leaves.json
 4fa532e4e4750c9a7a826e06d75674cef64d4a77 assets/fruitsdelight/models/item/persimmon_sapling.json
+9b227f361889e461aed7ba0035d978985d477576 data/fruitsdelight/loot_tables/blocks/blueberry_bush.json
 415699a936abbc089e4820692da32f1dd2af032f data/fruitsdelight/loot_tables/blocks/hawberry_leaves.json
 99504153f9b37f98cad17912846e74b519d522c5 data/fruitsdelight/loot_tables/blocks/hawberry_sapling.json
 9079886bc9a85bce8462f9b2f349131263ea6938 data/fruitsdelight/loot_tables/blocks/lychee_leaves.json

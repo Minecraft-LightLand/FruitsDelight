@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "block": "fruitsdelight:blueberry_bush",
+                "condition": "minecraft:block_state_property",
+                "properties": {
+                  "age": "0"
+                }
+              }
+            }
+          ],
+          "name": "fruitsdelight:blueberry_bush"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "fruitsdelight:blueberry_bush",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "3"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:uniform_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "bonusMultiplier": 1
+              }
+            }
+          ],
+          "name": "fruitsdelight:blueberry"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "fruitsdelight:blocks/blueberry_bush"
+}

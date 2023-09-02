@@ -23,7 +23,6 @@ public class FruitsDelight {
 
 	public FruitsDelight() {
 		FDBlocks.register();
-		FDTrees.register();
 		FDItems.register();
 		FDModConfig.init();
 	}

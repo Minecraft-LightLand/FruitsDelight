@@ -1,0 +1,7 @@
+{
+  "parent": "fruitsdelight:block/bush",
+  "textures": {
+    "cross": "fruitsdelight:block/blueberry_bush_flowers_cross",
+    "face": "fruitsdelight:block/blueberry_bush_flowers_face"
+  }
+}

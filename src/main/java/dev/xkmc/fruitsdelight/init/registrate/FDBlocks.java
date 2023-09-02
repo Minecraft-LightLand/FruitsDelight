@@ -11,6 +11,8 @@ public class FDBlocks {
 					e -> e.icon(() -> FDTrees.PEAR.getFruit().getDefaultInstance()));
 
 	public static void register() {
+		FDTrees.register();
+		FDBushes.register();
 	}
 
 }
