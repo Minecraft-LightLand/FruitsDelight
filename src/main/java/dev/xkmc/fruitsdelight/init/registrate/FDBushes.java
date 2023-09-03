@@ -35,6 +35,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -112,13 +113,15 @@ public enum FDBushes implements FDDatapackRegistriesGen.SpawnModifier {
 								.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
 										.setProperties(StatePropertiesPredicate.Builder.properties()
 												.hasProperty(FruitBushBlock.AGE, 0))
-										.invert())))
+										.invert()))
+						.when(ExplosionCondition.survivesExplosion()))
 				.withPool(LootPool.lootPool()
 						.add(LootItem.lootTableItem(getFruit())
 								.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
 										.setProperties(StatePropertiesPredicate.Builder.properties()
 												.hasProperty(FruitBushBlock.AGE, 3)))
-								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1))))
+								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)))
+						.when(ExplosionCondition.survivesExplosion()))
 		);
 	}
 

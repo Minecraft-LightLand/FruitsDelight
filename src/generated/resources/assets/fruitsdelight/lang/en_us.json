@@ -1,5 +1,8 @@
 {
+  "block.fruitsdelight.attached_hamimelon_stem": "Attached Hamimelon Stem",
   "block.fruitsdelight.blueberry_bush": "Blueberry Bush",
+  "block.fruitsdelight.hamimelon_block": "Hamimelon Block",
+  "block.fruitsdelight.hamimelon_stem": "Hamimelon Stem",
   "block.fruitsdelight.hawberry_leaves": "Hawberry Leaves",
   "block.fruitsdelight.hawberry_sapling": "Hawberry Sapling",
   "block.fruitsdelight.lychee_leaves": "Lychee Leaves",
@@ -11,6 +14,8 @@
   "block.fruitsdelight.persimmon_leaves": "Persimmon Leaves",
   "block.fruitsdelight.persimmon_sapling": "Persimmon Sapling",
   "item.fruitsdelight.blueberry": "Blueberry",
+  "item.fruitsdelight.hamimelon_seeds": "Hamimelon Seeds",
+  "item.fruitsdelight.hamimelon_slice": "Hamimelon Slice",
   "item.fruitsdelight.hawberry": "Hawberry",
   "item.fruitsdelight.lychee": "Lychee",
   "item.fruitsdelight.mango": "Mango",

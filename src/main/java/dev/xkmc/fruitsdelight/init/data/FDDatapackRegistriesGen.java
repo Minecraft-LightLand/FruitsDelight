@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDBushes;
+import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
 import dev.xkmc.fruitsdelight.init.registrate.FDTrees;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -45,6 +46,9 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 		for (FDBushes e : FDBushes.values()) {
 			mod.accept(e, val);
 		}
+		for (FDMelons e : FDMelons.values()) {
+			mod.accept(e, val);
+		}
 	}
 
 	private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
@@ -63,6 +67,7 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 		registerTreeBiome(ctx, FDBushes.BLUEBERRY, biomes, features, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA,
 				Biomes.SNOWY_TAIGA, Biomes.GROVE,
 				Biomes.SWAMP, Biomes.MANGROVE_SWAMP, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST);
+		registerTreeBiome(ctx, FDMelons.HAMIMELON, biomes, features, Biomes.DESERT);
 	}
 
 	@SuppressWarnings("unchecked")

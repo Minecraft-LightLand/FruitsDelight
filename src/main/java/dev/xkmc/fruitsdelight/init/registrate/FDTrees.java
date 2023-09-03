@@ -47,6 +47,7 @@ import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -180,7 +181,7 @@ public enum FDTrees implements FDDatapackRegistriesGen.SpawnModifier {
 								.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,
 										1 / 20f, 1 / 16f, 1 / 12f, 1 / 10f))
 				)
-		)));
+		).when(ExplosionCondition.survivesExplosion())));
 	}
 
 	private static FoodProperties food(int food, float sat, boolean fast) {

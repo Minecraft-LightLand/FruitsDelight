@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stem_fruit",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "stem": "fruitsdelight:block/hamimelon_stem",
+    "upper_stem": "fruitsdelight:block/hamimelon_attached"
+  }
+}

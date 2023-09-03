@@ -3,11 +3,6 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -29,20 +24,20 @@
                   }
                 }
               ],
-              "name": "fruitsdelight:mango_leaves"
+              "name": "fruitsdelight:hamimelon_block"
             },
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "block": "fruitsdelight:mango_leaves",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "type": "fruits"
-                  }
-                }
-              ],
               "functions": [
+                {
+                  "add": false,
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "max": 7.0,
+                    "min": 3.0
+                  },
+                  "function": "minecraft:set_count"
+                },
                 {
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:uniform_bonus_count",
@@ -50,25 +45,18 @@
                   "parameters": {
                     "bonusMultiplier": 1
                   }
-                }
-              ],
-              "name": "fruitsdelight:mango"
-            },
-            {
-              "type": "minecraft:item",
-              "conditions": [
+                },
                 {
-                  "chances": [
-                    0.05,
-                    0.0625,
-                    0.083333336,
-                    0.1
-                  ],
-                  "condition": "minecraft:table_bonus",
-                  "enchantment": "minecraft:fortune"
+                  "function": "minecraft:limit_count",
+                  "limit": {
+                    "max": 9.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "fruitsdelight:mango_sapling"
+              "name": "fruitsdelight:hamimelon_slice"
             }
           ]
         }
@@ -76,5 +64,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "fruitsdelight:blocks/mango_leaves"
+  "random_sequence": "fruitsdelight:blocks/hamimelon_block"
 }

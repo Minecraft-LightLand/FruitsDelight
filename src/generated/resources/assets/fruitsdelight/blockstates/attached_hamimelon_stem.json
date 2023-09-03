@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "fruitsdelight:block/attached_hamimelon_stem",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "fruitsdelight:block/attached_hamimelon_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "fruitsdelight:block/attached_hamimelon_stem",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "fruitsdelight:block/attached_hamimelon_stem"
+    }
+  }
+}

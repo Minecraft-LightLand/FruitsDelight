@@ -1,11 +1,13 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
+import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.fruitsdelight.init.data.FDDatapackRegistriesGen;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
+import dev.xkmc.fruitsdelight.init.data.RecipeGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
-import dev.xkmc.fruitsdelight.init.registrate.FDTrees;
+import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,11 +27,16 @@ public class FruitsDelight {
 		FDBlocks.register();
 		FDItems.register();
 		FDModConfig.init();
+		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
 	}
 
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
-
+		event.enqueueWork(() -> {
+			for (FDMelons e : FDMelons.values()) {
+				e.registerComposter();
+			}
+		});
 	}
 
 	@SubscribeEvent

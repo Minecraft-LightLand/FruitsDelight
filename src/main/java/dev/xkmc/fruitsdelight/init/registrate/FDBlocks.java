@@ -13,6 +13,7 @@ public class FDBlocks {
 	public static void register() {
 		FDTrees.register();
 		FDBushes.register();
+		FDMelons.register();
 	}
 
 }
