@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "X": {
-      "item": "fruitsdelight:hamimelon_block"
+      "item": "fruitsdelight:hamimelon_slice"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
     "XXX"
   ],
   "result": {
-    "item": "fruitsdelight:hamimelon_slice"
+    "item": "fruitsdelight:hamimelon"
   },
   "show_notification": true
 }

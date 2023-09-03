@@ -13,7 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.world.BiomeModifier;
@@ -24,36 +23,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.BiConsumer;
 
 public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 
-	public interface SpawnModifier {
-
-		void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx);
-
-		void registerPlacements(BootstapContext<PlacedFeature> ctx);
-
-		String getName();
-
-		ResourceKey<PlacedFeature> getPlacementKey();
-	}
-
-	private static <T> void gen(T val, BiConsumer<SpawnModifier, T> mod) {
-		for (FDTrees e : FDTrees.values()) {
-			mod.accept(e, val);
-		}
-		for (FDBushes e : FDBushes.values()) {
-			mod.accept(e, val);
-		}
-		for (FDMelons e : FDMelons.values()) {
-			mod.accept(e, val);
-		}
-	}
-
 	private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-			.add(Registries.CONFIGURED_FEATURE, ctx -> gen(ctx, SpawnModifier::registerConfigs))
-			.add(Registries.PLACED_FEATURE, ctx -> gen(ctx, SpawnModifier::registerPlacements))
+			.add(Registries.CONFIGURED_FEATURE, ctx -> PlantDataEntry.gen(ctx, PlantDataEntry::registerConfigs))
+			.add(Registries.PLACED_FEATURE, ctx -> PlantDataEntry.gen(ctx, PlantDataEntry::registerPlacements))
 			.add(ForgeRegistries.Keys.BIOME_MODIFIERS, FDDatapackRegistriesGen::registerBiomeModifiers);
 
 	private static void registerBiomeModifiers(BootstapContext<BiomeModifier> ctx) {
@@ -73,7 +48,7 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 	@SuppressWarnings("unchecked")
 	@SafeVarargs
 	private static void registerTreeBiome(BootstapContext<BiomeModifier> ctx,
-										  SpawnModifier tree,
+										  PlantDataEntry tree,
 										  HolderGetter<Biome> biomeGetter,
 										  HolderGetter<PlacedFeature> features,
 										  ResourceKey<Biome>... biomes) {

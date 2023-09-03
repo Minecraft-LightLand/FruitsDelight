@@ -7,7 +7,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.FDDatapackRegistriesGen;
+import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -25,10 +25,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -58,7 +55,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Supplier;
 
-public enum FDTrees implements FDDatapackRegistriesGen.SpawnModifier {
+public enum FDTrees implements PlantDataEntry {
 	PEAR(() -> Blocks.BIRCH_LOG, 5, 30, 3, 0.3f, false),
 	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 30, 1, 0.5f, true),
 	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 30, 2, 0.3f, true),
@@ -85,7 +82,7 @@ public enum FDTrees implements FDDatapackRegistriesGen.SpawnModifier {
 				.block(name + "_leaves", p -> new PassableLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
 				.blockstate(this::buildLeavesModel)
 				.loot((pvd, block) -> buildFruit(pvd, block, getSapling(), getFruit()))
-				.tag(BlockTags.LEAVES)
+				.tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
 				.item().tag(ItemTags.LEAVES).build()
 				.register();
 
@@ -117,6 +114,12 @@ public enum FDTrees implements FDDatapackRegistriesGen.SpawnModifier {
 
 	public SaplingBlock getSapling() {
 		return sapling.get();
+	}
+
+	public void registerComposter() {
+		ComposterBlock.COMPOSTABLES.put(getFruit(), 0.65f);
+		ComposterBlock.COMPOSTABLES.put(getLeaves(), 0.3f);
+		ComposterBlock.COMPOSTABLES.put(getSapling(), 0.3f);
 	}
 
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {

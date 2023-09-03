@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "fruitsdelight:hamimelon_block"
+              "name": "fruitsdelight:hamimelon"
             },
             {
               "type": "minecraft:item",
@@ -64,5 +64,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "fruitsdelight:blocks/hamimelon_block"
+  "random_sequence": "fruitsdelight:blocks/hamimelon"
 }

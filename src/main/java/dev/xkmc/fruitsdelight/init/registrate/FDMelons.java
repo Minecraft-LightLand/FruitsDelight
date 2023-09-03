@@ -8,7 +8,7 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.FDDatapackRegistriesGen;
+import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -18,6 +18,7 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -51,7 +52,7 @@ import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 import javax.annotation.Nullable;
 import java.util.Locale;
 
-public enum FDMelons implements FDDatapackRegistriesGen.SpawnModifier {
+public enum FDMelons implements PlantDataEntry {
 	HAMIMELON(2, 0.3f, true);
 
 	private final BlockEntry<FDMelonBlock> melon;
@@ -72,9 +73,10 @@ public enum FDMelons implements FDDatapackRegistriesGen.SpawnModifier {
 				new ResourceLocation(FruitsDelight.MODID, name));
 
 		melon = FruitsDelight.REGISTRATE
-				.block(name + "_block", p -> new FDMelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)))
+				.block(name, p -> new FDMelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)))
 				.blockstate(this::buildMelonModel)
 				.loot(this::buildMelonLoot)
+				.tag(BlockTags.ENDERMAN_HOLDABLE, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.item().build()
 				.register();
 		stem = FruitsDelight.REGISTRATE
@@ -82,12 +84,14 @@ public enum FDMelons implements FDDatapackRegistriesGen.SpawnModifier {
 						BlockBehaviour.Properties.copy(Blocks.MELON_STEM)))
 				.blockstate(this::buildStemModel)
 				.loot(this::buildStemLoot)
+				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.register();
 		attachedStem = FruitsDelight.REGISTRATE
 				.block("attached_" + name + "_stem", p -> new AttachedStemBlock(getMelonBlock(), this::getSeed,
 						BlockBehaviour.Properties.copy(Blocks.ATTACHED_MELON_STEM)))
 				.blockstate(this::buildAttachedStemModel)
 				.loot(this::buildAttachedStemLoot)
+				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.register();
 
 		slice = FruitsDelight.REGISTRATE
@@ -154,9 +158,10 @@ public enum FDMelons implements FDDatapackRegistriesGen.SpawnModifier {
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
 		pvd.singleItem(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getSeed, 1, 1);
-		pvd.square(DataIngredient.items(getMelonBlock()), RecipeCategory.MISC, this::getSlice, false);
+		pvd.square(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getMelonBlock, false);
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getMelonBlock()),
-				Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 9, 1).build(pvd);
+				Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 9, 1).build(pvd,
+				new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
 	}
 
 	private void buildMelonModel(DataGenContext<Block, FDMelonBlock> ctx, RegistrateBlockstateProvider pvd) {
@@ -181,7 +186,7 @@ public enum FDMelons implements FDDatapackRegistriesGen.SpawnModifier {
 		String name = name().toLowerCase(Locale.ROOT);
 		pvd.horizontalBlock(ctx.get(), pvd.models().withExistingParent(ctx.getName(), "block/stem_fruit")
 				.texture("stem", pvd.modLoc("block/" + name + "_stem"))
-				.texture("upper_stem", pvd.modLoc("block/" + name + "_attached"))
+				.texture("upperstem", pvd.modLoc("block/" + name + "_attached"))
 				.renderType("cutout"), 270);
 	}
 
@@ -209,14 +214,19 @@ public enum FDMelons implements FDDatapackRegistriesGen.SpawnModifier {
 		return ans.build();
 	}
 
-	private static int color(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index) {
+	private static int stemColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index) {
 		int i = state.getValue(StemBlock.AGE);
 		return i << 21 | (255 - (i << 3)) << 8 | i << 2;
 	}
 
+	private static int attachedColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index) {
+		return 14731036;
+	}
+
 	public static void registerColor(RegisterColorHandlersEvent.Block event) {
 		for (FDMelons melon : FDMelons.values()) {
-			event.register(FDMelons::color, melon.getStem(), melon.getAttachedStem());
+			event.register(FDMelons::stemColor, melon.getStem());
+			event.register(FDMelons::attachedColor, melon.getAttachedStem());
 		}
 	}
 

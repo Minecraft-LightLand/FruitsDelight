@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.datafixers.util.Pair;
-import organize.ResourceOrganizer;
 
 import java.io.File;
 import java.io.FileReader;
@@ -51,7 +50,9 @@ public class LangFileOrganizer extends ResourceOrganizer {
 							} else {
 								map = map.stream().flatMap(ent1 -> vector.getAsJsonObject().entrySet().stream()
 												.map(ent2 -> Pair.of(ent1.getFirst().length() == 0 ? ent2.getKey() :
-																ent1.getFirst() + con + ent2.getKey(),
+																ent2.getKey().contains("*") ?
+																		ent2.getKey().replaceFirst("\\*", ent1.getFirst()) :
+																		ent1.getFirst() + con + ent2.getKey(),
 														reverse ? ent2.getValue().getAsString() + ent1.getSecond() :
 																ent1.getSecond() + ent2.getValue().getAsString())))
 										.collect(Collectors.toList());

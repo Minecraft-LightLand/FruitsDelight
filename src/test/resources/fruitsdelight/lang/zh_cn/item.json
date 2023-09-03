@@ -1,3 +1,46 @@
 {
-
+  "item.fruitsdelight": {
+	"hawberry": "山楂",
+	"lychee": "荔枝",
+	"mango": "芒果",
+	"pear": "梨子",
+	"persimmon": "柿子",
+	"blueberry": "蓝莓",
+	"hamimelon_seeds": "哈密瓜籽",
+	"hamimelon_slice": "哈密瓜片"
+  },
+  "block.fruitsdelight": {
+	"blueberry_bush": "蓝莓丛"
+  },
+  "-cartesian": {
+	"tree": {
+	  "path": "block.fruitsdelight",
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子"
+		},
+		{
+		  "leaves": "树叶",
+		  "sapling": "树苗"
+		}
+	  ]
+	},
+	"bush": {
+	  "path": "block.fruitsdelight",
+	  "list": [
+		{
+		  "hamimelon": "哈密瓜"
+		},
+		{
+		  "attached_*_stem": "藤",
+		  "*": "",
+		  "stem": "藤"
+		}
+	  ]
+	}
+  }
 }

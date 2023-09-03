@@ -8,7 +8,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.block.BushFruitItem;
 import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.FDDatapackRegistriesGen;
+import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -16,10 +16,12 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -43,7 +45,7 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import java.util.List;
 import java.util.Locale;
 
-public enum FDBushes implements FDDatapackRegistriesGen.SpawnModifier {
+public enum FDBushes implements PlantDataEntry {
 	BLUEBERRY(2, 0.3f, true, 64);
 
 	private final BlockEntry<FruitBushBlock> bush;
@@ -62,11 +64,11 @@ public enum FDBushes implements FDDatapackRegistriesGen.SpawnModifier {
 				new ResourceLocation(FruitsDelight.MODID, name + "_bush"));
 		this.rarity = rarity;
 
-
 		bush = FruitsDelight.REGISTRATE
 				.block(name + "_bush", p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), this::getFruit))
 				.blockstate(this::buildBushModel)
 				.loot(this::buildLoot)
+				.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.item().build()
 				.register();
 
@@ -74,6 +76,11 @@ public enum FDBushes implements FDDatapackRegistriesGen.SpawnModifier {
 				.item(name, p -> new BushFruitItem(getBush(), p.food(food(food, sat, fast))))
 				.register();
 
+	}
+
+	public void registerComposter() {
+		ComposterBlock.COMPOSTABLES.put(getFruit(), 0.65f);
+		ComposterBlock.COMPOSTABLES.put(getBush(), 0.65f);
 	}
 
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {

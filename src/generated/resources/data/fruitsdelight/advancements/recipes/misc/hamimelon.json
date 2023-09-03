@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hamimelon_block": {
+    "has_hamimelon_slice": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:hamimelon_block"
+              "fruitsdelight:hamimelon_slice"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:hamimelon_slice"
+        "recipe": "fruitsdelight:hamimelon"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_hamimelon_block",
+      "has_hamimelon_slice",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:hamimelon_slice"
+      "fruitsdelight:hamimelon"
     ]
   },
   "sends_telemetry_event": false
