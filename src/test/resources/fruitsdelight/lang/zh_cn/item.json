@@ -6,6 +6,8 @@
 	"pear": "梨子",
 	"persimmon": "柿子",
 	"blueberry": "蓝莓",
+	"peach": "水蜜桃",
+	"orange": "橘子",
 	"hamimelon_seeds": "哈密瓜籽",
 	"hamimelon_slice": "哈密瓜片"
   },
@@ -21,7 +23,10 @@
 		  "lychee": "荔枝",
 		  "mango": "芒果",
 		  "pear": "梨子",
-		  "persimmon": "柿子"
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "apple": "苹果"
 		},
 		{
 		  "leaves": "树叶",

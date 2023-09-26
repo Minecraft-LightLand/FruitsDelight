@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=flowers": {
+      "model": "fruitsdelight:block/apple_flowers"
+    },
+    "type=fruits": {
+      "model": "fruitsdelight:block/apple_fruits"
+    },
+    "type=leaves": {
+      "model": "fruitsdelight:block/apple_leaves"
+    }
+  }
+}

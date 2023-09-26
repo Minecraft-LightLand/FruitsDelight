@@ -4,7 +4,6 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
@@ -24,6 +23,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
@@ -53,6 +53,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public enum FDTrees implements PlantDataEntry {
@@ -60,17 +61,21 @@ public enum FDTrees implements PlantDataEntry {
 	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 30, 1, 0.5f, true),
 	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 30, 2, 0.3f, true),
 	MANGO(() -> Blocks.JUNGLE_LOG, 5, 30, 3, 0.5f, false),
-	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 30, 3, 0.5f, false);
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 30, 3, 0.5f, false),
+	PEACH(() -> Blocks.JUNGLE_LOG, 5, 30, 3, 0.5f, false),
+	ORANGE(() -> Blocks.OAK_LOG, 5, 30, 3, 0.5f, false),
+	APPLE(() -> Blocks.OAK_LOG, 5, 30, str -> () -> Items.APPLE),
+	;
 
 	private final BlockEntry<PassableLeavesBlock> leaves;
 	private final BlockEntry<SaplingBlock> sapling;
-	private final ItemEntry<Item> fruit;
+	private final Supplier<Item> fruit;
 	private final Lazy<TreeConfiguration> treeConfig;
 
 	public final ResourceKey<ConfiguredFeature<?, ?>> configKey;
 	public final ResourceKey<PlacedFeature> placementKey;
 
-	FDTrees(Supplier<Block> log, int height, int flowers, int food, float sat, boolean fast) {
+	FDTrees(Supplier<Block> log, int height, int flowers, Function<String, Supplier<Item>> items) {
 		String name = name().toLowerCase(Locale.ROOT);
 		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, flowers));
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
@@ -98,10 +103,13 @@ public enum FDTrees implements PlantDataEntry {
 				.tag(ItemTags.SAPLINGS).build()
 				.register();
 
-		fruit = FruitsDelight.REGISTRATE
-				.item(name, p -> new Item(p.food(food(food, sat, fast))))
-				.register();
+		fruit = items.apply(name);
+	}
 
+	FDTrees(Supplier<Block> log, int height, int flowers, int food, float sat, boolean fast) {
+		this(log, height, flowers, name -> FruitsDelight.REGISTRATE
+				.item(name, p -> new Item(p.food(food(food, sat, fast))))
+				.register());
 	}
 
 	public PassableLeavesBlock getLeaves() {

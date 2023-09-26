@@ -1,4 +1,6 @@
 {
+  "block.fruitsdelight.apple_leaves": "sǝʌɐǝꞀ ǝןddⱯ",
+  "block.fruitsdelight.apple_sapling": "buıןdɐS ǝןddⱯ",
   "block.fruitsdelight.attached_hamimelon_stem": "ɯǝʇS uoןǝɯıɯɐH pǝɥɔɐʇʇⱯ",
   "block.fruitsdelight.blueberry_bush": "ɥsnᗺ ʎɹɹǝqǝnןᗺ",
   "block.fruitsdelight.hamimelon": "uoןǝɯıɯɐH",
@@ -9,6 +11,10 @@
   "block.fruitsdelight.lychee_sapling": "buıןdɐS ǝǝɥɔʎꞀ",
   "block.fruitsdelight.mango_leaves": "sǝʌɐǝꞀ obuɐW",
   "block.fruitsdelight.mango_sapling": "buıןdɐS obuɐW",
+  "block.fruitsdelight.orange_leaves": "sǝʌɐǝꞀ ǝbuɐɹO",
+  "block.fruitsdelight.orange_sapling": "buıןdɐS ǝbuɐɹO",
+  "block.fruitsdelight.peach_leaves": "sǝʌɐǝꞀ ɥɔɐǝԀ",
+  "block.fruitsdelight.peach_sapling": "buıןdɐS ɥɔɐǝԀ",
   "block.fruitsdelight.pear_leaves": "sǝʌɐǝꞀ ɹɐǝԀ",
   "block.fruitsdelight.pear_sapling": "buıןdɐS ɹɐǝԀ",
   "block.fruitsdelight.persimmon_leaves": "sǝʌɐǝꞀ uoɯɯısɹǝԀ",
@@ -19,6 +25,8 @@
   "item.fruitsdelight.hawberry": "ʎɹɹǝqʍɐH",
   "item.fruitsdelight.lychee": "ǝǝɥɔʎꞀ",
   "item.fruitsdelight.mango": "obuɐW",
+  "item.fruitsdelight.orange": "ǝbuɐɹO",
+  "item.fruitsdelight.peach": "ɥɔɐǝԀ",
   "item.fruitsdelight.pear": "ɹɐǝԀ",
   "item.fruitsdelight.persimmon": "uoɯɯısɹǝԀ",
   "itemGroup.fruitsdelight.fruits_delight": "ʇɥbıןǝᗡ sʇınɹℲ"
