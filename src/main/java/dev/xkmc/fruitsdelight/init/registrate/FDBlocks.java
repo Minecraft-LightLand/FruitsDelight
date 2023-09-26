@@ -14,6 +14,7 @@ public class FDBlocks {
 		FDTrees.register();
 		FDBushes.register();
 		FDMelons.register();
+		FDPineapple.register();
 	}
 
 }

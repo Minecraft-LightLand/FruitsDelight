@@ -52,7 +52,7 @@ import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 import javax.annotation.Nullable;
 import java.util.Locale;
 
-public enum FDMelons implements PlantDataEntry {
+public enum FDMelons implements PlantDataEntry<FDMelons> {
 	HAMIMELON(2, 0.3f, true);
 
 	private final BlockEntry<FDMelonBlock> melon;
@@ -127,11 +127,11 @@ public enum FDMelons implements PlantDataEntry {
 	@Override
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
 		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
-				new RandomPatchConfiguration(64, 7, 3,
+				new RandomPatchConfiguration(24, 5, 3,
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
 										BlockStateProvider.simple(getMelonBlock())),
 								BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.noFluid(),
-										BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.GRASS_BLOCK)))));
+										BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SAND)))));
 	}
 
 	@Override

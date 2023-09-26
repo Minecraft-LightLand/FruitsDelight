@@ -45,7 +45,7 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import java.util.List;
 import java.util.Locale;
 
-public enum FDBushes implements PlantDataEntry {
+public enum FDBushes implements PlantDataEntry<FDBushes> {
 	BLUEBERRY(2, 0.3f, true, 64);
 
 	private final BlockEntry<FruitBushBlock> bush;

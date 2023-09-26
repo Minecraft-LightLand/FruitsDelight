@@ -14,6 +14,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -51,35 +52,39 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.util.Lazy;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public enum FDTrees implements PlantDataEntry {
-	PEAR(() -> Blocks.BIRCH_LOG, 5, 30, 3, 0.3f, false),
-	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 30, 1, 0.5f, true),
-	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 30, 2, 0.3f, true),
-	MANGO(() -> Blocks.JUNGLE_LOG, 5, 30, 3, 0.5f, false),
-	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 30, 3, 0.5f, false),
-	PEACH(() -> Blocks.JUNGLE_LOG, 5, 30, 3, 0.5f, false),
-	ORANGE(() -> Blocks.OAK_LOG, 5, 30, 3, 0.5f, false),
-	APPLE(() -> Blocks.OAK_LOG, 5, 30, str -> () -> Items.APPLE),
+public enum FDTrees implements PlantDataEntry<FDTrees> {
+	PEAR(() -> Blocks.BIRCH_LOG, 5, 3, 0.3f, false),
+	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 1, 0.5f, true),
+	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 2, 0.3f, true),
+	MANGO(() -> Blocks.JUNGLE_LOG, 5, 3, 0.5f, false),
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 3, 0.5f, false),
+	PEACH(() -> Blocks.JUNGLE_LOG, 5, 3, 0.5f, false),
+	ORANGE(() -> Blocks.OAK_LOG, 5, 3, 0.5f, false),
+	APPLE(() -> Blocks.OAK_LOG, 5, str -> () -> Items.APPLE),
 	;
+
+	private static final int FLOWER = 30, WILD = 10;
 
 	private final BlockEntry<PassableLeavesBlock> leaves;
 	private final BlockEntry<SaplingBlock> sapling;
 	private final Supplier<Item> fruit;
-	private final Lazy<TreeConfiguration> treeConfig;
+	private final Lazy<TreeConfiguration> treeConfig, treeConfigWild;
 
-	public final ResourceKey<ConfiguredFeature<?, ?>> configKey;
+	public final ResourceKey<ConfiguredFeature<?, ?>> configKey, configKeyWild;
 	public final ResourceKey<PlacedFeature> placementKey;
 
-	FDTrees(Supplier<Block> log, int height, int flowers, Function<String, Supplier<Item>> items) {
+	FDTrees(Supplier<Block> log, int height, Function<String, Supplier<Item>> items) {
 		String name = name().toLowerCase(Locale.ROOT);
-		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, flowers));
+		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, FLOWER));
+		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, WILD));
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
 				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
+		this.configKeyWild = ResourceKey.create(Registries.CONFIGURED_FEATURE,
+				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree_wild"));
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
 				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
 
@@ -106,8 +111,8 @@ public enum FDTrees implements PlantDataEntry {
 		fruit = items.apply(name);
 	}
 
-	FDTrees(Supplier<Block> log, int height, int flowers, int food, float sat, boolean fast) {
-		this(log, height, flowers, name -> FruitsDelight.REGISTRATE
+	FDTrees(Supplier<Block> log, int height, int food, float sat, boolean fast) {
+		this(log, height, name -> FruitsDelight.REGISTRATE
 				.item(name, p -> new Item(p.food(food(food, sat, fast))))
 				.register());
 	}
@@ -132,12 +137,14 @@ public enum FDTrees implements PlantDataEntry {
 
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
 		ctx.register(configKey, new ConfiguredFeature<>(Feature.TREE, treeConfig.get()));
+		ctx.register(configKeyWild, new ConfiguredFeature<>(Feature.TREE, treeConfigWild.get()));
 	}
 
 	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
 		ctx.register(placementKey, new PlacedFeature(
-				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
-				List.of(PlacementUtils.filteredByBlockSurvival(getSapling()))));
+				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKeyWild),
+				VegetationPlacements.treePlacement(
+						PlacementUtils.countExtra(0, 0.2F, 2), getSapling())));
 	}
 
 	@Override

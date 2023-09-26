@@ -2,8 +2,7 @@
   "type": "forge:add_features",
   "biomes": [
     "minecraft:forest",
-    "minecraft:flower_forest",
-    "minecraft:windswept_forest"
+    "minecraft:flower_forest"
   ],
   "features": "fruitsdelight:tree/orange_tree",
   "step": "vegetal_decoration"

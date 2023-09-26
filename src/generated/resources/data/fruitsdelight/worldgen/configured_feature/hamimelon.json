@@ -28,7 +28,7 @@
               },
               {
                 "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:grass_block",
+                "blocks": "minecraft:sand",
                 "offset": [
                   0,
                   -1,
@@ -40,7 +40,7 @@
         }
       ]
     },
-    "tries": 64,
+    "tries": 16,
     "xz_spread": 7,
     "y_spread": 3
   }
