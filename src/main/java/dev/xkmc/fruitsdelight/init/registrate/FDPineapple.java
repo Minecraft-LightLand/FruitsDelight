@@ -10,6 +10,10 @@ import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
+import net.minecraft.advancements.critereon.EnchantmentPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -21,6 +25,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -35,6 +40,11 @@ import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
@@ -68,7 +78,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 		WILD = FruitsDelight.REGISTRATE.block("wild_" + name, p -> new WildPineappleBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)))
 				.blockstate(this::buildWildModel)
 				.loot(this::buildWildLoot)
-				.item().build()
+				.item().model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("block/" + name + "_wild"))).build()
 				.register();
 
 		fruit = FruitsDelight.REGISTRATE.item(name, Item::new).register();
@@ -94,20 +104,31 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	}
 
 	private void buildPlantLoot(RegistrateBlockLootTables pvd, PineappleBlock block) {
-		pvd.dropSelf(block);
-		//TODO
+		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool()
+				.add(LootItem.lootTableItem(getWholeFruit())
+						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+								.setProperties(StatePropertiesPredicate.Builder.properties()
+										.hasProperty(PineappleBlock.AGE, 3)))
+						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getSapling())))
+				)));
 	}
 
 	private void buildWildLoot(RegistrateBlockLootTables pvd, WildPineappleBlock block) {
-		pvd.dropSelf(block);
-		//TODO
+		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool()
+				.add(LootItem.lootTableItem(block.asItem())
+						.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
+								.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
+										MinMaxBounds.Ints.atLeast(1)))))
+						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getWholeFruit())))
+				)));
 	}
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getWholeFruit()),
 						Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 6, 1)
-				.addResult(getSapling()).build(pvd,
-						new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
+				.addResult(getSapling())
+				.addResultWithChance(getSapling(), 0.5f)
+				.build(pvd, new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
 	}
 
 	public Block getPlant() {
@@ -140,7 +161,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	@Override
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
 		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
-				new RandomPatchConfiguration(64, 7, 3,
+				new RandomPatchConfiguration(24, 5, 3,
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
 										BlockStateProvider.simple(getWildPlant())),
 								BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.noFluid(),

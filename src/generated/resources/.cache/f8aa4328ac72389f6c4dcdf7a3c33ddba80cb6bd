@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-27T17:22:24.514768	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-09-27T17:44:34.451524	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 63d0dcec99e4b457eecb5d6f9a5c7892d37c792a assets/fruitsdelight/blockstates/apple_leaves.json
 e70fd7e83ee63e2e2dd12114ce2aab4af1dd0cca assets/fruitsdelight/blockstates/apple_sapling.json
 bebe2d747ea90eef6628aae9027771ba95a3cd33 assets/fruitsdelight/blockstates/attached_hamimelon_stem.json
@@ -105,7 +105,7 @@ b0a96f4c664002c58db129752cf78379b35c6b1b assets/fruitsdelight/models/item/persim
 70703160e8b1a5ab1648f5dd057b565144671cb6 assets/fruitsdelight/models/item/pineapple.json
 5258144bf614e282e32a8d82ac7e0cdd52a004ab assets/fruitsdelight/models/item/pineapple_sapling.json
 efbea1d92db59076e3601cdcb6dde8c673e57ebe assets/fruitsdelight/models/item/pineapple_slice.json
-ee843165cd75d36aa9f8986285132076aa10a824 assets/fruitsdelight/models/item/wild_pineapple.json
+38f93892702d974b5156d7cd0fc29bb4e1095f5a assets/fruitsdelight/models/item/wild_pineapple.json
 0619f806c976625842d886994f43ff81dda4d0d4 data/fruitsdelight/advancements/recipes/misc/hamimelon.json
 b01f99f9bc04042e6202c46796457e20f509d21e data/fruitsdelight/advancements/recipes/misc/hamimelon_seeds.json
 3362a5ebc228c979b0bea4c980b2fbc15400d656 data/fruitsdelight/loot_tables/blocks/apple_leaves.json
@@ -128,12 +128,12 @@ b44778ed29dcdf4aa31fa9533b8b76b95405115b data/fruitsdelight/loot_tables/blocks/p
 3237fcbfdb07f4d40a8e7588b30a35740235606a data/fruitsdelight/loot_tables/blocks/pear_sapling.json
 c8528f7d3f491295d037cdeb14ffe77e11cfa5f8 data/fruitsdelight/loot_tables/blocks/persimmon_leaves.json
 756e80d229efa3253d31bc64f918909391e1f577 data/fruitsdelight/loot_tables/blocks/persimmon_sapling.json
-82b69e6de786e26a897a519ce59e7a88c7c21a96 data/fruitsdelight/loot_tables/blocks/pineapple.json
-0f7ecac2984aa19871d997de2f331a208fb9a5ec data/fruitsdelight/loot_tables/blocks/wild_pineapple.json
+a1b736992c6cbef993652cfd0f9dcb9cfa16466d data/fruitsdelight/loot_tables/blocks/pineapple.json
+d393511f679053e0f74a999b879a4128c774f85b data/fruitsdelight/loot_tables/blocks/wild_pineapple.json
 4f4b2c175308f7552f7e9038339d88c1d80b3e7b data/fruitsdelight/recipes/hamimelon.json
 bae38226c309e20f08dbbef93ed8fbd871d4b4c6 data/fruitsdelight/recipes/hamimelon_cutting.json
 9dbc7cee24cf57687c89709f0cb4972534d1af89 data/fruitsdelight/recipes/hamimelon_seeds.json
-8017b914daff3358a6d36607d2694225095fc695 data/fruitsdelight/recipes/pineapple_cutting.json
+28dfb0155749f5e3ad9b9eee93bf2fa13920d3df data/fruitsdelight/recipes/pineapple_cutting.json
 185971cec7b74b303c6fb28e708f1b29bc6335f6 data/fruitsdelight/tags/blocks/pineapple_grows_on.json
 6354eddd8d6c47f30ec465b98032f63ab794f04e data/minecraft/tags/blocks/enderman_holdable.json
 a079c937b3ec003d3a41b5388904c21cf8b79f08 data/minecraft/tags/blocks/leaves.json

@@ -3,15 +3,33 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "fruitsdelight:pineapple_sapling"
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "fruitsdelight:pineapple",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "3"
+                  }
+                }
+              ],
+              "name": "fruitsdelight:pineapple"
+            },
+            {
+              "type": "minecraft:item",
+              "functions": [
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "fruitsdelight:pineapple_sapling"
+            }
+          ]
         }
       ],
       "rolls": 1.0

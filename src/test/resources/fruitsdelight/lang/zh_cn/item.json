@@ -9,10 +9,15 @@
 	"peach": "水蜜桃",
 	"orange": "橘子",
 	"hamimelon_seeds": "哈密瓜籽",
-	"hamimelon_slice": "哈密瓜片"
+	"hamimelon_slice": "哈密瓜片",
+	"pineapple": "菠萝",
+	"pineapple_sapling": "菠萝苗",
+	"pineapple_slice": "菠萝切片"
   },
   "block.fruitsdelight": {
-	"blueberry_bush": "蓝莓丛"
+	"blueberry_bush": "蓝莓丛",
+	"pineapple": "菠萝",
+	"wild_pineapple": "野生菠萝"
   },
   "-cartesian": {
 	"tree": {
