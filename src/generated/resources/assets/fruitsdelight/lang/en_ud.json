@@ -19,6 +19,8 @@
   "block.fruitsdelight.pear_sapling": "buıןdɐS ɹɐǝԀ",
   "block.fruitsdelight.persimmon_leaves": "sǝʌɐǝꞀ uoɯɯısɹǝԀ",
   "block.fruitsdelight.persimmon_sapling": "buıןdɐS uoɯɯısɹǝԀ",
+  "block.fruitsdelight.pineapple": "ǝןddɐǝuıԀ",
+  "block.fruitsdelight.wild_pineapple": "ǝןddɐǝuıԀ pןıM",
   "item.fruitsdelight.blueberry": "ʎɹɹǝqǝnןᗺ",
   "item.fruitsdelight.hamimelon_seeds": "spǝǝS uoןǝɯıɯɐH",
   "item.fruitsdelight.hamimelon_slice": "ǝɔıןS uoןǝɯıɯɐH",
@@ -29,5 +31,8 @@
   "item.fruitsdelight.peach": "ɥɔɐǝԀ",
   "item.fruitsdelight.pear": "ɹɐǝԀ",
   "item.fruitsdelight.persimmon": "uoɯɯısɹǝԀ",
+  "item.fruitsdelight.pineapple": "ǝןddɐǝuıԀ",
+  "item.fruitsdelight.pineapple_sapling": "buıןdɐS ǝןddɐǝuıԀ",
+  "item.fruitsdelight.pineapple_slice": "ǝɔıןS ǝןddɐǝuıԀ",
   "itemGroup.fruitsdelight.fruits_delight": "ʇɥbıןǝᗡ sʇınɹℲ"
 }

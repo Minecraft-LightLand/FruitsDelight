@@ -8,7 +8,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "fruitsdelight:hamimelon"
+              "Name": "fruitsdelight:wild_pineapple"
             }
           }
         }
@@ -40,8 +40,8 @@
         }
       ]
     },
-    "tries": 24,
-    "xz_spread": 5,
+    "tries": 64,
+    "xz_spread": 7,
     "y_spread": 3
   }
 }

@@ -3,6 +3,7 @@ package dev.xkmc.fruitsdelight.init.data;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDBushes;
 import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
+import dev.xkmc.fruitsdelight.init.registrate.FDPineapple;
 import dev.xkmc.fruitsdelight.init.registrate.FDTrees;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -47,6 +48,7 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 				Biomes.SNOWY_TAIGA, Biomes.GROVE,
 				Biomes.SWAMP, Biomes.MANGROVE_SWAMP, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST);
 		registerTreeBiome(ctx, FDMelons.HAMIMELON, biomes, features, Biomes.DESERT);
+		registerTreeBiome(ctx, FDPineapple.PINEAPPLE, biomes, features, Biomes.BEACH);
 	}
 
 	@SuppressWarnings("unchecked")

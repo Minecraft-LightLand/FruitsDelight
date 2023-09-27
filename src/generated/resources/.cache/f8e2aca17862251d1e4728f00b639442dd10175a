@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-26T16:41:01.930721	Fruits Delight Data
+// 1.20.1	2023-09-27T17:11:21.602635	Fruits Delight Data
 9857e8fe5993759bfe72d63df6e2a1f4f29b9a3e data/fruitsdelight/forge/biome_modifier/apple.json
 d8bddda9a070831bef2d4440ac0c222f3d46e44b data/fruitsdelight/forge/biome_modifier/blueberry.json
 9a7a6c625bb0cca33685510fadb3551ecfd60e43 data/fruitsdelight/forge/biome_modifier/hamimelon.json
@@ -9,8 +9,10 @@ b0d1c27b686d2b974bfc6b6d255506d51d513384 data/fruitsdelight/forge/biome_modifier
 0729741e33599ace09b6d3f1e47dc720a29a2e5e data/fruitsdelight/forge/biome_modifier/peach.json
 76e43291a7db86ed35de9df1ba33d304a08612de data/fruitsdelight/forge/biome_modifier/pear.json
 7209f81be45e99286806042c67899db956abfbb0 data/fruitsdelight/forge/biome_modifier/persimmon.json
+09fbfd5120d5dc0df92a7bf1a78616d5e29836fd data/fruitsdelight/forge/biome_modifier/pineapple.json
 cfbd947d039d7309730574b4dcc537a1fba4495d data/fruitsdelight/worldgen/configured_feature/blueberry_bush.json
-66bf581e7733d20719b8dc2ae5c42945d9203d0f data/fruitsdelight/worldgen/configured_feature/hamimelon.json
+5cd645cf8b0d20d9e968bceee2457b70a31a09e4 data/fruitsdelight/worldgen/configured_feature/hamimelon.json
+98c4168cf438a6acfb1ccfaa78b9935270645c6c data/fruitsdelight/worldgen/configured_feature/pineapple.json
 3d39bf86d3f573ca155b8040ebc1f82a6cb2824d data/fruitsdelight/worldgen/configured_feature/tree/apple_tree.json
 5809b157ef59bfdff7cbd1dd26d8d8a1467747b0 data/fruitsdelight/worldgen/configured_feature/tree/apple_tree_wild.json
 f12e96ea2809514863a981abe1b901472ef6d2cc data/fruitsdelight/worldgen/configured_feature/tree/hawberry_tree.json
@@ -29,6 +31,7 @@ edb4bdaec152dc91aecb56cdfc0a6ef6ebf06abc data/fruitsdelight/worldgen/configured_
 6e7980b32d5ca7e6269d8a004dce3dac03d43e5f data/fruitsdelight/worldgen/configured_feature/tree/persimmon_tree_wild.json
 5197de2d45706ce2eba3e234422bb915dd062e58 data/fruitsdelight/worldgen/placed_feature/blueberry_bush.json
 dc82abc7a2bee1df45d9a82f28b5ad40783d9a58 data/fruitsdelight/worldgen/placed_feature/hamimelon.json
+b56802d8eeecfe1053460697776a1492ea705d03 data/fruitsdelight/worldgen/placed_feature/pineapple.json
 7287d9bde27a6011916ad6edd81e32de1513b61b data/fruitsdelight/worldgen/placed_feature/tree/apple_tree.json
 907d95ce256d7dfbfb42299b23ec814d3fd91d77 data/fruitsdelight/worldgen/placed_feature/tree/hawberry_tree.json
 e6a53a085a16fca40f01ffb73d3bbce5b890c6b5 data/fruitsdelight/worldgen/placed_feature/tree/lychee_tree.json

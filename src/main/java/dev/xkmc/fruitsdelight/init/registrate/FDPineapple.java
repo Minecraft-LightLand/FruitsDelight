@@ -1,9 +1,15 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
+import com.tterrag.registrate.providers.DataGenContext;
+import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
+import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -11,31 +17,14 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -46,17 +35,17 @@ import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import java.util.Locale;
 
 public enum FDPineapple implements PlantDataEntry<FDPineapple> {
-	;
+	PINEAPPLE(3, 0.5f, true);
 
+	private final BlockEntry<PineappleBlock> PLANT;
+	private final BlockEntry<WildPineappleBlock> WILD;
 
 	private final ItemEntry<Item> fruit, slice;
 	private final ItemEntry<ItemNameBlockItem> seed;
@@ -71,8 +60,16 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
 				new ResourceLocation(FruitsDelight.MODID, name));
 
+		PLANT = FruitsDelight.REGISTRATE.block(name, p -> new PineappleBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)))
+				.blockstate(this::buildPlantModel)
+				.loot(this::buildPlantLoot)
+				.register();
 
-		//TODO blocks
+		WILD = FruitsDelight.REGISTRATE.block("wild_" + name, p -> new WildPineappleBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)))
+				.blockstate(this::buildWildModel)
+				.loot(this::buildWildLoot)
+				.item().build()
+				.register();
 
 		fruit = FruitsDelight.REGISTRATE.item(name, Item::new).register();
 		slice = FruitsDelight.REGISTRATE.item(name + "_slice", p -> new Item(p.food(food(food, sat, fast))))
@@ -83,12 +80,42 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 
 	}
 
+	private void buildPlantModel(DataGenContext<Block, PineappleBlock> ctx, RegistrateBlockstateProvider pvd) {
+		pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
+			int age = state.getValue(PineappleBlock.AGE);
+			String tex = getName() + "_stage_" + age;
+			return ConfiguredModel.builder().modelFile(pvd.models().cross(tex, pvd.modLoc("block/" + tex)).renderType("cutout")).build();
+		});
+	}
+
+	private void buildWildModel(DataGenContext<Block, WildPineappleBlock> ctx, RegistrateBlockstateProvider pvd) {
+		String tex = getName() + "_wild";
+		pvd.simpleBlock(ctx.get(), pvd.models().cross(tex, pvd.modLoc("block/" + tex)).renderType("cutout"));
+	}
+
+	private void buildPlantLoot(RegistrateBlockLootTables pvd, PineappleBlock block) {
+		pvd.dropSelf(block);
+		//TODO
+	}
+
+	private void buildWildLoot(RegistrateBlockLootTables pvd, WildPineappleBlock block) {
+		pvd.dropSelf(block);
+		//TODO
+	}
+
+	public void genRecipe(RegistrateRecipeProvider pvd) {
+		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getWholeFruit()),
+						Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 6, 1)
+				.addResult(getSapling()).build(pvd,
+						new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
+	}
+
 	public Block getPlant() {
-		return null;//TODO
+		return PLANT.get();
 	}
 
 	public Block getWildPlant() {
-		return null;//TODO
+		return WILD.get();
 	}
 
 	public Item getWholeFruit() {
@@ -128,7 +155,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 
 	@Override
 	public String getName() {
-		return name().toUpperCase(Locale.ROOT);
+		return name().toLowerCase(Locale.ROOT);
 	}
 
 	@Override

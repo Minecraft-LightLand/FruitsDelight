@@ -19,6 +19,8 @@
   "block.fruitsdelight.pear_sapling": "Pear Sapling",
   "block.fruitsdelight.persimmon_leaves": "Persimmon Leaves",
   "block.fruitsdelight.persimmon_sapling": "Persimmon Sapling",
+  "block.fruitsdelight.pineapple": "Pineapple",
+  "block.fruitsdelight.wild_pineapple": "Wild Pineapple",
   "item.fruitsdelight.blueberry": "Blueberry",
   "item.fruitsdelight.hamimelon_seeds": "Hamimelon Seeds",
   "item.fruitsdelight.hamimelon_slice": "Hamimelon Slice",
@@ -29,5 +31,8 @@
   "item.fruitsdelight.peach": "Peach",
   "item.fruitsdelight.pear": "Pear",
   "item.fruitsdelight.persimmon": "Persimmon",
+  "item.fruitsdelight.pineapple": "Pineapple",
+  "item.fruitsdelight.pineapple_sapling": "Pineapple Sapling",
+  "item.fruitsdelight.pineapple_slice": "Pineapple Slice",
   "itemGroup.fruitsdelight.fruits_delight": "Fruits Delight"
 }

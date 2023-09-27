@@ -19,7 +19,6 @@ public class BaseBushBlock extends BushBlock implements BonemealableBlock {
 
 	public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
 
-
 	public BaseBushBlock(Properties properties) {
 		super(properties);
 		registerDefaultState(defaultBlockState().setValue(AGE, 1));

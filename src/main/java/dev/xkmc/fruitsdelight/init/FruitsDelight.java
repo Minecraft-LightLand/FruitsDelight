@@ -2,10 +2,7 @@ package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
-import dev.xkmc.fruitsdelight.init.data.FDDatapackRegistriesGen;
-import dev.xkmc.fruitsdelight.init.data.FDModConfig;
-import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
-import dev.xkmc.fruitsdelight.init.data.RecipeGen;
+import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -27,6 +24,7 @@ public class FruitsDelight {
 		FDBlocks.register();
 		FDItems.register();
 		FDModConfig.init();
+		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
 	}
 

@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:pineapple"
+    }
+  ],
+  "result": [
+    {
+      "count": 6,
+      "item": "fruitsdelight:pineapple_slice"
+    },
+    {
+      "item": "fruitsdelight:pineapple_sapling"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

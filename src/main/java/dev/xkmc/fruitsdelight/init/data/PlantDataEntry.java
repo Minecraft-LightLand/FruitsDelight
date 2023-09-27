@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.data;
 
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.fruitsdelight.init.registrate.FDBushes;
 import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
 import dev.xkmc.fruitsdelight.init.registrate.FDPineapple;
@@ -45,5 +46,9 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 	String getName();
 
 	ResourceKey<PlacedFeature> getPlacementKey();
+
+	default void genRecipe(RegistrateRecipeProvider pvd) {
+
+	}
 
 }
