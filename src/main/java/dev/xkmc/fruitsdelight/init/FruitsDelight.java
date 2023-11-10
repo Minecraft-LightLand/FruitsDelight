@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import dev.xkmc.fruitsdelight.init.registrate.FDFood;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -23,9 +24,11 @@ public class FruitsDelight {
 	public FruitsDelight() {
 		FDBlocks.register();
 		FDItems.register();
+		FDFood.register();
 		FDModConfig.init();
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
+		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::genLang);
 	}
 
 	@SubscribeEvent
