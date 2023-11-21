@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fruitsdelight:item/lychee_cherry_tea"
+  }
+}

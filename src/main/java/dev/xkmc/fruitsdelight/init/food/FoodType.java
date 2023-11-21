@@ -12,6 +12,7 @@ public enum FoodType {
 	STICK(FoodClass.STICK, 4, 0.4f, 0, true),
 	SWEET(FoodClass.NONE, 6, 0.5f, 1, false),
 	CREAM(FoodClass.GLASS, 6, 0.5f, 1, false),
+	BOWL(FoodClass.BOWL, 6, 0.5f, 1, false),
 	MEAL(FoodClass.BOWL, 10, 0.8f, 1, false),
 	;
 

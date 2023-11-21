@@ -33,7 +33,10 @@ public enum FruitType {
 			new EffectEntry(() -> MobEffects.MOVEMENT_SPEED, lv -> lv * 300),
 			new EffectEntry(FDEffects.SWEETENING::get, lv -> lv * 300)
 	)),
-	// lemon: haste, refreshing
+	LEMON(FDBushes.LEMON::getFruit, List.of(
+			new EffectEntry(() -> MobEffects.DIG_SPEED, lv -> lv * 300),
+			new EffectEntry(FDEffects.REFRESHING::get, lv -> lv * 300)
+	)),
 	SWEETBERRY(() -> Items.SWEET_BERRIES, List.of());
 
 	public final Supplier<Item> fruit;
