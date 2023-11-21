@@ -12,7 +12,24 @@
 	"hamimelon_slice": "哈密瓜片",
 	"pineapple": "菠萝",
 	"pineapple_sapling": "菠萝苗",
-	"pineapple_slice": "菠萝切片"
+	"pineapple_slice": "菠萝切片",
+	"baked_pear": "烤梨",
+	"blueberry_custard": "蓝莓蛋奶沙司",
+	"blueberry_muffin": "蓝莓玛芬",
+	"bowl_of_pineapple_fried_rice": "盘装菠萝饭",
+	"hamimelon_juice": "哈密瓜汁",
+	"hamimelon_popsicle": "哈密瓜冰棒",
+	"hawberry_roll": "果丹卷",
+	"hawberry_sheet": "果丹皮",
+	"hawberry_stick": "山楂串",
+	"hawberry_tea": "山楂茶",
+	"orange_chicken": "橘子鸡",
+	"orange_juice": "橘子汁",
+	"orange_marinated_pork": "橘子酿肉",
+	"orange_slice": "橘子片",
+	"pear_juice": "梨汁",
+	"pineapple_marinated_pork": "菠萝咕唠肉",
+	"pineapple_pie": "菠萝派"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
@@ -49,6 +66,28 @@
 		  "attached_*_stem": "藤",
 		  "*": "",
 		  "stem": "藤"
+		}
+	  ]
+	},
+	"jelly": {
+	  "path": "item.fruitsdelight",
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "apple": "苹果",
+		  "blueberry": "蓝莓",
+		  "glowberry": "发光浆果",
+		  "hamimelon": "哈密瓜",
+		  "sweetberry": "浆果"
+		},
+		{
+		  "jelly": "果酱"
 		}
 	  ]
 	}

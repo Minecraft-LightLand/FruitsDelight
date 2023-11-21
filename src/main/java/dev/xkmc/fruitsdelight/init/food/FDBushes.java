@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.registrate;
+package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
@@ -46,7 +46,9 @@ import java.util.List;
 import java.util.Locale;
 
 public enum FDBushes implements PlantDataEntry<FDBushes> {
-	BLUEBERRY(2, 0.3f, true, 64);
+	BLUEBERRY(2, 0.3f, true, 64),
+	LEMON(4, 0.3f, false, 64),
+	;
 
 	private final BlockEntry<FruitBushBlock> bush;
 	private final ItemEntry<BushFruitItem> fruit;

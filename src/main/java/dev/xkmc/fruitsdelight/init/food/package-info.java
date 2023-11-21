@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.fruitsdelight.content.level;
+package dev.xkmc.fruitsdelight.init.food;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

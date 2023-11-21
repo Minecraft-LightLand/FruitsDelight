@@ -1,3 +1,4 @@
 {
-  "itemGroup.fruitsdelight.fruits_delight": "果园乐事"
+  "itemGroup.fruitsdelight.fruits_delight": "果园乐事",
+  "fruitsdelight.tooltip.chance": "%2$s%%概率获得%1$s"
 }

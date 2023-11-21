@@ -1,9 +1,6 @@
 package dev.xkmc.fruitsdelight.init;
 
-import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
-import net.minecraft.client.color.block.BlockColor;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StemBlock;
+import dev.xkmc.fruitsdelight.init.food.FDMelons;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:lychee"
+    },
+    {
+      "item": "fruitsdelight:lychee"
+    },
+    {
+      "item": "fruitsdelight:lychee"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:lychee_jelly"
+  }
+}

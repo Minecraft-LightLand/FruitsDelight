@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.registrate;
+package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;

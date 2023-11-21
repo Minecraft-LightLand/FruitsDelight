@@ -1,10 +1,10 @@
 package dev.xkmc.fruitsdelight.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import dev.xkmc.fruitsdelight.init.registrate.FDBushes;
-import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
-import dev.xkmc.fruitsdelight.init.registrate.FDPineapple;
-import dev.xkmc.fruitsdelight.init.registrate.FDTrees;
+import dev.xkmc.fruitsdelight.init.food.FDBushes;
+import dev.xkmc.fruitsdelight.init.food.FDMelons;
+import dev.xkmc.fruitsdelight.init.food.FDPineapple;
+import dev.xkmc.fruitsdelight.init.food.FDTrees;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;

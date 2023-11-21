@@ -1,10 +1,10 @@
 package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.registrate.FDBushes;
-import dev.xkmc.fruitsdelight.init.registrate.FDMelons;
-import dev.xkmc.fruitsdelight.init.registrate.FDPineapple;
-import dev.xkmc.fruitsdelight.init.registrate.FDTrees;
+import dev.xkmc.fruitsdelight.init.food.FDBushes;
+import dev.xkmc.fruitsdelight.init.food.FDMelons;
+import dev.xkmc.fruitsdelight.init.food.FDPineapple;
+import dev.xkmc.fruitsdelight.init.food.FDTrees;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -43,10 +43,10 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 		registerTreeBiome(ctx, FDTrees.PEACH, biomes, features, Biomes.SPARSE_JUNGLE);
 		registerTreeBiome(ctx, FDTrees.ORANGE, biomes, features, Biomes.FOREST, Biomes.FLOWER_FOREST);
 		registerTreeBiome(ctx, FDTrees.APPLE, biomes, features, Biomes.FOREST, Biomes.FLOWER_FOREST);
-
 		registerTreeBiome(ctx, FDBushes.BLUEBERRY, biomes, features, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA,
 				Biomes.SNOWY_TAIGA, Biomes.GROVE,
 				Biomes.SWAMP, Biomes.MANGROVE_SWAMP, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST);
+		registerTreeBiome(ctx, FDBushes.LEMON, biomes, features, Biomes.SAVANNA);
 		registerTreeBiome(ctx, FDMelons.HAMIMELON, biomes, features, Biomes.DESERT);
 		registerTreeBiome(ctx, FDPineapple.PINEAPPLE, biomes, features, Biomes.BEACH);
 	}

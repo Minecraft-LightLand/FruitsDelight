@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.registrate;
+package dev.xkmc.fruitsdelight.init.food;
 
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import net.minecraft.world.item.Item;
