@@ -29,10 +29,24 @@
 	"orange_slice": "橘子片",
 	"pear_juice": "梨汁",
 	"pineapple_marinated_pork": "菠萝咕唠肉",
-	"pineapple_pie": "菠萝派"
+	"pineapple_pie": "菠萝派",
+	"bellini_cocktail": "贝里尼鸡尾酒",
+	"dried_persimmon": "柿饼",
+	"hamimelon_shaved_ice": "蜜瓜冰沙",
+	"lemon": "黄柠檬",
+	"lemon_slice": "黄柠檬片",
+	"lychee_cherry_tea": "荔枝樱花饮",
+	"lychee_chicken": "荔枝鸡球",
+	"mango_milkshake": "芒果鲜奶",
+	"mango_salad": "生拌芒果",
+	"mango_tea": "芒果茶",
+	"peach_tea": "白桃乌龙茶",
+	"pear_with_rock_sugar": "冰糖雪梨",
+	"persimmon_cookie": "柿饼干"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
+	"lemon_bush": "柠檬树",
 	"pineapple": "菠萝",
 	"wild_pineapple": "野生菠萝"
   },
@@ -56,7 +70,7 @@
 		}
 	  ]
 	},
-	"bush": {
+	"melon": {
 	  "path": "block.fruitsdelight",
 	  "list": [
 		{
@@ -84,7 +98,8 @@
 		  "blueberry": "蓝莓",
 		  "glowberry": "发光浆果",
 		  "hamimelon": "哈密瓜",
-		  "sweetberry": "浆果"
+		  "sweetberry": "浆果",
+		  "pineapple": "菠萝"
 		},
 		{
 		  "jelly": "果酱"

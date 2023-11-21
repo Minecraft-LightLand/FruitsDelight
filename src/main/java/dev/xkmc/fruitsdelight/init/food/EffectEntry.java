@@ -15,7 +15,7 @@ public record EffectEntry(Supplier<MobEffect> eff,
 	public EffectEntry(Supplier<MobEffect> eff,
 					   Int2IntFunction duration,
 					   Int2IntFunction amplifier) {
-		this(eff, amplifier, duration, x -> 1);
+		this(eff, duration, amplifier, x -> 1);
 	}
 
 	public EffectEntry(Supplier<MobEffect> eff,

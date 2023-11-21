@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
 
-	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getFriction(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)F"), method = "travel")
+	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getFriction(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)F", remap = false), method = "travel")
 	public float fruitsdelight$getfriction(BlockState state, LevelReader level, BlockPos pos, @Nullable Entity entity, Operation<Float> op) {
 		float ans = op.call(state, level, pos, entity);
 		if (entity instanceof LivingEntity le) {

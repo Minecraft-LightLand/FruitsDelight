@@ -1,0 +1,22 @@
+{
+  "effect.fruitsdelight": {
+	"appetizing": "开胃",
+	"appetizing.description": "饱食度满时仍然可以吃东西",
+	"astringent": "涩味",
+	"astringent.description": "在光滑表面行走时提供摩擦力",
+	"brightening": "明目",
+	"brightening.description": "免疫致盲和失明",
+	"heal_aura": "治愈",
+	"heal_aura.description": "对周围的生物施加瞬间恢复",
+	"lozenge": "润喉",
+	"lozenge.description": "吃东西更快",
+	"rage_aura": "暴躁",
+	"rage_aura.description": "你周围的怪物会主动攻击你",
+	"recovering": "解毒",
+	"recovering.description": "免疫中毒和凋零",
+	"refreshing": "清爽",
+	"refreshing.description": "免疫挖掘疲劳",
+	"sweetening": "甘甜",
+	"sweetening.description": "免疫减速"
+  }
+}
