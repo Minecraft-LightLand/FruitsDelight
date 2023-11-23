@@ -1,0 +1,257 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "block/block",
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
+  "textures": {
+	"particle": "#cross",
+	"plant": "#cross",
+	"side": "#face"
+  },
+  "elements": [
+	{
+	  "from": [
+		8,
+		0,
+		4
+	  ],
+	  "to": [
+		8,
+		11,
+		12
+	  ],
+	  "rotation": {
+		"angle": 45,
+		"axis": "y",
+		"origin": [
+		  8,
+		  8,
+		  8
+		],
+		"rescale": true
+	  },
+	  "faces": {
+		"east": {
+		  "uv": [
+			3,
+			5,
+			13,
+			16
+		  ],
+		  "texture": "#plant"
+		},
+		"west": {
+		  "uv": [
+			3,
+			5,
+			13,
+			16
+		  ],
+		  "texture": "#plant"
+		}
+	  }
+	},
+	{
+	  "from": [
+		4,
+		0,
+		8
+	  ],
+	  "to": [
+		12,
+		11,
+		8
+	  ],
+	  "rotation": {
+		"angle": 45,
+		"axis": "y",
+		"origin": [
+		  8,
+		  8,
+		  8
+		],
+		"rescale": true
+	  },
+	  "faces": {
+		"north": {
+		  "uv": [
+			3,
+			5,
+			13,
+			16
+		  ],
+		  "texture": "#plant"
+		},
+		"south": {
+		  "uv": [
+			3,
+			5,
+			13,
+			16
+		  ],
+		  "texture": "#plant"
+		}
+	  }
+	},
+	{
+	  "from": [
+		4,
+		11,
+		4
+	  ],
+	  "to": [
+		12,
+		11,
+		12
+	  ],
+	  "faces": {
+		"up": {
+		  "uv": [
+			4,
+			4,
+			12,
+			12
+		  ],
+		  "texture": "#top"
+		},
+		"down": {
+		  "uv": [
+			4,
+			12,
+			12,
+			4
+		  ],
+		  "texture": "#top"
+		}
+	  }
+	},
+	{
+	  "from": [
+		11.99,
+		1,
+		4
+	  ],
+	  "to": [
+		12,
+		11,
+		12
+	  ],
+	  "faces": {
+		"east": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		},
+		"west": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		}
+	  }
+	},
+	{
+	  "from": [
+		4,
+		1,
+		4
+	  ],
+	  "to": [
+		4.01,
+		11,
+		12
+	  ],
+	  "faces": {
+		"east": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		},
+		"west": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		}
+	  }
+	},
+	{
+	  "from": [
+		4,
+		1,
+		4
+	  ],
+	  "to": [
+		12,
+		11,
+		4.01
+	  ],
+	  "faces": {
+		"north": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		},
+		"south": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		}
+	  }
+	},
+	{
+	  "from": [
+		4,
+		1,
+		11.99
+	  ],
+	  "to": [
+		12,
+		11,
+		12
+	  ],
+	  "faces": {
+		"north": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		},
+		"south": {
+		  "uv": [
+			4,
+			3,
+			12,
+			13
+		  ],
+		  "texture": "#side"
+		}
+	  }
+	}
+  ]
+}

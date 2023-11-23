@@ -4,12 +4,15 @@
       "model": "fruitsdelight:block/blueberry_bush_small"
     },
     "age=1": {
-      "model": "fruitsdelight:block/blueberry_bush"
+      "model": "fruitsdelight:block/blueberry_bush_small"
     },
     "age=2": {
-      "model": "fruitsdelight:block/blueberry_bush_flowers"
+      "model": "fruitsdelight:block/blueberry_bush"
     },
     "age=3": {
+      "model": "fruitsdelight:block/blueberry_bush_flowers"
+    },
+    "age=4": {
       "model": "fruitsdelight:block/blueberry_bush_fruits"
     }
   }

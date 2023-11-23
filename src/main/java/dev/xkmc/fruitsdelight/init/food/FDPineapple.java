@@ -108,7 +108,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 				.add(LootItem.lootTableItem(getWholeFruit())
 						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
 								.setProperties(StatePropertiesPredicate.Builder.properties()
-										.hasProperty(PineappleBlock.AGE, 3)))
+										.hasProperty(PineappleBlock.AGE, 4)))
 						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getSapling())))
 				)));
 	}

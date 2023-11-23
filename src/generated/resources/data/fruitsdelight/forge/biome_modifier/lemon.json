@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "minecraft:savanna",
-  "features": "fruitsdelight:lemon_bush",
+  "features": "fruitsdelight:lemon_tree",
   "step": "vegetal_decoration"
 }

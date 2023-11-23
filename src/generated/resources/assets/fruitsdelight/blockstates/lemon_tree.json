@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "fruitsdelight:block/lemon_tree_small"
+    },
+    "age=1": {
+      "model": "fruitsdelight:block/lemon_tree_mid"
+    },
+    "age=2": {
+      "model": "fruitsdelight:block/lemon_tree"
+    },
+    "age=3": {
+      "model": "fruitsdelight:block/lemon_tree_flowers"
+    },
+    "age=4": {
+      "model": "fruitsdelight:block/lemon_tree_fruits"
+    }
+  }
+}

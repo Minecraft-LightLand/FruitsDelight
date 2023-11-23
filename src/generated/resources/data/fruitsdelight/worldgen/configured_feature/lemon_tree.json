@@ -8,9 +8,9 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "fruitsdelight:lemon_bush",
+              "Name": "fruitsdelight:lemon_tree",
               "Properties": {
-                "age": "3"
+                "age": "4"
               }
             }
           }

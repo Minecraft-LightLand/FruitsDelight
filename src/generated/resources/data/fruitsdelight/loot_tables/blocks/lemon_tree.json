@@ -15,15 +15,27 @@
             {
               "condition": "minecraft:inverted",
               "term": {
-                "block": "fruitsdelight:lemon_bush",
-                "condition": "minecraft:block_state_property",
-                "properties": {
-                  "age": "0"
-                }
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "block": "fruitsdelight:lemon_tree",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "0"
+                    }
+                  },
+                  {
+                    "block": "fruitsdelight:lemon_tree",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "1"
+                    }
+                  }
+                ]
               }
             }
           ],
-          "name": "fruitsdelight:lemon_bush"
+          "name": "fruitsdelight:lemon_tree"
         }
       ],
       "rolls": 1.0
@@ -40,10 +52,10 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "fruitsdelight:lemon_bush",
+              "block": "fruitsdelight:lemon_tree",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "age": "3"
+                "age": "4"
               }
             }
           ],
@@ -63,5 +75,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "fruitsdelight:blocks/lemon_bush"
+  "random_sequence": "fruitsdelight:blocks/lemon_tree"
 }
