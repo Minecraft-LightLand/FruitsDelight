@@ -13,6 +13,7 @@ import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
+import dev.xkmc.l2library.util.data.LootTableTemplate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -112,7 +113,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
 				FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK,
 						new SimpleBlockConfiguration(BlockStateProvider.simple(state)),
-						List.of(Blocks.GRASS_BLOCK)));
+						List.of(Blocks.GRASS_BLOCK), 20));
 	}
 
 	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
@@ -148,6 +149,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 		pvd.add(block, LootTable.lootTable()
 				.withPool(LootPool.lootPool()
 						.add(LootItem.lootTableItem(getBush().asItem())
+								.when(LootTableTemplate.silk(false))
 								.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
 										.setProperties(StatePropertiesPredicate.Builder.properties()
 												.hasProperty(FruitBushBlock.AGE, 0))
@@ -173,6 +175,10 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 
 	public Item getFruit() {
 		return mid == null ? seedItem.get() : mid.get();
+	}
+
+	public Item getSeed() {
+		return seedItem.get();
 	}
 
 	private void buildBushModel(DataGenContext<Block, FruitBushBlock> ctx, RegistrateBlockstateProvider pvd) {

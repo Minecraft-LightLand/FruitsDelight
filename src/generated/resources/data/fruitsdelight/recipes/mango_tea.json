@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "l2library:potion",
+      "potion": "minecraft:water"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:mango"
+    },
+    {
+      "item": "fruitsdelight:mango"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:mango_tea"
+  }
+}

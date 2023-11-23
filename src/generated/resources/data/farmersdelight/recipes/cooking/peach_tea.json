@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "type": "l2library:potion",
+      "potion": "minecraft:water"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:peach"
+    },
+    {
+      "item": "fruitsdelight:peach"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:peach_tea"
+  }
+}

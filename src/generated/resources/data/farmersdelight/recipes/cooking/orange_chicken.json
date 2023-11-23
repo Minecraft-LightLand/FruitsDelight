@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "forge:raw_chicken"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:orange_chicken"
+  }
+}

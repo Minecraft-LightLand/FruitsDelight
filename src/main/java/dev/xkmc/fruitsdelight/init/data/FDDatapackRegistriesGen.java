@@ -46,7 +46,7 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 		registerTreeBiome(ctx, FDBushes.BLUEBERRY, biomes, features, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA,
 				Biomes.SNOWY_TAIGA, Biomes.GROVE,
 				Biomes.SWAMP, Biomes.MANGROVE_SWAMP, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST);
-		registerTreeBiome(ctx, FDBushes.LEMON, biomes, features, Biomes.SAVANNA);
+		registerTreeBiome(ctx, FDBushes.LEMON, biomes, features, Biomes.PLAINS);
 		registerTreeBiome(ctx, FDMelons.HAMIMELON, biomes, features, Biomes.DESERT);
 		registerTreeBiome(ctx, FDPineapple.PINEAPPLE, biomes, features, Biomes.BEACH);
 	}
