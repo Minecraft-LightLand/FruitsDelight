@@ -30,7 +30,7 @@ public enum FoodType {
 		this.fast = fast;
 	}
 
-	public Item build(Item.Properties p, FruitType fruit) {
+	public Item build(Item.Properties p, FruitType fruit, EffectEntry[] effs) {
 		var val = new FoodProperties.Builder();
 		val.nutrition(food).saturationMod(sat);
 		if (fast) val.fast();
@@ -38,6 +38,9 @@ public enum FoodType {
 			for (var e : fruit.eff) {
 				val.effect(() -> e.getEffect(effectLevel), e.getChance(effectLevel));
 			}
+		for (var e : effs) {
+			val.effect(e::getEffect, e.chance());
+		}
 		return cls.factory.apply(p.food(val.build()));
 	}
 }

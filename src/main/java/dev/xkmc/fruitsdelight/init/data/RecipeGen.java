@@ -73,13 +73,6 @@ public class RecipeGen {
 			}
 
 			{
-				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.LYCHEE_CHERRY_TEA.item)::unlockedBy,
-						FDFood.LYCHEE_CHERRY_TEA.getFruit())
-						.requires(new PotionIngredient(Potions.WATER))
-						.requires(FDTrees.LYCHEE.getFruit(), 2)
-						.requires(Items.CHERRY_LEAVES)
-						.requires(Items.SUGAR)
-						.save(pvd);
 
 				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.HAWBERRY_SHEET.item)::unlockedBy,
 						FDFood.HAWBERRY_SHEET.getFruit())
@@ -96,13 +89,6 @@ public class RecipeGen {
 						FDFood.HAWBERRY_STICK.getFruit())
 						.requires(FDTrees.HAWBERRY.getFruit(), 3)
 						.requires(Items.STICK)
-						.save(pvd);
-
-				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.MANGO_MILKSHAKE.item)::unlockedBy,
-						FDFood.MANGO_MILKSHAKE.getFruit())
-						.requires(ForgeTags.MILK_BOTTLE)
-						.requires(FDTrees.MANGO.getFruit())
-						.requires(Items.SUGAR)
 						.save(pvd);
 
 				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.MANGO_SALAD.item)::unlockedBy,
@@ -147,6 +133,18 @@ public class RecipeGen {
 
 			}
 			{
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHERRY_TEA.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
+						.addIngredient(FDFood.LYCHEE_CHERRY_TEA.getFruit(), 2)
+						.addIngredient(Items.CHERRY_LEAVES)
+						.addIngredient(Items.SUGAR)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGO_MILKSHAKE.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
+						.addIngredient(FDFood.MANGO_MILKSHAKE.getFruit())
+						.addIngredient(ForgeTags.MILK_BOTTLE)
+						.addIngredient(Items.SUGAR)
+						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_CUSTARD.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
 						.addIngredient(FDFood.BLUEBERRY_CUSTARD.getFruit(), 2)
@@ -221,9 +219,8 @@ public class RecipeGen {
 
 	private static void juice(RegistrateRecipeProvider pvd, FDFood juice, int count, boolean tea, boolean hot) {
 		if (hot) {
-			var e = CookingPotRecipeBuilder.cookingPotRecipe(juice.item, 1, 200, 0.1f);
+			var e = CookingPotRecipeBuilder.cookingPotRecipe(juice.item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			if (tea) {
-				e.addIngredient(new PotionIngredient(Potions.WATER));
 				e.addIngredient(Items.SUGAR);
 			}
 			e.addIngredient(juice.getFruit(), count);

@@ -7,16 +7,16 @@
   "experience": 0.1,
   "ingredients": [
     {
+      "item": "fruitsdelight:mango"
+    },
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
       "item": "minecraft:sugar"
-    },
-    {
-      "item": "fruitsdelight:peach"
-    },
-    {
-      "item": "fruitsdelight:peach"
     }
   ],
   "result": {
-    "item": "fruitsdelight:peach_tea"
+    "item": "fruitsdelight:mango_milkshake"
   }
 }

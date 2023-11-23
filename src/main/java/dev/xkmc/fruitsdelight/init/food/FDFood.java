@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.world.item.Item;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.Locale;
 
@@ -38,30 +39,30 @@ public enum FDFood {
 	HAWBERRY_ROLL(FruitType.HAWBERRY, FoodType.ROLL),
 	HAWBERRY_SHEET(FruitType.HAWBERRY, FoodType.ROLL),
 	HAWBERRY_STICK(FruitType.HAWBERRY, FoodType.STICK),
-	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL),
-	ORANGE_MARINATED_PORK(FruitType.ORANGE, FoodType.MEAL),
 	ORANGE_SLICE(FruitType.ORANGE, FoodType.SLICE),
 	LEMON_SLICE(FruitType.LEMON, FoodType.SLICE),
 	BAKED_PEAR(FruitType.PEAR, FoodType.FRUIT),
-	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL),
-	BOWL_OF_PINEAPPLE_FRIED_RICE(FruitType.PINEAPPLE, FoodType.MEAL),
-	PINEAPPLE_MARINATED_PORK(FruitType.PINEAPPLE, FoodType.MEAL),
 	PINEAPPLE_PIE(FruitType.PINEAPPLE, FoodType.SWEET),
 	MANGO_MILKSHAKE(FruitType.MANGO, FoodType.JUICE),
 	MANGO_SALAD(FruitType.MANGO, FoodType.BOWL),
 	DRIED_PERSIMMON(FruitType.PERSIMMON, FoodType.FRUIT),
 	PERSIMMON_COOKIE(FruitType.PERSIMMON, FoodType.ROLL),
-	LYCHEE_CHICKEN(FruitType.LYCHEE, FoodType.MEAL),
+	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
+	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
+	ORANGE_MARINATED_PORK(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
+	BOWL_OF_PINEAPPLE_FRIED_RICE(FruitType.PINEAPPLE, FoodType.MEAL, new EffectEntry(ModEffects.COMFORT, 6000)),
+	PINEAPPLE_MARINATED_PORK(FruitType.PINEAPPLE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
+	LYCHEE_CHICKEN(FruitType.LYCHEE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	;
 
 	private final String name;
 	public final FruitType fruit;
 	public final ItemEntry<Item> item;
 
-	FDFood(FruitType fruit, FoodType food) {
+	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.name = name().toLowerCase(Locale.ROOT);
-		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit))
+		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs))
 				.defaultModel().lang(FDItems.toEnglishName(name))
 				.register();
 	}

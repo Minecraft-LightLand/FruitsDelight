@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "cookingtime": 200,
+  "experience": 0.1,
   "ingredients": [
-    {
-      "type": "l2library:potion",
-      "potion": "minecraft:water"
-    },
     {
       "item": "fruitsdelight:lychee"
     },

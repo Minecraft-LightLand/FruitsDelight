@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-23T21:44:33.047918	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-11-23T22:46:07.992433	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 63d0dcec99e4b457eecb5d6f9a5c7892d37c792a assets/fruitsdelight/blockstates/apple_leaves.json
 e70fd7e83ee63e2e2dd12114ce2aab4af1dd0cca assets/fruitsdelight/blockstates/apple_sapling.json
 bebe2d747ea90eef6628aae9027771ba95a3cd33 assets/fruitsdelight/blockstates/attached_hamimelon_stem.json
@@ -173,15 +173,17 @@ d50de0414075bd584d1f3275e119240c2403ac94 data/farmersdelight/recipes/cooking/blu
 ef3cfb5b393452c42feb18e02e5daadb3fd9f0f0 data/farmersdelight/recipes/cooking/glowberry_jelly.json
 e23bdf8620e1b51239d3ac8a4b112f988a6fffd1 data/farmersdelight/recipes/cooking/hamimelon_jelly.json
 9f0290089847a1e17daaf3ccca53d92f366e1b64 data/farmersdelight/recipes/cooking/hawberry_jelly.json
-b1e5f96310bd82e5a5efe6ab5a0980205ade39da data/farmersdelight/recipes/cooking/hawberry_tea.json
+1e20718fddb61f4f21bd31495148d04a57ec4c7f data/farmersdelight/recipes/cooking/hawberry_tea.json
+606f2158c41777789cf4cf0d1555d1601ab03b5f data/farmersdelight/recipes/cooking/lychee_cherry_tea.json
 0a68d887628523b501f86f0726a26d841d2fb599 data/farmersdelight/recipes/cooking/lychee_chicken.json
 311e8d849526290545dbaec56360c2a02cdbba2b data/farmersdelight/recipes/cooking/lychee_jelly.json
 c4d984430ef518de4476e397c249612fe5f6c8e6 data/farmersdelight/recipes/cooking/mango_jelly.json
+c32da3bcb11eea7382501c6d9454f926a2cf0d80 data/farmersdelight/recipes/cooking/mango_milkshake.json
 be4be96ed2ab9231ef756d4bed20de946704023d data/farmersdelight/recipes/cooking/orange_chicken.json
 86bbe8fdb6444c0a1c0a77248bae63fdd303682e data/farmersdelight/recipes/cooking/orange_jelly.json
 44164c9a37687efa64d0cf29f306e2d3e9025d7b data/farmersdelight/recipes/cooking/orange_marinated_pork.json
 5856f9bd708e5d212666a722ea42eae2551e6e3b data/farmersdelight/recipes/cooking/peach_jelly.json
-bc1fd5a516b2a8a61c1d7ce9c07b64bee119acb6 data/farmersdelight/recipes/cooking/peach_tea.json
+41b461c48cf4bb23ebe6cddc25a6f1395c421bd3 data/farmersdelight/recipes/cooking/peach_tea.json
 e9b19abd8ecd5ea51a4cf3dff25527612f1d2735 data/farmersdelight/recipes/cooking/pear_jelly.json
 dc3bc6511cf8a7197f0128ed725c6deec300690d data/farmersdelight/recipes/cooking/pear_with_rock_sugar.json
 b3d726f7b646d10a1cc2be2d62682b63926fd347 data/farmersdelight/recipes/cooking/persimmon_jelly.json
@@ -199,8 +201,6 @@ db01840509cffd8b54e625bbc223ff8ff330bd8b data/fruitsdelight/advancements/recipes
 93b4a3d4131d0ea189b2284fabddffad42e6116f data/fruitsdelight/advancements/recipes/food/hawberry_roll.json
 d397c87d27805cba2ebb0b36248090272a1ddb04 data/fruitsdelight/advancements/recipes/food/hawberry_sheet.json
 295e6ade340266b6e7503b19e799f01981e437f1 data/fruitsdelight/advancements/recipes/food/hawberry_stick.json
-f4f23fb3aaa1dd05e03bea1305913f0f4862412c data/fruitsdelight/advancements/recipes/food/lychee_cherry_tea.json
-c355ba317b89911ebfc5a3fb9e43a79e459be3f2 data/fruitsdelight/advancements/recipes/food/mango_milkshake.json
 8ead3b5cb84bbd5a088f13df36f14575d45e7597 data/fruitsdelight/advancements/recipes/food/mango_salad.json
 f8b050fe0e470c4f47ce496a887ba1ca0521a0ec data/fruitsdelight/advancements/recipes/food/mango_tea.json
 bce9dae367075c5ae48d4f8346e82046cd797807 data/fruitsdelight/advancements/recipes/food/orange_juice.json
@@ -249,8 +249,6 @@ c0e9e58408fdddd655c09ae7c29c73184b797fbb data/fruitsdelight/recipes/hawberry_she
 18c46d2974980344d74956b533cde1278e8236af data/fruitsdelight/recipes/hawberry_stick.json
 c736a5e5b754a28a82c1b8bbcc1d5cbe45240e93 data/fruitsdelight/recipes/lemon_cutting.json
 9bf6516abf51b564e34508cc926dc89868b6faed data/fruitsdelight/recipes/lemon_seeds.json
-cb57640db9c9069d6cd0f87278059cca87ccc43a data/fruitsdelight/recipes/lychee_cherry_tea.json
-aa734610f4c24ba9c84a325c7b813ce2570c20c1 data/fruitsdelight/recipes/mango_milkshake.json
 a1b0cba2967dcc0a07bf6971611e96bbf481ed9c data/fruitsdelight/recipes/mango_salad.json
 caf87fa7a142dac973db4302e81d66e2e0603fec data/fruitsdelight/recipes/mango_tea.json
 1beeb30d75b27c38edb2f693a5f6dc5975a95742 data/fruitsdelight/recipes/orange_cutting.json
