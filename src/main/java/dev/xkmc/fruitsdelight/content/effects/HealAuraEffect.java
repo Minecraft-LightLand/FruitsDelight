@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
+import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -14,7 +15,16 @@ public class HealAuraEffect extends RangeRenderEffect {
 
 	@Override
 	protected ParticleOptions getParticle() {
-		return ParticleTypes.HAPPY_VILLAGER;
+		return ParticleTypes.HEART;
+	}
+
+	protected int getRange() {
+		return FDModConfig.COMMON.healEffectRange.get();
+	}
+
+	@Override
+	protected int getParticleCount(int lv) {
+		return 1;
 	}
 
 	@Override

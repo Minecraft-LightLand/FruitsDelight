@@ -56,9 +56,7 @@ public abstract class RangeRenderEffect extends RangeSearchEffect implements Cli
 				vec.z + v0.z, 0, 0, 0);
 	}
 
-	protected int getParticleCount(int lv) {
-		return 5;
-	}
+	protected abstract int getParticleCount(int lv);
 
 	protected abstract ParticleOptions getParticle();
 

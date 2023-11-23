@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-21T16:32:16.491406	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-11-23T14:39:53.075106	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 63d0dcec99e4b457eecb5d6f9a5c7892d37c792a assets/fruitsdelight/blockstates/apple_leaves.json
 e70fd7e83ee63e2e2dd12114ce2aab4af1dd0cca assets/fruitsdelight/blockstates/apple_sapling.json
 bebe2d747ea90eef6628aae9027771ba95a3cd33 assets/fruitsdelight/blockstates/attached_hamimelon_stem.json
@@ -21,9 +21,10 @@ f1996b49449ea1a9c68c9136e5446ba081db7266 assets/fruitsdelight/blockstates/orange
 9bea4ce75c88b91e11470ba7393ea332db309529 assets/fruitsdelight/blockstates/persimmon_leaves.json
 58edbd5de74813e5afec3df0541b0a6ec003bb47 assets/fruitsdelight/blockstates/persimmon_sapling.json
 a50b02ed48f64fd9bed79ee9d487fa28a54c8d2f assets/fruitsdelight/blockstates/pineapple.json
+03c4ebc5cce1d7e8b2a20f22460c2abd9764f694 assets/fruitsdelight/blockstates/pineapple_fried_rice.json
 1b579c78266d846acdea9c42ec5827aa27bae474 assets/fruitsdelight/blockstates/wild_pineapple.json
-2922b8ae925ec7db5109127bfbc14028a66f6b9d assets/fruitsdelight/lang/en_ud.json
-0958178b6121911f5c5ec61c9f027a0b0cb4a68c assets/fruitsdelight/lang/en_us.json
+347fcf47638ecf90828f81160ac3785e2bb4af6e assets/fruitsdelight/lang/en_ud.json
+236d71900412a1f1ff64982a45131c85880a453f assets/fruitsdelight/lang/en_us.json
 0a2689ea678bee07b02632acb3828d475ab7646e assets/fruitsdelight/models/block/apple_flowers.json
 9eadb53da97c4eabd6f874ef8b1adbf1024f4eba assets/fruitsdelight/models/block/apple_fruits.json
 20e5fb8f0312251a62d1b3956014c142303d17eb assets/fruitsdelight/models/block/apple_leaves.json
@@ -74,6 +75,11 @@ a17fb62b3c2496b90fcecbcd1ebd9187977a0925 assets/fruitsdelight/models/block/pear_
 d66c80175e08d8031ad385c872d1ab18626f557e assets/fruitsdelight/models/block/persimmon_fruits.json
 a5191f5ff01e683448274a734f5ac671675b2482 assets/fruitsdelight/models/block/persimmon_leaves.json
 5ad54a36e94fb3fec1ff91808c6ed6e003320959 assets/fruitsdelight/models/block/persimmon_sapling.json
+1d09420ac5def355d91d24bb57b9f73bfec19208 assets/fruitsdelight/models/block/pineapple_fried_rice.json
+0d698207ed37d17fe699f68b830e7d8e4aa36033 assets/fruitsdelight/models/block/pineapple_fried_rice_1.json
+316cdd2eda948cac2df4fa017bb82ea25a754bb4 assets/fruitsdelight/models/block/pineapple_fried_rice_2.json
+943226fb755fd9190a968cd4d036432c7a19c99b assets/fruitsdelight/models/block/pineapple_fried_rice_3.json
+6d515a7133717ebe25bfe2433fdca391ae30b8fb assets/fruitsdelight/models/block/pineapple_fried_rice_4.json
 96faae6043f2f37f9f45d91c7129871d3eb66da0 assets/fruitsdelight/models/block/pineapple_stage_0.json
 f391ca078630b1d7a9095a27e5d5cae86c755310 assets/fruitsdelight/models/block/pineapple_stage_1.json
 63a2827da53e8a6a3d3232d43701286352b23965 assets/fruitsdelight/models/block/pineapple_stage_2.json
@@ -148,6 +154,7 @@ e35e38cba00c110f7bfd214b82343745233f547c assets/fruitsdelight/models/item/pear_l
 b0a96f4c664002c58db129752cf78379b35c6b1b assets/fruitsdelight/models/item/persimmon_leaves.json
 4fa532e4e4750c9a7a826e06d75674cef64d4a77 assets/fruitsdelight/models/item/persimmon_sapling.json
 70703160e8b1a5ab1648f5dd057b565144671cb6 assets/fruitsdelight/models/item/pineapple.json
+83717e72777b86b926b2fe2d23ab17a8a759a0c9 assets/fruitsdelight/models/item/pineapple_fried_rice.json
 806179cd3bf0f03a5a32f0fc269d3784ccfa9927 assets/fruitsdelight/models/item/pineapple_jelly.json
 68c98ebc5326db7462dbe6eff24de968e3caebe5 assets/fruitsdelight/models/item/pineapple_marinated_pork.json
 6ebfc5bb657ad8283bce945cc1540a3e87e471a1 assets/fruitsdelight/models/item/pineapple_pie.json
@@ -192,6 +199,7 @@ b44778ed29dcdf4aa31fa9533b8b76b95405115b data/fruitsdelight/loot_tables/blocks/p
 c8528f7d3f491295d037cdeb14ffe77e11cfa5f8 data/fruitsdelight/loot_tables/blocks/persimmon_leaves.json
 756e80d229efa3253d31bc64f918909391e1f577 data/fruitsdelight/loot_tables/blocks/persimmon_sapling.json
 a1b736992c6cbef993652cfd0f9dcb9cfa16466d data/fruitsdelight/loot_tables/blocks/pineapple.json
+247c5d736f4c5218e77c85c15a762f012f9d73c1 data/fruitsdelight/loot_tables/blocks/pineapple_fried_rice.json
 d393511f679053e0f74a999b879a4128c774f85b data/fruitsdelight/loot_tables/blocks/wild_pineapple.json
 8c5c1f4006672b72eef4bfa734438ead82b6265e data/fruitsdelight/recipes/apple_jelly.json
 fce88af4c1f319a0afa8847513b0f950237226b0 data/fruitsdelight/recipes/blueberry_jelly.json

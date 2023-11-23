@@ -1,0 +1,6 @@
+{
+  "parent": "fruitsdelight:block/fried_rice_base_3",
+  "textures": {
+    "food": "fruitsdelight:block/pineapple_fried_rice"
+  }
+}

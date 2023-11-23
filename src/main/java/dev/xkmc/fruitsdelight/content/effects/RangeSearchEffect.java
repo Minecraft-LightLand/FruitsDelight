@@ -1,6 +1,5 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
-import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.Entity;
@@ -25,16 +24,14 @@ public abstract class RangeSearchEffect extends MobEffect {
 		super(pCategory, pColor);
 	}
 
-	protected int getRange() {
-		return FDModConfig.COMMON.effectRange.get();
-	}
+	protected abstract int getRange();
 
-	protected int getPeriod(){
+	protected int getPeriod() {
 		return 10;
 	}
 
 	protected boolean applicable(LivingEntity entity) {
-		return entity instanceof Enemy;
+		return true;
 	}
 
 	@Override

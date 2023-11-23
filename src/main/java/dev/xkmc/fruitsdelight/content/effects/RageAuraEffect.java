@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
+import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -15,6 +16,15 @@ public class RageAuraEffect extends RangeRenderEffect {
 	@Override
 	protected ParticleOptions getParticle() {
 		return ParticleTypes.ANGRY_VILLAGER;
+	}
+
+	protected int getRange() {
+		return FDModConfig.COMMON.rageEffectRange.get();
+	}
+
+	@Override
+	protected int getParticleCount(int lv) {
+		return 1;
 	}
 
 	@Override

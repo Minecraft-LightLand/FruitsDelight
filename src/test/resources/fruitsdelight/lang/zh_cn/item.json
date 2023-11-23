@@ -16,7 +16,7 @@
 	"baked_pear": "烤梨",
 	"blueberry_custard": "蓝莓蛋奶沙司",
 	"blueberry_muffin": "蓝莓玛芬",
-	"bowl_of_pineapple_fried_rice": "盘装菠萝饭",
+	"bowl_of_pineapple_fried_rice": "碗装菠萝饭",
 	"hamimelon_juice": "哈密瓜汁",
 	"hamimelon_popsicle": "哈密瓜冰棒",
 	"hawberry_roll": "果丹卷",
@@ -48,7 +48,8 @@
 	"blueberry_bush": "蓝莓丛",
 	"lemon_bush": "柠檬树",
 	"pineapple": "菠萝",
-	"wild_pineapple": "野生菠萝"
+	"wild_pineapple": "野生菠萝",
+	"pineapple_fried_rice": "菠萝饭"
   },
   "-cartesian": {
 	"tree": {

@@ -19,7 +19,8 @@ public class FDModConfig {
 		public final ForgeConfigSpec.DoubleValue fruitsGrowChance;
 		public final ForgeConfigSpec.DoubleValue fruitsDropChance;
 		public final ForgeConfigSpec.DoubleValue flowerDecayChance;
-		public final ForgeConfigSpec.IntValue effectRange;
+		public final ForgeConfigSpec.IntValue rageEffectRange;
+		public final ForgeConfigSpec.IntValue healEffectRange;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			fruitsGrowChance = builder.comment("Chance for fruits to grow per random tick")
@@ -28,8 +29,10 @@ public class FDModConfig {
 					.defineInRange("fruitsDropChance", 0.1, 0, 1);
 			flowerDecayChance = builder.comment("Chance for flower to decay when fruits are picked up / dropped")
 					.defineInRange("flowerDecayChance", 0.1, 0, 1);
-			effectRange = builder.comment("Effect application range for ranged potion effects")
-					.defineInRange("effectRange", 6, 0, 64);
+			rageEffectRange = builder.comment("Effect application range for Rage Aura effect")
+					.defineInRange("rageEffectRange", 24, 0, 64);
+			healEffectRange = builder.comment("Effect application range for Heal Aura effect")
+					.defineInRange("healEffectRange", 6, 0, 64);
 		}
 
 	}
