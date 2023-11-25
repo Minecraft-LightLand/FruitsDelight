@@ -21,13 +21,10 @@ import vectorwing.farmersdelight.common.block.FeastBlock;
 
 public class FDBlocks {
 
-	public static final RegistryEntry<CreativeModeTab> TAB =
-			FruitsDelight.REGISTRATE.buildModCreativeTab("fruits_delight", "Fruits Delight",
-					e -> e.icon(() -> FDTrees.PEAR.getFruit().getDefaultInstance()));
-
 	public static final BlockEntry<PineappleRiceBlock> PINEAPPLE_RICE;
 
 	static {
+
 		PINEAPPLE_RICE = FruitsDelight.REGISTRATE.block("pineapple_fried_rice",
 						p -> new PineappleRiceBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL),
 								FDFood.BOWL_OF_PINEAPPLE_FRIED_RICE.item, true))
@@ -56,10 +53,6 @@ public class FDBlocks {
 	}
 
 	public static void register() {
-		FDTrees.register();
-		FDBushes.register();
-		FDMelons.register();
-		FDPineapple.register();
 	}
 
 }

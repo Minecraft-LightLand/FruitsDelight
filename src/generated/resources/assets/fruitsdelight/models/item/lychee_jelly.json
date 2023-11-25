@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "fruitsdelight:item/lychee_jelly"
+    "layer0": "fruitsdelight:item/jelly_bottle",
+    "layer1": "fruitsdelight:item/jelly_content"
   }
 }

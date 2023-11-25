@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDBushes;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
@@ -37,6 +38,7 @@ public class RecipeGen {
 				jelly(pvd, FDFood.GLOWBERRY_JELLY, 4);
 				jelly(pvd, FDFood.MANGO_JELLY, 2);
 				jelly(pvd, FDFood.HAMIMELON_JELLY, 4);
+				jelly(pvd, FDFood.MELON_JELLY, 4);
 				jelly(pvd, FDFood.HAWBERRY_JELLY, 4);
 				jelly(pvd, FDFood.LYCHEE_JELLY, 4);
 				jelly(pvd, FDFood.ORANGE_JELLY, 2);
@@ -45,6 +47,7 @@ public class RecipeGen {
 				jelly(pvd, FDFood.PERSIMMON_JELLY, 2);
 				jelly(pvd, FDFood.PINEAPPLE_JELLY, 4);
 				jelly(pvd, FDFood.SWEETBERRY_JELLY, 4);
+				jelly(pvd, FDFood.LEMON_JELLY, 2);
 			}
 
 			{
@@ -74,28 +77,34 @@ public class RecipeGen {
 
 			{
 
+				unlock(pvd, new JellyCraftShapelessBuilder(FDFood.HAWBERRY_ROLL.item, 1)::unlockedBy,
+						FDFood.HAWBERRY_SHEET.item.get())
+						.requires(FDFood.HAWBERRY_SHEET.item.get())
+						.requires(TagGen.JELLY)
+						.save(pvd);
+
+				unlock(pvd, new JellyCraftShapelessBuilder(FDFood.MANGO_SALAD.item, 1)::unlockedBy,
+						FDFood.MANGO_SALAD.getFruit())
+						.requires(Items.BOWL)
+						.requires(FDTrees.MANGO.getFruit())
+						.requires(TagGen.JELLY)
+						.save(pvd);
+			}
+
+			{
+
 				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.HAWBERRY_SHEET.item)::unlockedBy,
 						FDFood.HAWBERRY_SHEET.getFruit())
 						.requires(FDTrees.HAWBERRY.getFruit(), 3)
 						.requires(Items.SUGAR)
 						.save(pvd);
 
-				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.HAWBERRY_ROLL.item)::unlockedBy,
-						FDFood.HAWBERRY_SHEET.item.get())
-						.requires(FDFood.HAWBERRY_SHEET.item.get())
-						.save(pvd);
 
 				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.HAWBERRY_STICK.item)::unlockedBy,
 						FDFood.HAWBERRY_STICK.getFruit())
 						.requires(FDTrees.HAWBERRY.getFruit(), 3)
 						.requires(Items.STICK)
-						.save(pvd);
-
-				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.MANGO_SALAD.item)::unlockedBy,
-						FDFood.MANGO_SALAD.getFruit())
-						.requires(Items.BOWL)
-						.requires(FDTrees.MANGO.getFruit())
-						.requires(Items.SUGAR)
+						.requires(Items.SUGAR, 2)
 						.save(pvd);
 
 				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, FDFood.HAMIMELON_SHAVED_ICE.item)::unlockedBy,
@@ -114,15 +123,6 @@ public class RecipeGen {
 						.define('B', FDFood.DRIED_PERSIMMON.item.get())
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDBlocks.PINEAPPLE_RICE.get(), 1)::unlockedBy,
-						FDPineapple.PINEAPPLE.getWholeFruit())
-						.pattern("RRR").pattern("RPR").pattern("VBV")
-						.define('R', ForgeTags.GRAIN_RICE)
-						.define('V', ForgeTags.SALAD_INGREDIENTS_CABBAGE)
-						.define('P', FDPineapple.PINEAPPLE.getWholeFruit())
-						.define('B', Items.BOWL)
-						.save(pvd);
-
 				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.HAMIMELON_POPSICLE.item.get(), 1)::unlockedBy,
 						FDFood.HAMIMELON_POPSICLE.getFruit())
 						.pattern(" MM").pattern("IMM").pattern("SI ")
@@ -133,6 +133,14 @@ public class RecipeGen {
 
 			}
 			{
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDBlocks.PINEAPPLE_RICE.get(), 1, 200, 0.1f, Items.BOWL)
+						.addIngredient(FDPineapple.PINEAPPLE.getWholeFruit())
+						.addIngredient(Ingredient.of(ForgeTags.GRAIN_RICE), 3)
+						.addIngredient(ForgeTags.SALAD_INGREDIENTS_CABBAGE)
+						.addIngredient(Tags.Items.EGGS)
+						.build(pvd);
+
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHERRY_TEA.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
 						.addIngredient(FDFood.LYCHEE_CHERRY_TEA.getFruit(), 2)

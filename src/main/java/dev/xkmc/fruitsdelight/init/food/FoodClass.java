@@ -4,18 +4,18 @@ import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
 public enum FoodClass {
 	NONE(FDFoodItem::new),
-	STICK(p -> new FDFoodItem(p.craftRemainder(Items.STICK))),
-	GLASS(p -> new FDFoodItem(p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16))),
-	BOWL(p -> new FDFoodItem(p.craftRemainder(Items.BOWL).stacksTo(16))),
+	STICK((p, e) -> new FDFoodItem(p.craftRemainder(Items.STICK), e)),
+	GLASS((p, e) -> new FDFoodItem(p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), e)),
+	BOWL((p, e) -> new FDFoodItem(p.craftRemainder(Items.BOWL).stacksTo(16), e)),
 	;
 
-	public final Function<Item.Properties, Item> factory;
+	public final BiFunction<Item.Properties, FDFood, Item> factory;
 
-	FoodClass(Function<Item.Properties, Item> factory) {
+	FoodClass(BiFunction<Item.Properties, FDFood, Item> factory) {
 		this.factory = factory;
 	}
 }

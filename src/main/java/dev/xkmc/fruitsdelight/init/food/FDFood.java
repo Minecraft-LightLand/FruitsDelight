@@ -13,6 +13,7 @@ public enum FDFood {
 	BLUEBERRY_JELLY(FruitType.BLUEBERRY, FoodType.JELLY),
 	GLOWBERRY_JELLY(FruitType.GLOWBERRY, FoodType.JELLY),
 	HAMIMELON_JELLY(FruitType.HAMIMELON, FoodType.JELLY),
+	MELON_JELLY(FruitType.MELON, FoodType.JELLY),
 	HAWBERRY_JELLY(FruitType.HAWBERRY, FoodType.JELLY),
 	LYCHEE_JELLY(FruitType.LYCHEE, FoodType.JELLY),
 	MANGO_JELLY(FruitType.MANGO, FoodType.JELLY),
@@ -22,6 +23,7 @@ public enum FDFood {
 	PERSIMMON_JELLY(FruitType.PERSIMMON, FoodType.JELLY),
 	PINEAPPLE_JELLY(FruitType.PINEAPPLE, FoodType.JELLY),
 	SWEETBERRY_JELLY(FruitType.SWEETBERRY, FoodType.JELLY),
+	LEMON_JELLY(FruitType.LEMON, FoodType.JELLY),
 
 	HAMIMELON_JUICE(FruitType.HAMIMELON, FoodType.JUICE),
 	HAWBERRY_TEA(FruitType.HAWBERRY, FoodType.JUICE),
@@ -57,14 +59,18 @@ public enum FDFood {
 
 	private final String name;
 	public final FruitType fruit;
+	public final FoodType type;
 	public final ItemEntry<Item> item;
+	public final EffectEntry[] effs;
 
 	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
 		this.fruit = fruit;
+		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);
-		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs))
-				.defaultModel().lang(FDItems.toEnglishName(name))
+		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs, this))
+				.transform(b -> food.model(b, fruit)).lang(FDItems.toEnglishName(name)).tag(food.tags)
 				.register();
+		this.effs = effs;
 	}
 
 	public static void register() {

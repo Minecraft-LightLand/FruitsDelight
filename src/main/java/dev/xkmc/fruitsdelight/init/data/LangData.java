@@ -10,7 +10,9 @@ import javax.annotation.Nullable;
 import java.util.Locale;
 
 public enum LangData {
-	CHANCE_EFFECT("tooltip.chance", "%1$s with %2$s%% chance", 2, ChatFormatting.GRAY);
+	CHANCE_EFFECT("tooltip.chance", "%1$s with %2$s%% chance", 2, ChatFormatting.GRAY),
+	JELLY_CONTENT("tooltip.jelly_content", "Contains:", 0, ChatFormatting.YELLOW),
+	ALLOW_JELLY("tooltip.allow_jelly", "Gain effects from jelly ingredients", 0, ChatFormatting.GRAY);
 
 	private final String key, def;
 	private final int arg;

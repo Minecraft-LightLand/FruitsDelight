@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "fruitsdelight:jelly_craft_shapeless",
   "category": "misc",
   "ingredients": [
     {
@@ -9,7 +9,7 @@
       "item": "fruitsdelight:mango"
     },
     {
-      "item": "minecraft:sugar"
+      "tag": "fruitsdelight:jelly"
     }
   ],
   "result": {
