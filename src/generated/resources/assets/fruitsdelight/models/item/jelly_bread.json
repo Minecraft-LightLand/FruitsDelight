@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fruitsdelight:item/jelly_bread",
+    "layer1": "fruitsdelight:item/jelly_bread_filler_0"
+  }
+}

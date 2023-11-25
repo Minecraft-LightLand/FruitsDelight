@@ -1,8 +1,11 @@
 package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.builders.ItemBuilder;
+import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
+import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.l2library.base.L2Registrate;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -36,7 +39,7 @@ public enum FoodType {
 		this.tags = tags;
 	}
 
-	public Item build(Item.Properties p, FruitType fruit, EffectEntry[] effs, FDFood type) {
+	public FDFoodItem build(Item.Properties p, FruitType fruit, EffectEntry[] effs, FDFood type) {
 		var val = new FoodProperties.Builder();
 		val.nutrition(food).saturationMod(sat);
 		if (fast) val.fast();
@@ -51,12 +54,23 @@ public enum FoodType {
 	}
 
 
-	public ItemBuilder<Item, L2Registrate> model(ItemBuilder<Item, L2Registrate> b, FruitType fruit) {
+	public ItemBuilder<FDFoodItem, L2Registrate> model(ItemBuilder<FDFoodItem, L2Registrate> b, int overlay, FruitType fruit) {
 		if (this == JELLY) {
 			return b.model((ctx, pvd) -> pvd.generated(ctx,
 							pvd.modLoc("item/jelly_bottle"),
 							pvd.modLoc("item/jelly_content")))
 					.color(() -> () -> (stack, layer) -> layer == 0 ? -1 : fruit.color);
+		}
+		if (overlay > 0) {
+			return b.model((ctx, pvd) -> {
+						ResourceLocation[] res = new ResourceLocation[overlay + 1];
+						res[0] = pvd.modLoc("item/" + ctx.getName());
+						for (int i = 1; i <= overlay; i++) {
+							res[i] = pvd.modLoc("item/" + ctx.getName() + "_filler_" + (i - 1));
+						}
+						pvd.generated(ctx, res);
+					}).color(() -> () -> FDFoodItem::color)
+					.transform(e -> e.tab(FruitsDelight.TAB.getKey(), x -> e.getEntry().fillItemCategory(overlay, x)));
 		}
 		return b.defaultModel();
 	}

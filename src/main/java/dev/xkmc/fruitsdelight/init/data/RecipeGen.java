@@ -89,6 +89,12 @@ public class RecipeGen {
 						.requires(FDTrees.MANGO.getFruit())
 						.requires(TagGen.JELLY)
 						.save(pvd);
+
+				unlock(pvd, new JellyCraftShapelessBuilder(FDFood.JELLY_BREAD.item, 1)::unlockedBy,
+						Items.BREAD)
+						.requires(Items.BREAD)
+						.requires(TagGen.JELLY)
+						.save(pvd);
 			}
 
 			{

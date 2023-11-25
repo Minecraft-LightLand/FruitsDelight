@@ -1,14 +1,19 @@
 package dev.xkmc.fruitsdelight.content.item;
 
+import com.tterrag.registrate.util.CreativeModeTabModifier;
 import dev.xkmc.fruitsdelight.init.data.LangData;
+import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
@@ -80,6 +85,12 @@ public class FDFoodItem extends Item {
 		}
 	}
 
+	public static int color(ItemStack stack, int layer) {
+		var list = getFruits(stack);
+		if (layer == 0 || list.isEmpty()) return -1;
+		return list.get(layer % list.size()).color;
+	}
+
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity consumer) {
 		ItemStack itemStack = getCraftingRemainingItem(stack);
@@ -149,10 +160,22 @@ public class FDFoodItem extends Item {
 				if (jelly == null) continue;
 				list.add(jelly.item.get().getDescription().copy().withStyle(ChatFormatting.GRAY));
 			}
-		} else {
+		} else if (food != null && food.allowJelly) {
 			list.add(LangData.ALLOW_JELLY.get());
 		}
 		getFoodEffects(stack, list);
+	}
+
+	public void fillItemCategory(int size, CreativeModeTabModifier tab) {
+		for (FruitType fruit : FruitType.values()) {
+			ItemStack stack = new ItemStack(this);
+			ListTag list = new ListTag();
+			for (int i = 0; i < size; i++) {
+				list.add(StringTag.valueOf(fruit.name()));
+			}
+			stack.getOrCreateTag().put(FDFoodItem.ROOT, list);
+			tab.accept(stack);
+		}
 	}
 
 }

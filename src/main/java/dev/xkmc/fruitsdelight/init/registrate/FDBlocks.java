@@ -27,7 +27,7 @@ public class FDBlocks {
 
 		PINEAPPLE_RICE = FruitsDelight.REGISTRATE.block("pineapple_fried_rice",
 						p -> new PineappleRiceBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL),
-								FDFood.BOWL_OF_PINEAPPLE_FRIED_RICE.item, true))
+								FDFood.BOWL_OF_PINEAPPLE_FRIED_RICE.item::get, true))
 				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
 					int serve = state.getValue(FeastBlock.SERVINGS);
 					String suffix = serve == 4 ? "" : ("_" + (4 - serve));

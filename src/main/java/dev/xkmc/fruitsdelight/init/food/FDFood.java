@@ -1,6 +1,7 @@
 package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
+import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.world.item.Item;
@@ -38,7 +39,7 @@ public enum FDFood {
 	BLUEBERRY_MUFFIN(FruitType.BLUEBERRY, FoodType.SWEET),
 	HAMIMELON_POPSICLE(FruitType.HAMIMELON, FoodType.STICK),
 	HAMIMELON_SHAVED_ICE(FruitType.HAMIMELON, FoodType.JUICE),
-	HAWBERRY_ROLL(FruitType.HAWBERRY, FoodType.ROLL),
+	HAWBERRY_ROLL(FruitType.HAWBERRY, FoodType.ROLL, 0),
 	HAWBERRY_SHEET(FruitType.HAWBERRY, FoodType.ROLL),
 	HAWBERRY_STICK(FruitType.HAWBERRY, FoodType.STICK),
 	ORANGE_SLICE(FruitType.ORANGE, FoodType.SLICE),
@@ -46,7 +47,7 @@ public enum FDFood {
 	BAKED_PEAR(FruitType.PEAR, FoodType.FRUIT),
 	PINEAPPLE_PIE(FruitType.PINEAPPLE, FoodType.SWEET),
 	MANGO_MILKSHAKE(FruitType.MANGO, FoodType.JUICE),
-	MANGO_SALAD(FruitType.MANGO, FoodType.BOWL),
+	MANGO_SALAD(FruitType.MANGO, FoodType.BOWL, 0),
 	DRIED_PERSIMMON(FruitType.PERSIMMON, FoodType.FRUIT),
 	PERSIMMON_COOKIE(FruitType.PERSIMMON, FoodType.ROLL),
 	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
@@ -55,22 +56,33 @@ public enum FDFood {
 	BOWL_OF_PINEAPPLE_FRIED_RICE(FruitType.PINEAPPLE, FoodType.MEAL, new EffectEntry(ModEffects.COMFORT, 6000)),
 	PINEAPPLE_MARINATED_PORK(FruitType.PINEAPPLE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	LYCHEE_CHICKEN(FruitType.LYCHEE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
+	JELLY_BREAD(FruitType.SWEETBERRY, FoodType.SWEET, 1),
 	;
 
 	private final String name;
 	public final FruitType fruit;
 	public final FoodType type;
-	public final ItemEntry<Item> item;
+	public final ItemEntry<FDFoodItem> item;
 	public final EffectEntry[] effs;
+	public final boolean allowJelly;
 
-	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
+	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);
 		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs, this))
-				.transform(b -> food.model(b, fruit)).lang(FDItems.toEnglishName(name)).tag(food.tags)
+				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name)).tag(food.tags)
 				.register();
 		this.effs = effs;
+		this.allowJelly = allowJelly;
+	}
+
+	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
+		this(false, 0, fruit, food, effs);
+	}
+
+	FDFood(FruitType fruit, FoodType food, int overlay) {
+		this(true, overlay, fruit, food);
 	}
 
 	public static void register() {

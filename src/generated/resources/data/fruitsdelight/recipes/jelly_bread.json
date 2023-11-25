@@ -1,0 +1,15 @@
+{
+  "type": "fruitsdelight:jelly_craft_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "tag": "fruitsdelight:jelly"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:jelly_bread"
+  }
+}

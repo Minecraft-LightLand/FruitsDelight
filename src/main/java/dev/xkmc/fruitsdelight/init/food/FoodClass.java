@@ -13,9 +13,9 @@ public enum FoodClass {
 	BOWL((p, e) -> new FDFoodItem(p.craftRemainder(Items.BOWL).stacksTo(16), e)),
 	;
 
-	public final BiFunction<Item.Properties, FDFood, Item> factory;
+	public final BiFunction<Item.Properties, FDFood, FDFoodItem> factory;
 
-	FoodClass(BiFunction<Item.Properties, FDFood, Item> factory) {
+	FoodClass(BiFunction<Item.Properties, FDFood, FDFoodItem> factory) {
 		this.factory = factory;
 	}
 }
