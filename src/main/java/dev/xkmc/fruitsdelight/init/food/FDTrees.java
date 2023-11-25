@@ -131,8 +131,8 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 
 	public void registerComposter() {
 		ComposterBlock.COMPOSTABLES.put(getFruit(), 0.65f);
-		ComposterBlock.COMPOSTABLES.put(getLeaves(), 0.3f);
-		ComposterBlock.COMPOSTABLES.put(getSapling(), 0.3f);
+		ComposterBlock.COMPOSTABLES.put(getLeaves().asItem(), 0.3f);
+		ComposterBlock.COMPOSTABLES.put(getSapling().asItem(), 0.3f);
 	}
 
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {

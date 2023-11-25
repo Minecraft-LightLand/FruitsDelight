@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 public enum FruitType {
 	APPLE(0xC3833D, () -> Items.APPLE, List.of(new EffectFunc(() -> MobEffects.ABSORPTION, lv -> lv * 20))),
-	BLUEBERRY(0x2E24F9, FDBushes.BLUEBERRY::getFruit, List.of(
+	BLUEBERRY(0x5A32BF, FDBushes.BLUEBERRY::getFruit, List.of(
 			new EffectFunc(() -> MobEffects.NIGHT_VISION, lv -> lv * 20),
 			new EffectFunc(FDEffects.BRIGHTENING::get, lv -> lv * 20)
 	)),

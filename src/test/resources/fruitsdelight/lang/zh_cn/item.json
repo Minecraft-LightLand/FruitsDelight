@@ -42,7 +42,9 @@
 	"mango_tea": "芒果茶",
 	"peach_tea": "白桃乌龙茶",
 	"pear_with_rock_sugar": "冰糖雪梨",
-	"persimmon_cookie": "柿饼干"
+	"persimmon_cookie": "柿饼干",
+	"jelly_bread": "果酱面包",
+	"lemon_seeds": "柠檬种子"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
@@ -100,7 +102,9 @@
 		  "glowberry": "发光浆果",
 		  "hamimelon": "哈密瓜",
 		  "sweetberry": "浆果",
-		  "pineapple": "菠萝"
+		  "pineapple": "菠萝",
+		  "lemon": "柠檬",
+		  "melon": "西瓜"
 		},
 		{
 		  "jelly": "果酱"

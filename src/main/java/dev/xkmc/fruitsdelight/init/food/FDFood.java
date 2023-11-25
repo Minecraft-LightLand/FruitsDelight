@@ -3,10 +3,14 @@ package dev.xkmc.fruitsdelight.init.food;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 public enum FDFood {
@@ -60,21 +64,20 @@ public enum FDFood {
 	;
 
 	private final String name;
+
 	public final FruitType fruit;
 	public final FoodType type;
 	public final ItemEntry<FDFoodItem> item;
 	public final EffectEntry[] effs;
-	public final boolean allowJelly;
 
 	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);
 		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs, this))
-				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name)).tag(food.tags)
+				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name)).tag(getTags(allowJelly, food.tags))
 				.register();
 		this.effs = effs;
-		this.allowJelly = allowJelly;
 	}
 
 	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
@@ -83,6 +86,13 @@ public enum FDFood {
 
 	FDFood(FruitType fruit, FoodType food, int overlay) {
 		this(true, overlay, fruit, food);
+	}
+
+	@SuppressWarnings({"unsafe", "unchecked"})
+	private TagKey<Item>[] getTags(boolean allowJelly, TagKey<Item>[] tags) {
+		var ans = new ArrayList<>(Arrays.stream(tags).toList());
+		if (allowJelly) ans.add(TagGen.ALLOW_JELLY);
+		return ans.toArray(TagKey[]::new);
 	}
 
 	public static void register() {

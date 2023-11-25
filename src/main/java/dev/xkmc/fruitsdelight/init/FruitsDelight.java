@@ -12,6 +12,7 @@ import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.init.events.EffectSyncEvents;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -37,8 +38,8 @@ public class FruitsDelight {
 		FDPineapple.register();
 		FDBlocks.register();
 		FDItems.register();
-		FDFood.register();
 		FDEffects.register();
+		FDFood.register();
 		FDMiscs.register();
 		FDModConfig.init();
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);

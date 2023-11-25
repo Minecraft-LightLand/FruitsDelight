@@ -23,8 +23,8 @@ public enum FoodType {
 	MEAL(FoodClass.BOWL, 10, 0.8f, 40, false),
 	;
 
+	public final int food;
 	private final FoodClass cls;
-	private final int food;
 	private final float sat;
 	private final boolean fast;
 	public final TagKey<Item>[] tags;

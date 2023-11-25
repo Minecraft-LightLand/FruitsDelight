@@ -44,13 +44,13 @@ public class FDEffects {
 			)), "Make player immune to slowness");
 
 	public static final RegistryEntry<EffectRemovalEffect> BRIGHTENING = genEffect("brightening", () ->
-			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL, 0xffffff, List.of(
+			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL,  FruitType.BLUEBERRY.color, List.of(
 					() -> MobEffects.BLINDNESS,
 					() -> MobEffects.DARKNESS
 			)), "Make player immune to blindness and darkness");
 
 	public static final RegistryEntry<EffectRemovalEffect> RECOVERING = genEffect("recovering", () ->
-			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL, 0xffffff, List.of(
+			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL,  FruitType.ORANGE.color, List.of(
 					() -> MobEffects.POISON,
 					() -> MobEffects.WITHER
 			)), "Make player immune to poison and wither");

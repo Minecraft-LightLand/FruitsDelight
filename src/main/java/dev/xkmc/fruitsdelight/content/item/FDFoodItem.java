@@ -160,7 +160,7 @@ public class FDFoodItem extends Item {
 				if (jelly == null) continue;
 				list.add(jelly.item.get().getDescription().copy().withStyle(ChatFormatting.GRAY));
 			}
-		} else if (food != null && food.allowJelly) {
+		} else if (stack.is(TagGen.ALLOW_JELLY)) {
 			list.add(LangData.ALLOW_JELLY.get());
 		}
 		getFoodEffects(stack, list);

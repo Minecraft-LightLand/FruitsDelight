@@ -85,7 +85,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 				.register();
 
 		if (seed) {
-			mid = FruitsDelight.REGISTRATE.item(name, p -> new FDFoodItem(p.food(food(food, sat, fast)),null))
+			mid = FruitsDelight.REGISTRATE.item(name, p -> new FDFoodItem(p.food(food(food, sat, fast)), null))
 					.register();
 			seedItem = FruitsDelight.REGISTRATE
 					.item(name + "_seeds", p -> new BushFruitItem(getBush(), p))
@@ -103,9 +103,9 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 
 	public void registerComposter() {
 		if (mid != null)
-			ComposterBlock.COMPOSTABLES.put(mid, 0.35f);
-		ComposterBlock.COMPOSTABLES.put(seedItem, 0.15f);
-		ComposterBlock.COMPOSTABLES.put(getBush(), 0.65f);
+			ComposterBlock.COMPOSTABLES.put(mid.get(), 0.35f);
+		ComposterBlock.COMPOSTABLES.put(seedItem.get(), 0.15f);
+		ComposterBlock.COMPOSTABLES.put(getBush().asItem(), 0.65f);
 	}
 
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {

@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-25T12:55:46.533292	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2023-11-25T13:51:22.089757	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 63d0dcec99e4b457eecb5d6f9a5c7892d37c792a assets/fruitsdelight/blockstates/apple_leaves.json
 e70fd7e83ee63e2e2dd12114ce2aab4af1dd0cca assets/fruitsdelight/blockstates/apple_sapling.json
 bebe2d747ea90eef6628aae9027771ba95a3cd33 assets/fruitsdelight/blockstates/attached_hamimelon_stem.json
@@ -264,6 +264,7 @@ f2f2f200f55376bee929550c73bce3d49976fa60 data/fruitsdelight/recipes/orange_juice
 ad4d84b40db28c8d158a73d9e87bdd1c8113bbe0 data/fruitsdelight/recipes/persimmon_cookie.json
 28dfb0155749f5e3ad9b9eee93bf2fa13920d3df data/fruitsdelight/recipes/pineapple_cutting.json
 185971cec7b74b303c6fb28e708f1b29bc6335f6 data/fruitsdelight/tags/blocks/pineapple_grows_on.json
+fcbe6756455a8f7813ce2dcad634459bed5d18f1 data/fruitsdelight/tags/items/allow_jelly.json
 364de052214c48a2f819af65302b162edc2db7b9 data/fruitsdelight/tags/items/jelly.json
 6354eddd8d6c47f30ec465b98032f63ab794f04e data/minecraft/tags/blocks/enderman_holdable.json
 a079c937b3ec003d3a41b5388904c21cf8b79f08 data/minecraft/tags/blocks/leaves.json

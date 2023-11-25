@@ -156,6 +156,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 		ComposterBlock.COMPOSTABLES.put(getSapling(), 0.3f);
 		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.5f);
 		ComposterBlock.COMPOSTABLES.put(getWholeFruit(), 0.65f);
+		ComposterBlock.COMPOSTABLES.put(getWildPlant().asItem(), 0.65f);
 	}
 
 	@Override

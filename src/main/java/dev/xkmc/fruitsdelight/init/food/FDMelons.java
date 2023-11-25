@@ -153,7 +153,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	public void registerComposter() {
 		ComposterBlock.COMPOSTABLES.put(getSeed(), 0.3f);
 		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.5f);
-		ComposterBlock.COMPOSTABLES.put(getMelonBlock(), 0.65f);
+		ComposterBlock.COMPOSTABLES.put(getMelonBlock().asItem(), 0.65f);
 	}
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
