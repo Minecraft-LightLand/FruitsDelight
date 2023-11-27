@@ -58,12 +58,12 @@ import java.util.function.Supplier;
 
 public enum FDTrees implements PlantDataEntry<FDTrees> {
 	PEAR(() -> Blocks.BIRCH_LOG, 5, 3, 0.3f, false),
-	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 1, 0.5f, true),
+	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 2, 0.3f, true),
 	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 2, 0.3f, true),
-	MANGO(() -> Blocks.JUNGLE_LOG, 5, 3, 0.5f, false),
-	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 3, 0.5f, false),
-	PEACH(() -> Blocks.JUNGLE_LOG, 5, 3, 0.5f, false),
-	ORANGE(() -> Blocks.OAK_LOG, 5, 3, 0.5f, false),
+	MANGO(() -> Blocks.JUNGLE_LOG, 5, 3, 0.3f, false),
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 3, 0.3f, false),
+	PEACH(() -> Blocks.JUNGLE_LOG, 5, 3, 0.3f, false),
+	ORANGE(() -> Blocks.OAK_LOG, 5, 3, 0.3f, false),
 	APPLE(() -> Blocks.OAK_LOG, 5, str -> () -> Items.APPLE),
 	;
 

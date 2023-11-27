@@ -52,7 +52,7 @@ import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 import java.util.Locale;
 
 public enum FDPineapple implements PlantDataEntry<FDPineapple> {
-	PINEAPPLE(3, 0.5f, true);
+	PINEAPPLE(2, 0.3f, true);
 
 	private final BlockEntry<PineappleBlock> PLANT;
 	private final BlockEntry<WildPineappleBlock> WILD;

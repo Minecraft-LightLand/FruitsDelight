@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mango": {
+    "has_lemon": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:mango"
+              "fruitsdelight:lemon"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:mango_tea"
+        "recipe": "fruitsdelight:lemon_juice"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_mango",
+      "has_lemon",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:mango_tea"
+      "fruitsdelight:lemon_juice"
     ]
   },
   "sends_telemetry_event": false

@@ -3,7 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:glass_bottle"
+      "type": "l2library:potion",
+      "potion": "minecraft:water"
+    },
+    {
+      "item": "minecraft:sugar"
     },
     {
       "item": "fruitsdelight:orange"

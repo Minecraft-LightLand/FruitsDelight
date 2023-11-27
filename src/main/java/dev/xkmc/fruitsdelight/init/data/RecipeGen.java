@@ -52,10 +52,11 @@ public class RecipeGen {
 
 			{
 				juice(pvd, FDFood.HAMIMELON_JUICE, 4, false, false);
-				juice(pvd, FDFood.ORANGE_JUICE, 2, false, false);
-				juice(pvd, FDFood.PEAR_JUICE, 2, false, false);
+				juice(pvd, FDFood.ORANGE_JUICE, 2, true, false);
+				juice(pvd, FDFood.PEAR_JUICE, 2, true, false);
+				juice(pvd, FDFood.LEMON_JUICE, 2, true, false);
 				juice(pvd, FDFood.HAWBERRY_TEA, 4, true, true);
-				juice(pvd, FDFood.MANGO_TEA, 2, true, false);
+				juice(pvd, FDFood.MANGO_TEA, 2, true, true);
 				juice(pvd, FDFood.PEACH_TEA, 2, true, true);
 			}
 
@@ -129,6 +130,14 @@ public class RecipeGen {
 						.define('B', FDFood.DRIED_PERSIMMON.item.get())
 						.save(pvd);
 
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.LEMON_COOKIE.item, 8)::unlockedBy,
+						FDFood.LEMON_COOKIE.getFruit())
+						.pattern(" C ").pattern("ABA")
+						.define('C', ForgeTags.MILK_BOTTLE)
+						.define('A', Items.WHEAT)
+						.define('B', FDFood.LEMON_COOKIE.getFruit())
+						.save(pvd);
+
 				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.HAMIMELON_POPSICLE.item.get(), 1)::unlockedBy,
 						FDFood.HAMIMELON_POPSICLE.getFruit())
 						.pattern(" MM").pattern("IMM").pattern("SI ")
@@ -178,6 +187,14 @@ public class RecipeGen {
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LEMON_TART.item, 2, 200, 0.1f)
+						.addIngredient(FDFood.LEMON_TART.getFruit())
+						.addIngredient(ModItems.PIE_CRUST.get())
+						.addIngredient(Tags.Items.EGGS)
+						.addIngredient(Items.SUGAR)
+						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
 

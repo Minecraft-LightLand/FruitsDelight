@@ -11,16 +11,20 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 public enum FoodType {
-	JUICE(FoodClass.GLASS, 1, 0.2f, 10, false),
-	JELLY(FoodClass.GLASS, 2, 0.2f, 20, false, TagGen.JELLY),
-	FRUIT(FoodClass.NONE, 4, 0.3f, 0, false),
+	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, TagGen.JUICE),
+	JELLY(FoodClass.GLASS, 6, 0.3f, 20, false, TagGen.JELLY),
+	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false),
 	SLICE(FoodClass.NONE, 2, 0.3f, 0, true),
-	ROLL(FoodClass.NONE, 2, 0.3f, 10, true),
+	SHEET(FoodClass.NONE, 3, 0.3f, 10, true),
 	STICK(FoodClass.STICK, 4, 0.4f, 10, true),
-	SWEET(FoodClass.NONE, 6, 0.5f, 20, false),
+	SWEET(FoodClass.NONE, 8, 0.5f, 20, false),
 	CREAM(FoodClass.GLASS, 6, 0.5f, 20, false),
-	BOWL(FoodClass.BOWL, 6, 0.5f, 30, false),
-	MEAL(FoodClass.BOWL, 10, 0.8f, 40, false),
+	BOWL(FoodClass.BOWL, 8, 0.6f, 30, false),
+	MEAL(FoodClass.BOWL, 12, 0.8f, 40, false),
+	DESSERT(FoodClass.NONE, 5, 0.4f, 20, false),
+	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false),
+	ROLL(FoodClass.NONE, 3, 0.4f, 10, true),
+	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true),
 	;
 
 	public final int food;
@@ -30,6 +34,7 @@ public enum FoodType {
 	public final TagKey<Item>[] tags;
 	public final int effectLevel;
 
+	@SafeVarargs
 	FoodType(FoodClass cls, int food, float sat, int effectLevel, boolean fast, TagKey<Item>... tags) {
 		this.cls = cls;
 		this.food = food;

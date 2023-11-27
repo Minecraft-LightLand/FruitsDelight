@@ -10,13 +10,13 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:pear"
+      "item": "fruitsdelight:lemon"
     },
     {
-      "item": "fruitsdelight:pear"
+      "item": "fruitsdelight:lemon"
     }
   ],
   "result": {
-    "item": "fruitsdelight:pear_juice"
+    "item": "fruitsdelight:lemon_juice"
   }
 }
