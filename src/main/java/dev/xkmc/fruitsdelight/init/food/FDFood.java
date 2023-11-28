@@ -4,8 +4,10 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
+import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -38,7 +40,9 @@ public enum FDFood {
 	MANGO_TEA(FruitType.MANGO, FoodType.JUICE),
 	PEACH_TEA(FruitType.PEACH, FoodType.JUICE),
 	LYCHEE_CHERRY_TEA(FruitType.LYCHEE, FoodType.JUICE),
-	BELLINI_COCKTAIL(FruitType.PEACH, FoodType.JUICE),
+	BELLINI_COCKTAIL(FruitType.SWEETBERRY, FoodType.JUICE,
+			new EffectEntry(FDEffects.HEAL_AURA::get, 600),
+			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
 
 	BLUEBERRY_CUSTARD(FruitType.BLUEBERRY, FoodType.CREAM),
 	BLUEBERRY_MUFFIN(FruitType.BLUEBERRY, FoodType.DESSERT),
@@ -56,7 +60,7 @@ public enum FDFood {
 	MANGO_SALAD(FruitType.MANGO, FoodType.BOWL, 0),
 	DRIED_PERSIMMON(FruitType.PERSIMMON, FoodType.FRUIT),
 	PERSIMMON_COOKIE(FruitType.PERSIMMON, FoodType.COOKIE),
-	LEMON_COOKIE(FruitType.PERSIMMON, FoodType.COOKIE),
+	LEMON_COOKIE(FruitType.LEMON, FoodType.COOKIE),
 	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
 	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	ORANGE_MARINATED_PORK(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),

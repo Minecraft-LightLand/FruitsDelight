@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_persimmon": {
+    "has_lemon": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:persimmon"
+              "fruitsdelight:lemon"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_persimmon",
+      "has_lemon",
       "has_the_recipe"
     ]
   ],
