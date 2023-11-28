@@ -13,7 +13,8 @@ import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
@@ -23,6 +24,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -145,9 +147,28 @@ public class FDFoodItem extends Item {
 	@Nullable
 	public final FDFood food;
 
-	public FDFoodItem(Properties props, @Nullable FDFood food) {
+	private final UseAnim anim;
+
+	public FDFoodItem(Properties props, @Nullable FDFood food, UseAnim anim) {
 		super(props);
 		this.food = food;
+		this.anim = anim;
+	}
+
+	public FDFoodItem(Properties props, @Nullable FDFood food) {
+		this(props, food, UseAnim.EAT);
+	}
+
+	@Override
+	public UseAnim getUseAnimation(ItemStack stack) {
+		return anim;
+	}
+
+	@Override
+	public SoundEvent getDrinkingSound() {
+		if (food != null && food.type == FoodType.JELLY)
+			return SoundEvents.HONEY_DRINK;
+		return SoundEvents.GENERIC_DRINK;
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public enum FDFood {
 	PEACH_TEA(FruitType.PEACH, FoodType.JUICE),
 	LYCHEE_CHERRY_TEA(FruitType.LYCHEE, FoodType.JUICE),
 	BELLINI_COCKTAIL(FruitType.SWEETBERRY, FoodType.JUICE,
-			new EffectEntry(FDEffects.HEAL_AURA::get, 600),
+			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
 			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
 
 	BLUEBERRY_CUSTARD(FruitType.BLUEBERRY, FoodType.CREAM),
