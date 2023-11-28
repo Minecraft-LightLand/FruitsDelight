@@ -44,7 +44,10 @@
 	"pear_with_rock_sugar": "冰糖雪梨",
 	"persimmon_cookie": "柿饼干",
 	"jelly_bread": "果酱面包",
-	"lemon_seeds": "柠檬种子"
+	"lemon_seeds": "柠檬种子",
+	"lemon_cookie": "柠檬饼干",
+	"lemon_juice": "柠檬水",
+	"lemon_tart": "柠檬蛋挞"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
