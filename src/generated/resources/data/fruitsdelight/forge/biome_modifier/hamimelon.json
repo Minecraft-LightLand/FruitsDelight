@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:desert",
-  "features": "fruitsdelight:hamimelon",
-  "step": "vegetal_decoration"
-}

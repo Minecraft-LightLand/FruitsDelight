@@ -134,6 +134,11 @@ dependencies {
 
     compileOnly(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}"))
 
+    implementation(jarJar("com.github.llamalad7.mixinextras:mixinextras-forge:${mixin_extras_version}")) {
+        transitive = false
+        jarJar.ranged(it, "[${mixin_extras_version},)")
+    }
+
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     implementation fg.deobf(jarJar("dev.xkmc.l2library:l2library:${l2library_version}")) {

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "I": {
       "item": "minecraft:ice"
@@ -19,6 +18,5 @@
   ],
   "result": {
     "item": "fruitsdelight:hamimelon_popsicle"
-  },
-  "show_notification": true
+  }
 }
