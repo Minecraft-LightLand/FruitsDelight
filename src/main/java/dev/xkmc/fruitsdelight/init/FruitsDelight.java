@@ -46,6 +46,8 @@ public class FruitsDelight {
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
+			PlantDataEntry.run(PlantDataEntry::registerConfigs);
+			PlantDataEntry.run(PlantDataEntry::registerPlacements);
 			PlantDataEntry.run(PlantDataEntry::registerComposter);
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());

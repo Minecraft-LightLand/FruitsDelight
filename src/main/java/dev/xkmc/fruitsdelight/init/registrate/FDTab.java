@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class FDTab extends CreativeModeTab {
 
 	public FDTab() {
-		super("tab." + FruitsDelight.MODID);
+		super("fruitsdelight.fruits_delight");
 	}
 
 	@Override

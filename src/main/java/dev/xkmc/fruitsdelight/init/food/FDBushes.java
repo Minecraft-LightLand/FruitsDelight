@@ -84,11 +84,13 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 					.register();
 			seedItem = FruitsDelight.REGISTRATE
 					.item(name + "_seeds", p -> new BushFruitItem(getBush(), p))
+					.model((ctx, pvd) -> pvd.generated(ctx))
 					.register();
 		} else {
 			mid = null;
 			seedItem = FruitsDelight.REGISTRATE
 					.item(name, p -> new BushFruitItem(getBush(), p.food(food(food, sat, fast))))
+					.model((ctx, pvd) -> pvd.generated(ctx))
 					.register();
 		}
 

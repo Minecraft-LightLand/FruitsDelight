@@ -41,6 +41,7 @@ public enum LangData {
 	}
 
 	public static void genLang(RegistrateLangProvider pvd) {
+		pvd.add("itemGroup.fruitsdelight.fruits_delight", "Fruits Delight");
 		for (LangData lang : LangData.values()) {
 			pvd.add(lang.key, lang.def);
 		}
