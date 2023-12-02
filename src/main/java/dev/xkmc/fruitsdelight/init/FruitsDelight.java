@@ -3,15 +3,10 @@ package dev.xkmc.fruitsdelight.init;
 import com.mojang.logging.LogUtils;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.*;
-import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
-import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
-import dev.xkmc.fruitsdelight.init.registrate.FDItems;
-import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
+import dev.xkmc.fruitsdelight.init.registrate.*;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.base.effects.EffectSyncEvents;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
-import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,9 +21,11 @@ public class FruitsDelight {
 	public static final Logger LOGGER = LogUtils.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
-	public static final RegistryEntry<CreativeModeTab> TAB =
-			REGISTRATE.buildModCreativeTab("fruits_delight", "Fruits Delight",
-					e -> e.icon(() -> FDTrees.PEAR.getFruit().getDefaultInstance()));
+	public static final FDTab TAB = new FDTab();
+
+	static {
+		REGISTRATE.creativeModeTab(() -> TAB);
+	}
 
 	public FruitsDelight() {
 		FDTrees.register();
@@ -57,9 +54,6 @@ public class FruitsDelight {
 
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
-		var output = event.getGenerator().getPackOutput();
-		var reg = new FDDatapackRegistriesGen(output, event.getLookupProvider());
-		event.getGenerator().addProvider(event.includeServer(), reg);
 	}
 
 }

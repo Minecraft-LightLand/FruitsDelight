@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:forest",
+    "minecraft:flower_forest"
+  ],
+  "features": "fruitsdelight:tree/apple_tree",
+  "step": "vegetal_decoration"
+}

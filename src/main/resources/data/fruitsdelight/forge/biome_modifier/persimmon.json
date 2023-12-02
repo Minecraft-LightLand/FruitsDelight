@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:snowy_taiga",
+    "minecraft:grove"
+  ],
+  "features": "fruitsdelight:tree/persimmon_tree",
+  "step": "vegetal_decoration"
+}

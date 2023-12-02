@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:sparse_jungle",
+  "features": "fruitsdelight:tree/peach_tree",
+  "step": "vegetal_decoration"
+}

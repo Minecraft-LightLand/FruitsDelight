@@ -6,6 +6,8 @@ import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
+import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
@@ -13,9 +15,9 @@ import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.FoodProperties;
@@ -28,6 +30,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
@@ -58,16 +61,13 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	private final int rarity;
 	private final boolean intermediate;
 
-	public final ResourceKey<ConfiguredFeature<?, ?>> configKey;
-	public final ResourceKey<PlacedFeature> placementKey;
+	public final ResourceLocation configKey, placementKey;
 
 	FDBushes(int food, float sat, boolean fast, int rarity, boolean seed, boolean intermediate) {
 		String name = name().toLowerCase(Locale.ROOT);
 		String suffix = intermediate ? "tree" : "bush";
-		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
-		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
+		this.configKey = new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix);
+		this.placementKey = new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix);
 		this.rarity = rarity;
 		this.intermediate = intermediate;
 
@@ -75,7 +75,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 				.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), this::getFruit, intermediate))
 				.blockstate(this::buildBushModel)
 				.loot(this::buildLoot)
-				.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
+				.tag(BlockTags.MINEABLE_WITH_AXE)
 				.item().build()
 				.register();
 
@@ -103,23 +103,25 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 		ComposterBlock.COMPOSTABLES.put(getBush().asItem(), 0.65f);
 	}
 
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+	private Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> bushCF;
+	private Holder<PlacedFeature> bushPF;
+
+	public void registerConfigs() {
 		BlockState state = getBush().defaultBlockState().setValue(BaseBushBlock.AGE, 4);
-		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
+		bushCF = FeatureUtils.register(configKey.toString(), Feature.RANDOM_PATCH,
 				FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK,
 						new SimpleBlockConfiguration(BlockStateProvider.simple(state)),
 						List.of(Blocks.GRASS_BLOCK), 20));
 	}
 
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
-		ctx.register(placementKey, new PlacedFeature(
-				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
+	public void registerPlacements() {
+		bushPF = PlacementUtils.register(placementKey.toString(), bushCF,
 				List.of(
 						RarityFilter.onAverageOnceEvery(rarity),
 						InSquarePlacement.spread(),
 						PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
 						BiomeFilter.biome()
-				)));
+				));
 
 	}
 
@@ -129,8 +131,8 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	}
 
 	@Override
-	public ResourceKey<PlacedFeature> getPlacementKey() {
-		return placementKey;
+	public Holder<PlacedFeature> getPlacementKey() {
+		return bushPF;
 	}
 
 	@Override

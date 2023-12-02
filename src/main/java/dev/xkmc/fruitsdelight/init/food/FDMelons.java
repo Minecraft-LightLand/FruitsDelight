@@ -11,9 +11,9 @@ import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.FoodProperties;
@@ -60,21 +60,19 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	private final ItemEntry<Item> slice;
 	private final ItemEntry<ItemNameBlockItem> seed;
 
-	public final ResourceKey<ConfiguredFeature<?, ?>> configKey;
-	public final ResourceKey<PlacedFeature> placementKey;
+	public final ResourceLocation configKey;
+	public final ResourceLocation placementKey;
 
 	FDMelons(int food, float sat, boolean fast) {
 		String name = name().toLowerCase(Locale.ROOT);
-		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
-		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
+		this.configKey = new ResourceLocation(FruitsDelight.MODID, name);
+		this.placementKey = new ResourceLocation(FruitsDelight.MODID, name);
 
 		melon = FruitsDelight.REGISTRATE
 				.block(name, p -> new FDMelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)))
 				.blockstate(this::buildMelonModel)
 				.loot(this::buildMelonLoot)
-				.tag(BlockTags.ENDERMAN_HOLDABLE, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
+				.tag(BlockTags.ENDERMAN_HOLDABLE, BlockTags.MINEABLE_WITH_AXE)
 				.item().build()
 				.register();
 		stem = FruitsDelight.REGISTRATE
@@ -82,14 +80,14 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 						BlockBehaviour.Properties.copy(Blocks.MELON_STEM)))
 				.blockstate(this::buildStemModel)
 				.loot(this::buildStemLoot)
-				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
+				.tag(BlockTags.CROPS, BlockTags.MINEABLE_WITH_AXE)
 				.register();
 		attachedStem = FruitsDelight.REGISTRATE
 				.block("attached_" + name + "_stem", p -> new AttachedStemBlock(getMelonBlock(), this::getSeed,
 						BlockBehaviour.Properties.copy(Blocks.ATTACHED_MELON_STEM)))
 				.blockstate(this::buildAttachedStemModel)
 				.loot(this::buildAttachedStemLoot)
-				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
+				.tag(BlockTags.CROPS, BlockTags.MINEABLE_WITH_AXE)
 				.register();
 
 		slice = FruitsDelight.REGISTRATE
@@ -122,19 +120,22 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		return seed.get();
 	}
 
+	private Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> melonCF;
+	private Holder<PlacedFeature> melonPF;
+
 	@Override
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
-		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
+	public void registerConfigs() {
+		melonCF = FeatureUtils.register(configKey.toString(), Feature.RANDOM_PATCH,
 				new RandomPatchConfiguration(24, 5, 3,
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
 										BlockStateProvider.simple(getMelonBlock())),
-								BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.noFluid(),
+								BlockPredicate.allOf(BlockPredicate.replaceable(),
 										BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SAND)))));
 	}
 
 	@Override
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
-		PlacementUtils.register(ctx, placementKey, ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
+	public void registerPlacements() {
+		melonPF = PlacementUtils.register(placementKey.toString(), melonCF,
 				RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	}
 
@@ -144,8 +145,8 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	}
 
 	@Override
-	public ResourceKey<PlacedFeature> getPlacementKey() {
-		return placementKey;
+	public Holder<PlacedFeature> getPlacementKey() {
+		return melonPF;
 	}
 
 	public void registerComposter() {

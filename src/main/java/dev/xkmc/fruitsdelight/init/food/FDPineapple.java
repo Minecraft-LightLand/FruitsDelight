@@ -15,9 +15,9 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -59,15 +59,12 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	private final ItemEntry<Item> fruit, slice;
 	private final ItemEntry<ItemNameBlockItem> seed;
 
-	public final ResourceKey<ConfiguredFeature<?, ?>> configKey;
-	public final ResourceKey<PlacedFeature> placementKey;
+	public final ResourceLocation configKey, placementKey;
 
 	FDPineapple(int food, float sat, boolean fast) {
 		String name = name().toLowerCase(Locale.ROOT);
-		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
-		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
+		this.configKey = new ResourceLocation(FruitsDelight.MODID, name);
+		this.placementKey = new ResourceLocation(FruitsDelight.MODID, name);
 
 		PLANT = FruitsDelight.REGISTRATE.block(name, p -> new PineappleBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)))
 				.blockstate(this::buildPlantModel)
@@ -158,19 +155,22 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 		ComposterBlock.COMPOSTABLES.put(getWildPlant().asItem(), 0.65f);
 	}
 
+	private Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> plantCF;
+	private Holder<PlacedFeature> plantPF;
+
 	@Override
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
-		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
+	public void registerConfigs() {
+		plantCF = FeatureUtils.register(configKey.toString(), Feature.RANDOM_PATCH,
 				new RandomPatchConfiguration(24, 5, 3,
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
 										BlockStateProvider.simple(getWildPlant())),
-								BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.noFluid(),
+								BlockPredicate.allOf(BlockPredicate.replaceable(),
 										BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SAND)))));
 	}
 
 	@Override
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
-		PlacementUtils.register(ctx, placementKey, ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
+	public void registerPlacements() {
+		plantPF = PlacementUtils.register(placementKey.toString(), plantCF,
 				RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	}
 
@@ -180,8 +180,8 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	}
 
 	@Override
-	public ResourceKey<PlacedFeature> getPlacementKey() {
-		return placementKey;
+	public Holder<PlacedFeature> getPlacementKey() {
+		return plantPF;
 	}
 
 	private static FoodProperties food(int food, float sat, boolean fast) {

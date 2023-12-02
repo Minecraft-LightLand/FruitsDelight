@@ -11,9 +11,10 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -48,7 +49,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.util.Lazy;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
 import java.util.function.Function;
@@ -72,19 +72,16 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	private final Supplier<Item> fruit;
 	private final Lazy<TreeConfiguration> treeConfig, treeConfigWild;
 
-	public final ResourceKey<ConfiguredFeature<?, ?>> configKey, configKeyWild;
-	public final ResourceKey<PlacedFeature> placementKey;
+	public final ResourceLocation configKey, configKeyWild;
+	public final ResourceLocation placementKey;
 
 	FDTrees(Supplier<Block> log, int height, Function<String, Supplier<Item>> items) {
 		String name = name().toLowerCase(Locale.ROOT);
 		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, FLOWER));
 		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, WILD));
-		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
-		this.configKeyWild = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree_wild"));
-		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
+		this.configKey = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree");
+		this.configKeyWild = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree_wild");
+		this.placementKey = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree");
 
 		leaves = FruitsDelight.REGISTRATE
 				.block(name + "_leaves", p -> new PassableLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
@@ -133,16 +130,18 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		ComposterBlock.COMPOSTABLES.put(getSapling().asItem(), 0.3f);
 	}
 
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
-		ctx.register(configKey, new ConfiguredFeature<>(Feature.TREE, treeConfig.get()));
-		ctx.register(configKeyWild, new ConfiguredFeature<>(Feature.TREE, treeConfigWild.get()));
+
+	private Holder<ConfiguredFeature<TreeConfiguration, ?>> treeCF, wildCF;
+	private Holder<PlacedFeature> wildPF;
+
+	public void registerConfigs() {
+		treeCF = FeatureUtils.register(configKey.toString(), Feature.TREE, treeConfig.get());
+		wildCF = FeatureUtils.register(configKeyWild.toString(), Feature.TREE, treeConfigWild.get());
 	}
 
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
-		ctx.register(placementKey, new PlacedFeature(
-				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKeyWild),
-				VegetationPlacements.treePlacement(
-						PlacementUtils.countExtra(0, 0.2F, 2), getSapling())));
+	public void registerPlacements() {
+		wildPF = PlacementUtils.register(placementKey.toString(), wildCF, VegetationPlacements.treePlacement(
+				PlacementUtils.countExtra(0, 0.2F, 2), getSapling()));
 	}
 
 	@Override
@@ -151,8 +150,8 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	}
 
 	@Override
-	public ResourceKey<PlacedFeature> getPlacementKey() {
-		return placementKey;
+	public Holder<PlacedFeature> getPlacementKey() {
+		return wildPF;
 	}
 
 	private TreeConfiguration buildTreeConfig(Supplier<Block> log, int height, int flowers) {
@@ -212,10 +211,9 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 
 	private class TreeGrower extends AbstractTreeGrower {
 
-		@Nullable
 		@Override
-		protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource rand, boolean large) {
-			return configKey;
+		protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource rand, boolean large) {
+			return treeCF;
 		}
 
 	}

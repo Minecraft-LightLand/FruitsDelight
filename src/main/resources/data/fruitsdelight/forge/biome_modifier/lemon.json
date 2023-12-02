@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:plains",
+  "features": "fruitsdelight:lemon_tree",
+  "step": "vegetal_decoration"
+}

@@ -145,21 +145,12 @@ dependencies {
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
 
     implementation fg.deobf("curse.maven:farmers-delight-398521:4679318")
-    implementation fg.deobf("curse.maven:ends-delight-662675:4675407")
-    implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:4639747")
-    implementation fg.deobf("curse.maven:the-twilight-forest-227639:4389567")
+    runtimeOnly fg.deobf("curse.maven:ends-delight-662675:4675407")
 
     runtimeOnly fg.deobf('curse.maven:appleskin-248787:3872808')
     runtimeOnly fg.deobf('curse.maven:wthit-forge-455982:3947982')
     runtimeOnly fg.deobf('curse.maven:badpackets-615134:3903799')
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-76")
-
-    implementation fg.deobf("curse.maven:nethers-delight-496394:4731072")
-    implementation fg.deobf("curse.maven:oceans-delight-841262:4652058")
-
-    compileOnly fg.deobf("curse.maven:spice-of-life-apple-pie-edition-704584:4596169")
-    compileOnly fg.deobf("curse.maven:spice-of-life-carrot-edition-277616:3974155")
-    compileOnly fg.deobf("curse.maven:diet-443570:4634770")
 
 }
 

@@ -5,6 +5,7 @@ import dev.xkmc.fruitsdelight.init.food.FDMelons;
 import dev.xkmc.fruitsdelight.init.food.FDPineapple;
 import dev.xkmc.fruitsdelight.init.food.FDTrees;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -38,13 +39,13 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 
 	void registerComposter();
 
-	void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx);
+	void registerConfigs();
 
-	void registerPlacements(BootstapContext<PlacedFeature> ctx);
+	void registerPlacements();
 
 	String getName();
 
-	ResourceKey<PlacedFeature> getPlacementKey();
+	Holder<PlacedFeature> getPlacementKey();
 
 	default void genRecipe(RegistrateRecipeProvider pvd) {
 
