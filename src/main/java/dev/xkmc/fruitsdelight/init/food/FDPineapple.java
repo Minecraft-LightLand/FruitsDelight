@@ -1,22 +1,20 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import com.tterrag.registrate.providers.DataGenContext;
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
-import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
-import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
+import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -43,6 +41,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -109,7 +108,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
 								.setProperties(StatePropertiesPredicate.Builder.properties()
 										.hasProperty(PineappleBlock.AGE, 4)))
-						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getSapling())))
+						.otherwise(LootItem.lootTableItem(getSapling()).apply(ApplyExplosionDecay.explosionDecay()))
 				)));
 	}
 
@@ -119,7 +118,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 						.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
 								.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
 										MinMaxBounds.Ints.atLeast(1)))))
-						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getWholeFruit())))
+						.otherwise(LootItem.lootTableItem(getWholeFruit()).apply(ApplyExplosionDecay.explosionDecay()))
 				)));
 	}
 

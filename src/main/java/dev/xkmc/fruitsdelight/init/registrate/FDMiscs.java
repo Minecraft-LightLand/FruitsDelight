@@ -1,12 +1,12 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapedRecipe;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessRecipe;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.l2library.serial.recipe.AbstractShapedRecipe;
-import dev.xkmc.l2library.serial.recipe.AbstractShapelessRecipe;
+import dev.xkmc.l2library.base.recipe.AbstractShapedRecipe;
+import dev.xkmc.l2library.base.recipe.AbstractShapelessRecipe;
+import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
+import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.registries.ForgeRegistries;
 

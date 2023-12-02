@@ -1,13 +1,15 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.fruitsdelight.content.effects.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
+import dev.xkmc.l2library.repack.registrate.builders.NoConfigBuilder;
+import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
+import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
@@ -44,20 +46,22 @@ public class FDEffects {
 			)), "Make player immune to slowness");
 
 	public static final RegistryEntry<EffectRemovalEffect> BRIGHTENING = genEffect("brightening", () ->
-			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL,  FruitType.BLUEBERRY.color, List.of(
+			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL, FruitType.BLUEBERRY.color, List.of(
 					() -> MobEffects.BLINDNESS,
 					() -> MobEffects.DARKNESS
 			)), "Make player immune to blindness and darkness");
 
 	public static final RegistryEntry<EffectRemovalEffect> RECOVERING = genEffect("recovering", () ->
-			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL,  FruitType.ORANGE.color, List.of(
+			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL, FruitType.ORANGE.color, List.of(
 					() -> MobEffects.POISON,
 					() -> MobEffects.WITHER
 			)), "Make player immune to poison and wither");
 
-
-	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
-		return FruitsDelight.REGISTRATE.effect(name, sup, desc).lang(MobEffect::getDescriptionId).register();
+	public static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
+		FruitsDelight.REGISTRATE.addRawLang("effect." + FruitsDelight.MODID + "." + name + ".description", desc);
+		return FruitsDelight.REGISTRATE.entry(name, cb -> new NoConfigBuilder<>(FruitsDelight.REGISTRATE,
+						FruitsDelight.REGISTRATE, name, cb, ForgeRegistries.Keys.MOB_EFFECTS, sup))
+				.lang(MobEffect::getDescriptionId).register();
 	}
 
 	public static void register() {

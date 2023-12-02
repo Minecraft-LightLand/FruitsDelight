@@ -1,12 +1,12 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
 import dev.xkmc.l2library.base.effects.api.ClientRenderEffect;
-import dev.xkmc.l2library.base.effects.api.DelayedEntityRender;
 import dev.xkmc.l2library.base.effects.api.FirstPlayerRenderEffect;
 import dev.xkmc.l2library.util.Proxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -25,9 +25,10 @@ public abstract class RangeRenderEffect extends RangeSearchEffect implements Cli
 	}
 
 	@Override
-	public void render(LivingEntity entity, int lv, Consumer<DelayedEntityRender> consumer) {
-		if (entity == Proxy.getClientPlayer()) return;
-		renderEffect(lv, entity);
+	public void render(LivingEntity entity, int lv, Consumer<ResourceLocation> consumer) {
+		if (entity != Proxy.getClientPlayer()) {
+			renderEffect(lv, entity);
+		}
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -41,7 +42,7 @@ public abstract class RangeRenderEffect extends RangeSearchEffect implements Cli
 		int r = getRange();
 		int count = getParticleCount(lv);
 		for (int i = 0; i < count; i++) {
-			addParticle(entity.level(), entity.position().add(0, entity.getEyeHeight() / 2, 0), r);
+			addParticle(entity.level, entity.position().add(0, entity.getEyeHeight() / 2, 0), r);
 		}
 	}
 

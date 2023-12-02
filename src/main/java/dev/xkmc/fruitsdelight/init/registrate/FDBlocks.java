@@ -1,12 +1,10 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.fruitsdelight.content.block.PineappleRiceBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.food.*;
+import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -33,7 +31,7 @@ public class FDBlocks {
 					String suffix = serve == 4 ? "" : ("_" + (4 - serve));
 					return pvd.models().getBuilder(ctx.getName() + suffix)
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/fried_rice_base" + suffix)))
-							.texture("food","block/"+ ctx.getName());
+							.texture("food", "block/" + ctx.getName());
 				}))
 				.item().model((ctx, pvd) -> pvd.generated(ctx)).build()
 				.loot((pvd, block) -> pvd.add(block, LootTable.lootTable()

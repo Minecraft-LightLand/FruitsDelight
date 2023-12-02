@@ -1,8 +1,6 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
-import com.tterrag.registrate.providers.ProviderType;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
@@ -10,9 +8,10 @@ import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.init.events.EffectSyncEvents;
+import dev.xkmc.l2library.base.effects.EffectSyncEvents;
+import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
+import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -51,7 +50,6 @@ public class FruitsDelight {
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			PlantDataEntry.run(PlantDataEntry::registerComposter);
-
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
 		});

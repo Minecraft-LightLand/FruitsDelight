@@ -1,19 +1,16 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import com.tterrag.registrate.providers.DataGenContext;
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
-import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
-import com.tterrag.registrate.util.DataIngredient;
-import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
+import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
+import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -41,6 +38,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -157,8 +155,8 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	}
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
-		pvd.singleItem(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getSeed, 1, 1);
-		pvd.square(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getMelonBlock, false);
+		pvd.singleItem(DataIngredient.items(getSlice()), this::getSeed, 1, 1);
+		pvd.square(DataIngredient.items(getSlice()), this::getMelonBlock, false);
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getMelonBlock()),
 				Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 9, 1).build(pvd,
 				new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
@@ -192,19 +190,18 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 
 	private void buildMelonLoot(RegistrateBlockLootTables pvd, FDMelonBlock block) {
 		pvd.add(block, RegistrateBlockLootTables.createSilkTouchDispatchTable(block,
-				pvd.applyExplosionDecay(block,
-						LootItem.lootTableItem(getSlice())
-								.apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
-								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
-								.apply(LimitCount.limitCount(IntRange.upperBound(9))))));
+				LootItem.lootTableItem(getSlice())
+						.apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
+						.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
+						.apply(LimitCount.limitCount(IntRange.upperBound(9))).apply(ApplyExplosionDecay.explosionDecay())));
 	}
 
 	private void buildStemLoot(RegistrateBlockLootTables pvd, StemBlock block) {
-		pvd.add(block, pvd.createStemDrops(block, getSeed()));
+		pvd.add(block, RegistrateBlockLootTables.createStemDrops(block, getSeed()));
 	}
 
 	private void buildAttachedStemLoot(RegistrateBlockLootTables pvd, AttachedStemBlock block) {
-		pvd.add(block, pvd.createAttachedStemDrops(block, getSeed()));
+		pvd.add(block, RegistrateBlockLootTables.createAttachedStemDrops(block, getSeed()));
 	}
 
 	private static FoodProperties food(int food, float sat, boolean fast) {

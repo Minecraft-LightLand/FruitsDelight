@@ -1,10 +1,10 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import com.tterrag.registrate.builders.ItemBuilder;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
@@ -74,8 +74,7 @@ public enum FoodType {
 							res[i] = pvd.modLoc("item/" + ctx.getName() + "_filler_" + (i - 1));
 						}
 						pvd.generated(ctx, res);
-					}).color(() -> () -> FDFoodItem::color)
-					.transform(e -> e.tab(FruitsDelight.TAB.getKey(), x -> e.getEntry().fillItemCategory(overlay, x)));
+					}).color(() -> () -> FDFoodItem::color);
 		}
 		return b.defaultModel();
 	}

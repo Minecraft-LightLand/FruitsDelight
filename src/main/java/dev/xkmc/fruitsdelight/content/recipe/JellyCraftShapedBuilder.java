@@ -1,7 +1,7 @@
 package dev.xkmc.fruitsdelight.content.recipe;
 
 import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
-import dev.xkmc.l2library.serial.recipe.CustomShapedBuilder;
+import dev.xkmc.l2library.base.recipe.CustomShapedBuilder;
 import net.minecraft.world.level.ItemLike;
 
 public class JellyCraftShapedBuilder extends CustomShapedBuilder<JellyCraftShapedRecipe> {

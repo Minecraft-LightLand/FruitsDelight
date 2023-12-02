@@ -1,11 +1,11 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
@@ -76,10 +76,12 @@ public enum FDFood {
 	public final FoodType type;
 	public final ItemEntry<FDFoodItem> item;
 	public final EffectEntry[] effs;
+	public final int overlay;
 
 	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
+		this.overlay = overlay;
 		this.name = name().toLowerCase(Locale.ROOT);
 		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs, this))
 				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name)).tag(getTags(allowJelly, food.tags))

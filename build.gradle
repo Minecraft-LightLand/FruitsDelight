@@ -21,14 +21,13 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 version = "${ll_version}"
 group = "dev.xkmc.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${modid}"
-jarJar.enable()
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: "${minecraft_version}"
-    //mappings channel: 'parchment', version: '2022.08.14-1.19.2'
+    //mappings channel: 'official', version: "${minecraft_version}"
+    mappings channel: 'parchment', version: '2022.08.14-1.19.2'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
@@ -87,13 +86,28 @@ mixin {
     config "${modid}.mixins.json"
 }
 
+jarJar.enable()
+
+reobf {
+    jarJar {}
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
+
+tasks.jarJar.configure {
+    archiveClassifier.set('')
+}
+
+jar {
+    archiveClassifier.set('slim')
+}
+
 repositories {
-    flatDir{
-        dirs 'libs'
-    }
     maven { url 'https://jitpack.io' }
-    maven { // Registrate
-        url "https://maven.tterrag.com/"
+    maven {
+        // Location of the maven that hosts JEI files (and TiC)
+        name 'Progwml6 maven'
+        url 'https://dvs1.progwml6.com/files/maven'
     }
     maven {
         // Location of the maven for vazkii's mods
@@ -110,44 +124,42 @@ repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
     }
+    flatDir{
+        dirs 'libs'
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
     compileOnly(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${mixin_extras_version}"))
-    implementation(jarJar("com.github.llamalad7.mixinextras:mixinextras-forge:${mixin_extras_version}")) {
-        transitive = false
-        jarJar.ranged(it, "[${mixin_extras_version},)")
-    }
+
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    implementation fg.deobf(jarJar("com.tterrag.registrate:Registrate:${registrate_version}")){
+    implementation fg.deobf(jarJar("dev.xkmc.l2library:l2library:${l2library_version}")) {
         transitive = false
-        jarJar.ranged(it, "[MC1.20-1.3.3,)")
+        jarJar.ranged(it, "[${l2library_version},)")
     }
 
-    implementation fg.deobf(jarJar("dev.xkmc.l2serial:l2serial:1.2.0")) {
-        transitive = false
-        jarJar.ranged(it, "[1.2.0,)")
-    }
-
-    implementation fg.deobf(jarJar("dev.xkmc.l2library:l2library:2.4.11-slim")) {
-        transitive = false
-        jarJar.ranged(it, "[2.4.11,)")
-    }
-
-    implementation fg.deobf("curse.maven:farmers-delight-398521:4638874")
     implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
-    implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:4599236")
 
-    runtimeOnly fg.deobf("curse.maven:badpackets-615134:4438956")
-    runtimeOnly fg.deobf("curse.maven:wthit-forge-455982:4596739")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:4679318")
+    implementation fg.deobf("curse.maven:ends-delight-662675:4675407")
+    implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:4639747")
+    implementation fg.deobf("curse.maven:the-twilight-forest-227639:4389567")
 
-    runtimeOnly fg.deobf("curse.maven:appleskin-248787:4605078")
-    runtimeOnly fg.deobf("curse.maven:patchouli-306770:4633797")
+    runtimeOnly fg.deobf('curse.maven:appleskin-248787:3872808')
+    runtimeOnly fg.deobf('curse.maven:wthit-forge-455982:3947982')
+    runtimeOnly fg.deobf('curse.maven:badpackets-615134:3903799')
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.19.2-76")
 
-    //runtimeOnly fg.deobf("curse.maven:rubidium-574856:4573226")
+    implementation fg.deobf("curse.maven:nethers-delight-496394:4731072")
+    implementation fg.deobf("curse.maven:oceans-delight-841262:4652058")
+
+    compileOnly fg.deobf("curse.maven:spice-of-life-apple-pie-edition-704584:4596169")
+    compileOnly fg.deobf("curse.maven:spice-of-life-carrot-edition-277616:3974155")
+    compileOnly fg.deobf("curse.maven:diet-443570:4634770")
 
 }
 
@@ -167,10 +179,6 @@ jar {
     }
 }
 
-reobf {
-    jarJar {}
-}
-
 // Example configuration to allow publishing using the maven-publish plugin
 // This is the preferred method to reobfuscate your jar file
 jar.finalizedBy('reobfJar')
@@ -188,21 +196,4 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
-}
-
-tasks.jarJar.finalizedBy('reobfJarJar')
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-}
-
-tasks.jarJar.configure {
-    // remove '-all' from jarJar jar file
-    classifier ''
-}
-
-jar {
-    // this now conflicts with jarJar as filenames are the same
-    // append a `-slim` to this jar, as this jar contains no pre-packaged libs
-    classifier 'slim'
 }

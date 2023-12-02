@@ -1,7 +1,7 @@
 package dev.xkmc.fruitsdelight.init.data;
 
-import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateLangProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

@@ -4,7 +4,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Comparator;
@@ -15,7 +14,7 @@ public abstract class RangeSearchEffect extends MobEffect {
 
 	public <T extends Entity> List<T> getEntitiesInRange(LivingEntity center, Class<T> cls) {
 		Vec3 pos = center.position();
-		return center.level().getEntitiesOfClass(cls, center.getBoundingBox().inflate(getRange()), e -> true)
+		return center.level.getEntitiesOfClass(cls, center.getBoundingBox().inflate(getRange()), e -> true)
 				.stream().sorted(Comparator.comparingDouble(entcnd -> entcnd.distanceToSqr(pos)))
 				.collect(Collectors.toList());
 	}
@@ -36,7 +35,7 @@ public abstract class RangeSearchEffect extends MobEffect {
 
 	@Override
 	public void applyEffectTick(LivingEntity entity, int amplifier) {
-		if (entity.level().isClientSide()) return;
+		if (entity.level.isClientSide()) return;
 		if (entity.tickCount % getPeriod() == 0) {
 			searchEntities(entity, amplifier);
 		}

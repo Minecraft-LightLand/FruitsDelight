@@ -1,13 +1,13 @@
 package dev.xkmc.fruitsdelight.content.item;
 
-import com.tterrag.registrate.util.CreativeModeTabModifier;
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.l2serial.util.Wrappers;
+import dev.xkmc.l2library.util.code.Wrappers;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
@@ -21,10 +21,7 @@ import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -187,15 +184,19 @@ public class FDFoodItem extends Item {
 		getFoodEffects(stack, list);
 	}
 
-	public void fillItemCategory(int size, CreativeModeTabModifier tab) {
-		for (FruitType fruit : FruitType.values()) {
-			ItemStack stack = new ItemStack(this);
-			ListTag list = new ListTag();
-			for (int i = 0; i < size; i++) {
-				list.add(StringTag.valueOf(fruit.name()));
+	@Override
+	public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> tab) {
+		if (this.allowedIn(pCategory) && food != null && food.overlay > 0) {
+			for (FruitType fruit : FruitType.values()) {
+				ItemStack stack = new ItemStack(this);
+				ListTag list = new ListTag();
+				for (int i = 0; i < food.overlay; i++) {
+					list.add(StringTag.valueOf(fruit.name()));
+				}
+				stack.getOrCreateTag().put(FDFoodItem.ROOT, list);
+				tab.add(stack);
 			}
-			stack.getOrCreateTag().put(FDFoodItem.ROOT, list);
-			tab.accept(stack);
+			tab.add(new ItemStack(this));
 		}
 	}
 
