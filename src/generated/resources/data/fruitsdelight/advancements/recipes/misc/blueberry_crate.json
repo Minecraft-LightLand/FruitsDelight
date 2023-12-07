@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blueberry": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fruitsdelight:blueberry"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:blueberry_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_blueberry",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:blueberry_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

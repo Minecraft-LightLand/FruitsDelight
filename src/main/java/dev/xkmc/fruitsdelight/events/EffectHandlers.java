@@ -4,8 +4,11 @@ import dev.xkmc.fruitsdelight.content.effects.EffectRemovalEffect;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -14,6 +17,15 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = FruitsDelight.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class EffectHandlers {
+
+	@SubscribeEvent
+	public static void onEntitySize(EntityEvent.Size event) {
+		if (event.getEntity() instanceof Player le && le.isAddedToWorld()) {
+			if (le.isShiftKeyDown() && le.hasEffect(FDEffects.SHRINKING.get())) {
+				event.setNewSize(event.getNewSize().scale(0.5f), true);
+			}
+		}
+	}
 
 	@SubscribeEvent
 	public static void onItemStartUse(LivingEntityUseItemEvent.Start event) {
@@ -40,7 +52,7 @@ public class EffectHandlers {
 		try {
 			var anim = stack.getUseAnimation();
 			if (anim == UseAnim.EAT || anim == UseAnim.DRINK) return true;
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 
 		}
 		return false;
@@ -49,6 +61,15 @@ public class EffectHandlers {
 	public static float getFriction(LivingEntity le, float ans) {
 		if (le.hasEffect(FDEffects.ASTRINGENT.get())) {
 			return Math.min(0.6f, ans);
+		}
+		return ans;
+	}
+
+	public static float getBoatFriction(Boat boat, float ans) {
+		for (var e : boat.getPassengers()) {
+			if (e instanceof LivingEntity le && le.hasEffect(FDEffects.SLIDING.get())) {
+				return Math.max(0.98f, ans);
+			}
 		}
 		return ans;
 	}

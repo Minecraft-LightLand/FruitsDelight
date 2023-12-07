@@ -38,6 +38,8 @@ public enum FruitType {
 			new EffectFunc(() -> MobEffects.DIG_SPEED, lv -> lv * 20),
 			new EffectFunc(FDEffects.REFRESHING::get, lv -> lv * 20)
 	)),
+	CRANBERRY(0xCF2626, FDBushes.CRANBERRY::getFruit, List.of(new EffectFunc(FDEffects.SHRINKING::get, lv -> lv * 80))),
+	MANGOSTEEN(0xFBECD6, FDTrees.MANGOSTEEN::getFruit, List.of(new EffectFunc(FDEffects.SLIDING::get, lv -> lv * 80))),
 	SWEETBERRY(0xC41A4F, () -> Items.SWEET_BERRIES, List.of());
 
 	public final int color;

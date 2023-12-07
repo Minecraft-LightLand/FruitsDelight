@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lemon_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fruitsdelight:lemon_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:lemon_from_lemon_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_lemon_crate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:lemon_from_lemon_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "fruitsdelight:block/cranberry_bush_0"
+    },
+    "age=1": {
+      "model": "fruitsdelight:block/cranberry_bush_0"
+    },
+    "age=2": {
+      "model": "fruitsdelight:block/cranberry_bush_1"
+    },
+    "age=3": {
+      "model": "fruitsdelight:block/cranberry_bush_2"
+    },
+    "age=4": {
+      "model": "fruitsdelight:block/cranberry_bush_3"
+    }
+  }
+}

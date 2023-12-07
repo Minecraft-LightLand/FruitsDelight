@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "fruitsdelight:lychee"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "item": "fruitsdelight:lychee_crate"
+  },
+  "show_notification": true
+}

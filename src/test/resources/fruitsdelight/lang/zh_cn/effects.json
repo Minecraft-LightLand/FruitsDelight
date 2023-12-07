@@ -17,6 +17,10 @@
 	"refreshing": "清爽",
 	"refreshing.description": "免疫挖掘疲劳",
 	"sweetening": "甘甜",
-	"sweetening.description": "免疫减速"
+	"sweetening.description": "免疫减速",
+	"sliding": "滑行",
+	"sliding.description": "乘船时，减少船和方块的摩擦",
+	"shrinking": "灵活",
+	"shrinking.description": "让玩家潜行时能钻进1格高的空间"
   }
 }

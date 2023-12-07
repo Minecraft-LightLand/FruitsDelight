@@ -4,10 +4,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.food.FDBushes;
-import dev.xkmc.fruitsdelight.init.food.FDFood;
-import dev.xkmc.fruitsdelight.init.food.FDPineapple;
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.fruitsdelight.init.food.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -31,6 +28,7 @@ public class RecipeGen {
 
 	public static void genRecipes(RegistrateRecipeProvider pvd) {
 		PlantDataEntry.gen(pvd, PlantDataEntry::genRecipe);
+		FDCrates.genRecipes(pvd);
 		{
 			{
 				jelly(pvd, FDFood.APPLE_JELLY, 2);

@@ -13,16 +13,24 @@ import java.util.List;
 
 public class FDEffects {
 
-	public static final RegistryEntry<AstringentEffect> ASTRINGENT = genEffect("astringent", () ->
-					new AstringentEffect(MobEffectCategory.NEUTRAL, FruitType.PERSIMMON.color),
+	public static final RegistryEntry<EmptyEffect> ASTRINGENT = genEffect("astringent", () ->
+					new EmptyEffect(MobEffectCategory.NEUTRAL, FruitType.PERSIMMON.color),
 			"Grant more friction when walking on low-friction blocks, such as ice.");
 
-	public static final RegistryEntry<LozengeEffect> LOZENGE = genEffect("lozenge", () ->
-					new LozengeEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),
+	public static final RegistryEntry<EmptyEffect> SLIDING = genEffect("sliding", () ->
+					new EmptyEffect(MobEffectCategory.NEUTRAL, FruitType.MANGOSTEEN.color),
+			"Reduce friction between your boat and blocks.");
+
+	public static final RegistryEntry<SizeEffect> SHRINKING = genEffect("shrinking", () ->
+					new SizeEffect(MobEffectCategory.NEUTRAL, FruitType.CRANBERRY.color),
+			"You can crawl into 1-block space when sneaking.");
+
+	public static final RegistryEntry<EmptyEffect> LOZENGE = genEffect("lozenge", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),
 			"Eat and drink faster.");
 
-	public static final RegistryEntry<AppetizingEffect> APPETIZING = genEffect("appetizing", () ->
-					new AppetizingEffect(MobEffectCategory.BENEFICIAL, FruitType.HAWBERRY.color),
+	public static final RegistryEntry<EmptyEffect> APPETIZING = genEffect("appetizing", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.HAWBERRY.color),
 			"Eat and drink even when you are full.");
 
 	public static final RegistryEntry<RageAuraEffect> RAGE_AURA = genEffect("rage_aura", () ->
@@ -44,13 +52,13 @@ public class FDEffects {
 			)), "Make player immune to slowness");
 
 	public static final RegistryEntry<EffectRemovalEffect> BRIGHTENING = genEffect("brightening", () ->
-			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL,  FruitType.BLUEBERRY.color, List.of(
+			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL, FruitType.BLUEBERRY.color, List.of(
 					() -> MobEffects.BLINDNESS,
 					() -> MobEffects.DARKNESS
 			)), "Make player immune to blindness and darkness");
 
 	public static final RegistryEntry<EffectRemovalEffect> RECOVERING = genEffect("recovering", () ->
-			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL,  FruitType.ORANGE.color, List.of(
+			new EffectRemovalEffect(MobEffectCategory.BENEFICIAL, FruitType.ORANGE.color, List.of(
 					() -> MobEffects.POISON,
 					() -> MobEffects.WITHER
 			)), "Make player immune to poison and wither");

@@ -47,10 +47,13 @@
 	"lemon_seeds": "柠檬种子",
 	"lemon_cookie": "柠檬饼干",
 	"lemon_juice": "柠檬水",
-	"lemon_tart": "柠檬蛋挞"
+	"lemon_tart": "柠檬蛋挞",
+	"cranberry": "蔓越莓",
+	"mangosteen": "山竹"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
+	"cranberry_bush": "蔓越莓丛",
 	"lemon_tree": "柠檬树",
 	"pineapple": "菠萝",
 	"wild_pineapple": "野生菠萝",
@@ -68,7 +71,8 @@
 		  "persimmon": "柿子",
 		  "peach": "水蜜桃",
 		  "orange": "橘子",
-		  "apple": "苹果"
+		  "apple": "苹果",
+		  "mangosteen": "山竹"
 		},
 		{
 		  "leaves": "树叶",
@@ -107,10 +111,35 @@
 		  "sweetberry": "浆果",
 		  "pineapple": "菠萝",
 		  "lemon": "柠檬",
-		  "melon": "西瓜"
+		  "melon": "西瓜",
+		  "mangosteen": "山竹",
+		  "cranberry": "蔓越莓"
 		},
 		{
 		  "jelly": "果酱"
+		}
+	  ]
+	},
+	"crate": {
+	  "path": "block.fruitsdelight",
+	  "reverse": true,
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "blueberry": "蓝莓",
+		  "pineapple": "菠萝",
+		  "lemon": "柠檬",
+		  "mangosteen": "山竹",
+		  "cranberry": "蔓越莓"
+		},
+		{
+		  "crate": "箱装"
 		}
 	  ]
 	}
