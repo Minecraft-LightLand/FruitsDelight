@@ -6,6 +6,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
@@ -135,7 +136,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 				.build(pvd, new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
 	}
 
-	public Block getPlant() {
+	public BaseBushBlock getPlant() {
 		return PLANT.get();
 	}
 

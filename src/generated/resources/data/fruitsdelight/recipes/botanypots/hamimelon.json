@@ -1,0 +1,30 @@
+{
+  "type": "botanypots:crop",
+  "categories": [
+    "dirt",
+    "farmland"
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botanypots"
+    }
+  ],
+  "display": {
+    "block": "fruitsdelight:hamimelon"
+  },
+  "drops": [
+    {
+      "chance": 1.0,
+      "maxRolls": 6,
+      "minRolls": 3,
+      "output": {
+        "item": "fruitsdelight:hamimelon_slice"
+      }
+    }
+  ],
+  "growthTicks": 1200,
+  "seed": {
+    "item": "fruitsdelight:hamimelon_seeds"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:jungle",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
+    "minecraft:dark_forest"
+  ],
+  "features": "fruitsdelight:cranberry_bush",
+  "step": "vegetal_decoration"
+}

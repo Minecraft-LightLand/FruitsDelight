@@ -68,10 +68,12 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	public final ResourceKey<ConfiguredFeature<?, ?>> configKey, configKeyWild;
 	public final ResourceKey<PlacedFeature> placementKey;
 
+	public final Supplier<Block> log;
 	public boolean genTree = false;
 
 	FDTrees(Supplier<Block> log, FDTreeType height, Function<String, Supplier<Item>> items) {
 		String name = name().toLowerCase(Locale.ROOT);
+		this.log = log;
 		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, false));
 		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, true));
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:jungle",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ],
+  "features": "fruitsdelight:tree/mangosteen_tree",
+  "step": "vegetal_decoration"
+}

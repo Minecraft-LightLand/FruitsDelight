@@ -1,11 +1,13 @@
-// 1.20.1	2023-12-07T11:13:57.121591	Fruits Delight Data
+// 1.20.1	2023-12-08T11:15:08.080287	Fruits Delight Data
 9857e8fe5993759bfe72d63df6e2a1f4f29b9a3e data/fruitsdelight/forge/biome_modifier/apple.json
 d8bddda9a070831bef2d4440ac0c222f3d46e44b data/fruitsdelight/forge/biome_modifier/blueberry.json
+5cd3b8f65b2331ff278ca960b73f710d1f1ce1b7 data/fruitsdelight/forge/biome_modifier/cranberry.json
 9a7a6c625bb0cca33685510fadb3551ecfd60e43 data/fruitsdelight/forge/biome_modifier/hamimelon.json
 da41c5724cdb09bd0d4d2013e634fac23ab9aa83 data/fruitsdelight/forge/biome_modifier/hawberry.json
 af50c96cc74a60a8eba6f4ffe88269f6fdf8b3f8 data/fruitsdelight/forge/biome_modifier/lemon.json
 701293cd76f7ae6eaa93c3c6d96e537dbc1c8e08 data/fruitsdelight/forge/biome_modifier/lychee.json
 b0d1c27b686d2b974bfc6b6d255506d51d513384 data/fruitsdelight/forge/biome_modifier/mango.json
+02fe9e5bcc574bf30679aaf420286242e7892414 data/fruitsdelight/forge/biome_modifier/mangosteen.json
 4337f8c5f351849e63d58048a42c3e568820ec49 data/fruitsdelight/forge/biome_modifier/orange.json
 0729741e33599ace09b6d3f1e47dc720a29a2e5e data/fruitsdelight/forge/biome_modifier/peach.json
 76e43291a7db86ed35de9df1ba33d304a08612de data/fruitsdelight/forge/biome_modifier/pear.json

@@ -1,5 +1,6 @@
-TODO JEI display of jelly ingredients
-Item tooltip
-Effect duration adding
-Jelly texture
-TODO Bread
+1.0.1 / 0.5.1
+- Add 2 types of fruits, and respective effects and products. TODO
+- Add fruit crates
+- Add Recipe compat with Botany pots and Botany trees
+- Add tag compat with Fruit Trees
+- Add Bee compat TODO
