@@ -49,7 +49,11 @@
 	"lemon_juice": "柠檬水",
 	"lemon_tart": "柠檬蛋挞",
 	"cranberry": "蔓越莓",
-	"mangosteen": "山竹"
+	"mangosteen": "山竹",
+	"cranberry_cookie": "蔓越莓饼干",
+	"cranberry_muffin": "蔓越莓玛芬",
+	"mangosteen_cake": "山竹糕",
+	"mangosteen_tea": "山竹清茶"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",

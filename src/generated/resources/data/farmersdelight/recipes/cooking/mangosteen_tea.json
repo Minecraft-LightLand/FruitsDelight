@@ -13,19 +13,13 @@
       "tag": "minecraft:leaves"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "item": "fruitsdelight:mangosteen"
     },
     {
-      "item": "fruitsdelight:hawberry"
-    },
-    {
-      "item": "fruitsdelight:hawberry"
-    },
-    {
-      "item": "fruitsdelight:hawberry"
+      "item": "fruitsdelight:mangosteen"
     }
   ],
   "result": {
-    "item": "fruitsdelight:hawberry_tea"
+    "item": "fruitsdelight:mangosteen_tea"
   }
 }

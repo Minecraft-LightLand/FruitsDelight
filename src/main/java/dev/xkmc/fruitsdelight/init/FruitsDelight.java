@@ -44,6 +44,7 @@ public class FruitsDelight {
 		FDMiscs.register();
 		FDModConfig.init();
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::genLang);
 	}

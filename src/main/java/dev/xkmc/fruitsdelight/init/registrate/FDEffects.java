@@ -22,7 +22,7 @@ public class FDEffects {
 			"Reduce friction between your boat and blocks.");
 
 	public static final RegistryEntry<SizeEffect> SHRINKING = genEffect("shrinking", () ->
-					new SizeEffect(MobEffectCategory.NEUTRAL, FruitType.CRANBERRY.color),
+					new SizeEffect(MobEffectCategory.BENEFICIAL, FruitType.CRANBERRY.color),
 			"You can crawl into 1-block space when sneaking.");
 
 	public static final RegistryEntry<EmptyEffect> LOZENGE = genEffect("lozenge", () ->
@@ -34,7 +34,7 @@ public class FDEffects {
 			"Eat and drink even when you are full.");
 
 	public static final RegistryEntry<RageAuraEffect> RAGE_AURA = genEffect("rage_aura", () ->
-					new RageAuraEffect(MobEffectCategory.HARMFUL, FruitType.MANGO.color),
+					new RageAuraEffect(MobEffectCategory.NEUTRAL, FruitType.MANGO.color),
 			"Mobs around you will be hostile to you");
 
 	public static final RegistryEntry<HealAuraEffect> HEAL_AURA = genEffect("heal_aura", () ->
