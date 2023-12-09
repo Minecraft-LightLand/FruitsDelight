@@ -66,10 +66,8 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	FDBushes(int food, float sat, boolean fast, int rarity, FDBushType type) {
 		String name = name().toLowerCase(Locale.ROOT);
 		String suffix = type == FDBushType.TALL ? "tree" : "bush";
-		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
-		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
+		this.configKey = new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix);
+		this.placementKey = new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix);
 		this.rarity = rarity;
 		this.type = type;
 
@@ -78,14 +76,13 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 					.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH), this::getFruit, type))
 					.blockstate(this::buildBushModel)
 					.loot(this::buildLoot)
-					.tag(BlockTags.SWORD_EFFICIENT)
 					.register();
 		} else {
 			bush = FruitsDelight.REGISTRATE
 					.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), this::getFruit, type))
 					.blockstate(this::buildBushModel)
 					.loot(this::buildLoot)
-					.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
+					.tag(BlockTags.MINEABLE_WITH_AXE)
 					.item().build()
 					.register();
 		}

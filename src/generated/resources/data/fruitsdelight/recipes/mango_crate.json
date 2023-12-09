@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "X": {
       "item": "fruitsdelight:mango"
@@ -13,6 +12,5 @@
   ],
   "result": {
     "item": "fruitsdelight:mango_crate"
-  },
-  "show_notification": true
+  }
 }

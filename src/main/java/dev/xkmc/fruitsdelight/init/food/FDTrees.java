@@ -72,8 +72,8 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	FDTrees(Supplier<Block> log, FDTreeType height, Function<String, Supplier<Item>> items) {
 		String name = name().toLowerCase(Locale.ROOT);
 		this.log = log;
-		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, FLOWER));
-		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, WILD));
+		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, false));
+		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, true));
 		this.configKey = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree");
 		this.configKeyWild = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree_wild");
 		this.placementKey = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree");
@@ -104,11 +104,10 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	FDTrees(Supplier<Block> log, FDTreeType height, int food, float sat, boolean fast) {
 		this(log, height, name -> FruitsDelight.REGISTRATE
 				.item(name, p -> new Item(p.food(food(food, sat, fast))))
-				.transform(b->PlantDataEntry.addFruitTags(name, b))
+				.transform(b -> PlantDataEntry.addFruitTags(name, b))
 				.register());
 		genTree = true;
 	}
-
 
 
 	public PassableLeavesBlock getLeaves() {

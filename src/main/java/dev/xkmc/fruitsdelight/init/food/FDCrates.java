@@ -1,9 +1,8 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import net.minecraft.data.recipes.RecipeCategory;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -58,7 +57,7 @@ public class FDCrates {
 	}
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
-		pvd.storage(type::get, RecipeCategory.MISC, block);
+		pvd.storage(type::get, block);
 	}
 
 }

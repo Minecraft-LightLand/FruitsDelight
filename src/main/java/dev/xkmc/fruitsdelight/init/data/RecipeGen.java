@@ -129,14 +129,14 @@ public class RecipeGen {
 						.define('B', FDFood.DRIED_PERSIMMON.item.get())
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.CRANBERRY_COOKIE.item, 8)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(FDFood.CRANBERRY_COOKIE.item.get(), 8)::unlockedBy,
 						FDFood.CRANBERRY_COOKIE.getFruit())
 						.pattern("ABA")
 						.define('A', Items.WHEAT)
 						.define('B', FDFood.CRANBERRY_COOKIE.getFruit())
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.LEMON_COOKIE.item, 8)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(FDFood.LEMON_COOKIE.item.get(), 8)::unlockedBy,
 						FDFood.LEMON_COOKIE.getFruit())
 						.pattern(" C ").pattern("ABA")
 						.define('C', ForgeTags.MILK_BOTTLE)
@@ -212,7 +212,7 @@ public class RecipeGen {
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.CRANBERRY_MUFFIN.getFruit(), 2)
 						.addIngredient(ModItems.WHEAT_DOUGH.get())
 						.addIngredient(ForgeTags.MILK_BOTTLE)
@@ -220,7 +220,7 @@ public class RecipeGen {
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_CHICKEN.item, 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_CHICKEN.item.get(), 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(ForgeTags.RAW_CHICKEN)
 						.addIngredient(FDFood.ORANGE_SLICE.item.get(), 4)
 						.addIngredient(Items.SUGAR)
@@ -237,13 +237,13 @@ public class RecipeGen {
 						.addIngredient(FDTrees.PEAR.getFruit(), 2)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGOSTEEN_CAKE.item, 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGOSTEEN_CAKE.item.get(), 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(Items.WHEAT, 2)
 						.addIngredient(Items.SUGAR, 2)
 						.addIngredient(FDTrees.MANGOSTEEN.getFruit(), 2)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHICKEN.item, 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHICKEN.item.get(), 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(ForgeTags.RAW_CHICKEN)
 						.addIngredient(FDTrees.LYCHEE.getFruit(), 4)
 						.addIngredient(ForgeTags.SALAD_INGREDIENTS_CABBAGE)

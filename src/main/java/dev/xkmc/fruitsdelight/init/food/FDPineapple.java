@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
+import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;

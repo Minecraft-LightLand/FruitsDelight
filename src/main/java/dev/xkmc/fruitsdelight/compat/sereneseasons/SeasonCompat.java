@@ -2,12 +2,12 @@ package dev.xkmc.fruitsdelight.compat.sereneseasons;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
-import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import dev.xkmc.fruitsdelight.init.food.FDBushes;
 import dev.xkmc.fruitsdelight.init.food.FDMelons;
 import dev.xkmc.fruitsdelight.init.food.FDPineapple;
 import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateItemTagsProvider;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateTagsProvider;
 import net.minecraft.world.level.block.Block;
 
 public class SeasonCompat {
@@ -35,7 +35,7 @@ public class SeasonCompat {
 
 	public static void genItem(RegistrateItemTagsProvider pvd) {
 		for (var s : Seasons.values()) {
-			var item = pvd.addTag(s.item);
+			var item = pvd.tag(s.item);
 			for (var t : TREE.get(s)) {
 				item.add(t.getSapling().asItem());
 			}
@@ -51,9 +51,9 @@ public class SeasonCompat {
 		}
 	}
 
-	public static void genBlock(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
+	public static void genBlock(RegistrateTagsProvider<Block> pvd) {
 		for (var s : Seasons.values()) {
-			var block = pvd.addTag(s.block);
+			var block = pvd.tag(s.block);
 			for (var t : TREE.get(s)) {
 				block.add(t.getSapling());
 				block.add(t.getLeaves());
