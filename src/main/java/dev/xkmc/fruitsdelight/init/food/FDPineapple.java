@@ -77,9 +77,13 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 				.item().model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("block/" + name + "_wild"))).build()
 				.register();
 
-		fruit = FruitsDelight.REGISTRATE.item(name, Item::new).register();
+		fruit = FruitsDelight.REGISTRATE.item(name, Item::new)
+				.transform(b -> PlantDataEntry.addFruitTags(name, b))
+				.register();
+
 		slice = FruitsDelight.REGISTRATE.item(name + "_slice", p -> new Item(p.food(food(food, sat, fast))))
 				.register();
+
 		seed = FruitsDelight.REGISTRATE
 				.item(name + "_sapling", p -> new ItemNameBlockItem(getPlant(), p))
 				.register();
@@ -127,7 +131,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 				.build(pvd, new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
 	}
 
-	public Block getPlant() {
+	public BaseBushBlock getPlant() {
 		return PLANT.get();
 	}
 

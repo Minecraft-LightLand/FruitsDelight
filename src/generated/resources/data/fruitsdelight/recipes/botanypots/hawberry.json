@@ -1,0 +1,45 @@
+{
+  "type": "botanypots:crop",
+  "categories": [
+    "dirt"
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botanypots"
+    }
+  ],
+  "display": {
+    "block": "fruitsdelight:hawberry_sapling"
+  },
+  "drops": [
+    {
+      "chance": 1.0,
+      "maxRolls": 2,
+      "minRolls": 1,
+      "output": {
+        "item": "minecraft:spruce_log"
+      }
+    },
+    {
+      "chance": 1.0,
+      "maxRolls": 4,
+      "minRolls": 2,
+      "output": {
+        "item": "fruitsdelight:hawberry"
+      }
+    },
+    {
+      "chance": 0.15,
+      "maxRolls": 1,
+      "minRolls": 1,
+      "output": {
+        "item": "fruitsdelight:hawberry_sapling"
+      }
+    }
+  ],
+  "growthTicks": 2400,
+  "seed": {
+    "item": "fruitsdelight:hawberry_sapling"
+  }
+}

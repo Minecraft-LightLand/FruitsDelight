@@ -50,59 +50,70 @@ import java.util.List;
 import java.util.Locale;
 
 public enum FDBushes implements PlantDataEntry<FDBushes> {
-	BLUEBERRY(2, 0.3f, true, 64, false, false),
-	LEMON(4, 0.3f, false, 64, true, true),
-	;
+	BLUEBERRY(2, 0.3f, true, 64, FDBushType.BLOCK),
+	LEMON(4, 0.3f, false, 64, FDBushType.TALL),
+	CRANBERRY(2, 0.3f, true, 64, FDBushType.CROSS);
 
 	private final BlockEntry<FruitBushBlock> bush;
 	private final ItemEntry<BushFruitItem> seedItem;
 	private final ItemEntry<FDFoodItem> mid;
 
 	private final int rarity;
-	private final boolean intermediate;
+	private final FDBushType type;
 
 	public final ResourceLocation configKey, placementKey;
 
-	FDBushes(int food, float sat, boolean fast, int rarity, boolean seed, boolean intermediate) {
+	FDBushes(int food, float sat, boolean fast, int rarity, FDBushType type) {
 		String name = name().toLowerCase(Locale.ROOT);
-		String suffix = intermediate ? "tree" : "bush";
-		this.configKey = new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix);
-		this.placementKey = new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix);
+		String suffix = type == FDBushType.TALL ? "tree" : "bush";
+		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
+				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
+		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
+				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
 		this.rarity = rarity;
-		this.intermediate = intermediate;
+		this.type = type;
 
-		bush = FruitsDelight.REGISTRATE
-				.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), this::getFruit, intermediate))
-				.blockstate(this::buildBushModel)
-				.loot(this::buildLoot)
-				.tag(BlockTags.MINEABLE_WITH_AXE)
-				.item().build()
-				.register();
+		if (type == FDBushType.CROSS) {
+			bush = FruitsDelight.REGISTRATE
+					.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH), this::getFruit, type))
+					.blockstate(this::buildBushModel)
+					.loot(this::buildLoot)
+					.tag(BlockTags.SWORD_EFFICIENT)
+					.register();
+		} else {
+			bush = FruitsDelight.REGISTRATE
+					.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), this::getFruit, type))
+					.blockstate(this::buildBushModel)
+					.loot(this::buildLoot)
+					.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
+					.item().build()
+					.register();
+		}
 
-		if (seed) {
+		if (type == FDBushType.TALL) {
 			mid = FruitsDelight.REGISTRATE.item(name, p -> new FDFoodItem(p.food(food(food, sat, fast)), null))
+					.transform(b -> PlantDataEntry.addFruitTags(name, b))
 					.register();
 			seedItem = FruitsDelight.REGISTRATE
 					.item(name + "_seeds", p -> new BushFruitItem(getBush(), p))
-					.model((ctx, pvd) -> pvd.generated(ctx))
 					.register();
 		} else {
 			mid = null;
 			seedItem = FruitsDelight.REGISTRATE
 					.item(name, p -> new BushFruitItem(getBush(), p.food(food(food, sat, fast))))
-					.model((ctx, pvd) -> pvd.generated(ctx))
+					.transform(b -> PlantDataEntry.addFruitTags(name, b))
 					.register();
 		}
-
 
 	}
 
 
 	public void registerComposter() {
-		if (mid != null)
+		if (type == FDBushType.TALL)
 			ComposterBlock.COMPOSTABLES.put(mid.get(), 0.35f);
 		ComposterBlock.COMPOSTABLES.put(seedItem.get(), 0.15f);
-		ComposterBlock.COMPOSTABLES.put(getBush().asItem(), 0.65f);
+		if (type != FDBushType.CROSS)
+			ComposterBlock.COMPOSTABLES.put(getBush().asItem(), 0.65f);
 	}
 
 	private Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> bushCF;
@@ -145,27 +156,28 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	}
 
 	private void buildLoot(RegistrateBlockLootTables pvd, FruitBushBlock block) {
-		pvd.add(block, LootTable.lootTable()
-				.withPool(LootPool.lootPool()
-						.add(LootItem.lootTableItem(getBush().asItem())
-								.when(LootTableTemplate.silk(false))
-								.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-										.setProperties(StatePropertiesPredicate.Builder.properties()
-												.hasProperty(FruitBushBlock.AGE, 0))
-										.or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-												.setProperties(StatePropertiesPredicate.Builder.properties()
-														.hasProperty(FruitBushBlock.AGE, 1)))
-										.invert()
-								))
-						.when(ExplosionCondition.survivesExplosion()))
-				.withPool(LootPool.lootPool()
-						.add(LootItem.lootTableItem(getFruit())
-								.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-										.setProperties(StatePropertiesPredicate.Builder.properties()
-												.hasProperty(FruitBushBlock.AGE, 4)))
-								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)))
-						.when(ExplosionCondition.survivesExplosion()))
-		);
+		var table = LootTable.lootTable();
+		if (type != FDBushType.CROSS)
+			table.withPool(LootPool.lootPool()
+					.add(LootItem.lootTableItem(getBush().asItem())
+							.when(LootTableTemplate.silk(false))
+							.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+									.setProperties(StatePropertiesPredicate.Builder.properties()
+											.hasProperty(FruitBushBlock.AGE, 0))
+									.or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+											.setProperties(StatePropertiesPredicate.Builder.properties()
+													.hasProperty(FruitBushBlock.AGE, 1)))
+									.invert()
+							))
+					.when(ExplosionCondition.survivesExplosion()));
+		table.withPool(LootPool.lootPool()
+				.add(LootItem.lootTableItem(getFruit())
+						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+								.setProperties(StatePropertiesPredicate.Builder.properties()
+										.hasProperty(FruitBushBlock.AGE, 4)))
+						.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)))
+				.when(ExplosionCondition.survivesExplosion()));
+		pvd.add(block, table);
 	}
 
 	public FruitBushBlock getBush() {
@@ -173,7 +185,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	}
 
 	public Item getFruit() {
-		return mid == null ? seedItem.get() : mid.get();
+		return type == FDBushType.TALL ? mid.get() : seedItem.get();
 	}
 
 	public Item getSeed() {
@@ -181,17 +193,31 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	}
 
 	private void buildBushModel(DataGenContext<Block, FruitBushBlock> ctx, RegistrateBlockstateProvider pvd) {
+		if (type == FDBushType.CROSS) {
+			pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
+				int age = state.getValue(FruitBushBlock.AGE);
+				String id = ctx.getName();
+				if (age == 1) {
+					return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + id + "_0"))).build();
+				}
+				id += "_" + (age == 0 ? 0 : age - 1);
+				var model = pvd.models().cross(id, pvd.modLoc("block/" + id)).renderType("cutout");
+				return ConfiguredModel.builder().modelFile(model).build();
+			});
+			return;
+		}
+		boolean tall = type == FDBushType.TALL;
 		pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
 			int age = state.getValue(FruitBushBlock.AGE);
 			String id = ctx.getName();
 			String parent = "bush";
-			if (intermediate) parent = "tall_" + parent;
+			if (tall) parent = "tall_" + parent;
 			if (age == 0) {
 				id += "_small";
 				parent += "_small";
 			}
 			if (age == 1) {
-				if (intermediate) {
+				if (tall) {
 					id += "_mid";
 					parent += "_mid";
 				} else {
@@ -204,7 +230,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 					.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + parent)));
 			model.texture("face", "block/" + id + "_face");
 			model.texture("cross", "block/" + id + "_cross");
-			if (intermediate) {
+			if (tall) {
 				model.texture("top", "block/" + id + "_top");
 			}
 			return ConfiguredModel.builder().modelFile(model).build();

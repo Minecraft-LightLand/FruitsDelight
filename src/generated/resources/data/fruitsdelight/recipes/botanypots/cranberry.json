@@ -1,0 +1,70 @@
+{
+  "type": "botanypots:crop",
+  "categories": [
+    "dirt"
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botanypots"
+    }
+  ],
+  "display": {
+    "type": "botanypots:transitional",
+    "phases": [
+      {
+        "block": "fruitsdelight:cranberry_bush",
+        "properties": {
+          "age": 0
+        }
+      },
+      {
+        "block": "fruitsdelight:cranberry_bush",
+        "properties": {
+          "age": 1
+        }
+      },
+      {
+        "block": "fruitsdelight:cranberry_bush",
+        "properties": {
+          "age": 2
+        }
+      },
+      {
+        "block": "fruitsdelight:cranberry_bush",
+        "properties": {
+          "age": 3
+        }
+      },
+      {
+        "block": "fruitsdelight:cranberry_bush",
+        "properties": {
+          "age": 4
+        }
+      }
+    ]
+  },
+  "drops": [
+    {
+      "chance": 1.0,
+      "maxRolls": 1,
+      "minRolls": 1,
+      "output": {
+        "item": "fruitsdelight:cranberry"
+      }
+    },
+    {
+      "chance": 0.05,
+      "maxRolls": 1,
+      "minRolls": 1,
+      "output": {
+        "item": "fruitsdelight:cranberry"
+      }
+    }
+  ],
+  "growthTicks": 1200,
+  "lightLevel": 12,
+  "seed": {
+    "item": "fruitsdelight:cranberry"
+  }
+}

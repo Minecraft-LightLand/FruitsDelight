@@ -16,11 +16,13 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.ForgeHooks;
 
 import java.util.Locale;
 
@@ -74,8 +76,10 @@ public class PassableLeavesBlock extends LeavesBlock {
 		if (!decaying(state)) {
 			State st = state.getValue(STATE);
 			if (st == State.FLOWERS) {
-				if (random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get()) {
+				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
+				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
 					level.setBlockAndUpdate(pos, state.setValue(STATE, State.FRUITS));
+					ForgeHooks.onCropsGrowPost(level, pos, state);
 					return;
 				}
 			}

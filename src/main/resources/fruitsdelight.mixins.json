@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "fruitsdelight.refmap.json",
   "mixins": [
+	"BoatMixin",
 	"LivingEntityMixin",
 	"PlayerMixin"
   ],

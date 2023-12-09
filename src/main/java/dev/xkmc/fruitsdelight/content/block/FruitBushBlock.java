@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.block;
 
+import dev.xkmc.fruitsdelight.init.food.FDBushType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -50,13 +51,17 @@ public class FruitBushBlock extends BaseBushBlock {
 			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D)
 	);
 
-	private final Supplier<Item> item;
-	private final boolean hasIntermediate;
+	private static final VoxelShape SAPLING_SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
+	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-	public FruitBushBlock(BlockBehaviour.Properties properties, Supplier<Item> item, boolean hasIntermediate) {
+
+	private final Supplier<Item> item;
+	private final FDBushType type;
+
+	public FruitBushBlock(BlockBehaviour.Properties properties, Supplier<Item> item, FDBushType type) {
 		super(properties);
 		this.item = item;
-		this.hasIntermediate = hasIntermediate;
+		this.type = type;
 		registerDefaultState(defaultBlockState().setValue(AGE, 2));
 	}
 
@@ -82,15 +87,17 @@ public class FruitBushBlock extends BaseBushBlock {
 	@Deprecated
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
 		int age = state.getValue(AGE);
-		if (hasIntermediate) {
+		if (type == FDBushType.TALL) {
 			return age == 0 ? TALL_SMALL : age == 1 ? TALL_MID : TALL_SHAPE;
+		} else if (type == FDBushType.CROSS) {
+			return age <= 1 ? SAPLING_SHAPE : age <= 3 ? MID_GROWTH_SHAPE : Shapes.block();
 		}
 		return age <= 1 ? SMALL : SHAPE;
 	}
 
 	@Override
 	public boolean collisionExtendsVertically(BlockState state, BlockGetter level, BlockPos pos, Entity collidingEntity) {
-		return hasIntermediate && state.getValue(AGE) >= 2;
+		return type == FDBushType.TALL && state.getValue(AGE) >= 2;
 	}
 
 }

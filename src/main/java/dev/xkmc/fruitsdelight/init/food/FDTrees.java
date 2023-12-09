@@ -19,8 +19,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -28,15 +26,9 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -55,17 +47,16 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public enum FDTrees implements PlantDataEntry<FDTrees> {
-	PEAR(() -> Blocks.BIRCH_LOG, 5, 3, 0.3f, false),
-	HAWBERRY(() -> Blocks.SPRUCE_LOG, 5, 2, 0.3f, true),
-	LYCHEE(() -> Blocks.JUNGLE_LOG, 5, 2, 0.3f, true),
-	MANGO(() -> Blocks.JUNGLE_LOG, 5, 3, 0.3f, false),
-	PERSIMMON(() -> Blocks.SPRUCE_LOG, 5, 3, 0.3f, false),
-	PEACH(() -> Blocks.JUNGLE_LOG, 5, 3, 0.3f, false),
-	ORANGE(() -> Blocks.OAK_LOG, 5, 3, 0.3f, false),
-	APPLE(() -> Blocks.OAK_LOG, 5, str -> () -> Items.APPLE),
+	PEAR(() -> Blocks.BIRCH_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	HAWBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.NORMAL, 2, 0.3f, true),
+	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 2, 0.3f, true),
+	MANGO(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	PEACH(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	ORANGE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	APPLE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, str -> () -> Items.APPLE),
+	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.TALL, 3, 0.3f, false),
 	;
-
-	private static final int FLOWER = 30, WILD = 10;
 
 	private final BlockEntry<PassableLeavesBlock> leaves;
 	private final BlockEntry<SaplingBlock> sapling;
@@ -75,8 +66,12 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	public final ResourceLocation configKey, configKeyWild;
 	public final ResourceLocation placementKey;
 
-	FDTrees(Supplier<Block> log, int height, Function<String, Supplier<Item>> items) {
+	public final Supplier<Block> log;
+	public boolean genTree = false;
+
+	FDTrees(Supplier<Block> log, FDTreeType height, Function<String, Supplier<Item>> items) {
 		String name = name().toLowerCase(Locale.ROOT);
+		this.log = log;
 		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, FLOWER));
 		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, WILD));
 		this.configKey = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree");
@@ -106,11 +101,15 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		fruit = items.apply(name);
 	}
 
-	FDTrees(Supplier<Block> log, int height, int food, float sat, boolean fast) {
+	FDTrees(Supplier<Block> log, FDTreeType height, int food, float sat, boolean fast) {
 		this(log, height, name -> FruitsDelight.REGISTRATE
 				.item(name, p -> new Item(p.food(food(food, sat, fast))))
+				.transform(b->PlantDataEntry.addFruitTags(name, b))
 				.register());
+		genTree = true;
 	}
+
+
 
 	public PassableLeavesBlock getLeaves() {
 		return leaves.get();
@@ -154,17 +153,8 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		return wildPF;
 	}
 
-	private TreeConfiguration buildTreeConfig(Supplier<Block> log, int height, int flowers) {
-		return new TreeConfiguration.TreeConfigurationBuilder(
-				BlockStateProvider.simple(log.get()),
-				new StraightTrunkPlacer(height, 2, 0),
-				new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-						.add(getLeaves().defaultBlockState(), 100 - flowers)
-						.add(getLeaves().defaultBlockState().setValue(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FLOWERS), flowers)
-						.build()),
-				new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
-				new TwoLayersFeatureSize(1, 0, 1))
-				.ignoreVines().build();
+	private TreeConfiguration buildTreeConfig(Supplier<Block> log, FDTreeType height, boolean wild) {
+		return height.build(log.get(), getLeaves(), wild);
 	}
 
 	private void buildLeavesModel(DataGenContext<Block, PassableLeavesBlock> ctx, RegistrateBlockstateProvider pvd) {

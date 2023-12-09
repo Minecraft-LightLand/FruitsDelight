@@ -4,6 +4,18 @@
     "fruitsdelight:lemon_tree",
     "fruitsdelight:hamimelon",
     "fruitsdelight:hamimelon_stem",
-    "fruitsdelight:attached_hamimelon_stem"
+    "fruitsdelight:attached_hamimelon_stem",
+    "fruitsdelight:pear_crate",
+    "fruitsdelight:hawberry_crate",
+    "fruitsdelight:lychee_crate",
+    "fruitsdelight:mango_crate",
+    "fruitsdelight:persimmon_crate",
+    "fruitsdelight:peach_crate",
+    "fruitsdelight:orange_crate",
+    "fruitsdelight:mangosteen_crate",
+    "fruitsdelight:blueberry_crate",
+    "fruitsdelight:lemon_crate",
+    "fruitsdelight:cranberry_crate",
+    "fruitsdelight:pineapple_crate"
   ]
 }

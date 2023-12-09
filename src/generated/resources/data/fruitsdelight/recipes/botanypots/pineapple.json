@@ -1,0 +1,70 @@
+{
+  "type": "botanypots:crop",
+  "categories": [
+    "dirt"
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botanypots"
+    }
+  ],
+  "display": {
+    "type": "botanypots:transitional",
+    "phases": [
+      {
+        "block": "fruitsdelight:pineapple",
+        "properties": {
+          "age": 0
+        }
+      },
+      {
+        "block": "fruitsdelight:pineapple",
+        "properties": {
+          "age": 1
+        }
+      },
+      {
+        "block": "fruitsdelight:pineapple",
+        "properties": {
+          "age": 2
+        }
+      },
+      {
+        "block": "fruitsdelight:pineapple",
+        "properties": {
+          "age": 3
+        }
+      },
+      {
+        "block": "fruitsdelight:pineapple",
+        "properties": {
+          "age": 4
+        }
+      }
+    ]
+  },
+  "drops": [
+    {
+      "chance": 1.0,
+      "maxRolls": 4,
+      "minRolls": 2,
+      "output": {
+        "item": "fruitsdelight:pineapple_slice"
+      }
+    },
+    {
+      "chance": 0.1,
+      "maxRolls": 1,
+      "minRolls": 1,
+      "output": {
+        "item": "fruitsdelight:pineapple"
+      }
+    }
+  ],
+  "growthTicks": 1200,
+  "lightLevel": 12,
+  "seed": {
+    "item": "fruitsdelight:pineapple_sapling"
+  }
+}

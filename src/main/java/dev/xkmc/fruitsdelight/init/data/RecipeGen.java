@@ -2,10 +2,7 @@ package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.food.FDBushes;
-import dev.xkmc.fruitsdelight.init.food.FDFood;
-import dev.xkmc.fruitsdelight.init.food.FDPineapple;
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.fruitsdelight.init.food.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.l2library.base.ingredients.PotionIngredient;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
@@ -14,6 +11,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -30,6 +28,7 @@ public class RecipeGen {
 
 	public static void genRecipes(RegistrateRecipeProvider pvd) {
 		PlantDataEntry.gen(pvd, PlantDataEntry::genRecipe);
+		FDCrates.genRecipes(pvd);
 		{
 			{
 				jelly(pvd, FDFood.APPLE_JELLY, 2);
@@ -57,6 +56,7 @@ public class RecipeGen {
 				juice(pvd, FDFood.HAWBERRY_TEA, 4, true, true);
 				juice(pvd, FDFood.MANGO_TEA, 2, true, true);
 				juice(pvd, FDFood.PEACH_TEA, 2, true, true);
+				juice(pvd, FDFood.MANGOSTEEN_TEA, 2, true, true);
 			}
 
 			{
@@ -129,7 +129,14 @@ public class RecipeGen {
 						.define('B', FDFood.DRIED_PERSIMMON.item.get())
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(FDFood.LEMON_COOKIE.item.get(), 8)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.CRANBERRY_COOKIE.item, 8)::unlockedBy,
+						FDFood.CRANBERRY_COOKIE.getFruit())
+						.pattern("ABA")
+						.define('A', Items.WHEAT)
+						.define('B', FDFood.CRANBERRY_COOKIE.getFruit())
+						.save(pvd);
+
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.LEMON_COOKIE.item, 8)::unlockedBy,
 						FDFood.LEMON_COOKIE.getFruit())
 						.pattern(" C ").pattern("ABA")
 						.define('C', ForgeTags.MILK_BOTTLE)
@@ -205,7 +212,15 @@ public class RecipeGen {
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_CHICKEN.item.get(), 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item, 2, 200, 0.1f)
+						.addIngredient(FDFood.CRANBERRY_MUFFIN.getFruit(), 2)
+						.addIngredient(ModItems.WHEAT_DOUGH.get())
+						.addIngredient(ForgeTags.MILK_BOTTLE)
+						.addIngredient(Tags.Items.EGGS)
+						.addIngredient(Items.SUGAR)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_CHICKEN.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(ForgeTags.RAW_CHICKEN)
 						.addIngredient(FDFood.ORANGE_SLICE.item.get(), 4)
 						.addIngredient(Items.SUGAR)
@@ -222,7 +237,13 @@ public class RecipeGen {
 						.addIngredient(FDTrees.PEAR.getFruit(), 2)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHICKEN.item.get(), 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGOSTEEN_CAKE.item, 1, 200, 0.1f, Items.BOWL)
+						.addIngredient(Items.WHEAT, 2)
+						.addIngredient(Items.SUGAR, 2)
+						.addIngredient(FDTrees.MANGOSTEEN.getFruit(), 2)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHICKEN.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(ForgeTags.RAW_CHICKEN)
 						.addIngredient(FDTrees.LYCHEE.getFruit(), 4)
 						.addIngredient(ForgeTags.SALAD_INGREDIENTS_CABBAGE)
@@ -252,6 +273,7 @@ public class RecipeGen {
 			var e = CookingPotRecipeBuilder.cookingPotRecipe(juice.item.get(), 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			if (tea) {
 				e.addIngredient(Items.SUGAR);
+				e.addIngredient(ItemTags.LEAVES);
 			}
 			e.addIngredient(juice.getFruit(), count);
 			e.build(pvd);

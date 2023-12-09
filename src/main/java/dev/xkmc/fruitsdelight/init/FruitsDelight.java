@@ -1,12 +1,17 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
+import com.tterrag.registrate.providers.ProviderType;
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.base.effects.EffectSyncEvents;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
+import dev.xkmc.l2library.init.events.EffectSyncEvents;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -32,6 +37,7 @@ public class FruitsDelight {
 		FDBushes.register();
 		FDMelons.register();
 		FDPineapple.register();
+		FDCrates.register();
 		FDBlocks.register();
 		FDItems.register();
 		FDEffects.register();
@@ -39,6 +45,7 @@ public class FruitsDelight {
 		FDMiscs.register();
 		FDModConfig.init();
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::genLang);
 	}
@@ -56,6 +63,10 @@ public class FruitsDelight {
 
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
+		var output = event.getGenerator().getPackOutput();
+		var reg = new FDDatapackRegistriesGen(output, event.getLookupProvider());
+		event.getGenerator().addProvider(event.includeServer(), reg);
+		event.getGenerator().addProvider(event.includeServer(), new BotanyGen(event.getGenerator()));
 	}
 
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=flowers": {
+      "model": "fruitsdelight:block/mangosteen_flowers"
+    },
+    "type=fruits": {
+      "model": "fruitsdelight:block/mangosteen_fruits"
+    },
+    "type=leaves": {
+      "model": "fruitsdelight:block/mangosteen_leaves"
+    }
+  }
+}
