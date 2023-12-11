@@ -25,7 +25,7 @@ public class JellyCraftShapedRecipe extends AbstractShapedRecipe<JellyCraftShape
 		for (int i = 0; i < cont.getContainerSize(); i++) {
 			ItemStack input = cont.getItem(i);
 			if (!input.isEmpty() && input.getItem() instanceof FDFoodItem item && item.food != null && input.is(TagGen.JELLY)) {
-				list.add(StringTag.valueOf(item.food.fruit.name()));
+				list.add(StringTag.valueOf(item.food.fruit().name()));
 			}
 		}
 		stack.getOrCreateTag().put(FDFoodItem.ROOT, list);

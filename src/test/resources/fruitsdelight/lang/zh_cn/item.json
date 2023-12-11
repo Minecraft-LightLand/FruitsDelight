@@ -61,7 +61,8 @@
 	"lemon_tree": "柠檬树",
 	"pineapple": "菠萝",
 	"wild_pineapple": "野生菠萝",
-	"pineapple_fried_rice": "菠萝饭"
+	"pineapple_fried_rice": "菠萝饭",
+	"lemonade_cauldron": "淡柠檬水锅"
   },
   "-cartesian": {
 	"tree": {
@@ -121,6 +122,38 @@
 		},
 		{
 		  "jelly": "果酱"
+		}
+	  ]
+	},
+	"cauldron": {
+	  "path": "block.fruitsdelight",
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "apple": "苹果",
+		  "blueberry": "蓝莓",
+		  "glowberry": "发光浆果",
+		  "hamimelon": "哈密瓜",
+		  "sweetberry": "浆果",
+		  "pineapple": "菠萝",
+		  "lemon": "柠檬",
+		  "melon": "西瓜",
+		  "mangosteen": "山竹",
+		  "cranberry": "蔓越莓"
+		},
+		{
+		  "*": "水",
+		  "jelly": "果酱",
+		  "jello": "果冻"
+		},
+		{
+		  "cauldron": "锅"
 		}
 	  ]
 	},

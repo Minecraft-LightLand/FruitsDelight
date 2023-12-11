@@ -44,15 +44,15 @@ public enum FoodType {
 		this.tags = tags;
 	}
 
-	public FDFoodItem build(Item.Properties p, FruitType fruit, EffectEntry[] effs, FDFood type) {
+	public FDFoodItem build(Item.Properties p, IFDFood type) {
 		var val = new FoodProperties.Builder();
 		val.nutrition(food).saturationMod(sat);
 		if (fast) val.fast();
 		if (effectLevel > 0)
-			for (var e : fruit.eff) {
+			for (var e : type.fruit().eff) {
 				val.effect(() -> e.getEffect(effectLevel), e.getChance(effectLevel));
 			}
-		for (var e : effs) {
+		for (var e : type.getEffects()) {
 			val.effect(e::getEffect, e.chance());
 		}
 		return cls.factory.apply(p.food(val.build()), type);

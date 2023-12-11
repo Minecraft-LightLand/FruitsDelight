@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "fruitsdelight:cranberry"
+    },
+    {
+      "item": "fruitsdelight:cranberry"
+    },
+    {
+      "item": "fruitsdelight:cranberry"
+    },
+    {
+      "item": "fruitsdelight:cranberry"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:lemon_slice"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:cranberry_jelly"
+  }
+}
