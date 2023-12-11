@@ -1,5 +1,9 @@
 package dev.xkmc.fruitsdelight.init.food;
 
+import dev.xkmc.fruitsdelight.init.plants.FDBushes;
+import dev.xkmc.fruitsdelight.init.plants.FDMelons;
+import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
+import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.world.effect.MobEffects;

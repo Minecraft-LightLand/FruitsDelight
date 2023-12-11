@@ -1,10 +1,10 @@
 package dev.xkmc.fruitsdelight.compat.botanypot;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.food.FDBushes;
-import dev.xkmc.fruitsdelight.init.food.FDMelons;
-import dev.xkmc.fruitsdelight.init.food.FDPineapple;
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.FDBushes;
+import dev.xkmc.fruitsdelight.init.plants.FDMelons;
+import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
+import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.l2library.serial.config.RecordDataProvider;
 import net.minecraft.data.DataGenerator;
 

@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.food;
+package dev.xkmc.fruitsdelight.init.plants;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
@@ -10,7 +10,6 @@ import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;

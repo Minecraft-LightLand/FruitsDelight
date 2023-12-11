@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.food;
+package dev.xkmc.fruitsdelight.init.plants;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
@@ -12,7 +12,6 @@ import dev.xkmc.fruitsdelight.content.block.BushFruitItem;
 import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.Registries;

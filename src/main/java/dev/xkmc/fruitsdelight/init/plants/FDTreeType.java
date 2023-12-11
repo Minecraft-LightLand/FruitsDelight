@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.food;
+package dev.xkmc.fruitsdelight.init.plants;
 
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import net.minecraft.util.random.SimpleWeightedRandomList;

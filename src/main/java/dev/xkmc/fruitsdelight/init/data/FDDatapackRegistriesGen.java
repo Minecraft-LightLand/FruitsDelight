@@ -1,10 +1,7 @@
 package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.food.FDBushes;
-import dev.xkmc.fruitsdelight.init.food.FDMelons;
-import dev.xkmc.fruitsdelight.init.food.FDPineapple;
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
