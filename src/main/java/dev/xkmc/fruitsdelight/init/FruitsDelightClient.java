@@ -1,6 +1,6 @@
 package dev.xkmc.fruitsdelight.init;
 
-import dev.xkmc.fruitsdelight.init.food.FDMelons;
+import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

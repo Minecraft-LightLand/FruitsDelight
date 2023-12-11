@@ -1,4 +1,4 @@
-package dev.xkmc.fruitsdelight.init.food;
+package dev.xkmc.fruitsdelight.init.plants;
 
 public enum FDBushType {
 	CROSS,

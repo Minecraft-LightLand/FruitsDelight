@@ -1,6 +1,6 @@
 package dev.xkmc.fruitsdelight.content.block;
 
-import dev.xkmc.fruitsdelight.init.food.FDBushType;
+import dev.xkmc.fruitsdelight.init.plants.FDBushType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

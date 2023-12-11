@@ -2,7 +2,13 @@ package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.food.*;
+import dev.xkmc.fruitsdelight.init.food.FDCrates;
+import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.food.FruitType;
+import dev.xkmc.fruitsdelight.init.plants.FDBushes;
+import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
+import dev.xkmc.fruitsdelight.init.plants.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.l2library.base.ingredients.PotionIngredient;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
