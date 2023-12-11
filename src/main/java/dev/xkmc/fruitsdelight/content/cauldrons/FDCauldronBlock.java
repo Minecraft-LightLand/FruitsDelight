@@ -94,8 +94,7 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 					}
 					if (!act.result().isEmpty()) {
 						Block.popResource(level, pos, act.result().getItem().getDefaultInstance());
-						if (act.sound() != null)
-							level.playSound(null, entity, act.sound(), SoundSource.BLOCKS, 1.0F, 1.0F);
+						level.playSound(null, entity, act.sound(), SoundSource.BLOCKS, 1.0F, 1.0F);
 					}
 					if (!remain.isEmpty()) {
 						Block.popResource(level, pos, remain);

@@ -11,13 +11,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.function.Predicate;
 
 public record FDCauldronInteraction(SimpleInteraction action, ItemStack result,
-									@Nullable SoundEvent sound, Predicate<ItemStack> pred,
+									SoundEvent sound, Predicate<ItemStack> pred,
 									boolean requiresHeat)
 		implements CauldronInteraction {
 
@@ -47,8 +46,7 @@ public record FDCauldronInteraction(SimpleInteraction action, ItemStack result,
 					stack.shrink(1);
 				if (!result.isEmpty()) {
 					player.getInventory().placeItemBackInInventory(result.copy());
-					if (sound != null)
-						level.playSound(player, player, sound, SoundSource.BLOCKS, 1.0F, 1.0F);
+					level.playSound(player, player, sound, SoundSource.BLOCKS, 1.0F, 1.0F);
 				}
 				if (!remain.isEmpty()) {
 					player.getInventory().placeItemBackInInventory(remain);
