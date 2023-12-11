@@ -29,7 +29,7 @@ public class FruitsDelight {
 
 	public static final RegistryEntry<CreativeModeTab> TAB =
 			REGISTRATE.buildModCreativeTab("fruits_delight", "Fruits Delight",
-					e -> e.icon(() -> FDTrees.PEAR.getFruit().getDefaultInstance()));
+					e -> e.icon(() -> FDTrees.LYCHEE.getFruit().getDefaultInstance()));
 
 	public FruitsDelight() {
 		FDTrees.register();

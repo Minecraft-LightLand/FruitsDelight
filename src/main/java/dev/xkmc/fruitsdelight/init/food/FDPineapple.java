@@ -177,7 +177,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	@Override
 	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
 		PlacementUtils.register(ctx, placementKey, ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
-				RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+				RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	}
 
 	@Override
