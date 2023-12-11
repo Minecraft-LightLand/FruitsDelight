@@ -5,10 +5,12 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import dev.xkmc.fruitsdelight.content.cauldrons.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -41,7 +43,13 @@ public class FDCauldrons {
 		}
 		FAKE_CAULDRON = FruitsDelight.REGISTRATE.item("dummy_cauldron", Item::new)
 				.lang("Water Cauldron")
-				.model((ctx, pvd) -> pvd.withExistingParent(ctx.getName(), "block/water_cauldron_full"))
+				.model((ctx, pvd) -> pvd.withExistingParent(ctx.getName(), "block/water_cauldron_full")
+						.guiLight(BlockModel.GuiLight.SIDE)
+						.transforms().transform(ItemDisplayContext.GUI)
+						.rotation(30, 225, 0)
+						.scale(0.625f)
+						.end().end())
+				.color(() -> () -> CauldronRenderHandler::getItemColor)
 				.removeTab(FruitsDelight.TAB.getKey())
 				.register();
 	}
@@ -106,8 +114,10 @@ public class FDCauldrons {
 		return FruitsDelight.REGISTRATE.block(id, p -> factory.apply(BlockBehaviour.Properties.copy(Blocks.WATER_CAULDRON)))
 				.blockstate((ctx, pvd) -> ctx.get().build(ctx, pvd))
 				.loot((pvd, block) -> pvd.dropOther(block, Items.CAULDRON))
-				.color(() -> () -> CauldronRenderHandler::getColor)
-				.item().removeTab(FruitsDelight.TAB.getKey()).build()
+				.color(() -> () -> CauldronRenderHandler::getBlockColor)
+				.item().removeTab(FruitsDelight.TAB.getKey())
+				.color(() -> () -> CauldronRenderHandler::getItemColor)
+				.build()
 				.tag(BlockTags.CAULDRONS).register();
 	}
 

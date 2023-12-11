@@ -1,5 +1,20 @@
 {
   "parent": "minecraft:block/template_cauldron_level2",
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    }
+  },
+  "gui_light": "side",
   "textures": {
     "bottom": "minecraft:block/cauldron_bottom",
     "content": "minecraft:block/water_still",

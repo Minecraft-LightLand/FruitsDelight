@@ -186,5 +186,8 @@
   "effect.fruitsdelight.sliding": "滑行",
   "effect.fruitsdelight.sliding.description": "乘船时，减少船和方块的摩擦",
   "effect.fruitsdelight.shrinking": "灵巧",
-  "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间"
+  "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间",
+  "fruitsdelight.jei.cauldron": "Click Cauldron",
+  "fruitsdelight.jei.cauldron_heat": "Click Heated Cauldron",
+  "item.fruitsdelight.dummy_cauldron": "Water Cauldron"
 }

@@ -3,6 +3,8 @@ package dev.xkmc.fruitsdelight.content.cauldrons;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
+import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -37,6 +39,11 @@ public class JellyCauldronBlock extends FDCauldronBlock {
 					.texture("particle", "minecraft:block/cauldron_side")
 					.texture("side", "minecraft:block/cauldron_side")
 					.texture("top", "minecraft:block/cauldron_top")
+					.guiLight(BlockModel.GuiLight.SIDE)
+					.transforms().transform(ItemDisplayContext.GUI)
+					.rotation(30, 225, 0)
+					.scale(0.625f)
+					.end().end()
 					.texture("content", "minecraft:block/water_still")).build();
 		});
 	}
