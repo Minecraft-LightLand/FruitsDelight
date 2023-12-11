@@ -176,7 +176,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	@Override
 	public void registerPlacements() {
 		plantPF = PlacementUtils.register(placementKey.toString(), plantCF,
-				RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+				RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	}
 
 	@Override
