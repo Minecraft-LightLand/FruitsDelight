@@ -62,7 +62,8 @@
 	"pineapple": "菠萝",
 	"wild_pineapple": "野生菠萝",
 	"pineapple_fried_rice": "菠萝饭",
-	"lemonade_cauldron": "淡柠檬水锅"
+	"lemonade_cauldron": "淡柠檬水锅",
+	"dummy_cauldron": "装满水的炼药锅"
   },
   "-cartesian": {
 	"tree": {

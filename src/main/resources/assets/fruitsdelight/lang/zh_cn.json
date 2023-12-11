@@ -60,6 +60,7 @@
   "block.fruitsdelight.wild_pineapple": "野生菠萝",
   "block.fruitsdelight.pineapple_fried_rice": "菠萝饭",
   "block.fruitsdelight.lemonade_cauldron": "淡柠檬水锅",
+  "block.fruitsdelight.dummy_cauldron": "装满水的炼药锅",
   "block.fruitsdelight.hawberry_leaves": "山楂树叶",
   "block.fruitsdelight.hawberry_sapling": "山楂树苗",
   "block.fruitsdelight.lychee_leaves": "荔枝树叶",
@@ -165,6 +166,8 @@
   "fruitsdelight.tooltip.chance": "%2$s%%概率获得%1$s",
   "fruitsdelight.tooltip.jelly_content": "含有：",
   "fruitsdelight.tooltip.allow_jelly": "获得做为原料的果酱的效果",
+  "fruitsdelight.jei.cauldron": "点击炼药锅",
+  "fruitsdelight.jei.cauldron_heat": "点击加热的炼药锅",
   "effect.fruitsdelight.appetizing": "开胃",
   "effect.fruitsdelight.appetizing.description": "饱食度满时仍然可以吃东西",
   "effect.fruitsdelight.astringent": "涩味",
@@ -186,8 +189,5 @@
   "effect.fruitsdelight.sliding": "滑行",
   "effect.fruitsdelight.sliding.description": "乘船时，减少船和方块的摩擦",
   "effect.fruitsdelight.shrinking": "灵巧",
-  "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间",
-  "fruitsdelight.jei.cauldron": "Click Cauldron",
-  "fruitsdelight.jei.cauldron_heat": "Click Heated Cauldron",
-  "item.fruitsdelight.dummy_cauldron": "Water Cauldron"
+  "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间"
 }

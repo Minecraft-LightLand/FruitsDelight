@@ -2,5 +2,7 @@
   "itemGroup.fruitsdelight.fruits_delight": "果园乐事",
   "fruitsdelight.tooltip.chance": "%2$s%%概率获得%1$s",
   "fruitsdelight.tooltip.jelly_content": "含有：",
-  "fruitsdelight.tooltip.allow_jelly": "获得做为原料的果酱的效果"
+  "fruitsdelight.tooltip.allow_jelly": "获得做为原料的果酱的效果",
+  "fruitsdelight.jei.cauldron": "点击炼药锅",
+  "fruitsdelight.jei.cauldron_heat": "点击加热的炼药锅"
 }
