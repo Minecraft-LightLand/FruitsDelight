@@ -1,7 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
-import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
@@ -68,13 +67,13 @@ public enum FoodType {
 		}
 		if (overlay > 0) {
 			return b.model((ctx, pvd) -> {
-						ResourceLocation[] res = new ResourceLocation[overlay + 1];
-						res[0] = pvd.modLoc("item/" + ctx.getName());
-						for (int i = 1; i <= overlay; i++) {
-							res[i] = pvd.modLoc("item/" + ctx.getName() + "_filler_" + (i - 1));
-						}
-						pvd.generated(ctx, res);
-					}).color(() -> () -> FDFoodItem::color);
+				ResourceLocation[] res = new ResourceLocation[overlay + 1];
+				res[0] = pvd.modLoc("item/" + ctx.getName());
+				for (int i = 1; i <= overlay; i++) {
+					res[i] = pvd.modLoc("item/" + ctx.getName() + "_filler_" + (i - 1));
+				}
+				pvd.generated(ctx, res);
+			}).color(() -> () -> FDFoodItem::color);
 		}
 		return b.defaultModel();
 	}
