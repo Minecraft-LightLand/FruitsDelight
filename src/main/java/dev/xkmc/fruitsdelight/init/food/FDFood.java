@@ -15,25 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
-public enum FDFood {
-	APPLE_JELLY(FruitType.APPLE, FoodType.JELLY),
-	BLUEBERRY_JELLY(FruitType.BLUEBERRY, FoodType.JELLY),
-	GLOWBERRY_JELLY(FruitType.GLOWBERRY, FoodType.JELLY),
-	HAMIMELON_JELLY(FruitType.HAMIMELON, FoodType.JELLY),
-	MELON_JELLY(FruitType.MELON, FoodType.JELLY),
-	HAWBERRY_JELLY(FruitType.HAWBERRY, FoodType.JELLY),
-	LYCHEE_JELLY(FruitType.LYCHEE, FoodType.JELLY),
-	MANGO_JELLY(FruitType.MANGO, FoodType.JELLY),
-	ORANGE_JELLY(FruitType.ORANGE, FoodType.JELLY),
-	PEACH_JELLY(FruitType.PEACH, FoodType.JELLY),
-	PEAR_JELLY(FruitType.PEAR, FoodType.JELLY),
-	PERSIMMON_JELLY(FruitType.PERSIMMON, FoodType.JELLY),
-	PINEAPPLE_JELLY(FruitType.PINEAPPLE, FoodType.JELLY),
-	SWEETBERRY_JELLY(FruitType.SWEETBERRY, FoodType.JELLY),
-	LEMON_JELLY(FruitType.LEMON, FoodType.JELLY),
-	CRANBERRY_JELLY(FruitType.CRANBERRY, FoodType.JELLY),
-	MANGOSTEEN_JELLY(FruitType.MANGOSTEEN, FoodType.JELLY),
-
+public enum FDFood implements IFDFood {
 	HAMIMELON_JUICE(FruitType.HAMIMELON, FoodType.JUICE),
 	HAWBERRY_TEA(FruitType.HAWBERRY, FoodType.JUICE),
 	ORANGE_JUICE(FruitType.ORANGE, FoodType.JUICE),
@@ -87,8 +69,9 @@ public enum FDFood {
 		this.fruit = fruit;
 		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);
-		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, fruit, effs, this))
-				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name)).tag(getTags(allowJelly, food.tags))
+		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this))
+				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name))
+				.tag(getTags(allowJelly, food.tags))
 				.register();
 		this.effs = effs;
 	}
@@ -114,5 +97,24 @@ public enum FDFood {
 
 	public Item getFruit() {
 		return fruit.fruit.get();
+	}
+
+	public Item get() {
+		return item.get();
+	}
+
+	@Override
+	public FruitType fruit() {
+		return fruit;
+	}
+
+	@Override
+	public FoodType getType() {
+		return type;
+	}
+
+	@Override
+	public EffectEntry[] getEffects() {
+		return effs;
 	}
 }

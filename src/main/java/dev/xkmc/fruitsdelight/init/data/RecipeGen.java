@@ -31,22 +31,9 @@ public class RecipeGen {
 		PlantDataEntry.gen(pvd, PlantDataEntry::genRecipe);
 		FDCrates.genRecipes(pvd);
 		{
-			{
-				jelly(pvd, FDFood.APPLE_JELLY, 2);
-				jelly(pvd, FDFood.BLUEBERRY_JELLY, 4);
-				jelly(pvd, FDFood.GLOWBERRY_JELLY, 4);
-				jelly(pvd, FDFood.MANGO_JELLY, 2);
-				jelly(pvd, FDFood.HAMIMELON_JELLY, 4);
-				jelly(pvd, FDFood.MELON_JELLY, 4);
-				jelly(pvd, FDFood.HAWBERRY_JELLY, 4);
-				jelly(pvd, FDFood.LYCHEE_JELLY, 4);
-				jelly(pvd, FDFood.ORANGE_JELLY, 2);
-				jelly(pvd, FDFood.PEACH_JELLY, 2);
-				jelly(pvd, FDFood.PEAR_JELLY, 2);
-				jelly(pvd, FDFood.PERSIMMON_JELLY, 2);
-				jelly(pvd, FDFood.PINEAPPLE_JELLY, 4);
-				jelly(pvd, FDFood.SWEETBERRY_JELLY, 4);
-				jelly(pvd, FDFood.LEMON_JELLY, 2);
+
+			for (var e : FruitType.values()) {
+				jelly(pvd, e);
 			}
 
 			{
@@ -184,7 +171,7 @@ public class RecipeGen {
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BELLINI_COCKTAIL.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
-						.addIngredient(FDFood.PEACH_JELLY.getFruit(), 2)
+						.addIngredient(FruitType.PEACH.fruit.get(), 2)
 						.addIngredient(Items.SUGAR)
 						.addIngredient(Items.ICE)
 						.build(pvd);
@@ -261,9 +248,9 @@ public class RecipeGen {
 
 	}
 
-	private static void jelly(RegistrateRecipeProvider pvd, FDFood jelly, int count) {
-		CookingPotRecipeBuilder.cookingPotRecipe(jelly.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
-				.addIngredient(jelly.getFruit(), count)
+	private static void jelly(RegistrateRecipeProvider pvd, FruitType jelly) {
+		CookingPotRecipeBuilder.cookingPotRecipe(jelly.getJelly(), 1, 200, 0.1f, Items.GLASS_BOTTLE)
+				.addIngredient(jelly.fruit.get(), jelly.jellyCost)
 				.addIngredient(Items.SUGAR)
 				.addIngredient(FDFood.LEMON_SLICE.item.get())
 				.build(pvd);

@@ -3,10 +3,9 @@ package dev.xkmc.fruitsdelight.content.item;
 import com.tterrag.registrate.util.CreativeModeTabModifier;
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
-import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.l2serial.util.Wrappers;
+import dev.xkmc.fruitsdelight.init.food.IFDFood;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -126,7 +125,7 @@ public class FDFoodItem extends Item {
 			if (old.isMeat()) builder.meat();
 			if (food == null) return null;
 			Map<FruitType, Integer> map = new LinkedHashMap<>();
-			map.put(food.fruit, food.type.effectLevel);
+			map.put(food.fruit(), food.getType().effectLevel);
 			int lv = FoodType.JELLY.effectLevel;
 			for (var type : list) {
 				map.compute(type, (k, v) -> v == null ? lv : v + lv);
@@ -136,7 +135,7 @@ public class FDFoodItem extends Item {
 					builder.effect(() -> e.getEffect(ent.getValue()), e.getChance(ent.getValue()));
 				}
 			}
-			for (var e : food.effs) {
+			for (var e : food.getEffects()) {
 				builder.effect(e::getEffect, e.chance());
 			}
 			return builder.build();
@@ -145,17 +144,17 @@ public class FDFoodItem extends Item {
 	}
 
 	@Nullable
-	public final FDFood food;
+	public final IFDFood food;
 
 	private final UseAnim anim;
 
-	public FDFoodItem(Properties props, @Nullable FDFood food, UseAnim anim) {
+	public FDFoodItem(Properties props, @Nullable IFDFood food, UseAnim anim) {
 		super(props);
 		this.food = food;
 		this.anim = anim;
 	}
 
-	public FDFoodItem(Properties props, @Nullable FDFood food) {
+	public FDFoodItem(Properties props, @Nullable IFDFood food) {
 		this(props, food, UseAnim.EAT);
 	}
 
@@ -166,7 +165,7 @@ public class FDFoodItem extends Item {
 
 	@Override
 	public SoundEvent getDrinkingSound() {
-		if (food != null && food.type == FoodType.JELLY)
+		if (food != null && food.getType() == FoodType.JELLY)
 			return SoundEvents.HONEY_DRINK;
 		return SoundEvents.GENERIC_DRINK;
 	}
@@ -177,9 +176,7 @@ public class FDFoodItem extends Item {
 		if (!types.isEmpty()) {
 			list.add(LangData.JELLY_CONTENT.get());
 			for (var type : types) {
-				FDFood jelly = Wrappers.get(() -> FDFood.valueOf(type.name() + "_JELLY"));
-				if (jelly == null) continue;
-				list.add(jelly.item.get().getDescription().copy().withStyle(ChatFormatting.GRAY));
+				list.add(type.getJelly().getDescription().copy().withStyle(ChatFormatting.GRAY));
 			}
 		} else if (stack.is(TagGen.ALLOW_JELLY)) {
 			list.add(LangData.ALLOW_JELLY.get());

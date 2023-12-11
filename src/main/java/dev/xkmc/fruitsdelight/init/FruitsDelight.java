@@ -41,6 +41,7 @@ public class FruitsDelight {
 		FDItems.register();
 		FDEffects.register();
 		FDFood.register();
+		FDCauldrons.register();
 		FDMiscs.register();
 		FDModConfig.init();
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
@@ -53,6 +54,7 @@ public class FruitsDelight {
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			PlantDataEntry.run(PlantDataEntry::registerComposter);
+			FDCauldrons.init();
 
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
