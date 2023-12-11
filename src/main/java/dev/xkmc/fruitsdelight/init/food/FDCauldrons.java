@@ -105,6 +105,12 @@ public class FDCauldrons {
 							type.getJelly().getDefaultInstance(), SoundEvents.BOTTLE_FILL),
 					Items.CAULDRON);
 
+			CauldronRecipe.empty(jello, Items.BOWL, 3, FDCauldronInteraction.of(state ->
+									state.getValue(jellyProp) == 1 ? Blocks.CAULDRON.defaultBlockState() :
+											state.setValue(jellyProp, state.getValue(jellyProp) - 1),
+							type.getJello().getDefaultInstance(), SoundEvents.BOTTLE_FILL),
+					Items.CAULDRON);
+
 			DispenserBlock.registerBehavior(type.getJelly(), new CauldronDispenseBehavior());
 		}
 		DispenserBlock.registerBehavior(FDFood.LEMON_SLICE.item.get(), new CauldronDispenseBehavior());

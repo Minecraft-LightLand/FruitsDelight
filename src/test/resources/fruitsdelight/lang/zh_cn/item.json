@@ -53,7 +53,8 @@
 	"cranberry_cookie": "蔓越莓饼干",
 	"cranberry_muffin": "蔓越莓玛芬",
 	"mangosteen_cake": "山竹糕",
-	"mangosteen_tea": "山竹清茶"
+	"mangosteen_tea": "山竹清茶",
+	"dummy_cauldron": "装满水的炼药锅"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
@@ -62,8 +63,7 @@
 	"pineapple": "菠萝",
 	"wild_pineapple": "野生菠萝",
 	"pineapple_fried_rice": "菠萝饭",
-	"lemonade_cauldron": "淡柠檬水锅",
-	"dummy_cauldron": "装满水的炼药锅"
+	"lemonade_cauldron": "淡柠檬水锅"
   },
   "-cartesian": {
 	"tree": {
@@ -122,7 +122,8 @@
 		  "cranberry": "蔓越莓"
 		},
 		{
-		  "jelly": "果酱"
+		  "jelly": "果酱",
+		  "jello": "果冻"
 		}
 	  ]
 	},

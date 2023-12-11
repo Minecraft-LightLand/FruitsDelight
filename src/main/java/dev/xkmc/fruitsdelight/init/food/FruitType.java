@@ -61,4 +61,8 @@ public enum FruitType {
 	public Item getJelly() {
 		return FDItems.JELLY[ordinal()].get();
 	}
+
+	public Item getJello() {
+		return FDItems.JELLO[ordinal()].get();
+	}
 }
