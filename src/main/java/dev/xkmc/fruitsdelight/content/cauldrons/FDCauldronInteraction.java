@@ -3,7 +3,6 @@ package dev.xkmc.fruitsdelight.content.cauldrons;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -11,15 +10,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Predicate;
 
 public record FDCauldronInteraction(SimpleInteraction action, ItemStack result,
-									SoundEvent sound, Predicate<ItemStack> pred)
+									@Nullable SoundEvent sound, Predicate<ItemStack> pred)
 		implements CauldronInteraction {
 
 	public static FDCauldronInteraction of(SimpleInteraction action) {
-		return new FDCauldronInteraction(action, ItemStack.EMPTY, SoundEvents.EMPTY, stack -> true);
+		return new FDCauldronInteraction(action, ItemStack.EMPTY, null, stack -> true);
 	}
 
 	public static FDCauldronInteraction of(SimpleInteraction action, ItemStack result, SoundEvent sound) {
@@ -39,7 +39,8 @@ public record FDCauldronInteraction(SimpleInteraction action, ItemStack result,
 				stack.shrink(1);
 				if (!result.isEmpty()) {
 					player.getInventory().placeItemBackInInventory(result.copy());
-					level.playSound(player, player, sound, SoundSource.BLOCKS, 1.0F, 1.0F);
+					if (sound != null)
+						level.playSound(player, player, sound, SoundSource.BLOCKS, 1.0F, 1.0F);
 				}
 				if (!remain.isEmpty()) {
 					player.getInventory().placeItemBackInInventory(remain);
