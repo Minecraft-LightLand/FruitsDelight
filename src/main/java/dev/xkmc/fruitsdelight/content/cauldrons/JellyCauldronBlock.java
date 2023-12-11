@@ -1,8 +1,8 @@
 package dev.xkmc.fruitsdelight.content.cauldrons;
 
-import com.tterrag.registrate.providers.DataGenContext;
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
+import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;

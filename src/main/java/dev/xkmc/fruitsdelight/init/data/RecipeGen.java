@@ -170,7 +170,7 @@ public class RecipeGen {
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BELLINI_COCKTAIL.item.get(), 1, 200, 0.1f, Items.GLASS_BOTTLE)
-						.addIngredient(FDFood.PEACH_JELLY.getFruit(), 2)
+						.addIngredient(FDFood.BELLINI_COCKTAIL.getFruit(), 2)
 						.addIngredient(Items.SUGAR)
 						.addIngredient(Items.ICE)
 						.build(pvd);

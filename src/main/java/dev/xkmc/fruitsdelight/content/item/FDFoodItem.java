@@ -2,9 +2,10 @@ package dev.xkmc.fruitsdelight.content.item;
 
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
+import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.l2library.util.code.Wrappers;
+import dev.xkmc.fruitsdelight.init.food.IFDFood;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.ListTag;
@@ -183,11 +184,11 @@ public class FDFoodItem extends Item {
 
 	@Override
 	public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> tab) {
-		if (this.allowedIn(pCategory) && food != null && food.overlay > 0) {
+		if (this.allowedIn(pCategory) && food instanceof FDFood fd && fd.overlay > 0) {
 			for (FruitType fruit : FruitType.values()) {
 				ItemStack stack = new ItemStack(this);
 				ListTag list = new ListTag();
-				for (int i = 0; i < food.overlay; i++) {
+				for (int i = 0; i < fd.overlay; i++) {
 					list.add(StringTag.valueOf(fruit.name()));
 				}
 				stack.getOrCreateTag().put(FDFoodItem.ROOT, list);

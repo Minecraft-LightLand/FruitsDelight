@@ -1,7 +1,7 @@
 package dev.xkmc.fruitsdelight.content.cauldrons;
 
-import com.tterrag.registrate.providers.DataGenContext;
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
+import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundSource;
