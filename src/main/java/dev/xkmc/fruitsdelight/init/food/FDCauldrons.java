@@ -43,12 +43,7 @@ public class FDCauldrons {
 		}
 		FAKE_CAULDRON = FruitsDelight.REGISTRATE.item("dummy_cauldron", Item::new)
 				.lang("Water Cauldron")
-				.model((ctx, pvd) -> pvd.withExistingParent(ctx.getName(), "block/water_cauldron_full")
-						.guiLight(BlockModel.GuiLight.SIDE)
-						.transforms().transform(ItemDisplayContext.GUI)
-						.rotation(30, 225, 0)
-						.scale(0.625f)
-						.end().end())
+				.model((ctx, pvd) -> CauldronRenderHandler.gui(pvd.withExistingParent(ctx.getName(), "block/water_cauldron_full")))
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
 				.removeTab(FruitsDelight.TAB.getKey())
 				.register();

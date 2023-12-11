@@ -2,7 +2,6 @@ package dev.xkmc.fruitsdelight.content.cauldrons;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
-import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -12,7 +11,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCauldronBlock;
@@ -107,18 +105,9 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 	}
 
 	public <T extends FDCauldronBlock> void build(DataGenContext<Block, T> ctx, RegistrateBlockstateProvider pvd) {
-		pvd.simpleBlock(ctx.get(), pvd.models().withExistingParent(ctx.getName(), "block/template_cauldron_full")
-				.texture("bottom", "minecraft:block/cauldron_bottom")
-				.texture("inside", "minecraft:block/cauldron_inner")
-				.texture("particle", "minecraft:block/cauldron_side")
-				.texture("side", "minecraft:block/cauldron_side")
-				.texture("top", "minecraft:block/cauldron_top")
-				.guiLight(BlockModel.GuiLight.SIDE)
-				.transforms().transform(ItemDisplayContext.GUI)
-						.rotation(30,225,0)
-						.scale(0.625f)
-				.end().end()
-				.texture("content", "minecraft:block/water_still")
+		pvd.simpleBlock(ctx.get(), CauldronRenderHandler.guiAndTexture(pvd.models()
+				.withExistingParent(ctx.getName(), "block/template_cauldron_full")
+				.texture("content", "minecraft:block/water_still"))
 		);
 	}
 

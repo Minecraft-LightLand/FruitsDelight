@@ -3,13 +3,17 @@ package dev.xkmc.fruitsdelight.content.cauldrons;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.ModelBuilder;
 import org.jetbrains.annotations.Nullable;
 
 public class CauldronRenderHandler {
@@ -44,6 +48,23 @@ public class CauldronRenderHandler {
 		BlockState block = stack.getItem() instanceof BlockItem bi ? bi.getBlock().defaultBlockState() :
 				Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3);
 		return getBlockColor(block, null, null, i);
+	}
+
+	public static <T extends ModelBuilder<T>> ModelBuilder<T> gui(T builder) {
+		return builder.guiLight(BlockModel.GuiLight.SIDE)
+				.transforms().transform(ItemDisplayContext.GUI)
+				.rotation(30, 225, 0)
+				.scale(0.625f)
+				.end().end();
+	}
+
+	public static BlockModelBuilder guiAndTexture(BlockModelBuilder builder){
+		return gui(builder)
+				.texture("bottom", "minecraft:block/cauldron_bottom")
+				.texture("inside", "minecraft:block/cauldron_inner")
+				.texture("particle", "minecraft:block/cauldron_side")
+				.texture("side", "minecraft:block/cauldron_side")
+				.texture("top", "minecraft:block/cauldron_top");
 	}
 
 }

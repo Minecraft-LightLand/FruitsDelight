@@ -26,18 +26,18 @@ public class FDItems {
 		for (int j = 0; j < fruits; j++) {
 			FruitType fruit = FruitType.values()[j];
 			String name = fruit.name().toLowerCase(Locale.ROOT);
-			{
-				FoodType food = FoodType.JELLY;
-				JELLY[j] = FruitsDelight.REGISTRATE.item(name + "_jelly", p -> food.build(p, new RecordFood(fruit, food)))
-						.transform(b -> food.model(b, 0, fruit)).lang(FDItems.toEnglishName(name) + " Jam").tag(food.tags)
-						.register();
-			}
-			{
-				FoodType food = FoodType.JELLO;
-				JELLO[j] = FruitsDelight.REGISTRATE.item(name + "_jello", p -> food.build(p, new RecordFood(fruit, food)))
-						.transform(b -> food.model(b, 0, fruit)).lang(FDItems.toEnglishName(name) + " Jello").tag(food.tags)
-						.register();
-			}
+			FoodType food = FoodType.JELLY;
+			JELLY[j] = FruitsDelight.REGISTRATE.item(name + "_jelly", p -> food.build(p, new RecordFood(fruit, food)))
+					.transform(b -> food.model(b, 0, fruit)).lang(FDItems.toEnglishName(name) + " Jam").tag(food.tags)
+					.register();
+		}
+		for (int j = 0; j < fruits; j++) {
+			FruitType fruit = FruitType.values()[j];
+			String name = fruit.name().toLowerCase(Locale.ROOT);
+			FoodType food = FoodType.JELLO;
+			JELLO[j] = FruitsDelight.REGISTRATE.item(name + "_jello", p -> food.build(p, new RecordFood(fruit, food)))
+					.transform(b -> food.model(b, 0, fruit)).lang(FDItems.toEnglishName(name) + " Jello").tag(food.tags)
+					.register();
 		}
 	}
 

@@ -17,7 +17,7 @@
   "gui_light": "side",
   "textures": {
     "bottom": "minecraft:block/cauldron_bottom",
-    "content": "minecraft:block/water_still",
+    "content": "fruitsdelight:block/jello",
     "inside": "minecraft:block/cauldron_inner",
     "particle": "minecraft:block/cauldron_side",
     "side": "minecraft:block/cauldron_side",
