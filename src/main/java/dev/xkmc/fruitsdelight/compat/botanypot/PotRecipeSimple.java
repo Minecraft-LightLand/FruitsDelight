@@ -6,7 +6,8 @@ import net.minecraft.world.level.block.Block;
 import java.util.ArrayList;
 import java.util.List;
 
-public record PotRecipeSimple(ArrayList<PotCondition> conditions, String type, PotItem seed, ArrayList<String> categories,
+public record PotRecipeSimple(ArrayList<PotCondition> conditions, String type, PotItem seed,
+							  ArrayList<String> categories,
 							  int growthTicks, PotDisplaySimple display, ArrayList<PotResult> drops) {
 
 	public static PotRecipeSimple of(Item seed, Block display, int tick, List<String> soils, PotResult... drops) {

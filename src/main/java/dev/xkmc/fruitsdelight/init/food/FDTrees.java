@@ -109,11 +109,10 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	FDTrees(Supplier<Block> log, FDTreeType height, int food, float sat, boolean fast) {
 		this(log, height, name -> FruitsDelight.REGISTRATE
 				.item(name, p -> new Item(p.food(food(food, sat, fast))))
-				.transform(b->PlantDataEntry.addFruitTags(name, b))
+				.transform(b -> PlantDataEntry.addFruitTags(name, b))
 				.register());
 		genTree = true;
 	}
-
 
 
 	public PassableLeavesBlock getLeaves() {

@@ -24,13 +24,13 @@ public class TagGen {
 
 	public static void onBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
 		pvd.addTag(PINEAPPLE_GROW).add(Blocks.SAND, Blocks.RED_SAND, Blocks.COARSE_DIRT);
-		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)){
+		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)) {
 			SeasonCompat.genBlock(pvd);
 		}
 	}
 
 	public static void onItemTagGen(RegistrateItemTagsProvider pvd) {
-		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)){
+		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)) {
 			SeasonCompat.genItem(pvd);
 		}
 	}
