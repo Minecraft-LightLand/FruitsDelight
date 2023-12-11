@@ -196,7 +196,6 @@ public class FDFoodItem extends Item {
 				stack.getOrCreateTag().put(FDFoodItem.ROOT, list);
 				tab.add(stack);
 			}
-			tab.add(new ItemStack(this));
 		} else {
 			super.fillItemCategory(pCategory, tab);
 		}

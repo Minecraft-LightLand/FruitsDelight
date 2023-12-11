@@ -170,6 +170,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
 										BlockStateProvider.simple(getWildPlant())),
 								BlockPredicate.allOf(BlockPredicate.replaceable(),
+										BlockPredicate.ONLY_IN_AIR_PREDICATE,
 										BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SAND)))));
 	}
 
