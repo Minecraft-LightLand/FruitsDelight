@@ -2,10 +2,10 @@ package dev.xkmc.fruitsdelight.compat.sereneseasons;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import dev.xkmc.fruitsdelight.init.food.FDBushes;
-import dev.xkmc.fruitsdelight.init.food.FDMelons;
-import dev.xkmc.fruitsdelight.init.food.FDPineapple;
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.FDBushes;
+import dev.xkmc.fruitsdelight.init.plants.FDMelons;
+import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
+import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateItemTagsProvider;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateTagsProvider;
 import net.minecraft.world.level.block.Block;

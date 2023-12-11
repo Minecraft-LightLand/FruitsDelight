@@ -1,8 +1,14 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
-import dev.xkmc.fruitsdelight.init.data.*;
-import dev.xkmc.fruitsdelight.init.food.*;
+import dev.xkmc.fruitsdelight.init.data.FDModConfig;
+import dev.xkmc.fruitsdelight.init.data.LangData;
+import dev.xkmc.fruitsdelight.init.data.RecipeGen;
+import dev.xkmc.fruitsdelight.init.data.TagGen;
+import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
+import dev.xkmc.fruitsdelight.init.food.FDCrates;
+import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.base.effects.EffectSyncEvents;

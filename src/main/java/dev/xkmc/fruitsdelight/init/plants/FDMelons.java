@@ -1,7 +1,6 @@
-package dev.xkmc.fruitsdelight.init.food;
+package dev.xkmc.fruitsdelight.init.plants;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;

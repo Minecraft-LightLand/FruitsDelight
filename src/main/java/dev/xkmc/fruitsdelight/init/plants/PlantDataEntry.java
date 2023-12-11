@@ -1,9 +1,5 @@
-package dev.xkmc.fruitsdelight.init.data;
+package dev.xkmc.fruitsdelight.init.plants;
 
-import dev.xkmc.fruitsdelight.init.food.FDBushes;
-import dev.xkmc.fruitsdelight.init.food.FDMelons;
-import dev.xkmc.fruitsdelight.init.food.FDPineapple;
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;

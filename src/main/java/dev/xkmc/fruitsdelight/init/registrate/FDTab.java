@@ -1,6 +1,6 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import dev.xkmc.fruitsdelight.init.food.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;

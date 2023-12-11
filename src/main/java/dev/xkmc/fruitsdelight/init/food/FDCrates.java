@@ -1,6 +1,9 @@
 package dev.xkmc.fruitsdelight.init.food;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.plants.FDBushes;
+import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
+import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import net.minecraft.tags.BlockTags;

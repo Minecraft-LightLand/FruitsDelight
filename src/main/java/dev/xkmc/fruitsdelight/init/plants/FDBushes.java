@@ -1,11 +1,10 @@
-package dev.xkmc.fruitsdelight.init.food;
+package dev.xkmc.fruitsdelight.init.plants;
 
 import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.BushFruitItem;
 import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.data.PlantDataEntry;
 import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
