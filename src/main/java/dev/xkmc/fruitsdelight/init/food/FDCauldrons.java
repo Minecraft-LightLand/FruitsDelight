@@ -56,15 +56,15 @@ public class FDCauldrons {
 			CauldronInteraction.WATER.put(type.getJelly(), FDCauldronInteraction.of(state ->
 					state.getValue(LayeredCauldronBlock.LEVEL) == 3 ?
 							fruit.defaultBlockState().setValue(fruitProp, 4) : null));
-			LEMON.get().getInteractions().put(type.fruit.get(), FDCauldronInteraction.of(state ->
+			LEMON.get().getInteractions().put(type.fruit.get(), FDCauldronInteraction.withHeat(state ->
 					fruit.defaultBlockState().setValue(fruitProp, level)));
-			fruit.getInteractions().put(type.fruit.get(), FDCauldronInteraction.of(state ->
+			fruit.getInteractions().put(type.fruit.get(), FDCauldronInteraction.withHeat(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + level))));
 			fruit.getInteractions().put(type.getJelly(), FDCauldronInteraction.of(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + 4))));
-			fruit.getInteractions().put(Items.SUGAR, FDCauldronInteraction.of(state ->
+			fruit.getInteractions().put(Items.SUGAR, FDCauldronInteraction.withHeat(state ->
 					state.getValue(fruitProp) == max ? jelly.defaultBlockState() : null));
-			jelly.getInteractions().put(Items.SLIME_BALL, FDCauldronInteraction.of(state ->
+			jelly.getInteractions().put(Items.SLIME_BALL, FDCauldronInteraction.withHeat(state ->
 					jello.defaultBlockState().setValue(jellyProp, state.getValue(jellyProp))));
 			jelly.getInteractions().put(Items.GLASS_BOTTLE, FDCauldronInteraction.of(state ->
 							state.getValue(jellyProp) == 1 ? Blocks.CAULDRON.defaultBlockState() :
