@@ -3,12 +3,12 @@ package dev.xkmc.fruitsdelight.init.food;
 import dev.xkmc.fruitsdelight.content.cauldrons.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullFunction;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -43,7 +43,7 @@ public class FDCauldrons {
 				.lang("Water Cauldron")
 				.model((ctx, pvd) -> CauldronRenderHandler.gui(pvd.withExistingParent(ctx.getName(), "block/water_cauldron_full")))
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
-				.removeTab(FruitsDelight.TAB.getKey())
+				.tab(() -> null)
 				.register();
 	}
 
@@ -114,7 +114,7 @@ public class FDCauldrons {
 				.blockstate((ctx, pvd) -> ctx.get().build(ctx, pvd))
 				.loot((pvd, block) -> pvd.dropOther(block, Items.CAULDRON))
 				.color(() -> () -> CauldronRenderHandler::getBlockColor)
-				.item().removeTab(FruitsDelight.TAB.getKey())
+				.item().tab(() -> null)
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
 				.build()
 				.tag(BlockTags.CAULDRONS).register();

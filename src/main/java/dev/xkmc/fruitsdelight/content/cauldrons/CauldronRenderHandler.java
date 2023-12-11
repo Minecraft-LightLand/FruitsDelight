@@ -4,9 +4,9 @@ import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.Blocks;
@@ -52,13 +52,13 @@ public class CauldronRenderHandler {
 
 	public static <T extends ModelBuilder<T>> ModelBuilder<T> gui(T builder) {
 		return builder.guiLight(BlockModel.GuiLight.SIDE)
-				.transforms().transform(ItemDisplayContext.GUI)
+				.transforms().transform(ItemTransforms.TransformType.GUI)
 				.rotation(30, 225, 0)
 				.scale(0.625f)
 				.end().end();
 	}
 
-	public static BlockModelBuilder guiAndTexture(BlockModelBuilder builder){
+	public static BlockModelBuilder guiAndTexture(BlockModelBuilder builder) {
 		return gui(builder)
 				.texture("bottom", "minecraft:block/cauldron_bottom")
 				.texture("inside", "minecraft:block/cauldron_inner")
