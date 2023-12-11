@@ -21,7 +21,7 @@ public class CauldronDispenseBehavior extends DefaultDispenseItemBehavior {
 		if (state.getBlock() instanceof AbstractCauldronBlock cauldronBlock) {
 			var interactions = ((AbstractCauldronBlockAccessor) cauldronBlock).getInteractions();
 			if (interactions.get(stack.getItem()) instanceof FDCauldronInteraction action) {
-				if (action.pred().test(stack) && action.perform(state, level, pos)) {
+				if (action.perform(state, level, pos, stack)) {
 					ItemStack remain = stack.getCraftingRemainingItem();
 					stack.shrink(1);
 					if (!action.result().isEmpty()) {

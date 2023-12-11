@@ -12,7 +12,10 @@ import java.util.Locale;
 public enum LangData {
 	CHANCE_EFFECT("tooltip.chance", "%1$s with %2$s%% chance", 2, ChatFormatting.GRAY),
 	JELLY_CONTENT("tooltip.jelly_content", "Contains:", 0, ChatFormatting.YELLOW),
-	ALLOW_JELLY("tooltip.allow_jelly", "Gain effects from jelly ingredients", 0, ChatFormatting.GRAY);
+	ALLOW_JELLY("tooltip.allow_jelly", "Gain effects from jelly ingredients", 0, ChatFormatting.GRAY),
+	JEI_CAULDRON("jei.cauldron","Click Cauldron",0,null),
+	JEI_CAULDRON_HEAT("jei.cauldron_heat","Click Heated Cauldron",0,null),
+	;
 
 	private final String key, def;
 	private final int arg;

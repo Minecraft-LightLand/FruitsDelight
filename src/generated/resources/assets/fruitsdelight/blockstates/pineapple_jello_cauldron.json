@@ -7,7 +7,7 @@
       "model": "fruitsdelight:block/pineapple_jello_cauldron_level2"
     },
     "level=3": {
-      "model": "fruitsdelight:block/pineapple_jello_cauldron_full"
+      "model": "fruitsdelight:block/pineapple_jello_cauldron"
     }
   }
 }

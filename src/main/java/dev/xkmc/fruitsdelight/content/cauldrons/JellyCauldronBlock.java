@@ -28,15 +28,12 @@ public class JellyCauldronBlock extends FDCauldronBlock {
 	public <T extends FDCauldronBlock> void build(DataGenContext<Block, T> ctx, RegistrateBlockstateProvider pvd) {
 		pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
 			int value = state.getValue(LEVEL);
-			String name = value == 3 ? "_full" : "_level" + value;
-			return ConfiguredModel.builder().modelFile(pvd.models()
-					.withExistingParent(ctx.getName() + name, "block/template_cauldron" + name)
-					.texture("bottom", "minecraft:block/cauldron_bottom")
-					.texture("inside", "minecraft:block/cauldron_inner")
-					.texture("particle", "minecraft:block/cauldron_side")
-					.texture("side", "minecraft:block/cauldron_side")
-					.texture("top", "minecraft:block/cauldron_top")
-					.texture("content", "minecraft:block/water_still")).build();
+			String name = value == 3 ? "" : "_level" + value;
+			String parent = value == 3 ? "_full" : "_level" + value;
+			String suffix = ctx.getName().split("_")[1];
+			return ConfiguredModel.builder().modelFile(CauldronRenderHandler.guiAndTexture(pvd.models()
+					.withExistingParent(ctx.getName() + name, "block/template_cauldron" + parent)
+					.texture("content", pvd.modLoc("block/" + suffix)))).build();
 		});
 	}
 

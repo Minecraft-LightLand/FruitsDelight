@@ -10,36 +10,38 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 public enum FoodType {
-	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, TagGen.JUICE),
-	JELLY(FoodClass.GLASS, 6, 0.3f, 20, false, TagGen.JELLY),
-	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false),
-	SLICE(FoodClass.NONE, 2, 0.3f, 0, true),
-	SHEET(FoodClass.NONE, 3, 0.3f, 10, true),
-	STICK(FoodClass.STICK, 4, 0.4f, 10, true),
-	SWEET(FoodClass.NONE, 8, 0.5f, 20, false),
-	CREAM(FoodClass.GLASS, 6, 0.5f, 20, false),
-	BOWL(FoodClass.BOWL, 8, 0.6f, 30, false),
-	MEAL(FoodClass.BOWL, 12, 0.8f, 40, false),
-	DESSERT(FoodClass.NONE, 5, 0.4f, 20, false),
-	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false),
-	ROLL(FoodClass.NONE, 3, 0.4f, 10, true),
-	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true),
+	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, false, TagGen.JUICE),
+	JELLY(FoodClass.GLASS, 4, 0.3f, 20, false, false, TagGen.JELLY),
+	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true),
+	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false),
+	SLICE(FoodClass.NONE, 2, 0.3f, 0, true, false),
+	SHEET(FoodClass.NONE, 3, 0.3f, 10, true, false),
+	STICK(FoodClass.STICK, 4, 0.4f, 10, true, false),
+	SWEET(FoodClass.NONE, 8, 0.5f, 20, false, false),
+	CREAM(FoodClass.GLASS, 6, 0.5f, 20, false, false),
+	BOWL(FoodClass.BOWL, 8, 0.6f, 30, false, false),
+	MEAL(FoodClass.BOWL, 12, 0.8f, 40, false, false),
+	DESSERT(FoodClass.NONE, 5, 0.4f, 20, false, false),
+	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false, false),
+	ROLL(FoodClass.NONE, 3, 0.4f, 10, true, false),
+	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false),
 	;
 
 	public final int food;
 	private final FoodClass cls;
 	private final float sat;
-	private final boolean fast;
+	private final boolean fast, alwaysEat;
 	public final TagKey<Item>[] tags;
 	public final int effectLevel;
 
 	@SafeVarargs
-	FoodType(FoodClass cls, int food, float sat, int effectLevel, boolean fast, TagKey<Item>... tags) {
+	FoodType(FoodClass cls, int food, float sat, int effectLevel, boolean fast, boolean alwaysEat, TagKey<Item>... tags) {
 		this.cls = cls;
 		this.food = food;
 		this.sat = sat;
 		this.effectLevel = effectLevel;
 		this.fast = fast;
+		this.alwaysEat = alwaysEat;
 		this.tags = tags;
 	}
 
@@ -47,6 +49,7 @@ public enum FoodType {
 		var val = new FoodProperties.Builder();
 		val.nutrition(food).saturationMod(sat);
 		if (fast) val.fast();
+		if (alwaysEat) val.alwaysEat();
 		if (effectLevel > 0)
 			for (var e : type.fruit().eff) {
 				val.effect(() -> e.getEffect(effectLevel), e.getChance(effectLevel));

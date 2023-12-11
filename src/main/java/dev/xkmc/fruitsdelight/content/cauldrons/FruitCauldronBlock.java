@@ -17,6 +17,7 @@ public class FruitCauldronBlock extends FDCauldronBlock {
 	public FruitCauldronBlock(Properties properties, FruitType type) {
 		super(properties);
 		this.type = type;
+		registerDefaultState(defaultBlockState().setValue(LEVEL, MAX));
 	}
 
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
