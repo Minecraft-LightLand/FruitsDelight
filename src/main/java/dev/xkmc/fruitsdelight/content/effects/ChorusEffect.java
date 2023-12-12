@@ -24,13 +24,13 @@ public class ChorusEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean isInstantenous() {
-		return true;
+	public boolean isDurationEffectTick(int tick, int lv) {
+		return tick == 1;
 	}
 
 	@Override
-	public void applyInstantenousEffect(@Nullable Entity direct, @Nullable Entity indirect, LivingEntity target, int level, double effect) {
-		teleport(target);
+	public void applyEffectTick(LivingEntity user, int lv) {
+		teleport(user);
 	}
 
 	public void teleport(LivingEntity target) {

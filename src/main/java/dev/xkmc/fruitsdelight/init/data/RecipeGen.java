@@ -24,6 +24,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
@@ -41,16 +42,12 @@ public class RecipeGen {
 
 			for (var e : FruitType.values()) {
 				jelly(pvd, e);
-				var item = FDItems.JELLO[e.ordinal()];
-				var block = FDBlocks.JELLO[e.ordinal()];
-				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
-						block)::unlockedBy, item.get())
-						.requires(item, 8)
-						.save(pvd);
-				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
-						item, 8)::unlockedBy, block.get().asItem())
-						.requires(block).requires(Items.BOWL, 8)
-						.save(pvd);
+
+				storageBlock(pvd, FDItems.JELLO[e.ordinal()].get(),
+						FDBlocks.JELLO[e.ordinal()].get(), Items.BOWL);
+
+				storageBlock(pvd, FDItems.JELLY[e.ordinal()].get(),
+						FDBlocks.JELLY[e.ordinal()].get(), Items.GLASS_BOTTLE);
 			}
 
 			{
@@ -264,6 +261,17 @@ public class RecipeGen {
 
 		}
 
+	}
+
+	private static void storageBlock(RegistrateRecipeProvider pvd, Item item, Block block, Item cont) {
+		unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
+				block)::unlockedBy, item)
+				.requires(item, 8)
+				.save(pvd);
+		unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
+				item, 8)::unlockedBy, block.asItem())
+				.requires(block).requires(cont, 8)
+				.save(pvd);
 	}
 
 	private static void jelly(RegistrateRecipeProvider pvd, FruitType jelly) {

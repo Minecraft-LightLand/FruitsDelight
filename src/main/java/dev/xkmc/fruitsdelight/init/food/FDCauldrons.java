@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import dev.xkmc.fruitsdelight.content.cauldrons.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvents;
@@ -119,6 +120,7 @@ public class FDCauldrons {
 				.item().removeTab(FruitsDelight.TAB.getKey())
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
 				.build()
+				.lang(FDItems.toEnglishName(id).replaceAll("Jelly","Jam"))
 				.tag(BlockTags.CAULDRONS).register();
 	}
 

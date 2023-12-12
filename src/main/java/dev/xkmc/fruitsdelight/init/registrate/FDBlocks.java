@@ -2,8 +2,10 @@ package dev.xkmc.fruitsdelight.init.registrate;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xkmc.fruitsdelight.content.block.JelloBlock;
+import dev.xkmc.fruitsdelight.content.block.JellyBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleRiceBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -25,11 +27,9 @@ public class FDBlocks {
 
 	public static final BlockEntry<PineappleRiceBlock> PINEAPPLE_RICE;
 
+	public static final BlockEntry<JellyBlock>[] JELLY;
 	public static final BlockEntry<JelloBlock>[] JELLO;
 
-	static {
-
-	}
 
 	static {
 
@@ -53,20 +53,41 @@ public class FDBlocks {
 								.when(InvertedLootItemCondition.invert(getServe(block))))))
 				.register();
 
+		FDCrates.register();
+
 		int size = FruitType.values().length;
+
+		JELLY = new BlockEntry[size];
+		for (int i = 0; i < size; i++) {
+			FruitType type = FruitType.values()[i];
+			String name = type.name().toLowerCase(Locale.ROOT);
+			JELLY[i] = FruitsDelight.REGISTRATE.block(name + "_jelly_block", p ->
+							new JellyBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK), type))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
+							.withExistingParent(ctx.getName(), "block/leaves")
+							.texture("all", pvd.modLoc("block/jelly"))
+							.renderType("translucent")))
+					.lang(FDItems.toEnglishName(name) + " Jam Block")
+					.color(() -> () -> (s, l, p, x) -> type.color)
+					.item()
+					.color(() -> () -> (s, x) -> type.color)
+					.build()
+					.register();
+		}
+
 		JELLO = new BlockEntry[size];
 		for (int i = 0; i < size; i++) {
 			FruitType type = FruitType.values()[i];
 			String name = type.name().toLowerCase(Locale.ROOT);
 			JELLO[i] = FruitsDelight.REGISTRATE.block(name + "_jello_block", p ->
-							new JelloBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK)))
+							new JelloBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK), type))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 							.withExistingParent(ctx.getName(), "block/leaves")
 							.texture("all", pvd.modLoc("block/jello"))
 							.renderType("translucent")))
-					.color(() -> () -> (s, l, p, x) -> type.color | 0xff000000)
+					.color(() -> () -> (s, l, p, x) -> type.color)
 					.item()
-					.color(() -> () -> (s, x) -> type.color | 0xff000000)
+					.color(() -> () -> (s, x) -> type.color)
 					.build()
 					.register();
 		}

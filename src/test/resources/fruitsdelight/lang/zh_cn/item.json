@@ -155,7 +155,8 @@
 		  "cauldron": "水锅",
 		  "jelly_cauldron": "果酱锅",
 		  "jello_cauldron": "果冻锅",
-		  "jello_block": "果冻块"
+		  "jello_block": "果冻块",
+		  "jelly_block": "果酱块"
 		}
 	  ]
 	},

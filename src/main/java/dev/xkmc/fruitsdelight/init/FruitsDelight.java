@@ -39,11 +39,10 @@ public class FruitsDelight {
 		FDBushes.register();
 		FDMelons.register();
 		FDPineapple.register();
-		FDCrates.register();
-		FDBlocks.register();
 		FDItems.register();
 		FDEffects.register();
 		FDFood.register();
+		FDBlocks.register();
 		FDCauldrons.register();
 		FDMiscs.register();
 		FDModConfig.init();
