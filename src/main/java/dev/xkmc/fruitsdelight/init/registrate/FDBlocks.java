@@ -1,9 +1,11 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
+import dev.xkmc.fruitsdelight.content.block.JelloBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleRiceBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -17,9 +19,17 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraftforge.client.model.generators.ModelFile;
 import vectorwing.farmersdelight.common.block.FeastBlock;
 
+import java.util.Locale;
+
 public class FDBlocks {
 
 	public static final BlockEntry<PineappleRiceBlock> PINEAPPLE_RICE;
+
+	public static final BlockEntry<JelloBlock>[] JELLO;
+
+	static {
+
+	}
 
 	static {
 
@@ -42,6 +52,24 @@ public class FDBlocks {
 								.when(ExplosionCondition.survivesExplosion())
 								.when(InvertedLootItemCondition.invert(getServe(block))))))
 				.register();
+
+		int size = FruitType.values().length;
+		JELLO = new BlockEntry[size];
+		for (int i = 0; i < size; i++) {
+			FruitType type = FruitType.values()[i];
+			String name = type.name().toLowerCase(Locale.ROOT);
+			JELLO[i] = FruitsDelight.REGISTRATE.block(name + "_jello_block", p ->
+							new JelloBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK)))
+					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
+							.withExistingParent(ctx.getName(), "block/leaves")
+							.texture("all", pvd.modLoc("block/jello"))
+							.renderType("translucent")))
+					.color(() -> () -> (s, l, p, x) -> type.color | 0xff000000)
+					.item()
+					.color(() -> () -> (s, x) -> type.color | 0xff000000)
+					.build()
+					.register();
+		}
 	}
 
 	private static <T extends FeastBlock> LootItemBlockStatePropertyCondition.Builder getServe(T block) {

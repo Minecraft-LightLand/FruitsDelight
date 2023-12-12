@@ -150,12 +150,10 @@
 		  "cranberry": "蔓越莓"
 		},
 		{
-		  "*": "水",
-		  "jelly": "果酱",
-		  "jello": "果冻"
-		},
-		{
-		  "cauldron": "锅"
+		  "cauldron": "水锅",
+		  "jelly_cauldron": "果酱锅",
+		  "jello_cauldron": "果冻锅",
+		  "jello_block": "果冻块"
 		}
 	  ]
 	},

@@ -12,6 +12,7 @@ import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -40,6 +41,16 @@ public class RecipeGen {
 
 			for (var e : FruitType.values()) {
 				jelly(pvd, e);
+				var item = FDItems.JELLO[e.ordinal()];
+				var block = FDBlocks.JELLO[e.ordinal()];
+				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
+						block)::unlockedBy, item.get())
+						.requires(item, 8)
+						.save(pvd);
+				unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
+						item, 8)::unlockedBy, block.get().asItem())
+						.requires(block).requires(Items.BOWL, 8)
+						.save(pvd);
 			}
 
 			{
@@ -147,6 +158,7 @@ public class RecipeGen {
 						.save(pvd);
 
 			}
+
 			{
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDBlocks.PINEAPPLE_RICE.get(), 1, 200, 0.1f, Items.BOWL)

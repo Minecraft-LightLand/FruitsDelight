@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    },
+    {
+      "item": "fruitsdelight:pear_jello"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:pear_jello_block"
+  }
+}
