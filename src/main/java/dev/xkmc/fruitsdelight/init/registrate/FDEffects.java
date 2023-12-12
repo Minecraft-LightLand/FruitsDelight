@@ -63,6 +63,9 @@ public class FDEffects {
 					() -> MobEffects.WITHER
 			)), "Make player immune to poison and wither");
 
+	public static final RegistryEntry<ChorusEffect> CHORUS = genEffect("chorus", () ->
+					new ChorusEffect(MobEffectCategory.NEUTRAL, FruitType.CHORUS.color),
+			"Teleport player randomly");
 
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
 		return FruitsDelight.REGISTRATE.effect(name, sup, desc).lang(MobEffect::getDescriptionId).register();

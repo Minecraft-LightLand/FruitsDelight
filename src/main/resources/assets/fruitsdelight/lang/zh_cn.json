@@ -116,6 +116,8 @@
   "item.fruitsdelight.mangosteen_jello": "山竹果冻",
   "item.fruitsdelight.cranberry_jelly": "蔓越莓果酱",
   "item.fruitsdelight.cranberry_jello": "蔓越莓果冻",
+  "item.fruitsdelight.chorus_jelly": "紫颂果果酱",
+  "item.fruitsdelight.chorus_jello": "紫颂果果冻",
   "block.fruitsdelight.hawberry_cauldron": "山楂水锅",
   "block.fruitsdelight.hawberry_jelly_cauldron": "山楂果酱锅",
   "block.fruitsdelight.hawberry_jello_cauldron": "山楂果冻锅",
@@ -184,6 +186,10 @@
   "block.fruitsdelight.cranberry_jelly_cauldron": "蔓越莓果酱锅",
   "block.fruitsdelight.cranberry_jello_cauldron": "蔓越莓果冻锅",
   "block.fruitsdelight.cranberry_jello_block": "蔓越莓果冻块",
+  "block.fruitsdelight.chorus_cauldron": "紫颂果水锅",
+  "block.fruitsdelight.chorus_jelly_cauldron": "紫颂果果酱锅",
+  "block.fruitsdelight.chorus_jello_cauldron": "紫颂果果冻锅",
+  "block.fruitsdelight.chorus_jello_block": "紫颂果果冻块",
   "block.fruitsdelight.hawberry_crate": "箱装山楂",
   "block.fruitsdelight.lychee_crate": "箱装荔枝",
   "block.fruitsdelight.mango_crate": "箱装芒果",
@@ -223,5 +229,7 @@
   "effect.fruitsdelight.sliding": "滑行",
   "effect.fruitsdelight.sliding.description": "乘船时，减少船和方块的摩擦",
   "effect.fruitsdelight.shrinking": "灵巧",
-  "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间"
+  "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间",
+  "effect.fruitsdelight.chorus": "紫颂",
+  "effect.fruitsdelight.chorus.description": "随机传送玩家"
 }
