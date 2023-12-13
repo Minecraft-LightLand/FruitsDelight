@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:cranberry_jelly"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:cranberry_jelly_block"
+  }
+}

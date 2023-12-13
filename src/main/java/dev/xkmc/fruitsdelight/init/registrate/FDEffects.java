@@ -65,6 +65,10 @@ public class FDEffects {
 					() -> MobEffects.WITHER
 			)), "Make player immune to poison and wither");
 
+	public static final RegistryEntry<ChorusEffect> CHORUS = genEffect("chorus", () ->
+					new ChorusEffect(MobEffectCategory.NEUTRAL, FruitType.CHORUS.color),
+			"Teleport player randomly");
+
 	public static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
 		FruitsDelight.REGISTRATE.addRawLang("effect." + FruitsDelight.MODID + "." + name + ".description", desc);
 		return FruitsDelight.REGISTRATE.entry(name, cb -> new NoConfigBuilder<>(FruitsDelight.REGISTRATE,

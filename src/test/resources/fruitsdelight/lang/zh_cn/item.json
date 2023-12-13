@@ -119,7 +119,8 @@
 		  "lemon": "柠檬",
 		  "melon": "西瓜",
 		  "mangosteen": "山竹",
-		  "cranberry": "蔓越莓"
+		  "cranberry": "蔓越莓",
+		  "chorus": "紫颂果"
 		},
 		{
 		  "jelly": "果酱",
@@ -147,15 +148,15 @@
 		  "lemon": "柠檬",
 		  "melon": "西瓜",
 		  "mangosteen": "山竹",
-		  "cranberry": "蔓越莓"
+		  "cranberry": "蔓越莓",
+		  "chorus": "紫颂果"
 		},
 		{
-		  "*": "水",
-		  "jelly": "果酱",
-		  "jello": "果冻"
-		},
-		{
-		  "cauldron": "锅"
+		  "cauldron": "水锅",
+		  "jelly_cauldron": "果酱锅",
+		  "jello_cauldron": "果冻锅",
+		  "jello_block": "果冻块",
+		  "jelly_block": "果酱块"
 		}
 	  ]
 	},

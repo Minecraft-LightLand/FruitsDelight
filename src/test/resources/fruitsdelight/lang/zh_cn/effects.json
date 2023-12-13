@@ -21,6 +21,8 @@
 	"sliding": "滑行",
 	"sliding.description": "乘船时，减少船和方块的摩擦",
 	"shrinking": "灵巧",
-	"shrinking.description": "让玩家潜行时能钻进1格高的空间"
+	"shrinking.description": "让玩家潜行时能钻进1格高的空间",
+	"chorus": "紫颂",
+	"chorus.description": "随机传送玩家"
   }
 }

@@ -45,7 +45,9 @@ public enum FruitType {
 	)),
 	CRANBERRY(4, 0xCF2626, FDBushes.CRANBERRY::getFruit, List.of(new EffectFunc(FDEffects.SHRINKING::get, lv -> lv * 80))),
 	MANGOSTEEN(2, 0xFBECD6, FDTrees.MANGOSTEEN::getFruit, List.of(new EffectFunc(FDEffects.SLIDING::get, lv -> lv * 80))),
-	SWEETBERRY(4, 0xC41A4F, () -> Items.SWEET_BERRIES, List.of());
+	SWEETBERRY(4, 0xC41A4F, () -> Items.SWEET_BERRIES, List.of()),
+	CHORUS(2, 0xD0A9D7, () -> Items.CHORUS_FRUIT, List.of(new EffectFunc(FDEffects.CHORUS::get, lv -> 1, lv -> 0, lv -> Math.min(1, lv * 0.05f)))),
+	;
 
 	public final int color, jellyCost;
 	public final Supplier<Item> fruit;

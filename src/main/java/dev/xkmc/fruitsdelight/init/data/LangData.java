@@ -13,8 +13,10 @@ public enum LangData {
 	CHANCE_EFFECT("tooltip.chance", "%1$s with %2$s%% chance", 2, ChatFormatting.GRAY),
 	JELLY_CONTENT("tooltip.jelly_content", "Contains:", 0, ChatFormatting.YELLOW),
 	ALLOW_JELLY("tooltip.allow_jelly", "Gain effects from jelly ingredients", 0, ChatFormatting.GRAY),
-	JEI_CAULDRON("jei.cauldron","Click Cauldron",0,null),
-	JEI_CAULDRON_HEAT("jei.cauldron_heat","Click Heated Cauldron",0,null),
+	JEI_CAULDRON("jei.cauldron", "Click Cauldron", 0, null),
+	JEI_CAULDRON_HEAT("jei.cauldron_heat", "Click Heated Cauldron", 0, null),
+	TOOLTIP_JELLY("tooltip.jelly_block", "Sticky, but not connecting to other sticky blocks.", 0, ChatFormatting.GRAY),
+	TOOLTIP_JELLO("tooltip.jello_block", "Slippery. Sticks to sticky blocks and same jello/jelly blocks.", 0, ChatFormatting.GRAY),
 	;
 
 	private final String key, def;
