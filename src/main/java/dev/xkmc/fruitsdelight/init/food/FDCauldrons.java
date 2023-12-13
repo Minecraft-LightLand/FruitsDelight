@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.init.food;
 
 import dev.xkmc.fruitsdelight.content.cauldrons.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullFunction;

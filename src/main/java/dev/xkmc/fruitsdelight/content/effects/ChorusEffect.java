@@ -34,7 +34,7 @@ public class ChorusEffect extends MobEffect {
 	}
 
 	public void teleport(LivingEntity target) {
-		Level level = target.level();
+		Level level = target.level;
 		if (level.isClientSide) return;
 		double d0 = target.getX();
 		double d1 = target.getY();

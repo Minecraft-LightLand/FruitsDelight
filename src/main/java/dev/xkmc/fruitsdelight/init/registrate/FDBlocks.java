@@ -1,9 +1,12 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
+import dev.xkmc.fruitsdelight.content.block.JelloBlock;
+import dev.xkmc.fruitsdelight.content.block.JellyBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleRiceBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.world.item.Items;

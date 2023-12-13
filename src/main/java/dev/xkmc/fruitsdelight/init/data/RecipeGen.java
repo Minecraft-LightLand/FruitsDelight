@@ -10,6 +10,7 @@ import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.base.ingredients.PotionIngredient;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
@@ -262,14 +263,10 @@ public class RecipeGen {
 	}
 
 	private static void storageBlock(RegistrateRecipeProvider pvd, Item item, Block block, Item cont) {
-		unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
-				block)::unlockedBy, item)
-				.requires(item, 8)
-				.save(pvd);
-		unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,
-				item, 8)::unlockedBy, block.asItem())
-				.requires(block).requires(cont, 8)
-				.save(pvd);
+		unlock(pvd, ShapelessRecipeBuilder.shapeless(block)::unlockedBy, item)
+				.requires(item, 8).save(pvd);
+		unlock(pvd, ShapelessRecipeBuilder.shapeless(item, 8)::unlockedBy, block.asItem())
+				.requires(block).requires(cont, 8).save(pvd);
 	}
 
 	private static void jelly(RegistrateRecipeProvider pvd, FruitType jelly) {
