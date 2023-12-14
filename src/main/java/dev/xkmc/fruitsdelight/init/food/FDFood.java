@@ -25,7 +25,7 @@ public enum FDFood implements IFDFood {
 	PEACH_TEA(FruitType.PEACH, FoodType.JUICE),
 	LYCHEE_CHERRY_TEA(FruitType.LYCHEE, FoodType.JUICE),
 	MANGOSTEEN_TEA(FruitType.MANGOSTEEN, FoodType.JUICE),
-	BELLINI_COCKTAIL(FruitType.SWEETBERRY, FoodType.JUICE,
+	BELLINI_COCKTAIL(FruitType.empty(), FoodType.JUICE,
 			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
 			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
 

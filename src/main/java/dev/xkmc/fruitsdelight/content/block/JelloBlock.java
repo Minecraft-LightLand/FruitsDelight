@@ -25,6 +25,11 @@ public class JelloBlock extends SlimeBlock {
 	}
 
 	@Override
+	public boolean isSlimeBlock(BlockState state) {
+		return true;
+	}
+
+	@Override
 	public boolean isStickyBlock(BlockState state) {
 		return true;
 	}
