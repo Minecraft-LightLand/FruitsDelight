@@ -49,6 +49,10 @@ public enum FruitType {
 	CHORUS(2, 0xD0A9D7, () -> Items.CHORUS_FRUIT, List.of(new EffectFunc(FDEffects.CHORUS::get, lv -> 1, lv -> 0, lv -> Math.min(1, lv * 0.05f)))),
 	;
 
+	public static FruitType empty() {
+		return SWEETBERRY;
+	}
+
 	public final int color, jellyCost;
 	public final Supplier<Item> fruit;
 	public final List<EffectFunc> eff;

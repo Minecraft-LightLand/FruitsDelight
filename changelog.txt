@@ -1,8 +1,9 @@
 1.0.2 / 0.5.2
 - Double Pineapple spawn rate
 - (1.19.2 only) Fix pineapple spawning in water
-- Add jello
 - rename jelly to jam
+- Add jello
+- Add chorus jam/jello
 - Add cauldron jam and jello recipe
 - Add jello block and jam block
 
