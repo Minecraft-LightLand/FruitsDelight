@@ -92,6 +92,14 @@ public class FDFoodItem extends Item {
 		return list.get(layer % list.size()).color;
 	}
 
+	public static ItemStack setContent(FDFoodItem item, FruitType e) {
+		var ans = item.getDefaultInstance();
+		ListTag list = new ListTag();
+		list.add(StringTag.valueOf(e.name()));
+		ans.getOrCreateTag().put(ROOT, list);
+		return ans;
+	}
+
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity consumer) {
 		ItemStack itemStack = getCraftingRemainingItem(stack);

@@ -11,6 +11,7 @@ import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
@@ -67,6 +68,13 @@ public class CreateRecipeGen {
 					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
 					.withItemIngredients(Ingredient.of(Items.GLASS_BOTTLE))
 					.output(jamItem)
+					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
+
+
+			filling(jamItem.getId().withSuffix("_bread"))
+					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
+					.withItemIngredients(Ingredient.of(Items.BREAD))
+					.output(FDFoodItem.setContent(FDFood.JELLY_BREAD.item.get(), e))
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			filling(jelloItem.getId())
