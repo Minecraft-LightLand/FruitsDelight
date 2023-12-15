@@ -1,0 +1,21 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "fruitsdelight:cranberry_jello",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:cranberry_jello_block"
+    }
+  ]
+}

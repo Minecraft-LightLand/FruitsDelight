@@ -59,7 +59,7 @@ public enum FruitType {
 
 	FruitType(int jellyCost, int color, Supplier<Item> fruit, List<EffectFunc> eff) {
 		this.jellyCost = jellyCost;
-		this.color = color;
+		this.color = 0xFF000000 | color;
 		this.fruit = fruit;
 		this.eff = eff;
 	}

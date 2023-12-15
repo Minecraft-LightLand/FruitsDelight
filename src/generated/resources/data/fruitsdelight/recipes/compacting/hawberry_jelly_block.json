@@ -1,0 +1,21 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "fruitsdelight:hawberry_jam",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:hawberry_jelly_block"
+    }
+  ]
+}

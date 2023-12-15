@@ -1,0 +1,21 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "fruitsdelight:melon_jello",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:melon_jello_block"
+    }
+  ]
+}

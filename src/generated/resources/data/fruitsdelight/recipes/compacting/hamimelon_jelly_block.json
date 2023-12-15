@@ -1,0 +1,21 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "fruitsdelight:hamimelon_jam",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:hamimelon_jelly_block"
+    }
+  ]
+}

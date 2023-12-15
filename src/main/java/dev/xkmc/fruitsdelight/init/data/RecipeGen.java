@@ -1,7 +1,9 @@
 package dev.xkmc.fruitsdelight.init.data;
 
+import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.fruitsdelight.compat.create.CreateRecipeGen;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.fml.ModList;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
@@ -260,6 +263,10 @@ public class RecipeGen {
 						.build(pvd);
 			}
 
+		}
+
+		if (ModList.get().isLoaded(Create.ID)) {
+			CreateRecipeGen.onRecipeGen(pvd);
 		}
 
 	}
