@@ -67,6 +67,14 @@ public class FDEffects {
 					new ChorusEffect(MobEffectCategory.NEUTRAL, FruitType.CHORUS.color),
 			"Teleport player randomly");
 
+	public static final RegistryEntry<EmptyEffect> DIGESTING = genEffect("digesting", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+			"Overflowing nutrition becomes saturation.");
+
+	public static final RegistryEntry<EmptyEffect> LEAF_PIERCING = genEffect("leaf_piercing", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+			"Projectiles player shot will go through leaves");
+
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
 		return FruitsDelight.REGISTRATE.effect(name, sup, desc).lang(MobEffect::getDescriptionId).register();
 	}

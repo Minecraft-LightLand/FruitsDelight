@@ -5,8 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "fruitsdelight.refmap.json",
   "mixins": [
+	"AbstractArrowMixin",
 	"AbstractCauldronBlockAccessor",
+	"BlockStateBaseMixin",
 	"BoatMixin",
+	"FoodDataMixin",
 	"LivingEntityMixin",
 	"PlayerMixin"
   ],

@@ -59,6 +59,7 @@ public class RecipeGen {
 				juice(pvd, FDFood.MANGO_TEA, 2, true, true);
 				juice(pvd, FDFood.PEACH_TEA, 2, true, true);
 				juice(pvd, FDFood.MANGOSTEEN_TEA, 2, true, true);
+
 			}
 
 			{

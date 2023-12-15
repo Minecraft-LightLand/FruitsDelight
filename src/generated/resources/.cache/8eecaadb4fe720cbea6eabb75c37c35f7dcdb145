@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-13T00:22:22.594565	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.20.1	2023-12-15T16:26:40.160133	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
 15d78b6df519b38e4ba0da7784dd03675826ad31 assets/fruitsdelight/blockstates/apple_jello_cauldron.json
@@ -129,8 +129,8 @@ c407159da6f3ea754478f8583e33b1f2b2b99fc4 assets/fruitsdelight/blockstates/sweetb
 1a018eef63897a322df658330447a32c54785c16 assets/fruitsdelight/blockstates/sweetberry_jelly_block.json
 7626d4ec1af96f1382a8d3c7aaa8d4f6a73678ab assets/fruitsdelight/blockstates/sweetberry_jelly_cauldron.json
 1b579c78266d846acdea9c42ec5827aa27bae474 assets/fruitsdelight/blockstates/wild_pineapple.json
-57bd13e74889154303edf550731c4358e38b249d assets/fruitsdelight/lang/en_ud.json
-97ad3a63d03006e39160dbcf93bfc8431d916054 assets/fruitsdelight/lang/en_us.json
+6419d699ec2e233143bb6662a70f2cbbc5fedc9d assets/fruitsdelight/lang/en_ud.json
+b606822a59fb4b830364abf711e3e7088be9c2f4 assets/fruitsdelight/lang/en_us.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/apple_cauldron.json
 0a2689ea678bee07b02632acb3828d475ab7646e assets/fruitsdelight/models/block/apple_flowers.json
 9eadb53da97c4eabd6f874ef8b1adbf1024f4eba assets/fruitsdelight/models/block/apple_fruits.json
