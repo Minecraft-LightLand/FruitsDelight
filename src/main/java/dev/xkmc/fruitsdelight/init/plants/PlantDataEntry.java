@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.init.plants;
 
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -41,6 +42,7 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 	static <T extends Item> ItemBuilder<T, L2Registrate> addFruitTags(String name, ItemBuilder<T, L2Registrate> b) {
 		return b.tag(
 				ItemTags.create(new ResourceLocation("forge", "fruits")),
+				DietTagGen.FRUITS.tag,
 				ItemTags.create(new ResourceLocation("forge", "fruits/" + name))
 		);
 	}

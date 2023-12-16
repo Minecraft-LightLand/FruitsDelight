@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-16T07:56:55.242258	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-12-16T14:14:15.23972	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
 15d78b6df519b38e4ba0da7784dd03675826ad31 assets/fruitsdelight/blockstates/apple_jello_cauldron.json
@@ -593,6 +593,11 @@ efbea1d92db59076e3601cdcb6dde8c673e57ebe assets/fruitsdelight/models/item/pineap
 11abe7006ccb8ed888b3b8683def13b4efc9d887 assets/fruitsdelight/models/item/sweetberry_jelly_block.json
 ef11986f9986fe5ea9d97a6a25d1fde102d6579d assets/fruitsdelight/models/item/sweetberry_jelly_cauldron.json
 38f93892702d974b5156d7cd0fc29bb4e1095f5a assets/fruitsdelight/models/item/wild_pineapple.json
+d678745962cfdbe4362c00b01f7597f032d6d5dc data/diet/tags/items/fruits.json
+76af7e9e3c4e46b53038a75ee4973ae7bc4f6d65 data/diet/tags/items/grains.json
+27a69c7b9be98fda6b5a300c23339cf347c3a399 data/diet/tags/items/proteins.json
+a02a6631831804cf169200d47850a04aa094653a data/diet/tags/items/sugars.json
+2024afcaf6b308b0486c0999920d4ac017597f06 data/diet/tags/items/vegetables.json
 f1741e882aca524a778377830189b84edaa66906 data/farmersdelight/recipes/cooking/apple_jelly.json
 f7671677274da19125556fdf709cc2b3902d94f7 data/farmersdelight/recipes/cooking/bellini_cocktail.json
 40e6e752661876a393fec1bf60cf2349565af9e1 data/farmersdelight/recipes/cooking/blueberry_custard.json
@@ -949,6 +954,10 @@ b8299de6235e06c1ff18b0af29d021799c5bfedd data/fruitsdelight/recipes/cranberry_fr
 20a0f679a5c849740d5cee20bce8cc42bb952a4d data/fruitsdelight/recipes/cranberry_jello_block.json
 23caa71f73565e5a9daa1ffd9cf33c3449a85464 data/fruitsdelight/recipes/cranberry_jelly.json
 d6d1a8cada8e13acb856821c4bac399a09229dfd data/fruitsdelight/recipes/cranberry_jelly_block.json
+8feccd6c1e896ccada3b2d4cabfa3f0027291e24 data/fruitsdelight/recipes/cutting/hamimelon_slice.json
+06a9a4d3d63ee12e7120287b2181aec826a696f5 data/fruitsdelight/recipes/cutting/lemon_slice.json
+2f849c3a4b8fb098f853cd3bd3ce8c9752ea57e1 data/fruitsdelight/recipes/cutting/orange_slice.json
+86dd37476b8959edfb2e0e06a6702aa437aeae92 data/fruitsdelight/recipes/cutting/pineapple_slice.json
 294782813994efff4175bfc68fa19b6be0f7016a data/fruitsdelight/recipes/dried_persimmon_from_persimmon_campfire.json
 b74dfa10b64586a72ca1a7cedee6213e6a485236 data/fruitsdelight/recipes/dried_persimmon_from_persimmon_smoking.json
 68ec0488805213bcef6f08d854298506b362b00c data/fruitsdelight/recipes/emptying/apple_jello_emptying.json
@@ -1175,6 +1184,7 @@ d5f3417c9304b83127bad3dad8d40655414354cc data/fruitsdelight/recipes/sweetberry_j
 303bb590f35bc1439dffea29b3b375aaed23d28b data/fruitsdelight/recipes/sweetberry_jelly_block.json
 185971cec7b74b303c6fb28e708f1b29bc6335f6 data/fruitsdelight/tags/blocks/pineapple_grows_on.json
 fcbe6756455a8f7813ce2dcad634459bed5d18f1 data/fruitsdelight/tags/items/allow_jelly.json
+d521b4acf09786bdbd563d8c9e27ad3d7f280ff9 data/fruitsdelight/tags/items/jello.json
 b3b6c6ace18a6309630dfc9db4682c57c8c3dac8 data/fruitsdelight/tags/items/jelly.json
 8f0d4c0be7e9534800b6312f2c46ec4c358f79a0 data/fruitsdelight/tags/items/juice.json
 650050e4c4792bbb1a9521e01eb3c0b7d9fc114c data/minecraft/tags/blocks/cauldrons.json

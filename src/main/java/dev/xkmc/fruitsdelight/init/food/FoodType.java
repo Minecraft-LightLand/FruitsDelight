@@ -1,6 +1,7 @@
 package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.builders.ItemBuilder;
+import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
@@ -11,21 +12,21 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 public enum FoodType {
-	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, false, TagGen.JUICE),
-	JELLY(FoodClass.GLASS, 4, 0.3f, 20, false, false, TagGen.JELLY),
-	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true),
-	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false),
-	SLICE(FoodClass.NONE, 2, 0.3f, 0, true, false),
-	SHEET(FoodClass.NONE, 3, 0.3f, 10, true, false),
-	STICK(FoodClass.STICK, 4, 0.4f, 10, true, false),
-	SWEET(FoodClass.NONE, 8, 0.5f, 20, false, false),
-	CREAM(FoodClass.GLASS, 6, 0.5f, 20, false, false),
-	BOWL(FoodClass.BOWL, 8, 0.6f, 30, false, false),
-	MEAL(FoodClass.BOWL, 12, 0.8f, 40, false, false),
-	DESSERT(FoodClass.NONE, 5, 0.4f, 20, false, false),
-	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false, false),
-	ROLL(FoodClass.NONE, 3, 0.4f, 10, true, false),
-	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false),
+	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, false, TagGen.JUICE, DietTagGen.FRUITS.tag),
+	JELLY(FoodClass.GLASS, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
+	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true, TagGen.JELLO, DietTagGen.SUGARS.tag),
+	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false, DietTagGen.FRUITS.tag),
+	SLICE(FoodClass.NONE, 2, 0.3f, 0, true, false, DietTagGen.FRUITS.tag),
+	SHEET(FoodClass.NONE, 3, 0.3f, 10, true, false, DietTagGen.FRUITS.tag),
+	STICK(FoodClass.STICK, 4, 0.4f, 10, true, false, DietTagGen.FRUITS.tag),
+	SWEET(FoodClass.NONE, 8, 0.5f, 20, false, false, DietTagGen.FRUITS.tag, DietTagGen.GRAINS.tag, DietTagGen.SUGARS.tag),
+	CREAM(FoodClass.GLASS, 6, 0.5f, 20, false, false, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
+	BOWL(FoodClass.BOWL, 8, 0.6f, 30, false, false, DietTagGen.FRUITS.tag),
+	MEAL(FoodClass.BOWL, 12, 0.8f, 40, false, false, DietTagGen.FRUITS.tag, DietTagGen.PROTEINS.tag),
+	DESSERT(FoodClass.NONE, 5, 0.4f, 20, false, false, DietTagGen.FRUITS.tag, DietTagGen.GRAINS.tag, DietTagGen.SUGARS.tag),
+	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false, false, DietTagGen.FRUITS.tag, DietTagGen.GRAINS.tag, DietTagGen.VEGETABLES.tag),
+	ROLL(FoodClass.NONE, 3, 0.4f, 10, true, false, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
+	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false, DietTagGen.SUGARS.tag),
 	;
 
 	public final int food;
