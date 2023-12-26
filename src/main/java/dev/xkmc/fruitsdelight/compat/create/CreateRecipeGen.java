@@ -67,7 +67,7 @@ public class CreateRecipeGen {
 			filling(jamItem.getId().withSuffix("_bread"))
 					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
 					.withItemIngredients(Ingredient.of(Items.BREAD))
-					.output(FDFoodItem.setContent(FDFood.JELLY_BREAD.item.get(), e))
+					.output(FDFoodItem.setContent(FDFood.JELLY_BREAD.get(), e))
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			fluidRecipes(pvd, jamBlock, jamFluid, jamItem, Items.GLASS_BOTTLE);

@@ -6,6 +6,7 @@ import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.RecordFood;
+import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -17,7 +18,7 @@ public class FDItems {
 
 	private static final Set<String> SMALL_WORDS = Set.of("of", "the", "with");
 
-	public static ItemEntry<FDFoodItem>[] JELLY, JELLO;
+	public static ItemEntry<Item>[] JELLY, JELLO;
 
 	static {
 		int fruits = FruitType.values().length;

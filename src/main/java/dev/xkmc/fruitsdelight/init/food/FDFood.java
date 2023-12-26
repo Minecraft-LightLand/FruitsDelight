@@ -1,6 +1,9 @@
 package dev.xkmc.fruitsdelight.init.food;
 
+import com.tterrag.registrate.providers.ProviderType;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
@@ -9,12 +12,14 @@ import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.function.Supplier;
 
 public enum FDFood implements IFDFood {
 	HAMIMELON_JUICE(FruitType.HAMIMELON, FoodType.JUICE),
@@ -49,7 +54,7 @@ public enum FDFood implements IFDFood {
 	PERSIMMON_COOKIE(FruitType.PERSIMMON, FoodType.COOKIE),
 	LEMON_COOKIE(FruitType.LEMON, FoodType.COOKIE),
 	CRANBERRY_COOKIE(FruitType.CRANBERRY, FoodType.COOKIE),
-	MANGOSTEEN_CAKE(FruitType.MANGOSTEEN, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
+	MANGOSTEEN_CAKE(FruitType.MANGOSTEEN, FoodType.MANGOSTEEN_CAKE, new EffectEntry(ModEffects.COMFORT, 1200)),
 	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
 	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	ORANGE_MARINATED_PORK(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
@@ -63,7 +68,7 @@ public enum FDFood implements IFDFood {
 
 	public final FruitType fruit;
 	public final FoodType type;
-	public final ItemEntry<FDFoodItem> item;
+	public final ItemEntry<Item> item;
 	public final EffectEntry[] effs;
 
 	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, @Nullable String str, EffectEntry... effs) {
@@ -79,6 +84,18 @@ public enum FDFood implements IFDFood {
 
 	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
 		this(false, 0, fruit, food, null, effs);
+	}
+
+	FDFood(Supplier<BlockEntry<? extends Block>> sup, FruitType fruit, FoodType food, EffectEntry... effs) {
+		this.fruit = fruit;
+		this.type = food;
+		this.name = name().toLowerCase(Locale.ROOT);
+		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this))
+				.model((ctx, pvd) -> pvd.generated(ctx))
+				.setData(ProviderType.LANG, NonNullBiConsumer.noop())
+				.tag(getTags(false, food.tags))
+				.register();
+		this.effs = effs;
 	}
 
 	FDFood(FruitType fruit, FoodType food, String str) {
@@ -104,8 +121,8 @@ public enum FDFood implements IFDFood {
 		return fruit.fruit.get();
 	}
 
-	public Item get() {
-		return item.get();
+	public FDFoodItem get() {
+		return (FDFoodItem) item.get();
 	}
 
 	@Override

@@ -24,11 +24,13 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public abstract class BaseCakeBlock extends Block {
 
-	private final IntegerProperty bite;
+	public final IntegerProperty bite;
+	public final int maxBite;
 
 	public BaseCakeBlock(Properties properties, IntegerProperty bite, int max) {
 		super(properties);
 		this.bite = bite;
+		this.maxBite = max;
 		this.registerDefaultState(this.stateDefinition.any().setValue(bite, max));
 	}
 
