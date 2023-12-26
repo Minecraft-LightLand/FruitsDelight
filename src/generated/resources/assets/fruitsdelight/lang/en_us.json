@@ -1,5 +1,6 @@
 {
   "block.fruitsdelight.apple_cauldron": "Apple Cauldron",
+  "block.fruitsdelight.apple_crate": "Apple Crate",
   "block.fruitsdelight.apple_jello_block": "Apple Jello Block",
   "block.fruitsdelight.apple_jello_cauldron": "Apple Jello Cauldron",
   "block.fruitsdelight.apple_jelly_block": "Apple Jam Block",
@@ -137,6 +138,8 @@
   "effect.fruitsdelight.brightening.description": "Make player immune to blindness and darkness",
   "effect.fruitsdelight.chorus": "Chorus",
   "effect.fruitsdelight.chorus.description": "Teleport player randomly",
+  "effect.fruitsdelight.cycling": "Cycling",
+  "effect.fruitsdelight.cycling.description": "Player will drop 1 level of experience as orbs every second",
   "effect.fruitsdelight.digesting": "Digesting",
   "effect.fruitsdelight.digesting.description": "Overflowing nutrition becomes saturation.",
   "effect.fruitsdelight.heal_aura": "Heal Aura",

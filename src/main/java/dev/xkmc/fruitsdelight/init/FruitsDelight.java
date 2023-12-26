@@ -16,6 +16,7 @@ import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.init.events.EffectSyncEvents;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -72,10 +73,15 @@ public class FruitsDelight {
 
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
-		var output = event.getGenerator().getPackOutput();
-		var reg = new FDDatapackRegistriesGen(output, event.getLookupProvider());
-		event.getGenerator().addProvider(event.includeServer(), reg);
-		event.getGenerator().addProvider(event.includeServer(), new BotanyGen(event.getGenerator()));
+		boolean server = event.includeServer();
+		var gen = event.getGenerator();
+		PackOutput output = gen.getPackOutput();
+		var pvd = event.getLookupProvider();
+		var helper = event.getExistingFileHelper();
+		var reg = new FDDatapackRegistriesGen(output, pvd);
+		gen.addProvider(server, reg);
+		gen.addProvider(server, new BotanyGen(gen));
+		gen.addProvider(server, new FDConfigGen(gen));
 	}
 
 }

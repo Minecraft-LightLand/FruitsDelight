@@ -75,6 +75,10 @@ public class FDEffects {
 					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
 			"Projectiles player shot will go through leaves");
 
+	public static final RegistryEntry<CyclingEffect> CYCLING = genEffect("cycling", () ->
+					new CyclingEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+			"Player will drop 1 level of experience as orbs every second");
+
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
 		return FruitsDelight.REGISTRATE.effect(name, sup, desc).lang(MobEffect::getDescriptionId).register();
 	}

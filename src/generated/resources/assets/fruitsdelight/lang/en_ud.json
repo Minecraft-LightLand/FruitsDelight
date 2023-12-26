@@ -1,5 +1,6 @@
 {
   "block.fruitsdelight.apple_cauldron": "uoɹpןnɐƆ ǝןddⱯ",
+  "block.fruitsdelight.apple_crate": "ǝʇɐɹƆ ǝןddⱯ",
   "block.fruitsdelight.apple_jello_block": "ʞɔoןᗺ oןןǝſ ǝןddⱯ",
   "block.fruitsdelight.apple_jello_cauldron": "uoɹpןnɐƆ oןןǝſ ǝןddⱯ",
   "block.fruitsdelight.apple_jelly_block": "ʞɔoןᗺ ɯɐſ ǝןddⱯ",
@@ -137,6 +138,8 @@
   "effect.fruitsdelight.brightening.description": "ssǝuʞɹɐp puɐ ssǝupuıןq oʇ ǝunɯɯı ɹǝʎɐןd ǝʞɐW",
   "effect.fruitsdelight.chorus": "snɹoɥƆ",
   "effect.fruitsdelight.chorus.description": "ʎןɯopuɐɹ ɹǝʎɐןd ʇɹodǝןǝ⟘",
+  "effect.fruitsdelight.cycling": "buıןɔʎƆ",
+  "effect.fruitsdelight.cycling.description": "puoɔǝs ʎɹǝʌǝ sqɹo sɐ ǝɔuǝıɹǝdxǝ ɟo ןǝʌǝן Ɩ doɹp ןןıʍ ɹǝʎɐןԀ",
   "effect.fruitsdelight.digesting": "buıʇsǝbıᗡ",
   "effect.fruitsdelight.digesting.description": "˙uoıʇɐɹnʇɐs sǝɯoɔǝq uoıʇıɹʇnu buıʍoןɟɹǝʌO",
   "effect.fruitsdelight.heal_aura": "ɐɹnⱯ ןɐǝH",

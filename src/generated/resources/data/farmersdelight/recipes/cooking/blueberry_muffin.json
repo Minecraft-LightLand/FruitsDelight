@@ -10,7 +10,7 @@
       "item": "fruitsdelight:blueberry"
     },
     {
-      "item": "farmersdelight:wheat_dough"
+      "tag": "forge:dough/wheat"
     },
     {
       "tag": "forge:milk/milk_bottle"

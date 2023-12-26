@@ -1,5 +1,6 @@
-// 1.20.1	2023-12-16T14:14:15.23972	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-12-26T13:56:06.27226	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
+f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
 15d78b6df519b38e4ba0da7784dd03675826ad31 assets/fruitsdelight/blockstates/apple_jello_cauldron.json
 9119ca2a7850ffea998151cc12d51824f20fa2d8 assets/fruitsdelight/blockstates/apple_jelly_block.json
@@ -129,9 +130,10 @@ c407159da6f3ea754478f8583e33b1f2b2b99fc4 assets/fruitsdelight/blockstates/sweetb
 1a018eef63897a322df658330447a32c54785c16 assets/fruitsdelight/blockstates/sweetberry_jelly_block.json
 7626d4ec1af96f1382a8d3c7aaa8d4f6a73678ab assets/fruitsdelight/blockstates/sweetberry_jelly_cauldron.json
 1b579c78266d846acdea9c42ec5827aa27bae474 assets/fruitsdelight/blockstates/wild_pineapple.json
-3b898903975584f0ec8b212764d86134b1eab855 assets/fruitsdelight/lang/en_ud.json
-868ba05e15172e753810553ed03f0956d0744e83 assets/fruitsdelight/lang/en_us.json
+48df65d910588de89e5f6cbb3437ff0f19682661 assets/fruitsdelight/lang/en_ud.json
+400fa421df00b2372e859fd8adcf4e8d1d79f586 assets/fruitsdelight/lang/en_us.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/apple_cauldron.json
+64dc6915927f16b08cd4fffdff8d0b467e8cfea0 assets/fruitsdelight/models/block/apple_crate.json
 0a2689ea678bee07b02632acb3828d475ab7646e assets/fruitsdelight/models/block/apple_flowers.json
 9eadb53da97c4eabd6f874ef8b1adbf1024f4eba assets/fruitsdelight/models/block/apple_fruits.json
 c4a6d1cab193a922d7af44b4d5260408cce8e5e4 assets/fruitsdelight/models/block/apple_jello_block.json
@@ -377,6 +379,7 @@ b8fea4548d29a35784f15f42dd22048037644e4c assets/fruitsdelight/models/block/sweet
 f75512a40753b7ae78b354279aaad1b85da3a512 assets/fruitsdelight/models/block/sweetberry_jelly_cauldron_level1.json
 49739a7083954c9430c508e93823e22f1feb62dd assets/fruitsdelight/models/block/sweetberry_jelly_cauldron_level2.json
 af9bb0e5716881c931bb7b1e39de64f6c964de9e assets/fruitsdelight/models/item/apple_cauldron.json
+f82306e19d178bfd3907da6bdba0c95c56e612d2 assets/fruitsdelight/models/item/apple_crate.json
 fa8cdb021ae6e718380519bcbcebe89c4871f756 assets/fruitsdelight/models/item/apple_jello.json
 ae708740977cd12ccac5349bfae0e9b22f001103 assets/fruitsdelight/models/item/apple_jello_block.json
 eb29edcda7047fc410c96172db3f877478c387b3 assets/fruitsdelight/models/item/apple_jello_cauldron.json
@@ -602,10 +605,10 @@ f1741e882aca524a778377830189b84edaa66906 data/farmersdelight/recipes/cooking/app
 f7671677274da19125556fdf709cc2b3902d94f7 data/farmersdelight/recipes/cooking/bellini_cocktail.json
 40e6e752661876a393fec1bf60cf2349565af9e1 data/farmersdelight/recipes/cooking/blueberry_custard.json
 73c9462c8ec604f5dd1860734c3a177775eb8ed8 data/farmersdelight/recipes/cooking/blueberry_jelly.json
-d50de0414075bd584d1f3275e119240c2403ac94 data/farmersdelight/recipes/cooking/blueberry_muffin.json
+0d320e538b80f99901e78aa0821892fa95dfc44d data/farmersdelight/recipes/cooking/blueberry_muffin.json
 ceb39180d18602923747d700d06491216546d8ee data/farmersdelight/recipes/cooking/chorus_jelly.json
 64192946dff77ecad1e84280ca5aa586f7c54a61 data/farmersdelight/recipes/cooking/cranberry_jelly.json
-c49699458ed0618374f47f31587b9b3f17041d60 data/farmersdelight/recipes/cooking/cranberry_muffin.json
+23cebb3c3699d290c034af7daddc72d5b1501e69 data/farmersdelight/recipes/cooking/cranberry_muffin.json
 ef3cfb5b393452c42feb18e02e5daadb3fd9f0f0 data/farmersdelight/recipes/cooking/glowberry_jelly.json
 e23bdf8620e1b51239d3ac8a4b112f988a6fffd1 data/farmersdelight/recipes/cooking/hamimelon_jelly.json
 9f0290089847a1e17daaf3ccca53d92f366e1b64 data/farmersdelight/recipes/cooking/hawberry_jelly.json
@@ -666,6 +669,8 @@ bce9dae367075c5ae48d4f8346e82046cd797807 data/fruitsdelight/advancements/recipes
 93b4a3d4131d0ea189b2284fabddffad42e6116f data/fruitsdelight/advancements/recipes/hawberry_roll.json
 4d7b7bb83f24cbb7fc883204fcf7508e704a22e2 data/fruitsdelight/advancements/recipes/jelly_bread.json
 8ead3b5cb84bbd5a088f13df36f14575d45e7597 data/fruitsdelight/advancements/recipes/mango_salad.json
+862422c9e7e5093db2dc4ba2a6473eac14af452e data/fruitsdelight/advancements/recipes/misc/apple_crate.json
+d573b1c14daee7893dc77ba9cd4f1e64598c2591 data/fruitsdelight/advancements/recipes/misc/apple_from_apple_crate.json
 b62d5bf338decb97501088079fa086efe45df12a data/fruitsdelight/advancements/recipes/misc/apple_jello.json
 e648e858cea12bf2ccc83c4ce47345dd4bfbc04f data/fruitsdelight/advancements/recipes/misc/apple_jello_block.json
 6929c5d5eb6a9766eea9c9226a4cd55d3dcdf93d data/fruitsdelight/advancements/recipes/misc/apple_jelly.json
@@ -766,6 +771,7 @@ c6419353e15cac9cd1685ba5d9c4c5020ed3bc52 data/fruitsdelight/advancements/recipes
 257181cbfaa4acb01d3e4dba5627e059b509d344 data/fruitsdelight/advancements/recipes/misc/sweetberry_jelly.json
 a7b7586678adbd1fbea15751f66a1a4c5f7f7623 data/fruitsdelight/advancements/recipes/misc/sweetberry_jelly_block.json
 ab82db18547a0ed5a228d97736b407c613dbccd5 data/fruitsdelight/loot_tables/blocks/apple_cauldron.json
+81ae6aae6edca485841572d0c1f6e5bce325aa9b data/fruitsdelight/loot_tables/blocks/apple_crate.json
 89160ee8633bb987f45e8b28b7d1fa2ffc7f8295 data/fruitsdelight/loot_tables/blocks/apple_jello_block.json
 ab5c302bb3050bc61393cd3d4b895589d3c32e0c data/fruitsdelight/loot_tables/blocks/apple_jello_cauldron.json
 5c2e2c6dda3a5e2675d3936809f251fe4a133cbf data/fruitsdelight/loot_tables/blocks/apple_jelly_block.json
@@ -895,6 +901,8 @@ b8b8bcc41a7abadbb8d0156772bede9d46f64f2a data/fruitsdelight/loot_tables/blocks/s
 a399060e6c75a129712389430c399e7ac097ed51 data/fruitsdelight/loot_tables/blocks/sweetberry_jelly_block.json
 6fa54bd553aa0973d35f4689b2c5207eceffead8 data/fruitsdelight/loot_tables/blocks/sweetberry_jelly_cauldron.json
 d393511f679053e0f74a999b879a4128c774f85b data/fruitsdelight/loot_tables/blocks/wild_pineapple.json
+92bd9bdf3d9df2101d4714bfcea97cc3c1f1265b data/fruitsdelight/recipes/apple_crate.json
+4dd0a145a908bd92eaab3db0072c4c8c3f155b50 data/fruitsdelight/recipes/apple_from_apple_crate.json
 09602ed106bd0fada19a910b81579ae8db4017f2 data/fruitsdelight/recipes/apple_jello.json
 1a0f17e120369b6937886ae319492d3d56006148 data/fruitsdelight/recipes/apple_jello_block.json
 4ec29d44c604b148ceff41bd502e434930ca703b data/fruitsdelight/recipes/apple_jelly.json
@@ -1191,7 +1199,7 @@ b3b6c6ace18a6309630dfc9db4682c57c8c3dac8 data/fruitsdelight/tags/items/jelly.jso
 6354eddd8d6c47f30ec465b98032f63ab794f04e data/minecraft/tags/blocks/enderman_holdable.json
 97297b0bfc94b4b44706080be6009b547475389d data/minecraft/tags/blocks/leaves.json
 cc70d150f0bf9634cd7b86b26a177629b2a75d4c data/minecraft/tags/blocks/maintains_farmland.json
-35c62cb562e72815b4ac44ac7d6bd9c0c338af59 data/minecraft/tags/blocks/mineable/axe.json
+e465d326ebe30e526693c80fc9526fa6a671a525 data/minecraft/tags/blocks/mineable/axe.json
 97297b0bfc94b4b44706080be6009b547475389d data/minecraft/tags/blocks/mineable/hoe.json
 a4ae65e9e67031f81a6e56013233a324e2bb94c8 data/minecraft/tags/blocks/saplings.json
 964eaa58cef06e5ef8cd03d235296e6a7147d1f6 data/minecraft/tags/blocks/sword_efficient.json

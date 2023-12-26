@@ -210,10 +210,9 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
-
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item, 2, 200, 0.1f)
 						.addIngredient(FDFood.BLUEBERRY_MUFFIN.getFruit(), 2)
-						.addIngredient(ModItems.WHEAT_DOUGH.get())
+						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
@@ -221,7 +220,7 @@ public class RecipeGen {
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item, 2, 200, 0.1f)
 						.addIngredient(FDFood.CRANBERRY_MUFFIN.getFruit(), 2)
-						.addIngredient(ModItems.WHEAT_DOUGH.get())
+						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
