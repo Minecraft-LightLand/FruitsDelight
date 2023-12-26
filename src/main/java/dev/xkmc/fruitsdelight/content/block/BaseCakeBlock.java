@@ -14,9 +14,9 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -31,7 +31,9 @@ public abstract class BaseCakeBlock extends Block {
 		super(properties);
 		this.bite = bite;
 		this.maxBite = max;
-		this.registerDefaultState(this.stateDefinition.any().setValue(bite, max));
+		this.registerDefaultState(this.stateDefinition.any()
+				.setValue(bite, max)
+				.setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
 	}
 
 	protected abstract void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder);
