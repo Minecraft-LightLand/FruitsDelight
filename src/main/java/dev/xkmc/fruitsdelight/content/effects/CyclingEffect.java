@@ -15,10 +15,13 @@ public class CyclingEffect extends MobEffect {
 	@Override
 	public void applyEffectTick(LivingEntity entity, int lv) {
 		if (!(entity instanceof ServerPlayer player)) return;
+		if (player.experienceLevel <= 1) return;
+		if (player.takeXpDelay > 0) return;
 		int exp = Math.round(player.experienceProgress * player.getXpNeededForNextLevel());
 		player.experienceLevel--;
-		player.experienceProgress = 0;
 		exp += player.getXpNeededForNextLevel();
+		player.experienceLevel++;
+		player.giveExperiencePoints(-exp);
 		ExperienceOrb.award(player.serverLevel(), player.position(), exp);
 	}
 
