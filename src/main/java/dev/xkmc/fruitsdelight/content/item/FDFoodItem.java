@@ -26,6 +26,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.Configuration;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -189,7 +190,8 @@ public class FDFoodItem extends Item {
 		} else if (stack.is(TagGen.ALLOW_JELLY)) {
 			list.add(LangData.ALLOW_JELLY.get());
 		}
-		getFoodEffects(stack, list);
+		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
+			getFoodEffects(stack, list);
 	}
 
 	public void fillItemCategory(int size, CreativeModeTabModifier tab) {
