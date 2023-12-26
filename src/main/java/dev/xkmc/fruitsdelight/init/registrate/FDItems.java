@@ -1,11 +1,11 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.RecordFood;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
+import net.minecraft.world.item.Item;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;

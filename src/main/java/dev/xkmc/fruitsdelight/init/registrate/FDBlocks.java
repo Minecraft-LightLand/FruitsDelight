@@ -1,8 +1,6 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import dev.xkmc.fruitsdelight.content.block.JelloBlock;
-import dev.xkmc.fruitsdelight.content.block.JellyBlock;
-import dev.xkmc.fruitsdelight.content.block.PineappleRiceBlock;
+import dev.xkmc.fruitsdelight.content.block.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;

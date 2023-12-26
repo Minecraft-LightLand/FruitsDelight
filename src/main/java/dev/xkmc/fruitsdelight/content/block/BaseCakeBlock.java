@@ -78,7 +78,7 @@ public abstract class BaseCakeBlock extends Block {
 	}
 
 	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-		return level.getBlockState(pos.below()).isSolid();
+		return level.getBlockState(pos.below()).getMaterial().isSolid();
 	}
 
 	public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {

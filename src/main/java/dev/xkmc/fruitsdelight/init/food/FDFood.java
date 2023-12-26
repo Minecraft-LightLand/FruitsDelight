@@ -5,7 +5,10 @@ import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
+import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
+import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
@@ -88,13 +91,14 @@ public enum FDFood implements IFDFood {
 	FDFood(FoodType food, FruitType fruit, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
+		this.effs = effs;
+		this.overlay = 0;
 		this.name = name().toLowerCase(Locale.ROOT);
 		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this))
 				.model((ctx, pvd) -> pvd.generated(ctx))
 				.setData(ProviderType.LANG, NonNullBiConsumer.noop())
 				.tag(getTags(false, food.tags))
 				.register();
-		this.effs = effs;
 	}
 
 	FDFood(FruitType fruit, FoodType food, String str) {
