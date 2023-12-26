@@ -34,13 +34,13 @@ public class MangosteenCakeBlock extends BaseCakeBlock {
 	@Override
 	protected void eat(Player player) {
 		player.getFoodData().eat(3, 0.6F);
-		var food = FDFood.MANGOSTEEN_CAKE.get().getFoodProperties();
+		var food = FDFood.MANGOSTEEN_CAKE.item.get().getFoodProperties();
 		if (food == null || player.level.isClientSide) return;
 		for (var e : food.getEffects()) {
 			var ins = e.getFirst();
 			var f = e.getSecond();
 			if (ins == null) continue;
-			if (f < 1 && player.level.getRandom().nextDouble() < f) {
+			if (player.level.getRandom().nextDouble() < f) {
 				player.addEffect(new MobEffectInstance(ins.getEffect(), ins.getAmplifier(), ins.getDuration() / 3));
 			}
 		}
