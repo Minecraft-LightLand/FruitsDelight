@@ -26,6 +26,7 @@ import java.util.Locale;
 public class FDBlocks {
 
 	public static final BlockEntry<PineappleRiceBlock> PINEAPPLE_RICE;
+	public static final BlockEntry<MangosteenCakeBlock> MANGOSTEEN_CAKE;
 
 	public static final BlockEntry<JellyBlock>[] JELLY;
 	public static final BlockEntry<JelloBlock>[] JELLO;
@@ -44,6 +45,25 @@ public class FDBlocks {
 							.texture("food", "block/" + ctx.getName());
 				}))
 				.item().model((ctx, pvd) -> pvd.generated(ctx)).build()
+				.loot((pvd, block) -> pvd.add(block, LootTable.lootTable()
+						.withPool(LootPool.lootPool().add(LootItem.lootTableItem(block.asItem())
+								.when(ExplosionCondition.survivesExplosion())
+								.when(getServe(block))))
+						.withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.BOWL))
+								.when(ExplosionCondition.survivesExplosion())
+								.when(InvertedLootItemCondition.invert(getServe(block))))))
+				.register();
+
+		MANGOSTEEN_CAKE = FruitsDelight.REGISTRATE.block("mangosteen_cake",
+						p -> new MangosteenCakeBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)))
+				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
+					int serve = state.getValue(MangosteenCakeBlock.BITES);
+					String suffix = "_" + serve;
+					return pvd.models().getBuilder(ctx.getName() + suffix)
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/mangosteen_cake_base" + suffix)))
+							.texture("cake", "block/" + ctx.getName() + "_cake")
+							.texture("base", "block/" + ctx.getName() + "_base");
+				}))
 				.loot((pvd, block) -> pvd.add(block, LootTable.lootTable()
 						.withPool(LootPool.lootPool().add(LootItem.lootTableItem(block.asItem())
 								.when(ExplosionCondition.survivesExplosion())
@@ -97,6 +117,12 @@ public class FDBlocks {
 		return LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).
 				setProperties(StatePropertiesPredicate.Builder.properties()
 						.hasProperty(block.getServingsProperty(), block.getMaxServings()));
+	}
+
+	private static <T extends BaseCakeBlock> LootItemBlockStatePropertyCondition.Builder getServe(T block) {
+		return LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).
+				setProperties(StatePropertiesPredicate.Builder.properties()
+						.hasProperty(block.bite, block.maxBite));
 	}
 
 	public static void register() {
