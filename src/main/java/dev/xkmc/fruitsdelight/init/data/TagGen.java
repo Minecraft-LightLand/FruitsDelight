@@ -1,7 +1,9 @@
 package dev.xkmc.fruitsdelight.init.data;
 
-import dev.xkmc.fruitsdelight.compat.sereneseasons.SeasonCompat;
+import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
+import dev.xkmc.fruitsdelight.compat.sereneseasons.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateItemTagsProvider;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -35,8 +37,8 @@ public class TagGen {
 		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)) {
 			SeasonCompat.genItem(pvd);
 		}
-		pvd.addTag(DietTagGen.GRAINS.tag).add(FDFood.MANGOSTEEN_CAKE.item.get());
-		pvd.addTag(DietTagGen.SUGARS.tag).add(FDFood.PEAR_WITH_ROCK_SUGAR.get());
+		pvd.tag(DietTagGen.GRAINS.tag).add(FDFood.MANGOSTEEN_CAKE.item.get());
+		pvd.tag(DietTagGen.SUGARS.tag).add(FDFood.PEAR_WITH_ROCK_SUGAR.get());
 	}
 
 }

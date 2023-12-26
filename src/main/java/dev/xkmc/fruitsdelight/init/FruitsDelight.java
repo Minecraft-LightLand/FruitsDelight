@@ -2,11 +2,9 @@ package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
+import dev.xkmc.cuisinedelight.init.data.CDConfigGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
-import dev.xkmc.fruitsdelight.init.data.FDModConfig;
-import dev.xkmc.fruitsdelight.init.data.LangData;
-import dev.xkmc.fruitsdelight.init.data.RecipeGen;
-import dev.xkmc.fruitsdelight.init.data.TagGen;
+import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.plants.*;
@@ -75,12 +73,6 @@ public class FruitsDelight {
 	public static void gatherData(GatherDataEvent event) {
 		boolean server = event.includeServer();
 		var gen = event.getGenerator();
-		PackOutput output = gen.getPackOutput();
-		var pvd = event.getLookupProvider();
-		var helper = event.getExistingFileHelper();
-		var reg = new FDDatapackRegistriesGen(output, pvd);
-		gen.addProvider(server, reg);
-		gen.addProvider(server, new BotanyGen(gen));
 		gen.addProvider(server, new FDConfigGen(gen));
 	}
 

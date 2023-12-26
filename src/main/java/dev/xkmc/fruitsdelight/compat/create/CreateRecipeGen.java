@@ -11,10 +11,6 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
-import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.FluidEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
@@ -25,7 +21,11 @@ import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
-import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.l2library.base.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.FluidEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -64,7 +64,7 @@ public class CreateRecipeGen {
 					.output(jelloFluid.get(), 125)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			filling(jamItem.getId().withSuffix("_bread"))
+			filling(suffix(jamItem.getId(), "_bread"))
 					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
 					.withItemIngredients(Ingredient.of(Items.BREAD))
 					.output(FDFoodItem.setContent(FDFood.JELLY_BREAD.item.get(), e))
@@ -107,20 +107,24 @@ public class CreateRecipeGen {
 
 		compacting(block.getId())
 				.withFluidIngredients(FluidIngredient.fromFluid(fluid.get(), 1000))
-				.output(block)
+				.output(block.get())
 				.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 		filling(item.getId())
 				.withFluidIngredients(FluidIngredient.fromFluid(fluid.get(), 125))
 				.withItemIngredients(Ingredient.of(container))
-				.output(item)
+				.output(item.get())
 				.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-		emptying(item.getId().withSuffix("_emptying"))
+		emptying(suffix(item.getId(), "_emptying"))
 				.withItemIngredients(Ingredient.of(item.get()))
 				.output(container)
 				.output(fluid.get(), 125)
 				.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
+	}
+
+	private static ResourceLocation suffix(ResourceLocation id, String suffix) {
+		return new ResourceLocation(id.getNamespace(), id.getPath() + suffix);
 	}
 
 	private static ProcessingRecipeBuilder<MixingRecipe> mixing(ResourceLocation id) {

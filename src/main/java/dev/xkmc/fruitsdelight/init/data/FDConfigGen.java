@@ -2,7 +2,7 @@ package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.cuisinedelight.content.logic.FoodType;
 import dev.xkmc.cuisinedelight.content.logic.IngredientConfig;
-import dev.xkmc.cuisinedelight.init.CuisineDelight;
+import dev.xkmc.cuisinedelight.init.data.NetworkManager;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2library.serial.network.BaseConfig;
@@ -47,8 +47,7 @@ public class FDConfigGen extends ConfigDataProvider {
 			}
 			config.entries.add(ing);
 		}
-		map.put(FruitsDelight.MODID+"/cuisinedelight_config/"+
-		collector.add(CuisineDelight.INGREDIENT, new ResourceLocation(FruitsDelight.MODID), config);
+		map.put(FruitsDelight.MODID + "/cuisinedelight_config/" + NetworkManager.INGREDIENT.getID() + "/fruits", config);
 	}
 
 }

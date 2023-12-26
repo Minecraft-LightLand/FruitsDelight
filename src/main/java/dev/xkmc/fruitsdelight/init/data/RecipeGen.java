@@ -1,5 +1,7 @@
 package dev.xkmc.fruitsdelight.init.data;
 
+import com.simibubi.create.Create;
+import dev.xkmc.fruitsdelight.compat.create.CreateRecipeGen;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;

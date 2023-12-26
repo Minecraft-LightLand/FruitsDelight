@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.plants;
 
+import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;

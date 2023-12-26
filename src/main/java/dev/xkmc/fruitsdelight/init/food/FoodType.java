@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
+import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.l2library.base.L2Registrate;

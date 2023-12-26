@@ -19,7 +19,7 @@ public class CyclingEffect extends MobEffect {
 		player.experienceLevel--;
 		player.experienceProgress = 0;
 		exp += player.getXpNeededForNextLevel();
-		ExperienceOrb.award(player.serverLevel(), player.position(), exp);
+		ExperienceOrb.award(player.getLevel(), player.position(), exp);
 	}
 
 	@Override
