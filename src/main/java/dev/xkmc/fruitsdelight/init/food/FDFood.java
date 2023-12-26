@@ -9,6 +9,7 @@ import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.ArrayList;
@@ -66,24 +67,28 @@ public enum FDFood implements IFDFood {
 	public final EffectEntry[] effs;
 	public final int overlay;
 
-	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, EffectEntry... effs) {
+	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, @Nullable String str, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
 		this.overlay = overlay;
 		this.name = name().toLowerCase(Locale.ROOT);
 		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this))
-				.transform(b -> food.model(b, overlay, fruit)).lang(FDItems.toEnglishName(name))
+				.transform(b -> food.model(b, overlay, fruit)).lang(str != null ? str : FDItems.toEnglishName(name))
 				.tag(getTags(allowJelly, food.tags))
 				.register();
 		this.effs = effs;
 	}
 
 	FDFood(FruitType fruit, FoodType food, EffectEntry... effs) {
-		this(false, 0, fruit, food, effs);
+		this(false, 0, fruit, food, null, effs);
+	}
+
+	FDFood(FruitType fruit, FoodType food, String str) {
+		this(false, 0, fruit, food, str);
 	}
 
 	FDFood(FruitType fruit, FoodType food, int overlay) {
-		this(true, overlay, fruit, food);
+		this(true, overlay, fruit, food, null);
 	}
 
 	@SuppressWarnings({"unsafe", "unchecked"})

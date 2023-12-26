@@ -69,6 +69,18 @@ public class FDEffects {
 					new ChorusEffect(MobEffectCategory.NEUTRAL, FruitType.CHORUS.color),
 			"Teleport player randomly");
 
+	public static final RegistryEntry<EmptyEffect> DIGESTING = genEffect("digesting", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+			"Overflowing nutrition becomes saturation.");
+
+	public static final RegistryEntry<EmptyEffect> LEAF_PIERCING = genEffect("leaf_piercing", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+			"Projectiles player shot will go through leaves");
+
+	public static final RegistryEntry<CyclingEffect> CYCLING = genEffect("cycling", () ->
+					new CyclingEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+			"Player will drop 1 level of experience as orbs every second");
+
 	public static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
 		FruitsDelight.REGISTRATE.addRawLang("effect." + FruitsDelight.MODID + "." + name + ".description", desc);
 		return FruitsDelight.REGISTRATE.entry(name, cb -> new NoConfigBuilder<>(FruitsDelight.REGISTRATE,

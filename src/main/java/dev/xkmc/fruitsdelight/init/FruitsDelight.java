@@ -1,12 +1,13 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.Create;
+import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.data.RecipeGen;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
-import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
@@ -15,6 +16,7 @@ import dev.xkmc.l2library.base.effects.EffectSyncEvents;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.slf4j.Logger;
@@ -45,6 +47,11 @@ public class FruitsDelight {
 		FDCauldrons.register();
 		FDMiscs.register();
 		FDModConfig.init();
+
+		if (ModList.get().isLoaded(Create.ID)) {
+			CreateCompat.register();
+		}
+
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
@@ -66,6 +73,15 @@ public class FruitsDelight {
 
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
+		boolean server = event.includeServer();
+		var gen = event.getGenerator();
+		PackOutput output = gen.getPackOutput();
+		var pvd = event.getLookupProvider();
+		var helper = event.getExistingFileHelper();
+		var reg = new FDDatapackRegistriesGen(output, pvd);
+		gen.addProvider(server, reg);
+		gen.addProvider(server, new BotanyGen(gen));
+		gen.addProvider(server, new FDConfigGen(gen));
 	}
 
 }

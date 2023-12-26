@@ -8,6 +8,7 @@ import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -25,14 +26,15 @@ public class FDCrates {
 	public static void register() {
 		for (var e : FDTrees.values()) {
 			if (e.genTree)
-				CRATES.add(new FDCrates(e, e::getFruit));
+				CRATES.add(new FDCrates(e.name().toLowerCase(Locale.ROOT), e::getFruit));
 		}
 		for (var e : FDBushes.values()) {
-			CRATES.add(new FDCrates(e, e::getFruit));
+			CRATES.add(new FDCrates(e.name().toLowerCase(Locale.ROOT), e::getFruit));
 		}
 		for (var e : FDPineapple.values()) {
-			CRATES.add(new FDCrates(e, e::getWholeFruit));
+			CRATES.add(new FDCrates(e.name().toLowerCase(Locale.ROOT), e::getWholeFruit));
 		}
+		CRATES.add(new FDCrates("apple", () -> Items.APPLE));
 	}
 
 	public static void genRecipes(RegistrateRecipeProvider pvd) {
@@ -45,9 +47,9 @@ public class FDCrates {
 
 	private final Supplier<Item> type;
 
-	public FDCrates(Enum<?> en, Supplier<Item> type) {
+	public FDCrates(String str, Supplier<Item> type) {
 		this.type = type;
-		String name = en.name().toLowerCase(Locale.ROOT) + "_crate";
+		String name = str + "_crate";
 		block = FruitsDelight.REGISTRATE.block(name, p -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
 						.strength(2.0F, 3.0F).sound(SoundType.WOOD)))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().cubeBottomTop(ctx.getName(),

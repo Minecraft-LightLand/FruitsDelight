@@ -21,8 +21,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -77,14 +79,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		this.configKeyWild = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree_wild");
 		this.placementKey = new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree");
 
-		leaves = FruitsDelight.REGISTRATE
-				.block(name + "_leaves", p -> new PassableLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
-				.blockstate(this::buildLeavesModel)
-				.loot((pvd, block) -> buildFruit(pvd, block, getSapling(), getFruit()))
-				.tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
-				.item().tag(ItemTags.LEAVES).build()
-				.register();
-
+		leaves = height.buildLeave(name, this);
 		sapling = FruitsDelight.REGISTRATE.block(
 						name + "_sapling", p -> new SaplingBlock(new TreeGrower(),
 								BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)
@@ -153,38 +148,6 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 
 	private TreeConfiguration buildTreeConfig(Supplier<Block> log, FDTreeType height, boolean wild) {
 		return height.build(log.get(), getLeaves(), wild);
-	}
-
-	private void buildLeavesModel(DataGenContext<Block, PassableLeavesBlock> ctx, RegistrateBlockstateProvider pvd) {
-		pvd.getVariantBuilder(ctx.get())
-				.forAllStatesExcept(state -> {
-							String name = name().toLowerCase(Locale.ROOT) + "_" +
-									state.getValue(PassableLeavesBlock.STATE).getSerializedName();
-							return ConfiguredModel.builder()
-									.modelFile(pvd.models().withExistingParent(name, "block/leaves")
-											.texture("all", "block/" + name)).build();
-						},
-						LeavesBlock.DISTANCE, LeavesBlock.PERSISTENT, LeavesBlock.WATERLOGGED);
-	}
-
-	private static void buildFruit(RegistrateBlockLootTables pvd, Block block, Block sapling, Item fruit) {
-		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(
-				AlternativesEntry.alternatives(
-						LootItem.lootTableItem(block)
-								.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
-										.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
-												MinMaxBounds.Ints.atLeast(1))))),
-						LootItem.lootTableItem(fruit)
-								.when(LootItemBlockStatePropertyCondition
-										.hasBlockStateProperties(block)
-										.setProperties(StatePropertiesPredicate.Builder.properties()
-												.hasProperty(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FRUITS)))
-								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)),
-						LootItem.lootTableItem(sapling)
-								.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,
-										1 / 20f, 1 / 16f, 1 / 12f, 1 / 10f))
-				)
-		).when(ExplosionCondition.survivesExplosion())));
 	}
 
 	private static FoodProperties food(int food, float sat, boolean fast) {

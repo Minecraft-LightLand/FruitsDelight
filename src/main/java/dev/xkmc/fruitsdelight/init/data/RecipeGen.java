@@ -25,6 +25,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.fml.ModList;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
@@ -58,6 +59,7 @@ public class RecipeGen {
 				juice(pvd, FDFood.MANGO_TEA, 2, true, true);
 				juice(pvd, FDFood.PEACH_TEA, 2, true, true);
 				juice(pvd, FDFood.MANGOSTEEN_TEA, 2, true, true);
+
 			}
 
 			{
@@ -208,7 +210,7 @@ public class RecipeGen {
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.BLUEBERRY_MUFFIN.getFruit(), 2)
-						.addIngredient(ModItems.WHEAT_DOUGH.get())
+						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
@@ -216,7 +218,7 @@ public class RecipeGen {
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.CRANBERRY_MUFFIN.getFruit(), 2)
-						.addIngredient(ModItems.WHEAT_DOUGH.get())
+						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
@@ -258,6 +260,10 @@ public class RecipeGen {
 						.build(pvd);
 			}
 
+		}
+
+		if (ModList.get().isLoaded(Create.ID)) {
+			CreateRecipeGen.onRecipeGen(pvd);
 		}
 
 	}

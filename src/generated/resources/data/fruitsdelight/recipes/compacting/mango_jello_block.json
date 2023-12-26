@@ -1,0 +1,21 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "fruitsdelight:mango_jello",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:mango_jello_block"
+    }
+  ]
+}

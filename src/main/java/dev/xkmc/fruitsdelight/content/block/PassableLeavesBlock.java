@@ -1,12 +1,15 @@
 package dev.xkmc.fruitsdelight.content.block;
 
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
@@ -21,7 +24,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.ForgeHooks;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
 
@@ -59,20 +64,27 @@ public class PassableLeavesBlock extends LeavesBlock {
 		builder.add(STATE);
 	}
 
-	private void dropFruit(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+
+	protected void doDropFruit(BlockState state, ServerLevel level, BlockPos pos) {
 		dropResources(state, level, pos);
+	}
+
+	protected void dropFruit(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+		doDropFruit(state, level, pos);
 		State st = random.nextDouble() < FDModConfig.COMMON.flowerDecayChance.get() ? State.LEAVES : State.FLOWERS;
 		level.setBlockAndUpdate(pos, state.setValue(STATE, st));
 	}
 
 	@Override
 	public boolean isRandomlyTicking(BlockState state) {
-		return state.getValue(STATE) != State.LEAVES || super.isRandomlyTicking(state);
+		if (state.getValue(PERSISTENT)) return false;
+		if (state.getValue(STATE) != State.LEAVES) return true;
+		return super.isRandomlyTicking(state);
 	}
 
 	@Override
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-		if (!decaying(state)) {
+		if (!state.getValue(PERSISTENT) && !decaying(state)) {
 			State st = state.getValue(STATE);
 			if (st == State.FLOWERS) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
@@ -92,13 +104,28 @@ public class PassableLeavesBlock extends LeavesBlock {
 		super.randomTick(state, level, pos, random);
 	}
 
+	protected boolean canPassThrough(@Nullable Entity e) {
+		if (e == null) return false;
+		if (e instanceof ItemEntity) return true;
+		if (e instanceof FallingBlockEntity) return true;
+		return false;
+	}
+
 	@Deprecated
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
-		if (ctx instanceof EntityCollisionContext ectx && ectx.getEntity() instanceof ItemEntity) {
+		if (ctx instanceof EntityCollisionContext ectx && canPassThrough(ectx.getEntity())) {
 			return Shapes.empty();
 		}
 		return super.getCollisionShape(state, level, pos, ctx);
+	}
+
+	public ConfiguredModel[] buildModel(RegistrateBlockstateProvider pvd, String treeName, BlockState state) {
+		String name = treeName + "_" +
+				state.getValue(PassableLeavesBlock.STATE).getSerializedName();
+		return ConfiguredModel.builder()
+				.modelFile(pvd.models().withExistingParent(name, "block/leaves")
+						.texture("all", "block/" + name)).build();
 	}
 
 }

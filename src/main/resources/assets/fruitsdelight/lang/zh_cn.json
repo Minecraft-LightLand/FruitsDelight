@@ -251,5 +251,9 @@
   "effect.fruitsdelight.shrinking": "灵巧",
   "effect.fruitsdelight.shrinking.description": "让玩家潜行时能钻进1格高的空间",
   "effect.fruitsdelight.chorus": "紫颂",
-  "effect.fruitsdelight.chorus.description": "随机传送玩家"
+  "effect.fruitsdelight.chorus.description": "随机传送玩家",
+  "effect.fruitsdelight.digesting": "消食",
+  "effect.fruitsdelight.digesting.description": "溢出的饱食度将转化成饱和度",
+  "effect.fruitsdelight.leaf_piercing": "穿杨",
+  "effect.fruitsdelight.leaf_piercing.description": "射出的箭和投掷物将能穿过树叶"
 }

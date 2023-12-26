@@ -5,10 +5,12 @@ import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraftforge.event.entity.EntityEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -42,6 +44,17 @@ public class EffectHandlers {
 				if (eff.set.get().contains(event.getEffectInstance().getEffect())) {
 					event.setResult(Event.Result.DENY);
 					return;
+				}
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void onEntityJoinWorldEvent(EntityJoinLevelEvent event) {
+		if (event.getEntity() instanceof Projectile proj) {
+			if (proj.getOwner() instanceof LivingEntity le) {
+				if (le.hasEffect(FDEffects.LEAF_PIERCING.get())) {
+					proj.addTag(FDEffects.LEAF_PIERCING.getId().toString());
 				}
 			}
 		}

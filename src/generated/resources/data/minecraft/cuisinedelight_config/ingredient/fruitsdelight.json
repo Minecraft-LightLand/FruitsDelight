@@ -1,0 +1,668 @@
+{
+  "entries": [
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:night_vision",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:brightening",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:blueberry"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:health_boost",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:hamimelon_slice"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:appetizing",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:hawberry"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:strength",
+          "level": 2,
+          "time": 200
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:lychee"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:strength",
+          "level": 2,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:rage_aura",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:mango"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:regeneration",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:recovering",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:orange"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:heal_aura",
+          "level": 0,
+          "time": 200
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:peach"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:lozenge",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:pear"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:astringent",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:persimmon"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:speed",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:sweetening",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:pineapple_slice"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:haste",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:refreshing",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:lemon"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:shrinking",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:cranberry"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:sliding",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:mangosteen"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:absorption",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:apple_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:night_vision",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:brightening",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:blueberry_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:glowing",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:glowberry_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:health_boost",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:hamimelon_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:regeneration",
+          "level": 0,
+          "time": 800
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:melon_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:appetizing",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:hawberry_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:strength",
+          "level": 2,
+          "time": 200
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:lychee_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:strength",
+          "level": 2,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:rage_aura",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:mango_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:regeneration",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:recovering",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:orange_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:heal_aura",
+          "level": 0,
+          "time": 200
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:peach_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:lozenge",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:pear_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:astringent",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:persimmon_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:speed",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:sweetening",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:pineapple_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "minecraft:haste",
+          "level": 0,
+          "time": 400
+        },
+        {
+          "effect": "fruitsdelight:refreshing",
+          "level": 0,
+          "time": 400
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:lemon_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:shrinking",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:cranberry_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:sliding",
+          "level": 0,
+          "time": 1600
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:mangosteen_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [],
+      "ingredient": {
+        "item": "fruitsdelight:sweetberry_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [
+        {
+          "effect": "fruitsdelight:chorus",
+          "level": 0,
+          "time": 1
+        }
+      ],
+      "ingredient": {
+        "item": "fruitsdelight:chorus_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    }
+  ]
+}

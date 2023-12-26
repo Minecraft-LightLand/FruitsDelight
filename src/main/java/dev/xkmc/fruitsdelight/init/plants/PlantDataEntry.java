@@ -39,6 +39,7 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 	static <T extends Item> ItemBuilder<T, L2Registrate> addFruitTags(String name, ItemBuilder<T, L2Registrate> b) {
 		return b.tag(
 				ItemTags.create(new ResourceLocation("forge", "fruits")),
+				DietTagGen.FRUITS.tag,
 				ItemTags.create(new ResourceLocation("forge", "fruits/" + name))
 		);
 	}

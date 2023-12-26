@@ -23,6 +23,10 @@
 	"shrinking": "灵巧",
 	"shrinking.description": "让玩家潜行时能钻进1格高的空间",
 	"chorus": "紫颂",
-	"chorus.description": "随机传送玩家"
+	"chorus.description": "随机传送玩家",
+	"digesting": "消食",
+	"digesting.description": "溢出的饱食度将转化成饱和度",
+	"leaf_piercing": "穿杨",
+	"leaf_piercing.description": "射出的箭和投掷物将能穿过树叶"
   }
 }
