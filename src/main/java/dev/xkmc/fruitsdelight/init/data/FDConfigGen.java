@@ -44,7 +44,7 @@ public class FDConfigGen extends ConfigDataProvider {
 			}
 			config.entries.add(ing);
 		}
-		collector.add(CuisineDelight.INGREDIENT, new ResourceLocation(FruitsDelight.MODID), config);
+		collector.add(CuisineDelight.INGREDIENT, new ResourceLocation(FruitsDelight.MODID, "fruits"), config);
 	}
 
 }
