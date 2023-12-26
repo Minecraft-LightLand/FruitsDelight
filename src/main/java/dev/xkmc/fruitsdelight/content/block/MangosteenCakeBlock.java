@@ -1,6 +1,8 @@
 package dev.xkmc.fruitsdelight.content.block;
 
+import dev.xkmc.fruitsdelight.init.food.FDFood;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -17,9 +19,9 @@ public class MangosteenCakeBlock extends BaseCakeBlock {
 	public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, MAX_BITES);
 	protected static final VoxelShape[] SHAPE_BY_BITE = new VoxelShape[]{
 			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D),
-			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D),
-			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D),
-			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D)};
+			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 5.0D, 15.0D),
+			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 5.0D, 15.0D),
+			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 5.0D, 15.0D)};
 
 	public MangosteenCakeBlock(Properties properties) {
 		super(properties, BITES, MAX_BITES);
@@ -31,7 +33,17 @@ public class MangosteenCakeBlock extends BaseCakeBlock {
 
 	@Override
 	protected void eat(Player player) {
-		player.getFoodData().eat(2, 0.1F);
+		player.getFoodData().eat(3, 0.6F);
+		var food = FDFood.MANGOSTEEN_CAKE.get().getFoodProperties();
+		if (food == null || player.level().isClientSide) return;
+		for (var e : food.getEffects()) {
+			var ins = e.getFirst();
+			var f = e.getSecond();
+			if (ins == null) continue;
+			if (f < 1 && player.level().getRandom().nextDouble() < f) {
+				player.addEffect(new MobEffectInstance(ins.getEffect(), ins.getAmplifier(), ins.getDuration() / 3));
+			}
+		}
 	}
 
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
