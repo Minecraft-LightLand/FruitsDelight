@@ -54,7 +54,7 @@ public enum FDFood implements IFDFood {
 	PERSIMMON_COOKIE(FruitType.PERSIMMON, FoodType.COOKIE),
 	LEMON_COOKIE(FruitType.LEMON, FoodType.COOKIE),
 	CRANBERRY_COOKIE(FruitType.CRANBERRY, FoodType.COOKIE),
-	MANGOSTEEN_CAKE(FruitType.MANGOSTEEN, FoodType.MANGOSTEEN_CAKE, new EffectEntry(ModEffects.COMFORT, 1200)),
+	MANGOSTEEN_CAKE(FoodType.MANGOSTEEN_CAKE, FruitType.MANGOSTEEN, new EffectEntry(ModEffects.COMFORT, 1200)),
 	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
 	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	ORANGE_MARINATED_PORK(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
@@ -86,7 +86,7 @@ public enum FDFood implements IFDFood {
 		this(false, 0, fruit, food, null, effs);
 	}
 
-	FDFood(Supplier<BlockEntry<? extends Block>> sup, FruitType fruit, FoodType food, EffectEntry... effs) {
+	FDFood(FoodType food, FruitType fruit, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);

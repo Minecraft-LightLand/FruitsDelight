@@ -52,7 +52,6 @@
 	"mangosteen": "山竹",
 	"cranberry_cookie": "蔓越莓饼干",
 	"cranberry_muffin": "蔓越莓玛芬",
-	"mangosteen_cake": "山竹糕",
 	"mangosteen_tea": "山竹清茶",
 	"dummy_cauldron": "装满水的炼药锅"
   },
@@ -63,7 +62,8 @@
 	"pineapple": "菠萝",
 	"wild_pineapple": "野生菠萝",
 	"pineapple_fried_rice": "菠萝饭",
-	"lemonade_cauldron": "淡柠檬水锅"
+	"lemonade_cauldron": "淡柠檬水锅",
+	"mangosteen_cake": "山竹糕"
   },
   "-cartesian": {
 	"tree": {
@@ -100,7 +100,7 @@
 	  ]
 	},
 	"jelly": {
-	  "path": "item.fruitsdelight",
+	  "path": "",
 	  "list": [
 		{
 		  "hawberry": "山楂",
@@ -123,40 +123,15 @@
 		  "chorus": "紫颂果"
 		},
 		{
-		  "jelly": "果酱",
-		  "jello": "果冻"
-		}
-	  ]
-	},
-	"cauldron": {
-	  "path": "block.fruitsdelight",
-	  "list": [
-		{
-		  "hawberry": "山楂",
-		  "lychee": "荔枝",
-		  "mango": "芒果",
-		  "pear": "梨子",
-		  "persimmon": "柿子",
-		  "peach": "水蜜桃",
-		  "orange": "橘子",
-		  "apple": "苹果",
-		  "blueberry": "蓝莓",
-		  "glowberry": "发光浆果",
-		  "hamimelon": "哈密瓜",
-		  "sweetberry": "浆果",
-		  "pineapple": "菠萝",
-		  "lemon": "柠檬",
-		  "melon": "西瓜",
-		  "mangosteen": "山竹",
-		  "cranberry": "蔓越莓",
-		  "chorus": "紫颂果"
-		},
-		{
-		  "cauldron": "水锅",
-		  "jelly_cauldron": "果酱锅",
-		  "jello_cauldron": "果冻锅",
-		  "jello_block": "果冻块",
-		  "jelly_block": "果酱块"
+		  "item.fruitsdelight.*_jelly": "果酱",
+		  "item.fruitsdelight.*_jello": "果冻",
+		  "block.fruitsdelight.*_cauldron": "水锅",
+		  "block.fruitsdelight.*_jelly_cauldron": "果酱锅",
+		  "block.fruitsdelight.*_jello_cauldron": "果冻锅",
+		  "block.fruitsdelight.*_jello_block": "果冻块",
+		  "block.fruitsdelight.*_jelly_block": "果酱块",
+		  "fluid.fruitsdelight.*_jello": "熔融果冻",
+		  "fluid.fruitsdelight.*_jam": "果酱"
 		}
 	  ]
 	},
@@ -176,7 +151,8 @@
 		  "pineapple": "菠萝",
 		  "lemon": "柠檬",
 		  "mangosteen": "山竹",
-		  "cranberry": "蔓越莓"
+		  "cranberry": "蔓越莓",
+		  "apple": "苹果"
 		},
 		{
 		  "crate": "箱装"

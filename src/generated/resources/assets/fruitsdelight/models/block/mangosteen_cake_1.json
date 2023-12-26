@@ -1,0 +1,7 @@
+{
+  "parent": "fruitsdelight:block/mangosteen_cake_base_1",
+  "textures": {
+    "base": "fruitsdelight:block/mangosteen_cake_base",
+    "cake": "fruitsdelight:block/mangosteen_cake_cake"
+  }
+}

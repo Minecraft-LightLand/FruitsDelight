@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-26T13:56:06.27226	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-12-26T20:29:22.526564	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -71,6 +71,7 @@ f97f47ac4015b56a4436553bba544aa7fd149179 assets/fruitsdelight/blockstates/mango_
 6b9f62c1f137ee56b2af60cfae161646ecbcae03 assets/fruitsdelight/blockstates/mango_jelly_cauldron.json
 ec5d55db1837fb576ac0636499216ba320baf07d assets/fruitsdelight/blockstates/mango_leaves.json
 f4baa65afdb4999742b1c7864b40f23c6cf023a5 assets/fruitsdelight/blockstates/mango_sapling.json
+30682d1bdeaa3936476e42c29f3a3323735dd543 assets/fruitsdelight/blockstates/mangosteen_cake.json
 6e1d3917482985c94b1d27c2d539da05648da58a assets/fruitsdelight/blockstates/mangosteen_cauldron.json
 056a2ae2a222891fca14e0316ad4418b1a9bbef3 assets/fruitsdelight/blockstates/mangosteen_crate.json
 628181d8eab51ed8913431b9af5e84fa43e768d0 assets/fruitsdelight/blockstates/mangosteen_jello_block.json
@@ -130,8 +131,8 @@ c407159da6f3ea754478f8583e33b1f2b2b99fc4 assets/fruitsdelight/blockstates/sweetb
 1a018eef63897a322df658330447a32c54785c16 assets/fruitsdelight/blockstates/sweetberry_jelly_block.json
 7626d4ec1af96f1382a8d3c7aaa8d4f6a73678ab assets/fruitsdelight/blockstates/sweetberry_jelly_cauldron.json
 1b579c78266d846acdea9c42ec5827aa27bae474 assets/fruitsdelight/blockstates/wild_pineapple.json
-48df65d910588de89e5f6cbb3437ff0f19682661 assets/fruitsdelight/lang/en_ud.json
-400fa421df00b2372e859fd8adcf4e8d1d79f586 assets/fruitsdelight/lang/en_us.json
+5b8f9c4b39fa9d3cb76a835a174b808bbf0e3142 assets/fruitsdelight/lang/en_ud.json
+312a3082bbc820b370c59eec829db28dbc515bc7 assets/fruitsdelight/lang/en_us.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/apple_cauldron.json
 64dc6915927f16b08cd4fffdff8d0b467e8cfea0 assets/fruitsdelight/models/block/apple_crate.json
 0a2689ea678bee07b02632acb3828d475ab7646e assets/fruitsdelight/models/block/apple_flowers.json
@@ -269,6 +270,10 @@ f75512a40753b7ae78b354279aaad1b85da3a512 assets/fruitsdelight/models/block/mango
 49739a7083954c9430c508e93823e22f1feb62dd assets/fruitsdelight/models/block/mango_jelly_cauldron_level2.json
 e884cf7996c90124c8fb91df49e2b20afb2f3a25 assets/fruitsdelight/models/block/mango_leaves.json
 f70d7103f0d3022e6a178f5759de601554ddcb42 assets/fruitsdelight/models/block/mango_sapling.json
+b05985b0c7257506b7ee5b2c10fd66d1dba068c9 assets/fruitsdelight/models/block/mangosteen_cake_0.json
+07b2a89ff09ae08d12967c6e28cec6c790c360e6 assets/fruitsdelight/models/block/mangosteen_cake_1.json
+afd0d243369d08ebdb06d699c963f4477899797a assets/fruitsdelight/models/block/mangosteen_cake_2.json
+ff0c9d330c1d81b5493ca547e4acda4f07b00a8e assets/fruitsdelight/models/block/mangosteen_cake_3.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/mangosteen_cauldron.json
 f6d1b25a9850aca567d517f6456495910b5211a1 assets/fruitsdelight/models/block/mangosteen_crate.json
 5800eeb8b9dde6670f1fdd839203e37fab843350 assets/fruitsdelight/models/block/mangosteen_flowers.json
@@ -842,6 +847,7 @@ b28741263771cf99762d822a6e8fa92902fe397c data/fruitsdelight/loot_tables/blocks/m
 7b0a679fdfb30f6e526d6e3833034bc804daf164 data/fruitsdelight/loot_tables/blocks/mango_jelly_cauldron.json
 82cf44bfbe2bca3135f77f56fc1d31349b3f75b6 data/fruitsdelight/loot_tables/blocks/mango_leaves.json
 e8665673ca69ca0bbfd14f28b60a350d072ceb52 data/fruitsdelight/loot_tables/blocks/mango_sapling.json
+b6ef0a5c9eef5f7ed89da7b641a4834f163f0f8c data/fruitsdelight/loot_tables/blocks/mangosteen_cake.json
 e0fb59584f1c3b01cf94f8caf46c946ec53d2ec0 data/fruitsdelight/loot_tables/blocks/mangosteen_cauldron.json
 89b01e9bee0122ab8a4b23cf4f00ede1755ed1ae data/fruitsdelight/loot_tables/blocks/mangosteen_crate.json
 a6b021203edd27690abf2d6c349c4536d36b0648 data/fruitsdelight/loot_tables/blocks/mangosteen_jello_block.json

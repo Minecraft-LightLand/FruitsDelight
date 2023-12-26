@@ -59,7 +59,7 @@ public class LangFileOrganizer extends ResourceOrganizer {
 							}
 						}
 						for (Pair<String, String> pair : map) {
-							dst_json.addProperty(path + "." + pair.getFirst(), pair.getSecond());
+							dst_json.addProperty((path.isEmpty() ? "" : path + ".") + pair.getFirst(), pair.getSecond());
 						}
 
 					});
