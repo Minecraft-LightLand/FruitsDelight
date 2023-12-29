@@ -25,14 +25,14 @@ public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 	@Override
 	protected void addTags(HolderLookup.Provider pvd) {
 
-		var plain = asTag("plains");
-		var birch = asTag("birch");
-		var taiga = asTag("taiga");
-		var taiga_cold = asTag("taiga_cold");
-		var swamp = asTag("swamp");
-		var oak = asTag("fruitful_forest");
-		var tropical = asTag("tropical");
-		var windswpet = asTag("windswept");
+		var plain = asTag("vanilla/plains");
+		var birch = asTag("vanilla/birch");
+		var taiga = asTag("vanilla/taiga");
+		var taiga_cold = asTag("vanilla/taiga_cold");
+		var swamp = asTag("vanilla/swamp");
+		var oak = asTag("vanilla/fruitful_forest");
+		var tropical = asTag("vanilla/tropical");
+		var windswpet = asTag("vanilla/windswept");
 
 		tag(plain).add(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.MEADOW);
 		tag(birch).add(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
@@ -63,19 +63,11 @@ public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 	}
 
 	public static TagKey<Biome> asTag(PlantDataEntry<?> plant) {
-		return asTag(plant.getName() + "_biomes");
+		return asTag("plants/" + plant.getName() + "_biomes");
 	}
 
 	public static TagKey<Biome> asTag(String name) {
 		return TagKey.create(Registries.BIOME, new ResourceLocation(FruitsDelight.MODID, name));
-	}
-
-	private static ResourceLocation bop(String str) {
-		return new ResourceLocation("biomesoplenty", str);
-	}
-
-	private static ResourceLocation tl(String str) {
-		return new ResourceLocation("terralith", str);
 	}
 
 	// savanna,savanna_plateau, windswept_savanna

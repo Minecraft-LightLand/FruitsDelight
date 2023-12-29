@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:hamimelon_biomes",
+  "biomes": "#fruitsdelight:plants/hamimelon_biomes",
   "features": "fruitsdelight:hamimelon",
   "step": "vegetal_decoration"
 }

@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:mangosteen_biomes",
+  "biomes": "#fruitsdelight:plants/mangosteen_biomes",
   "features": "fruitsdelight:tree/mangosteen_tree",
   "step": "vegetal_decoration"
 }

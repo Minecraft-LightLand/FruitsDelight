@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:peach_biomes",
+  "biomes": "#fruitsdelight:plants/peach_biomes",
   "features": "fruitsdelight:tree/peach_tree",
   "step": "vegetal_decoration"
 }

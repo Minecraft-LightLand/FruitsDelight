@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:blueberry_biomes",
+  "biomes": "#fruitsdelight:plants/blueberry_biomes",
   "features": "fruitsdelight:blueberry_bush",
   "step": "vegetal_decoration"
 }

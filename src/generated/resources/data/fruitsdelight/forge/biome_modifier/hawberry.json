@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:hawberry_biomes",
+  "biomes": "#fruitsdelight:plants/hawberry_biomes",
   "features": "fruitsdelight:tree/hawberry_tree",
   "step": "vegetal_decoration"
 }

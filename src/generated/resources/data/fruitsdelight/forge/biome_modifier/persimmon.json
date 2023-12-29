@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:persimmon_biomes",
+  "biomes": "#fruitsdelight:plants/persimmon_biomes",
   "features": "fruitsdelight:tree/persimmon_tree",
   "step": "vegetal_decoration"
 }

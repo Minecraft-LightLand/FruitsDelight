@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:pear_biomes",
+  "biomes": "#fruitsdelight:plants/pear_biomes",
   "features": "fruitsdelight:tree/pear_tree",
   "step": "vegetal_decoration"
 }

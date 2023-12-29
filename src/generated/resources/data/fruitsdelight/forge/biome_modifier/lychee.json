@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#fruitsdelight:lychee_biomes",
+  "biomes": "#fruitsdelight:plants/lychee_biomes",
   "features": "fruitsdelight:tree/lychee_tree",
   "step": "vegetal_decoration"
 }
