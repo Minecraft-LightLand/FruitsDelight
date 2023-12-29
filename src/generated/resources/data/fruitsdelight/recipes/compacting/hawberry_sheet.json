@@ -1,0 +1,28 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:hawberry_sheet"
+    }
+  ]
+}
