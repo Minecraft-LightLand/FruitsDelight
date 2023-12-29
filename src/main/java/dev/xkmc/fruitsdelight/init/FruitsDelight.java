@@ -82,6 +82,7 @@ public class FruitsDelight {
 		gen.addProvider(server, reg);
 		gen.addProvider(server, new BotanyGen(gen));
 		gen.addProvider(server, new FDConfigGen(gen));
+		gen.addProvider(server, new FDBiomeTagsProvider(output, pvd, helper));
 	}
 
 }

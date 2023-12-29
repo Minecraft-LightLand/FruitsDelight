@@ -1,15 +1,17 @@
 package dev.xkmc.fruitsdelight.init.data;
 
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.plants.*;
-import net.minecraft.core.*;
+import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
@@ -18,7 +20,6 @@ import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -32,32 +33,14 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 	private static void registerBiomeModifiers(BootstapContext<BiomeModifier> ctx) {
 		var biomes = ctx.lookup(Registries.BIOME);
 		var features = ctx.lookup(Registries.PLACED_FEATURE);
-		registerTreeBiome(ctx, FDTrees.PEAR, biomes, features, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
-		registerTreeBiome(ctx, FDTrees.HAWBERRY, biomes, features, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA);
-		registerTreeBiome(ctx, FDTrees.PERSIMMON, biomes, features, Biomes.SNOWY_TAIGA, Biomes.GROVE);
-		registerTreeBiome(ctx, FDTrees.LYCHEE, biomes, features, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
-		registerTreeBiome(ctx, FDTrees.MANGO, biomes, features, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
-		registerTreeBiome(ctx, FDTrees.PEACH, biomes, features, Biomes.SPARSE_JUNGLE);
-		registerTreeBiome(ctx, FDTrees.ORANGE, biomes, features, Biomes.FOREST, Biomes.FLOWER_FOREST);
-		registerTreeBiome(ctx, FDTrees.APPLE, biomes, features, Biomes.FOREST, Biomes.FLOWER_FOREST);
-		registerTreeBiome(ctx, FDTrees.MANGOSTEEN, biomes, features, Biomes.JUNGLE, Biomes.SWAMP, Biomes.MANGROVE_SWAMP);
-		registerTreeBiome(ctx, FDBushes.CRANBERRY, biomes, features, Biomes.JUNGLE, Biomes.SWAMP, Biomes.MANGROVE_SWAMP, Biomes.DARK_FOREST);
-		registerTreeBiome(ctx, FDBushes.BLUEBERRY, biomes, features, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA,
-				Biomes.SNOWY_TAIGA, Biomes.GROVE,
-				Biomes.SWAMP, Biomes.MANGROVE_SWAMP, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST);
-		registerTreeBiome(ctx, FDBushes.LEMON, biomes, features, Biomes.PLAINS);
-		registerTreeBiome(ctx, FDMelons.HAMIMELON, biomes, features, Biomes.DESERT);
-		registerTreeBiome(ctx, FDPineapple.PINEAPPLE, biomes, features, Biomes.BEACH);
+		PlantDataEntry.run(e -> registerTreeBiome(ctx, e, biomes, features));
 	}
 
-	@SuppressWarnings("unchecked")
-	@SafeVarargs
 	private static void registerTreeBiome(BootstapContext<BiomeModifier> ctx,
-										  PlantDataEntry tree,
+										  PlantDataEntry<?> tree,
 										  HolderGetter<Biome> biomeGetter,
-										  HolderGetter<PlacedFeature> features,
-										  ResourceKey<Biome>... biomes) {
-		HolderSet<Biome> set = HolderSet.direct(Arrays.stream(biomes).map(biomeGetter::getOrThrow).toArray(Holder[]::new));
+										  HolderGetter<PlacedFeature> features) {
+		HolderSet<Biome> set = biomeGetter.getOrThrow(FDBiomeTagsProvider.asTag(tree));
 		ctx.register(ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(FruitsDelight.MODID,
 				tree.getName())), new ForgeBiomeModifiers.AddFeaturesBiomeModifier(set,
 				HolderSet.direct(features.getOrThrow(tree.getPlacementKey())),

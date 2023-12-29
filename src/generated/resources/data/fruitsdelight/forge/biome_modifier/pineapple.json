@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "minecraft:beach",
+  "biomes": "#fruitsdelight:pineapple_biomes",
   "features": "fruitsdelight:pineapple",
   "step": "vegetal_decoration"
 }

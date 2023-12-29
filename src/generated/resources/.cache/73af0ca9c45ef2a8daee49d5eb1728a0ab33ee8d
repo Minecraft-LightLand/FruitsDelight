@@ -1,0 +1,22 @@
+// 1.20.1	2023-12-29T15:26:47.013829	Tags for minecraft:worldgen/biome mod id fruitsdelight
+57cdaa3c27112246dba341e95bdfaef00479a1c0 data/fruitsdelight/tags/worldgen/biome/apple_biomes.json
+ad41a205a2af421a343ed7b2b72e34818bf036db data/fruitsdelight/tags/worldgen/biome/birch.json
+77af5b8baf3380c37c99efe8dc81546e2e036205 data/fruitsdelight/tags/worldgen/biome/blueberry_biomes.json
+123fc995afded3512eabd9f04e9a65bb8bb58711 data/fruitsdelight/tags/worldgen/biome/cranberry_biomes.json
+5056f3bd580be2fd51c5ed3c2780ed82e9a2768a data/fruitsdelight/tags/worldgen/biome/fruitful_forest.json
+f3ef2895c49e29111297e950661e5bc71a79989e data/fruitsdelight/tags/worldgen/biome/hamimelon_biomes.json
+996b59e377b2e689aeb30aecc48b6da626951a50 data/fruitsdelight/tags/worldgen/biome/hawberry_biomes.json
+9082ad4c47ae19598c42bfebbd6774bc24f1c848 data/fruitsdelight/tags/worldgen/biome/lemon_biomes.json
+dc47c7bdf6b7e32f52fe504fcfd9b74afa4fc06c data/fruitsdelight/tags/worldgen/biome/lychee_biomes.json
+dc47c7bdf6b7e32f52fe504fcfd9b74afa4fc06c data/fruitsdelight/tags/worldgen/biome/mango_biomes.json
+b6e894a918e7879e7907554ad4bae4c2fcdef1b9 data/fruitsdelight/tags/worldgen/biome/mangosteen_biomes.json
+57cdaa3c27112246dba341e95bdfaef00479a1c0 data/fruitsdelight/tags/worldgen/biome/orange_biomes.json
+1505832e2c5cce98d18f5100da3a5072dfae4d4a data/fruitsdelight/tags/worldgen/biome/peach_biomes.json
+d56b5995717ad7aa553db34983199c4f68012aa8 data/fruitsdelight/tags/worldgen/biome/pear_biomes.json
+0a5cbef9d768c4a42ef4cd1b3b11504fd116c982 data/fruitsdelight/tags/worldgen/biome/persimmon_biomes.json
+208ad58db65540373e309e41d4444b16f2e8a713 data/fruitsdelight/tags/worldgen/biome/pineapple_biomes.json
+6525dda69924a36f16797ed873bffc083e1f4de5 data/fruitsdelight/tags/worldgen/biome/swamp.json
+fba122bcfd2e8f583125a49b54bbf3da2ccdb6ff data/fruitsdelight/tags/worldgen/biome/taiga.json
+942e2a551f9b6d3c3138ff4c82e8699e92acc689 data/fruitsdelight/tags/worldgen/biome/taiga_cold.json
+4061d506cc579dd34e2cdedc939e851eca1bded2 data/fruitsdelight/tags/worldgen/biome/tropical.json
+53e7635c040815622cc9a0ee53c1c73f75d74294 data/fruitsdelight/tags/worldgen/biome/windswept.json
