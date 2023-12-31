@@ -51,8 +51,7 @@ public class FDConfigGen extends ConfigDataProvider {
 			transform.fluid(item, e.color);
 		}
 		map.put(FruitsDelight.MODID + "/cuisinedelight_config/" + NetworkManager.INGREDIENT.getID() + "/fruits", config);
-		collector.add(CuisineDelight.INGREDIENT, new ResourceLocation(FruitsDelight.MODID, "fruits"), config);
-		collector.add(CuisineDelight.TRANSFORM, new ResourceLocation(FruitsDelight.MODID, "jelly"), transform);
+		map.put(FruitsDelight.MODID + "/cuisinedelight_config/" + NetworkManager.TRANSFORM.getID() + "/jelly", transform);
 	}
 
 }

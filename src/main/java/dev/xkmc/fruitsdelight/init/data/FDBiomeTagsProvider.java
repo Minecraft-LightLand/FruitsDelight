@@ -3,28 +3,24 @@ package dev.xkmc.fruitsdelight.init.data;
 import dev.xkmc.fruitsdelight.compat.biomes.ModBiomeKeys;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.plants.*;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
+import net.minecraft.core.Registry;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.concurrent.CompletableFuture;
+import org.jetbrains.annotations.Nullable;
 
 public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 
-	public FDBiomeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd, ExistingFileHelper helper) {
-		super(output, pvd, FruitsDelight.MODID, helper);
+	public FDBiomeTagsProvider(DataGenerator gen, @Nullable ExistingFileHelper helper) {
+		super(gen, FruitsDelight.MODID, helper);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected void addTags(HolderLookup.Provider pvd) {
-
+	protected void addTags() {
 		var plain = asTag("vanilla/plains");
 		var birch = asTag("vanilla/birch");
 		var taiga = asTag("vanilla/taiga");
@@ -67,7 +63,7 @@ public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 	}
 
 	public static TagKey<Biome> asTag(String name) {
-		return TagKey.create(Registries.BIOME, new ResourceLocation(FruitsDelight.MODID, name));
+		return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(FruitsDelight.MODID, name));
 	}
 
 	// savanna,savanna_plateau, windswept_savanna

@@ -1,4 +1,5 @@
 {
+  "_class": "dev.xkmc.cuisinedelight.content.logic.CookTransformConfig",
   "fluidTransform": {
     "fruitsdelight:apple_jelly": {
       "color": -3964099

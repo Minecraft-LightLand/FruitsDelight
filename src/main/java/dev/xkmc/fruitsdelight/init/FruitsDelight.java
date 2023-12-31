@@ -2,7 +2,6 @@ package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
-import dev.xkmc.cuisinedelight.init.data.CDConfigGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
@@ -77,7 +76,7 @@ public class FruitsDelight {
 		boolean server = event.includeServer();
 		var gen = event.getGenerator();
 		gen.addProvider(server, new FDConfigGen(gen));
-		gen.addProvider(server, new FDBiomeTagsProvider(output, pvd, helper));
+		gen.addProvider(server, new FDBiomeTagsProvider(gen, event.getExistingFileHelper()));
 	}
 
 }

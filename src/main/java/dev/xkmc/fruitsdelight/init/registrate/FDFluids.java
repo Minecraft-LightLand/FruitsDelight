@@ -1,14 +1,14 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import com.tterrag.registrate.builders.FluidBuilder;
-import com.tterrag.registrate.util.entry.FluidEntry;
-import com.tterrag.registrate.util.nullness.NonNullFunction;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.entries.FruitFluid;
 import dev.xkmc.fruitsdelight.init.entries.FruitFluidType;
 import dev.xkmc.fruitsdelight.init.entries.VirtualFluidBuilder;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.repack.registrate.builders.FluidBuilder;
+import dev.xkmc.l2library.repack.registrate.util.entry.FluidEntry;
+import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullFunction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 

@@ -19,8 +19,8 @@ import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.base.recipe.ConditionalRecipeWrapper;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
@@ -71,7 +71,7 @@ public class CreateRecipeGen {
 					.output(FDFoodItem.setContent(FDFood.JELLY_BREAD.get(), e))
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			filling(jamItem.getId().withSuffix("_roll"))
+			filling(suffix(jamItem.getId(), "_roll"))
 					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
 					.withItemIngredients(Ingredient.of(FDFood.HAWBERRY_SHEET.get()))
 					.output(FDFoodItem.setContent(FDFood.HAWBERRY_ROLL.get(), e))
