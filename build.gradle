@@ -161,6 +161,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:terralith-513688:4938254")
 
     compileOnly fg.deobf("curse.maven:diet-443570:4634780")
+    implementation fg.deobf("curse.maven:capable-cauldrons-826695:4970674")
 
     //runtimeOnly fg.deobf("curse.maven:rubidium-574856:4573226")
 

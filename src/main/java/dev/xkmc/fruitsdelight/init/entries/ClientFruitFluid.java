@@ -1,26 +1,21 @@
 package dev.xkmc.fruitsdelight.init.entries;
 
-import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 
-public record ClientFruitFluid(
-		FruitType type,
-		ResourceLocation stillTexture,
-		ResourceLocation flowingTexture
-) implements IClientFluidTypeExtensions {
+public record ClientFruitFluid(FruitFluidType type) implements IClientFluidTypeExtensions {
 
 	public ResourceLocation getStillTexture() {
-		return stillTexture;
+		return type.stillTexture;
 	}
 
 	public ResourceLocation getFlowingTexture() {
-		return flowingTexture;
+		return type.flowingTexture;
 	}
 
 	@Override
 	public int getTintColor() {
-		return type.color;
+		return type.type.color;
 	}
 
 }

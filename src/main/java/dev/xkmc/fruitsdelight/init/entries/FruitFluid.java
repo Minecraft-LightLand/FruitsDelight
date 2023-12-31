@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.entries;
 
+import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -8,9 +9,13 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
-public class VirtualFluid extends ForgeFlowingFluid {
-	public VirtualFluid(ForgeFlowingFluid.Properties properties) {
+public class FruitFluid extends ForgeFlowingFluid {
+
+	public final FruitType type;
+
+	public FruitFluid(ForgeFlowingFluid.Properties properties, FruitType type) {
 		super(properties);
+		this.type = type;
 	}
 
 	public Fluid getSource() {
