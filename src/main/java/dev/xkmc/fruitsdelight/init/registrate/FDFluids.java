@@ -1,20 +1,20 @@
-package dev.xkmc.fruitsdelight.compat.create;
+package dev.xkmc.fruitsdelight.init.registrate;
 
-import com.simibubi.create.content.fluids.VirtualFluid;
-import com.simibubi.create.foundation.data.VirtualFluidBuilder;
 import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.entries.FruitFluidType;
+import dev.xkmc.fruitsdelight.init.entries.VirtualFluid;
+import dev.xkmc.fruitsdelight.init.entries.VirtualFluidBuilder;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 import java.util.Locale;
 
-public class CreateCompat {
+public class FDFluids {
 
 	public static final FluidEntry<VirtualFluid>[] JAM, JELLO;
 

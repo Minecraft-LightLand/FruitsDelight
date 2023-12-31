@@ -2,7 +2,7 @@
 TODO 2 fruits
 
 1.0.4 / 0.5.4
--
+- Add cuisine delight jelly fluid rendering compat
 
 1.0.3 / 0.5.3
 - Create compat for jam and jello

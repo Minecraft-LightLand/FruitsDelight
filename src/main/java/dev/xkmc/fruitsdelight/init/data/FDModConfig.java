@@ -22,6 +22,8 @@ public class FDModConfig {
 		public final ForgeConfigSpec.IntValue rageEffectRange;
 		public final ForgeConfigSpec.IntValue healEffectRange;
 
+		public final ForgeConfigSpec.BooleanValue enableCauldronRecipe;
+
 		Common(ForgeConfigSpec.Builder builder) {
 			fruitsGrowChance = builder.comment("Chance for fruits to grow per random tick")
 					.defineInRange("fruitsGrowChance", 0.1, 0, 1);
@@ -33,6 +35,8 @@ public class FDModConfig {
 					.defineInRange("rageEffectRange", 24, 0, 64);
 			healEffectRange = builder.comment("Effect application range for Heal Aura effect")
 					.defineInRange("healEffectRange", 6, 0, 64);
+			enableCauldronRecipe = builder.comment("Enable cauldron jam and jello recipe")
+					.define("enableCauldronRecipe", true);
 		}
 
 	}

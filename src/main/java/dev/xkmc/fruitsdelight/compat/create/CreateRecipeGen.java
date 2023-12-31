@@ -23,6 +23,7 @@ import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
+import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
@@ -38,8 +39,8 @@ import java.util.List;
 public class CreateRecipeGen {
 	public static void onRecipeGen(RegistrateRecipeProvider pvd) {
 		for (var e : FruitType.values()) {
-			var jamFluid = CreateCompat.JAM[e.ordinal()];
-			var jelloFluid = CreateCompat.JELLO[e.ordinal()];
+			var jamFluid = FDFluids.JAM[e.ordinal()];
+			var jelloFluid = FDFluids.JELLO[e.ordinal()];
 			var jamBlock = FDBlocks.JELLY[e.ordinal()];
 			var jelloBlock = FDBlocks.JELLO[e.ordinal()];
 			var jamItem = FDItems.JELLY[e.ordinal()];
