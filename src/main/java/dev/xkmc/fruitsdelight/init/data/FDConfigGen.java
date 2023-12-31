@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.data;
 
+import dev.xkmc.cuisinedelight.content.logic.CookTransformConfig;
 import dev.xkmc.cuisinedelight.content.logic.FoodType;
 import dev.xkmc.cuisinedelight.content.logic.IngredientConfig;
 import dev.xkmc.cuisinedelight.init.data.NetworkManager;
@@ -24,6 +25,7 @@ public class FDConfigGen extends ConfigDataProvider {
 	@Override
 	public void add(Map<String, BaseConfig> map) {
 		var config = new IngredientConfig();
+		var transform = new CookTransformConfig();
 		for (var e : FruitType.values()) {
 			Item item = e.fruit.get();
 			ResourceLocation rl = ForgeRegistries.ITEMS.getKey(item);
@@ -46,8 +48,11 @@ public class FDConfigGen extends ConfigDataProvider {
 				ing.effects.add(new IngredientConfig.EffectEntry(ins.getEffect(), ins.getAmplifier(), ins.getDuration()));
 			}
 			config.entries.add(ing);
+			transform.fluid(item, e.color);
 		}
 		map.put(FruitsDelight.MODID + "/cuisinedelight_config/" + NetworkManager.INGREDIENT.getID() + "/fruits", config);
+		collector.add(CuisineDelight.INGREDIENT, new ResourceLocation(FruitsDelight.MODID, "fruits"), config);
+		collector.add(CuisineDelight.TRANSFORM, new ResourceLocation(FruitsDelight.MODID, "jelly"), transform);
 	}
 
 }

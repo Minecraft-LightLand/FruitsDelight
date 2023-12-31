@@ -19,6 +19,7 @@ import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
+import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.base.recipe.ConditionalRecipeWrapper;
@@ -38,8 +39,8 @@ import java.util.List;
 public class CreateRecipeGen {
 	public static void onRecipeGen(RegistrateRecipeProvider pvd) {
 		for (var e : FruitType.values()) {
-			var jamFluid = CreateCompat.JAM[e.ordinal()];
-			var jelloFluid = CreateCompat.JELLO[e.ordinal()];
+			var jamFluid = FDFluids.JAM[e.ordinal()];
+			var jelloFluid = FDFluids.JELLO[e.ordinal()];
 			var jamBlock = FDBlocks.JELLY[e.ordinal()];
 			var jelloBlock = FDBlocks.JELLO[e.ordinal()];
 			var jamItem = FDItems.JELLY[e.ordinal()];
@@ -70,6 +71,12 @@ public class CreateRecipeGen {
 					.output(FDFoodItem.setContent(FDFood.JELLY_BREAD.get(), e))
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
+			filling(jamItem.getId().withSuffix("_roll"))
+					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
+					.withItemIngredients(Ingredient.of(FDFood.HAWBERRY_SHEET.get()))
+					.output(FDFoodItem.setContent(FDFood.HAWBERRY_ROLL.get(), e))
+					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
+
 			fluidRecipes(pvd, jamBlock, jamFluid, jamItem, Items.GLASS_BOTTLE);
 			fluidRecipes(pvd, jelloBlock, jelloFluid, jelloItem, Items.BOWL);
 
@@ -96,6 +103,16 @@ public class CreateRecipeGen {
 					.withItemIngredients(Ingredient.of(FDPineapple.PINEAPPLE.getWholeFruit()))
 					.output(FDPineapple.PINEAPPLE.getSlice(), 8)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
+
+			compacting(new ResourceLocation(FruitsDelight.MODID, "hawberry_sheet"))
+					.withItemIngredients(
+							Ingredient.of(FDTrees.HAWBERRY.getFruit()),
+							Ingredient.of(FDTrees.HAWBERRY.getFruit()),
+							Ingredient.of(FDTrees.HAWBERRY.getFruit()),
+							Ingredient.of(Items.SUGAR))
+					.output(FDFood.HAWBERRY_SHEET.item.get())
+					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
+
 		}
 	}
 

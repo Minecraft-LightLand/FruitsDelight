@@ -45,10 +45,7 @@ public class FruitsDelight {
 		FDCauldrons.register();
 		FDMiscs.register();
 		FDModConfig.init();
-
-		if (ModList.get().isLoaded(Create.ID)) {
-			CreateCompat.register();
-		}
+		FDFluids.register();
 
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
@@ -62,7 +59,13 @@ public class FruitsDelight {
 			PlantDataEntry.run(PlantDataEntry::registerConfigs);
 			PlantDataEntry.run(PlantDataEntry::registerPlacements);
 			PlantDataEntry.run(PlantDataEntry::registerComposter);
-			FDCauldrons.init();
+
+			if (FDModConfig.COMMON.enableCauldronRecipe.get())
+				FDCauldrons.init();
+
+			if (ModList.get().isLoaded(Create.ID)) {
+				CreateCompat.init();
+			}
 
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
@@ -74,6 +77,7 @@ public class FruitsDelight {
 		boolean server = event.includeServer();
 		var gen = event.getGenerator();
 		gen.addProvider(server, new FDConfigGen(gen));
+		gen.addProvider(server, new FDBiomeTagsProvider(output, pvd, helper));
 	}
 
 }

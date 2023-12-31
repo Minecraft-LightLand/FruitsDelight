@@ -118,7 +118,7 @@ public class FDCauldrons {
 				.item().tab(() -> null)
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
 				.build()
-				.lang(FDItems.toEnglishName(id).replaceAll("Jelly","Jam"))
+				.lang(FDItems.toEnglishName(id).replaceAll("Jelly", "Jam"))
 				.tag(BlockTags.CAULDRONS).register();
 	}
 

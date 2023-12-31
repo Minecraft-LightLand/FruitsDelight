@@ -1,11 +1,14 @@
+- Add 3 types of fruits, and respective effects and products
+TODO 2 fruits
+
 1.0.3 / 0.5.3
 - Create compat for jam and jello
-- Add 3 types of fruits, and respective effects and products
 - Use tags for wheat dough recipe
 - Permanent leaves won't change state
 - Diet compat
-- TODO kiwi
-- TODO cuisine delight compat
+- Cuisine Delight Compat
+- Add apple crate
+- Add Mangosteen Cake Block
 
 1.0.2 / 0.5.2
 - Double Pineapple spawn rate
