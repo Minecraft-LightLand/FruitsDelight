@@ -33,15 +33,15 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public enum FDTrees implements PlantDataEntry<FDTrees> {
-	PEAR(() -> Blocks.BIRCH_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
-	HAWBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.NORMAL, 2, 0.3f, true),
-	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 2, 0.3f, true),
+	PEAR(() -> Blocks.BIRCH_LOG, FDTreeType.TALL, 3, 0.3f, false),
+	HAWBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true),
+	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.TALL, 2, 0.3f, true),
 	MANGO(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
-	PERSIMMON(() -> Blocks.SPRUCE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, FDTreeType.FANCY, 3, 0.3f, false),
 	PEACH(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
 	ORANGE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
 	APPLE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, str -> () -> Items.APPLE),
-	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.TALL, 3, 0.3f, false),
+	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.FANCY, 3, 0.3f, false),
 	;
 
 	private final BlockEntry<PassableLeavesBlock> leaves;
