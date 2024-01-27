@@ -6,6 +6,7 @@ import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
 import dev.xkmc.fruitsdelight.compat.sereneseasons.SeasonCompat;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -35,6 +36,8 @@ public class TagGen {
 	}
 
 	public static void onItemTagGen(RegistrateItemTagsProvider pvd) {
+		pvd.addTag(ItemTags.create(new ResourceLocation("forge", "berries")))
+				.add(FDBushes.BLUEBERRY.getFruit(), FDBushes.CRANBERRY.getFruit());
 		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)) {
 			SeasonCompat.genItem(pvd);
 		}

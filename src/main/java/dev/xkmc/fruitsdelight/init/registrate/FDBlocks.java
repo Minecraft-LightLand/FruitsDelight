@@ -82,7 +82,7 @@ public class FDBlocks {
 			JELLY[i] = FruitsDelight.REGISTRATE.block(name + "_jelly_block", p ->
 							new JellyBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK), type))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
-							.withExistingParent(ctx.getName(), "block/leaves")
+							.withExistingParent(ctx.getName(), pvd.modLoc("block/tinted"))
 							.texture("all", pvd.modLoc("block/jelly"))
 							.renderType("translucent")))
 					.lang(FDItems.toEnglishName(name) + " Jam Block")
@@ -100,7 +100,7 @@ public class FDBlocks {
 			JELLO[i] = FruitsDelight.REGISTRATE.block(name + "_jello_block", p ->
 							new JelloBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK), type))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
-							.withExistingParent(ctx.getName(), "block/leaves")
+							.withExistingParent(ctx.getName(), pvd.modLoc("block/tinted"))
 							.texture("all", pvd.modLoc("block/jello"))
 							.renderType("translucent")))
 					.color(() -> () -> (s, l, p, x) -> type.color)

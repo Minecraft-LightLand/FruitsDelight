@@ -1,5 +1,6 @@
 - Add 3 types of fruits, and respective effects and products
 - Add more tree shapes
+- Add Berry tags
 TODO 2 fruits
 
 1.0.3 / 0.5.3
