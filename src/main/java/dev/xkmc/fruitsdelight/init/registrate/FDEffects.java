@@ -68,15 +68,15 @@ public class FDEffects {
 			"Teleport player randomly");
 
 	public static final RegistryEntry<EmptyEffect> DIGESTING = genEffect("digesting", () ->
-					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.FIG.color),
 			"Overflowing nutrition becomes saturation.");
 
 	public static final RegistryEntry<EmptyEffect> LEAF_PIERCING = genEffect("leaf_piercing", () ->
-					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.BAYBERRY.color),
 			"Projectiles player shot will go through leaves");
 
 	public static final RegistryEntry<CyclingEffect> CYCLING = genEffect("cycling", () ->
-					new CyclingEffect(MobEffectCategory.BENEFICIAL, FruitType.PEAR.color),//TODO
+					new CyclingEffect(MobEffectCategory.BENEFICIAL, FruitType.KIWI.color),
 			"Player will drop 1 level of experience as orbs every second");
 
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {

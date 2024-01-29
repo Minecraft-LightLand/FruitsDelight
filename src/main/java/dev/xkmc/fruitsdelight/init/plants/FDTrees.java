@@ -42,6 +42,9 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	ORANGE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
 	APPLE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, str -> () -> Items.APPLE),
 	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.FANCY, 3, 0.3f, false),
+	BAYBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true),
+	KIWI(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, true),
+	FIG(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
 	;
 
 	private final BlockEntry<PassableLeavesBlock> leaves;

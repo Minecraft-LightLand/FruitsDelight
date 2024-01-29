@@ -1,0 +1,29 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hawberry_sheet"
+    },
+    {
+      "amount": 125,
+      "fluid": "fruitsdelight:fig_jam",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "fruitsdelight:hawberry_roll",
+      "nbt": {
+        "JellyEffectRoot": [
+          "FIG"
+        ]
+      }
+    }
+  ]
+}

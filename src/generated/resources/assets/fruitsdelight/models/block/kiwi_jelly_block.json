@@ -1,0 +1,7 @@
+{
+  "parent": "fruitsdelight:block/tinted",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "all": "fruitsdelight:block/jelly"
+  }
+}
