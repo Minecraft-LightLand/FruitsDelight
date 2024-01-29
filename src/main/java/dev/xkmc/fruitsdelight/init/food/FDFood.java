@@ -1,7 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.providers.ProviderType;
-import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
@@ -12,14 +11,12 @@ import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-import java.util.function.Supplier;
 
 public enum FDFood implements IFDFood {
 	HAMIMELON_JUICE(FruitType.HAMIMELON, FoodType.JUICE),
@@ -31,6 +28,7 @@ public enum FDFood implements IFDFood {
 	PEACH_TEA(FruitType.PEACH, FoodType.JUICE),
 	LYCHEE_CHERRY_TEA(FruitType.LYCHEE, FoodType.JUICE),
 	MANGOSTEEN_TEA(FruitType.MANGOSTEEN, FoodType.JUICE),
+	BAYBERRY_SOUP(FruitType.BAYBERRY, FoodType.JUICE),
 	BELLINI_COCKTAIL(FruitType.empty(), FoodType.JUICE,
 			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
 			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
@@ -38,6 +36,7 @@ public enum FDFood implements IFDFood {
 	BLUEBERRY_CUSTARD(FruitType.BLUEBERRY, FoodType.CREAM),
 	BLUEBERRY_MUFFIN(FruitType.BLUEBERRY, FoodType.DESSERT),
 	CRANBERRY_MUFFIN(FruitType.CRANBERRY, FoodType.DESSERT),
+	FIG_PUDDING_SLICE(FruitType.FIG, FoodType.ROLL),
 	HAMIMELON_POPSICLE(FruitType.HAMIMELON, FoodType.STICK),
 	HAMIMELON_SHAVED_ICE(FruitType.HAMIMELON, FoodType.JUICE),
 	HAWBERRY_ROLL(FruitType.HAWBERRY, FoodType.ROLL, 0),
@@ -48,15 +47,18 @@ public enum FDFood implements IFDFood {
 	BAKED_PEAR(FruitType.PEAR, FoodType.FRUIT),
 	PINEAPPLE_PIE(FruitType.PINEAPPLE, FoodType.DESSERT),
 	LEMON_TART(FruitType.LEMON, FoodType.DESSERT),
+	FIG_TART(FruitType.FIG, FoodType.DESSERT),
 	MANGO_MILKSHAKE(FruitType.MANGO, FoodType.JUICE),
 	MANGO_SALAD(FruitType.MANGO, FoodType.BOWL, 0),
 	DRIED_PERSIMMON(FruitType.PERSIMMON, FoodType.FRUIT),
 	PERSIMMON_COOKIE(FruitType.PERSIMMON, FoodType.COOKIE),
 	LEMON_COOKIE(FruitType.LEMON, FoodType.COOKIE),
 	CRANBERRY_COOKIE(FruitType.CRANBERRY, FoodType.COOKIE),
+	BAYBERRY_COOKIE(FruitType.BAYBERRY, FoodType.COOKIE),
 	MANGOSTEEN_CAKE(FoodType.MANGOSTEEN_CAKE, FruitType.MANGOSTEEN, new EffectEntry(ModEffects.COMFORT, 1200)),
 	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
 	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
+	FIG_CHICKEN_STEW(FruitType.FIG, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	ORANGE_MARINATED_PORK(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	BOWL_OF_PINEAPPLE_FRIED_RICE(FruitType.PINEAPPLE, FoodType.STAPLE, new EffectEntry(ModEffects.COMFORT, 6000)),
 	PINEAPPLE_MARINATED_PORK(FruitType.PINEAPPLE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),

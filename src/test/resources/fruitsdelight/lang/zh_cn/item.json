@@ -53,7 +53,10 @@
 	"cranberry_cookie": "蔓越莓饼干",
 	"cranberry_muffin": "蔓越莓玛芬",
 	"mangosteen_tea": "山竹清茶",
-	"dummy_cauldron": "装满水的炼药锅"
+	"dummy_cauldron": "装满水的炼药锅",
+	"fig": "无花果",
+	"kiwi": "猕猴桃",
+	"bayberry": "杨梅"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
@@ -78,7 +81,10 @@
 		  "peach": "水蜜桃",
 		  "orange": "橘子",
 		  "apple": "苹果",
-		  "mangosteen": "山竹"
+		  "mangosteen": "山竹",
+		  "fig": "无花果",
+		  "kiwi": "猕猴桃",
+		  "bayberry": "杨梅"
 		},
 		{
 		  "leaves": "树叶",
@@ -120,7 +126,10 @@
 		  "melon": "西瓜",
 		  "mangosteen": "山竹",
 		  "cranberry": "蔓越莓",
-		  "chorus": "紫颂果"
+		  "chorus": "紫颂果",
+		  "fig": "无花果",
+		  "kiwi": "猕猴桃",
+		  "bayberry": "杨梅"
 		},
 		{
 		  "item.fruitsdelight.*_jelly": "果酱",
@@ -152,7 +161,10 @@
 		  "lemon": "柠檬",
 		  "mangosteen": "山竹",
 		  "cranberry": "蔓越莓",
-		  "apple": "苹果"
+		  "apple": "苹果",
+		  "fig": "无花果",
+		  "kiwi": "猕猴桃",
+		  "bayberry": "杨梅"
 		},
 		{
 		  "crate": "箱装"
