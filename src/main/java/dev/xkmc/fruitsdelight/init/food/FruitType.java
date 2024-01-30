@@ -47,9 +47,9 @@ public enum FruitType {
 	MANGOSTEEN(2, 0xFBECD6, FDTrees.MANGOSTEEN::getFruit, List.of(new EffectFunc(FDEffects.SLIDING::get, lv -> lv * 80))),
 	SWEETBERRY(4, 0xC41A4F, () -> Items.SWEET_BERRIES, List.of()),
 	CHORUS(2, 0xD0A9D7, () -> Items.CHORUS_FRUIT, List.of(new EffectFunc(FDEffects.CHORUS::get, lv -> 1, lv -> 0, lv -> Math.min(1, lv * 0.05f)))),
-	BAYBERRY(4, 0xFFFFFF/*TODO*/, FDTrees.BAYBERRY::getFruit, List.of(new EffectFunc(FDEffects.LEAF_PIERCING::get, lv -> lv * 80))),
+	BAYBERRY(4, 0x541135, FDTrees.BAYBERRY::getFruit, List.of(new EffectFunc(FDEffects.LEAF_PIERCING::get, lv -> lv * 80))),
 	KIWI(2, 0xFFFFFF/*TODO*/, FDTrees.KIWI::getFruit, List.of(new EffectFunc(FDEffects.CYCLING::get, lv -> lv * 4))),
-	FIG(2, 0xFFFFFF/*TODO*/, FDTrees.FIG::getFruit, List.of(new EffectFunc(FDEffects.DIGESTING::get, lv -> lv * 80))),
+	FIG(2, 0xE08517, FDTrees.FIG::getFruit, List.of(new EffectFunc(FDEffects.DIGESTING::get, lv -> lv * 80))),
 	;
 
 	public static FruitType empty() {
