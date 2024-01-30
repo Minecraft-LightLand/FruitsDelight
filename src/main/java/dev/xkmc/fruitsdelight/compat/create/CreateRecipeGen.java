@@ -95,6 +95,7 @@ public class CreateRecipeGen {
 			builder.output(juice.get(), 250);
 			if (e.type.category.heated)
 				builder.requiresHeat(HeatCondition.HEATED);
+			builder.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			filling(e.item.getId())
 					.withFluidIngredients(FluidIngredient.fromFluid(juice.get(), 250))
