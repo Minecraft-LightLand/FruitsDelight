@@ -18,13 +18,14 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
 import net.minecraft.resources.ResourceLocation;
@@ -79,7 +80,33 @@ public class CreateRecipeGen {
 
 			fluidRecipes(pvd, jamBlock, jamFluid, jamItem, Items.GLASS_BOTTLE);
 			fluidRecipes(pvd, jelloBlock, jelloFluid, jelloItem, Items.BOWL);
+		}
 
+		for (var e : FDJuice.values()) {
+			var juice = FDFluids.JUICE[e.ordinal()];
+			var builder = mixing(juice.getId());
+			if (e.type.category.waterMix) {
+				builder.withFluidIngredients(FluidIngredient.fromFluid(Fluids.WATER, 250));
+			}
+			List<Ingredient> list = new ArrayList<>(e.type.list);
+			for (int i = 0; i < e.fruit.jellyCost; i++)
+				list.add(Ingredient.of(e.getFruit()));
+			builder.withItemIngredients(list.toArray(Ingredient[]::new));
+			builder.output(juice.get(), 250);
+			if (e.type.category.heated)
+				builder.requiresHeat(HeatCondition.HEATED);
+
+			filling(e.item.getId())
+					.withFluidIngredients(FluidIngredient.fromFluid(juice.get(), 250))
+					.withItemIngredients(Ingredient.of(Items.GLASS_BOTTLE))
+					.output(e.item)
+					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
+
+			emptying(e.item.getId().withSuffix("_emptying"))
+					.withItemIngredients(Ingredient.of(e.item.get()))
+					.output(Items.GLASS_BOTTLE)
+					.output(juice.get(), 250)
+					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 		}
 
 		// cut

@@ -8,6 +8,7 @@ import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
@@ -15,16 +16,13 @@ import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
-import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -45,7 +43,6 @@ public class RecipeGen {
 
 			for (var e : FruitType.values()) {
 				jelly(pvd, e);
-
 				storageBlock(pvd, FDItems.JELLO[e.ordinal()].get(),
 						FDBlocks.JELLO[e.ordinal()].get(), Items.BOWL);
 
@@ -53,16 +50,8 @@ public class RecipeGen {
 						FDBlocks.JELLY[e.ordinal()].get(), Items.GLASS_BOTTLE);
 			}
 
-			{
-				juice(pvd, FDFood.HAMIMELON_JUICE, 4, false, false);
-				juice(pvd, FDFood.ORANGE_JUICE, 2, true, false);
-				juice(pvd, FDFood.PEAR_JUICE, 2, true, false);
-				juice(pvd, FDFood.LEMON_JUICE, 2, true, false);
-				juice(pvd, FDFood.HAWBERRY_TEA, 4, true, true);
-				juice(pvd, FDFood.MANGO_TEA, 2, true, true);
-				juice(pvd, FDFood.PEACH_TEA, 2, true, true);
-				juice(pvd, FDFood.MANGOSTEEN_TEA, 2, true, true);
-
+			for (var e : FDJuice.values()) {
+				e.recipe(pvd);
 			}
 
 			{
@@ -169,13 +158,6 @@ public class RecipeGen {
 						.addIngredient(Tags.Items.EGGS)
 						.build(pvd);
 
-
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHERRY_TEA.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
-						.addIngredient(FDFood.LYCHEE_CHERRY_TEA.getFruit(), 2)
-						.addIngredient(Items.CHERRY_LEAVES)
-						.addIngredient(Items.SUGAR)
-						.build(pvd);
-
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGO_MILKSHAKE.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
 						.addIngredient(FDFood.MANGO_MILKSHAKE.getFruit())
 						.addIngredient(ForgeTags.MILK_BOTTLE)
@@ -187,12 +169,6 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
-						.build(pvd);
-
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BELLINI_COCKTAIL.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
-						.addIngredient(FruitType.PEACH.fruit.get(), 2)
-						.addIngredient(Items.SUGAR)
-						.addIngredient(Items.ICE)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_PIE.item, 2, 200, 0.1f)
@@ -287,28 +263,6 @@ public class RecipeGen {
 				.addIngredient(Items.SUGAR)
 				.addIngredient(FDFood.LEMON_SLICE.item.get())
 				.build(pvd);
-	}
-
-	private static void juice(RegistrateRecipeProvider pvd, FDFood juice, int count, boolean tea, boolean hot) {
-		if (hot) {
-			var e = CookingPotRecipeBuilder.cookingPotRecipe(juice.item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
-			if (tea) {
-				e.addIngredient(Items.SUGAR);
-				e.addIngredient(ItemTags.LEAVES);
-			}
-			e.addIngredient(juice.getFruit(), count);
-			e.build(pvd);
-		} else {
-			var e = unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, juice.item)::unlockedBy, juice.getFruit());
-			if (tea) {
-				e.requires(new PotionIngredient(Potions.WATER));
-				e.requires(Items.SUGAR);
-			} else {
-				e.requires(Items.GLASS_BOTTLE);
-			}
-			e.requires(juice.getFruit(), count);
-			e.save(pvd);
-		}
 	}
 
 	private static void smoking(RegistrateRecipeProvider pvd, FDFood food) {
