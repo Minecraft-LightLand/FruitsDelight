@@ -23,7 +23,6 @@ import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.function.Consumer;
 
 public enum FDJuice implements IFDFood {
 
@@ -36,9 +35,11 @@ public enum FDJuice implements IFDFood {
 	PEACH_TEA(FruitType.PEACH, Type.TEA),
 	LYCHEE_CHERRY_TEA(FruitType.LYCHEE, Type.CHERRY),
 	MANGOSTEEN_TEA(FruitType.MANGOSTEEN, Type.TEA),
+	BAYBERRY_SOUP(FruitType.BAYBERRY, Type.SOUP),
 	BELLINI_COCKTAIL(FruitType.empty(), Type.ICED,
 			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
 			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
+
 	;
 
 
@@ -118,6 +119,7 @@ public enum FDJuice implements IFDFood {
 		JUICE(Category.PLAIN, Ingredient.of(Items.GLASS_BOTTLE)),
 		SWEETENED(Category.RINSE, Ingredient.of(Items.SUGAR)),
 		BOILED(Category.BOIL),
+		SOUP(Category.SOUP),
 		TEA(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(ItemTags.LEAVES)),
 		ICED(Category.COLD_COOK, Ingredient.of(Items.SUGAR), Ingredient.of(Items.ICE)),
 		CHERRY(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(Items.CHERRY_LEAVES));
@@ -137,6 +139,7 @@ public enum FDJuice implements IFDFood {
 		PLAIN(false, false, false, false),
 		RINSE(false, false, true, true),
 		BOIL(true, true, false, true),
+		SOUP(true, true, true, true),
 		COLD_COOK(true, false, false, false);
 
 		public final boolean cook, heated, waterCraft, waterMix;
