@@ -25,6 +25,7 @@ public class FDBlocks {
 
 	public static final BlockEntry<PineappleRiceBlock> PINEAPPLE_RICE;
 	public static final BlockEntry<MangosteenCakeBlock> MANGOSTEEN_CAKE;
+	public static final BlockEntry<FigPuddingBlock> FIG_PUDDING;
 
 	public static final BlockEntry<JellyBlock>[] JELLY;
 	public static final BlockEntry<JelloBlock>[] JELLO;
@@ -34,7 +35,7 @@ public class FDBlocks {
 
 		PINEAPPLE_RICE = FruitsDelight.REGISTRATE.block("pineapple_fried_rice",
 						p -> new PineappleRiceBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL),
-								FDFood.BOWL_OF_PINEAPPLE_FRIED_RICE.item::get, true))
+								FDFood.BOWL_OF_PINEAPPLE_FRIED_RICE.item, true))
 				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
 					int serve = state.getValue(FeastBlock.SERVINGS);
 					String suffix = serve == 4 ? "" : ("_" + (4 - serve));
@@ -69,6 +70,23 @@ public class FDBlocks {
 						.withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.BOWL))
 								.when(ExplosionCondition.survivesExplosion())
 								.when(InvertedLootItemCondition.invert(getServe(block))))))
+				.register();
+
+		FIG_PUDDING = FruitsDelight.REGISTRATE.block("fig_pudding",
+						p -> new FigPuddingBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_WOOL)))
+				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
+					int serve = state.getValue(MangosteenCakeBlock.BITES);
+					String suffix = "_" + serve;
+					return pvd.models().getBuilder(ctx.getName() + suffix)
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/fig_pudding_base" + suffix)))
+							.texture("top", "block/" + ctx.getName() + "_top")
+							.texture("bottom", "block/" + ctx.getName() + "_bottom");
+				}))
+				.item().model((ctx, pvd) -> pvd.generated(ctx)).build()
+				.loot((pvd, block) -> pvd.add(block, LootTable.lootTable()
+						.withPool(LootPool.lootPool().add(LootItem.lootTableItem(block.asItem())
+								.when(ExplosionCondition.survivesExplosion())
+								.when(getServe(block))))))
 				.register();
 
 		FDCrates.register();
