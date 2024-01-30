@@ -9,6 +9,7 @@ import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
+import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -41,6 +42,7 @@ public class FruitsDelight {
 		FDPineapple.register();
 		FDItems.register();
 		FDEffects.register();
+		FDJuice.register();
 		FDFood.register();
 		FDBlocks.register();
 		FDCauldrons.register();

@@ -17,42 +17,32 @@
 	"blueberry_custard": "蓝莓蛋奶沙司",
 	"blueberry_muffin": "蓝莓玛芬",
 	"bowl_of_pineapple_fried_rice": "碗装菠萝饭",
-	"hamimelon_juice": "哈密瓜汁",
 	"hamimelon_popsicle": "哈密瓜冰棒",
 	"hawberry_roll": "果丹卷",
 	"hawberry_sheet": "果丹皮",
 	"hawberry_stick": "山楂串",
-	"hawberry_tea": "山楂茶",
 	"orange_chicken": "橘子鸡",
-	"orange_juice": "橘子汁",
 	"orange_marinated_pork": "橘子酿肉",
 	"orange_slice": "橘子片",
-	"pear_juice": "梨汁",
 	"pineapple_marinated_pork": "菠萝咕唠肉",
 	"pineapple_pie": "菠萝派",
-	"bellini_cocktail": "贝里尼鸡尾酒",
 	"dried_persimmon": "柿饼",
 	"hamimelon_shaved_ice": "蜜瓜冰沙",
 	"lemon": "黄柠檬",
 	"lemon_slice": "黄柠檬片",
-	"lychee_cherry_tea": "荔枝樱花饮",
 	"lychee_chicken": "荔枝鸡球",
 	"mango_milkshake": "芒果鲜奶",
 	"mango_salad": "生拌芒果",
-	"mango_tea": "芒果茶",
-	"peach_tea": "白桃乌龙茶",
 	"pear_with_rock_sugar": "冰糖雪梨",
 	"persimmon_cookie": "柿饼干",
 	"jelly_bread": "果酱面包",
 	"lemon_seeds": "柠檬种子",
 	"lemon_cookie": "柠檬饼干",
-	"lemon_juice": "柠檬水",
 	"lemon_tart": "柠檬蛋挞",
 	"cranberry": "蔓越莓",
 	"mangosteen": "山竹",
 	"cranberry_cookie": "蔓越莓饼干",
 	"cranberry_muffin": "蔓越莓玛芬",
-	"mangosteen_tea": "山竹清茶",
 	"dummy_cauldron": "装满水的炼药锅"
   },
   "block.fruitsdelight": {
@@ -132,6 +122,27 @@
 		  "block.fruitsdelight.*_jelly_block": "果酱块",
 		  "fluid.fruitsdelight.*_jello": "熔融果冻",
 		  "fluid.fruitsdelight.*_jam": "果酱"
+		}
+	  ]
+	},
+	"juice": {
+	  "path": "",
+	  "list": [
+		{
+		  "pear_juice": "梨汁",
+		  "hamimelon_juice": "哈密瓜汁",
+		  "hawberry_tea": "山楂茶",
+		  "orange_juice": "橘子汁",
+		  "bellini_cocktail": "贝里尼鸡尾酒",
+		  "mango_tea": "芒果茶",
+		  "peach_tea": "白桃乌龙茶",
+		  "lemon_juice": "柠檬水",
+		  "mangosteen_tea": "山竹清茶",
+		  "lychee_cherry_tea": "荔枝樱花饮"
+		},
+		{
+		  "item.fruitsdelight.*": "",
+		  "fluid.fruitsdelight.*": ""
 		}
 	  ]
 	},

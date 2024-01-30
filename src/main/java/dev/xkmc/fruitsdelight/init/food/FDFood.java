@@ -22,18 +22,6 @@ import java.util.Locale;
 import java.util.function.Supplier;
 
 public enum FDFood implements IFDFood {
-	HAMIMELON_JUICE(FruitType.HAMIMELON, FoodType.JUICE),
-	HAWBERRY_TEA(FruitType.HAWBERRY, FoodType.JUICE),
-	ORANGE_JUICE(FruitType.ORANGE, FoodType.JUICE),
-	LEMON_JUICE(FruitType.LEMON, FoodType.JUICE),
-	PEAR_JUICE(FruitType.PEAR, FoodType.JUICE),
-	MANGO_TEA(FruitType.MANGO, FoodType.JUICE),
-	PEACH_TEA(FruitType.PEACH, FoodType.JUICE),
-	LYCHEE_CHERRY_TEA(FruitType.LYCHEE, FoodType.JUICE),
-	MANGOSTEEN_TEA(FruitType.MANGOSTEEN, FoodType.JUICE),
-	BELLINI_COCKTAIL(FruitType.empty(), FoodType.JUICE,
-			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
-			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
 
 	BLUEBERRY_CUSTARD(FruitType.BLUEBERRY, FoodType.CREAM),
 	BLUEBERRY_MUFFIN(FruitType.BLUEBERRY, FoodType.DESSERT),
