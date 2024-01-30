@@ -63,6 +63,10 @@ public class RecipeGen {
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDTrees.ORANGE.getFruit()),
 								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.ORANGE_SLICE.item.get(), 4, 1)
 						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "orange_cutting"));
+
+				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDBlocks.FIG_PUDDING.get()),
+								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.FIG_PUDDING_SLICE.item.get(), 4, 1)
+						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "fig_pudding_cutting"));
 			}
 
 			{
@@ -139,6 +143,13 @@ public class RecipeGen {
 						.define('B', FDFood.LEMON_COOKIE.getFruit())
 						.save(pvd);
 
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.BAYBERRY_COOKIE.item, 8)::unlockedBy,
+						FDFood.BAYBERRY_COOKIE.getFruit())
+						.pattern("ABA")
+						.define('A', Items.WHEAT)
+						.define('B', FDFood.BAYBERRY_COOKIE.getFruit())
+						.save(pvd);
+
 				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.HAMIMELON_POPSICLE.item.get(), 1)::unlockedBy,
 						FDFood.HAMIMELON_POPSICLE.getFruit())
 						.pattern(" MM").pattern("IMM").pattern("SI ")
@@ -146,6 +157,23 @@ public class RecipeGen {
 						.define('M', FDFood.HAMIMELON_POPSICLE.getFruit())
 						.define('S', Items.STICK)
 						.save(pvd);
+
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
+						FDFood.FIG_PUDDING_SLICE.getFruit())
+						.pattern("MSM").pattern("EJE").pattern("FDF")
+						.define('D', ForgeTags.DOUGH)
+						.define('F', FDFood.FIG_PUDDING_SLICE.getFruit())
+						.define('E', Items.EGG)
+						.define('M', ForgeTags.MILK_BOTTLE)
+						.define('J', FruitType.ORANGE.getJelly())
+						.define('S', Items.SWEET_BERRIES)
+						.save(pvd);
+
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
+						FDFood.FIG_PUDDING_SLICE.getFruit())
+						.pattern("FF").pattern("FF")
+						.define('F', FDFood.FIG_PUDDING_SLICE.get())
+						.save(pvd, FDBlocks.FIG_PUDDING.getId().withSuffix("_from_slice"));
 
 			}
 
@@ -186,6 +214,14 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_TART.item, 2, 200, 0.1f)
+						.addIngredient(FDFood.FIG_TART.getFruit())
+						.addIngredient(ModItems.PIE_CRUST.get())
+						.addIngredient(Tags.Items.EGGS)
+						.addIngredient(Items.SUGAR)
+						.addIngredient(ForgeTags.MILK_BOTTLE)
+						.build(pvd);
+
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item, 2, 200, 0.1f)
 						.addIngredient(FDFood.BLUEBERRY_MUFFIN.getFruit(), 2)
 						.addIngredient(ForgeTags.DOUGH_WHEAT)
@@ -206,6 +242,11 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.RAW_CHICKEN)
 						.addIngredient(FDFood.ORANGE_SLICE.item.get(), 4)
 						.addIngredient(Items.SUGAR)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_CHICKEN_STEW.item, 1, 200, 0.1f, Items.BOWL)
+						.addIngredient(ForgeTags.RAW_CHICKEN)
+						.addIngredient(FDFood.FIG_CHICKEN_STEW.getFruit(), 2)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_MARINATED_PORK.item, 1, 200, 0.1f, Items.BOWL)

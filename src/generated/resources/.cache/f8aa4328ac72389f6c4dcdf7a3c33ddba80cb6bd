@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T10:24:20.710821	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-01-30T11:16:51.172822	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -726,7 +726,9 @@ d59b487f2e44a118dc77211458dc331be39363db data/farmersdelight/recipes/cooking/bay
 ceb39180d18602923747d700d06491216546d8ee data/farmersdelight/recipes/cooking/chorus_jelly.json
 64192946dff77ecad1e84280ca5aa586f7c54a61 data/farmersdelight/recipes/cooking/cranberry_jelly.json
 23cebb3c3699d290c034af7daddc72d5b1501e69 data/farmersdelight/recipes/cooking/cranberry_muffin.json
+bcea554f365af6bfd03faf99145cfd107dc3a1cf data/farmersdelight/recipes/cooking/fig_chicken_stew.json
 3c52588b684eb76a71672bb1b0e1ddb56a65c1cf data/farmersdelight/recipes/cooking/fig_jelly.json
+77ccebf3e0b1b0108da81884ccb59893fb58ea7e data/farmersdelight/recipes/cooking/fig_tart.json
 ef3cfb5b393452c42feb18e02e5daadb3fd9f0f0 data/farmersdelight/recipes/cooking/glowberry_jelly.json
 e23bdf8620e1b51239d3ac8a4b112f988a6fffd1 data/farmersdelight/recipes/cooking/hamimelon_jelly.json
 9f0290089847a1e17daaf3ccca53d92f366e1b64 data/farmersdelight/recipes/cooking/hawberry_jelly.json
@@ -776,9 +778,12 @@ d4d831b1840aa3090c7738ca176fb1bffc09a166 data/forge/tags/items/fruits/persimmon.
 ac35a8d069c7c70785c68127dc824a5bc0db5ff2 data/forge/tags/items/fruits/pineapple.json
 b0c97cfaf0e5e1d09704075a6f97d33809bfc612 data/fruitsdelight/advancements/recipes/food/baked_pear_from_pear_campfire.json
 2e37c1273071b77f5bbe9b93c175dcf1e919407c data/fruitsdelight/advancements/recipes/food/baked_pear_from_pear_smoking.json
+0edd89ad9df33e77778d6703db6f1d2f6871e786 data/fruitsdelight/advancements/recipes/food/bayberry_cookie.json
 de57b5dfc0814586a981e206937c4669758fec47 data/fruitsdelight/advancements/recipes/food/cranberry_cookie.json
 46056e46384fafe931c7911e5be8f2a09afd18b9 data/fruitsdelight/advancements/recipes/food/dried_persimmon_from_persimmon_campfire.json
 d1e5e5ff0f6c0a1d2197b7b2dee7e2993da04305 data/fruitsdelight/advancements/recipes/food/dried_persimmon_from_persimmon_smoking.json
+cfb7ecff0e89709501a29be4348753c7c43c7498 data/fruitsdelight/advancements/recipes/food/fig_pudding.json
+60bc56e7a2365ef78347939bd2e6e402921afb37 data/fruitsdelight/advancements/recipes/food/fig_pudding_from_slice.json
 219aa814799b8b345a8c5bb15d9a3fe0f5a19f5f data/fruitsdelight/advancements/recipes/food/hamimelon_juice.json
 144fe0b7b16a247be23b0abc5f2fda5bf9dd383d data/fruitsdelight/advancements/recipes/food/hamimelon_popsicle.json
 db01840509cffd8b54e625bbc223ff8ff330bd8b data/fruitsdelight/advancements/recipes/food/hamimelon_shaved_ice.json
@@ -1076,6 +1081,7 @@ d393511f679053e0f74a999b879a4128c774f85b data/fruitsdelight/loot_tables/blocks/w
 120fe38be53c04db1be3f9fce9360609496c4974 data/fruitsdelight/recipes/apple_jelly_block.json
 c47d650fd4b4b49fdaf4274ab0f8663f34cbe191 data/fruitsdelight/recipes/baked_pear_from_pear_campfire.json
 e52c1b4dd6df86256c4bf5901c886f6ae6c9f787 data/fruitsdelight/recipes/baked_pear_from_pear_smoking.json
+deb8317333d8b44e0513d01c46274b496f2fda3c data/fruitsdelight/recipes/bayberry_cookie.json
 3daf2e8986359aba74a6341dc84e551c946c7835 data/fruitsdelight/recipes/bayberry_crate.json
 e7f4dea48e3a12643256c79cdc24c055fdfd8a2f data/fruitsdelight/recipes/bayberry_from_bayberry_crate.json
 402c93402be7d8bb7db4b6343f821cd5462c7e1b data/fruitsdelight/recipes/bayberry_jello.json
@@ -1207,6 +1213,9 @@ ce22f9e5251dc2ee8093803a0e53db6ba6c12402 data/fruitsdelight/recipes/fig_from_fig
 6f5adc4a149a6f7ff2e003f1bc21f7b5cd664c65 data/fruitsdelight/recipes/fig_jello_block.json
 d59ce01eaa9447499241f8471f912cdd2495636b data/fruitsdelight/recipes/fig_jelly.json
 61ead754302dd1c7481d0645936361e0650ccbaa data/fruitsdelight/recipes/fig_jelly_block.json
+34adb1bae222d56cefa318e478c3cb5606b65522 data/fruitsdelight/recipes/fig_pudding.json
+247b2205ffd3235e1ffdd41d4125dcda2563607b data/fruitsdelight/recipes/fig_pudding_cutting.json
+64e91ea90909762b2772456d2e9e05ab4a725ad8 data/fruitsdelight/recipes/fig_pudding_from_slice.json
 35cd34915617dd35d0a8b14d3d397d088e09dce2 data/fruitsdelight/recipes/filling/apple_jello.json
 8471dd41481bcba6d31a2dfba4499002ec52dbe1 data/fruitsdelight/recipes/filling/apple_jelly.json
 3942e22b91d324c77bb173a4312eba2531dad7e2 data/fruitsdelight/recipes/filling/apple_jelly_bread.json
