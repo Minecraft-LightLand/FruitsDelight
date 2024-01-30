@@ -46,7 +46,11 @@
 	"dummy_cauldron": "装满水的炼药锅",
 	"fig": "无花果",
 	"kiwi": "猕猴桃",
-	"bayberry": "杨梅"
+	"bayberry": "杨梅",
+	"bayberry_cookie": "杨梅曲奇",
+	"fig_chicken_stew": "无花果炖鸡",
+	"fig_tart": "无花果挞",
+	"fig_pudding_slice": "无花果派切片"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
@@ -147,6 +151,7 @@
 		  "peach_tea": "白桃乌龙茶",
 		  "lemon_juice": "柠檬水",
 		  "mangosteen_tea": "山竹清茶",
+		  "bayberry_soup": "杨梅汁",
 		  "lychee_cherry_tea": "荔枝樱花饮"
 		},
 		{
