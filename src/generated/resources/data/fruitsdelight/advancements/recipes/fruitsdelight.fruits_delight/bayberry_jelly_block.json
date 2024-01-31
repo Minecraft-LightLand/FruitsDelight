@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fig": {
+    "has_bayberry_jelly": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:fig"
+              "fruitsdelight:bayberry_jelly"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:fig_pudding"
+        "recipe": "fruitsdelight:bayberry_jelly_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fig",
+      "has_bayberry_jelly",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:fig_pudding"
+      "fruitsdelight:bayberry_jelly_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -55,7 +55,7 @@ public class FigPuddingBlock extends BaseCakeBlock {
 
 	@Override
 	protected void eat(Player player) {
-		player.eat(player.level(), FDFood.FIG_PUDDING_SLICE.item.asStack());
+		player.eat(player.level, FDFood.FIG_PUDDING_SLICE.item.asStack());
 	}
 
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

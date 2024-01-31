@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": {
       "item": "minecraft:wheat"
@@ -15,6 +14,5 @@
   "result": {
     "count": 8,
     "item": "fruitsdelight:bayberry_cookie"
-  },
-  "show_notification": true
+  }
 }

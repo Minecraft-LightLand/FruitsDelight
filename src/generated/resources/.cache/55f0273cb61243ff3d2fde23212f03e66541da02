@@ -1,4 +1,4 @@
-// 1.19.2	2024-01-01T00:41:35.316951	Tags for minecraft:worldgen/biome
+// 1.19.2	2024-01-31T14:42:39.705183	Tags for minecraft:worldgen/biome
 d2faf9dff2061c1de43e052fe1912bc5bffb87e6 data/fruitsdelight/tags/worldgen/biome/compat/beach.json
 6a64677cdda449eddaadd2f4063b29dc87906f97 data/fruitsdelight/tags/worldgen/biome/compat/cold.json
 a2bcb2561ba06e98b94267b8d48e44aea810fb97 data/fruitsdelight/tags/worldgen/biome/compat/desert.json
@@ -6,10 +6,13 @@ db37ec78a34d98d436268f1617414306116a2af4 data/fruitsdelight/tags/worldgen/biome/
 16ccaf4346a0fddb9b6674633b2d73ccd9b94b64 data/fruitsdelight/tags/worldgen/biome/compat/hot_humid.json
 4351c83abcbd4db50a797863003caaafd06559f8 data/fruitsdelight/tags/worldgen/biome/compat/warm.json
 27c803bb143e410fc233bc2ed21ccd4311a3807f data/fruitsdelight/tags/worldgen/biome/plants/apple_biomes.json
+c922a139c9532d14e475860a0c53fd4d158e8f53 data/fruitsdelight/tags/worldgen/biome/plants/bayberry_biomes.json
 b457f07324383f65ff19ca4db29475a47ce24784 data/fruitsdelight/tags/worldgen/biome/plants/blueberry_biomes.json
 7783dad3381fe6a8d46dc1dceaf6363c2c3e6528 data/fruitsdelight/tags/worldgen/biome/plants/cranberry_biomes.json
+27c803bb143e410fc233bc2ed21ccd4311a3807f data/fruitsdelight/tags/worldgen/biome/plants/fig_biomes.json
 1b7376a7984a78f14de9e473e694f508582f7d3d data/fruitsdelight/tags/worldgen/biome/plants/hamimelon_biomes.json
 d0563c9d62856f372a295cf529dcaf0fda12c9c7 data/fruitsdelight/tags/worldgen/biome/plants/hawberry_biomes.json
+27c803bb143e410fc233bc2ed21ccd4311a3807f data/fruitsdelight/tags/worldgen/biome/plants/kiwi_biomes.json
 bb2e30645b554bfc3cf2a88001cad420e97772d7 data/fruitsdelight/tags/worldgen/biome/plants/lemon_biomes.json
 f606b8c142d0bf16a1be053cf38a21440f6ced51 data/fruitsdelight/tags/worldgen/biome/plants/lychee_biomes.json
 f606b8c142d0bf16a1be053cf38a21440f6ced51 data/fruitsdelight/tags/worldgen/biome/plants/mango_biomes.json

@@ -1,7 +1,5 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.RecipeGen;
@@ -9,8 +7,9 @@ import dev.xkmc.fruitsdelight.init.entries.FruitFluid;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
-import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
-import net.minecraft.data.recipes.RecipeCategory;
+import dev.xkmc.l2library.base.ingredients.PotionIngredient;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.effect.MobEffects;
@@ -100,12 +99,12 @@ public enum FDJuice implements IFDFood {
 	public void recipe(RegistrateRecipeProvider pvd) {
 		int count = fruit.jellyCost;
 		if (type.category.cook) {
-			var e = CookingPotRecipeBuilder.cookingPotRecipe(item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
+			var e = CookingPotRecipeBuilder.cookingPotRecipe(item.get(), 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			type.list.forEach(e::addIngredient);
 			e.addIngredient(getFruit(), count);
 			e.build(pvd);
 		} else {
-			var e = RecipeGen.unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item)::unlockedBy, getFruit());
+			var e = RecipeGen.unlock(pvd, ShapelessRecipeBuilder.shapeless(item.get())::unlockedBy, getFruit());
 			if (type.category.waterCraft) {
 				e.requires(new PotionIngredient(Potions.WATER));
 			}
@@ -122,7 +121,7 @@ public enum FDJuice implements IFDFood {
 		SOUP(Category.SOUP),
 		TEA(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(ItemTags.LEAVES)),
 		ICED(Category.COLD_COOK, Ingredient.of(Items.SUGAR), Ingredient.of(Items.ICE)),
-		CHERRY(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(Items.CHERRY_LEAVES));
+		CHERRY(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(Items.SPORE_BLOSSOM));
 
 		public final Category category;
 		public final List<Ingredient> list;

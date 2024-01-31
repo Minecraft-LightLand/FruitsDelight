@@ -3,7 +3,7 @@ package dev.xkmc.fruitsdelight.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.xkmc.fruitsdelight.content.block.JellyBlock;
-import dev.xkmc.l2serial.util.Wrappers;
+import dev.xkmc.l2library.util.code.Wrappers;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HoneyBlock;

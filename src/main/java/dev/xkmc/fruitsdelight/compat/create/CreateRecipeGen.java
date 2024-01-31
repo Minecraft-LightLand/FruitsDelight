@@ -100,10 +100,10 @@ public class CreateRecipeGen {
 			filling(e.item.getId())
 					.withFluidIngredients(FluidIngredient.fromFluid(juice.get(), 250))
 					.withItemIngredients(Ingredient.of(Items.GLASS_BOTTLE))
-					.output(e.item)
+					.output(e.item.get())
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			emptying(e.item.getId().withSuffix("_emptying"))
+			emptying(suffix(e.item.getId(), "_emptying"))
 					.withItemIngredients(Ingredient.of(e.item.get()))
 					.output(Items.GLASS_BOTTLE)
 					.output(juice.get(), 250)

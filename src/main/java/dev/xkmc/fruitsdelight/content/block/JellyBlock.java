@@ -47,24 +47,24 @@ public class JellyBlock extends HoneyBlock {
 	}
 
 	public void showJellySlideParticles(Entity entity) {
-		if (entity.level().isClientSide())
+		if (entity.level.isClientSide())
 			showParticles(entity, 5);
 		else FruitsDelight.HANDLER.toTrackingPlayers(new BlockEffectToClient(this, entity.getId(),
 				BlockEffectToClient.Type.JELLY_SLIDE), entity);
 	}
 
 	public void showJellyJumpParticles(Entity entity) {
-		if (entity.level().isClientSide())
+		if (entity.level.isClientSide())
 			showParticles(entity, 10);
 		else FruitsDelight.HANDLER.toTrackingPlayers(new BlockEffectToClient(this, entity.getId(),
 				BlockEffectToClient.Type.JELLY_JUMP), entity);
 	}
 
 	private void showParticles(Entity entity, int count) {
-		if (entity.level().isClientSide) {
+		if (entity.level.isClientSide) {
 			BlockState state = defaultBlockState();
 			for (int i = 0; i < count; ++i) {
-				entity.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state),
+				entity.level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state),
 						entity.getX(), entity.getY(), entity.getZ(), 0, 0, 0);
 			}
 		}

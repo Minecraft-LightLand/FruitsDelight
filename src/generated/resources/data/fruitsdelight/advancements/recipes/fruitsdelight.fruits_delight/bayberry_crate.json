@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fig": {
+    "has_bayberry": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:fig"
+              "fruitsdelight:bayberry"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:fig_pudding_from_slice"
+        "recipe": "fruitsdelight:bayberry_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fig",
+      "has_bayberry",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:fig_pudding_from_slice"
+      "fruitsdelight:bayberry_crate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

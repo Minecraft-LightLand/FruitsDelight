@@ -7,16 +7,22 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "minecraft:sweet_berries"
-    },
-    {
-      "item": "minecraft:sweet_berries"
-    },
-    {
       "item": "minecraft:sugar"
     },
     {
       "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
     }
   ],
   "result": {

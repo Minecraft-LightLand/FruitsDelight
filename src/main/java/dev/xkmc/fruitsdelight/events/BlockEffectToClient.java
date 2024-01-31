@@ -1,8 +1,8 @@
 package dev.xkmc.fruitsdelight.events;
 
 import dev.xkmc.fruitsdelight.content.block.JellyBlock;
-import dev.xkmc.l2serial.network.SerialPacketBase;
-import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.l2library.serial.SerialClass;
+import dev.xkmc.l2library.serial.network.SerialPacketBase;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.network.NetworkEvent;

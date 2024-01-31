@@ -14,7 +14,6 @@ import dev.xkmc.fruitsdelight.init.plants.FDTrees;
 import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
-import dev.xkmc.l2library.base.ingredients.PotionIngredient;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -143,7 +142,7 @@ public class RecipeGen {
 						.define('B', FDFood.LEMON_COOKIE.getFruit())
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.BAYBERRY_COOKIE.item, 8)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(FDFood.BAYBERRY_COOKIE.item.get(), 8)::unlockedBy,
 						FDFood.BAYBERRY_COOKIE.getFruit())
 						.pattern("ABA")
 						.define('A', Items.WHEAT)
@@ -158,7 +157,7 @@ public class RecipeGen {
 						.define('S', Items.STICK)
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
 						FDFood.FIG_PUDDING_SLICE.getFruit())
 						.pattern("MSM").pattern("EJE").pattern("FDF")
 						.define('D', ForgeTags.DOUGH)
@@ -169,11 +168,11 @@ public class RecipeGen {
 						.define('S', Items.SWEET_BERRIES)
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
 						FDFood.FIG_PUDDING_SLICE.getFruit())
 						.pattern("FF").pattern("FF")
 						.define('F', FDFood.FIG_PUDDING_SLICE.get())
-						.save(pvd, FDBlocks.FIG_PUDDING.getId().withSuffix("_from_slice"));
+						.save(pvd, new ResourceLocation(FruitsDelight.MODID, "fig_pudding_from_slice"));
 
 			}
 
@@ -214,7 +213,7 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_TART.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_TART.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.FIG_TART.getFruit())
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
@@ -222,7 +221,7 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.BLUEBERRY_MUFFIN.getFruit(), 2)
 						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
@@ -244,12 +243,12 @@ public class RecipeGen {
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_CHICKEN_STEW.item, 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_CHICKEN_STEW.item.get(), 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(ForgeTags.RAW_CHICKEN)
 						.addIngredient(FDFood.FIG_CHICKEN_STEW.getFruit(), 2)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_MARINATED_PORK.item, 1, 200, 0.1f, Items.BOWL)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_MARINATED_PORK.item.get(), 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(ForgeTags.RAW_PORK)
 						.addIngredient(FDFood.ORANGE_SLICE.item.get(), 4)
 						.addIngredient(ForgeTags.SALAD_INGREDIENTS_CABBAGE)

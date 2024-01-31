@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#fruitsdelight:plants/kiwi_biomes",
+  "features": "fruitsdelight:tree/kiwi_tree",
+  "step": "vegetal_decoration"
+}

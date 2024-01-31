@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bayberry": {
+    "has_kiwi": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:bayberry"
+              "fruitsdelight:kiwi"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:bayberry_cookie"
+        "recipe": "fruitsdelight:kiwi_crate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bayberry",
+      "has_kiwi",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:bayberry_cookie"
+      "fruitsdelight:kiwi_crate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
