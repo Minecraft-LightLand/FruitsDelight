@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
@@ -66,10 +67,10 @@ public enum FDTreeType {
 		this.foliage = foliage;
 	}
 
-	public TreeConfiguration build(Block log, PassableLeavesBlock leaves, boolean wild) {
+	public TreeConfiguration build(Block log, BaseLeavesBlock leaves, boolean wild) {
 		int flowers = wild ? flowerWild : flowerSapling;
 		var leaf = leaves.defaultBlockState();
-		var flower = leaf.setValue(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FLOWERS);
+		var flower = leaves.flowerState();
 		return new TreeConfiguration.TreeConfigurationBuilder(
 				BlockStateProvider.simple(log), trunk.get(),
 				new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -79,7 +80,7 @@ public enum FDTreeType {
 				.ignoreVines().build();
 	}
 
-	public BlockEntry<PassableLeavesBlock> buildLeave(String name, FDTrees tree) {
+	public BlockEntry<? extends BaseLeavesBlock> buildLeave(String name, FDTrees tree) {
 		return FruitsDelight.REGISTRATE
 				.block(name + "_leaves", p -> new PassableLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
 				.blockstate((ctx, pvd) -> buildLeavesModel(ctx, pvd, name))
@@ -89,10 +90,8 @@ public enum FDTreeType {
 				.register();
 	}
 
-	private void buildLeavesModel(DataGenContext<Block, PassableLeavesBlock> ctx, RegistrateBlockstateProvider pvd, String name) {
-		pvd.getVariantBuilder(ctx.get())
-				.forAllStatesExcept(state -> ctx.get().buildModel(pvd, name, state),
-						LeavesBlock.DISTANCE, LeavesBlock.PERSISTENT, LeavesBlock.WATERLOGGED);
+	private void buildLeavesModel(DataGenContext<Block, ? extends BaseLeavesBlock> ctx, RegistrateBlockstateProvider pvd, String name) {
+		ctx.get().buildLeavesModel(ctx, pvd, name);
 	}
 
 	private void buildFruit(RegistrateBlockLootTables pvd, Block block, Block sapling, Item fruit) {
@@ -110,7 +109,6 @@ public enum FDTreeType {
 				.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,
 						1 / 20f, 1 / 16f, 1 / 12f, 1 / 10f));
 		var drops = AlternativesEntry.alternatives(leaves, fruits, saplings);
-
 		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(drops)
 				.when(ExplosionCondition.survivesExplosion())));
 	}

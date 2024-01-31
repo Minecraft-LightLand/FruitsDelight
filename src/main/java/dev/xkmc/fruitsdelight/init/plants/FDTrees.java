@@ -1,6 +1,7 @@
 package dev.xkmc.fruitsdelight.init.plants;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
+import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import net.minecraft.core.registries.Registries;
@@ -47,7 +48,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	FIG(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
 	;
 
-	private final BlockEntry<PassableLeavesBlock> leaves;
+	private final BlockEntry<? extends BaseLeavesBlock> leaves;
 	private final BlockEntry<SaplingBlock> sapling;
 	private final Supplier<Item> fruit;
 	private final Lazy<TreeConfiguration> treeConfig, treeConfigWild;
@@ -95,7 +96,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	}
 
 
-	public PassableLeavesBlock getLeaves() {
+	public BaseLeavesBlock getLeaves() {
 		return leaves.get();
 	}
 
