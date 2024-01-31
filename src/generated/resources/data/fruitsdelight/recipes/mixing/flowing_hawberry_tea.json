@@ -1,0 +1,41 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "minecraft:leaves"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 250,
+      "fluid": "fruitsdelight:hawberry_tea"
+    }
+  ]
+}

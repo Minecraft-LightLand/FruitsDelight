@@ -14,7 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
 public enum FoodType {
-	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, false, TagGen.JUICE, DietTagGen.FRUITS.tag),
+	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, true, TagGen.JUICE, DietTagGen.FRUITS.tag),
 	JELLY(FoodClass.GLASS, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
 	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true, TagGen.JELLO, DietTagGen.SUGARS.tag),
 	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false, DietTagGen.FRUITS.tag),

@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "forge:raw_chicken"
+    },
+    {
+      "item": "fruitsdelight:fig"
+    },
+    {
+      "item": "fruitsdelight:fig"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:fig_chicken_stew"
+  }
+}

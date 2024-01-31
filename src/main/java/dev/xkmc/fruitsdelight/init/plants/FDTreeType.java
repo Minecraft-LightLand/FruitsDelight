@@ -24,9 +24,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
@@ -37,31 +41,41 @@ import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 
+import java.util.OptionalInt;
+import java.util.function.Supplier;
+
 public enum FDTreeType {
-	NORMAL(5, 2, 0, 3),
-	TALL(6, 3, 3, 5),
+	NORMAL(10, 30, () -> new StraightTrunkPlacer(5, 2, 0),
+			() -> new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3)),
+
+	TALL(7, 21, () -> new StraightTrunkPlacer(5, 2, 0),
+			() -> new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(2), 4)),
+	FANCY(2, 6, () -> new FancyTrunkPlacer(6, 11, 3),
+			() -> new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4)),
 	;
 
-	private final int height, hra, hrb, leaveHeight;
 
-	FDTreeType(int height, int hra, int hrb, int leaveHeight) {
-		this.height = height;
-		this.hra = hra;
-		this.hrb = hrb;
-		this.leaveHeight = leaveHeight;
+	private final int flowerWild, flowerSapling;
+	private final Supplier<TrunkPlacer> trunk;
+	private final Supplier<FoliagePlacer> foliage;
+
+	FDTreeType(int flowerWild, int flowerSapling, Supplier<TrunkPlacer> trunk, Supplier<FoliagePlacer> foliage) {
+		this.flowerWild = flowerWild;
+		this.flowerSapling = flowerSapling;
+		this.trunk = trunk;
+		this.foliage = foliage;
 	}
 
 	public TreeConfiguration build(Block log, PassableLeavesBlock leaves, boolean wild) {
-		int flowers = wild ? 10 : 30;
+		int flowers = wild ? flowerWild : flowerSapling;
+		var leaf = leaves.defaultBlockState();
+		var flower = leaf.setValue(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FLOWERS);
 		return new TreeConfiguration.TreeConfigurationBuilder(
-				BlockStateProvider.simple(log),
-				new StraightTrunkPlacer(height, hra, hrb),
+				BlockStateProvider.simple(log), trunk.get(),
 				new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-						.add(leaves.defaultBlockState(), 100 - flowers)
-						.add(leaves.defaultBlockState().setValue(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FLOWERS), flowers)
-						.build()),
-				new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), leaveHeight),
-				new TwoLayersFeatureSize(1, 0, 1))
+						.add(leaf, 100 - flowers).add(flower, flowers).build()),
+				foliage.get(),
+				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4)))
 				.ignoreVines().build();
 	}
 

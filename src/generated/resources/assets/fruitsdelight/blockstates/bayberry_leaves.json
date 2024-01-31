@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=flowers": {
+      "model": "fruitsdelight:block/bayberry_flowers"
+    },
+    "type=fruits": {
+      "model": "fruitsdelight:block/bayberry_fruits"
+    },
+    "type=leaves": {
+      "model": "fruitsdelight:block/bayberry_leaves"
+    }
+  }
+}

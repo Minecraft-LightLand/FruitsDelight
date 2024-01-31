@@ -26,11 +26,13 @@ public abstract class BaseCakeBlock extends Block {
 
 	public final IntegerProperty bite;
 	public final int maxBite;
+	public final boolean plate;
 
-	public BaseCakeBlock(Properties properties, IntegerProperty bite, int max) {
+	public BaseCakeBlock(Properties properties, IntegerProperty bite, int max, boolean plate) {
 		super(properties);
 		this.bite = bite;
 		this.maxBite = max;
+		this.plate = plate;
 		this.registerDefaultState(this.stateDefinition.any()
 				.setValue(bite, max)
 				.setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
@@ -64,6 +66,10 @@ public abstract class BaseCakeBlock extends Block {
 				level.gameEvent(player, GameEvent.EAT, pos);
 				level.setBlockAndUpdate(pos, state.setValue(bite, i - 1));
 			} else {
+				if (!plate) {
+					eat(player);
+					level.gameEvent(player, GameEvent.EAT, pos);
+				}
 				level.playSound(null, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
 				level.destroyBlock(pos, true);
 			}

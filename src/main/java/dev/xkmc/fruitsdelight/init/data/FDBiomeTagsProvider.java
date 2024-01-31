@@ -39,19 +39,24 @@ public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 		tag(tropical).add(Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 		tag(windswpet).add(Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST);
 
-		tag(asTag(FDTrees.PEAR)).addTags(ModBiomeKeys.WARM.asTag(), birch);
-		tag(asTag(FDTrees.HAWBERRY)).addTags(ModBiomeKeys.COLD.asTag(), taiga);
-		tag(asTag(FDTrees.PERSIMMON)).addTags(ModBiomeKeys.COLD.asTag(), taiga_cold);
-		tag(asTag(FDTrees.LYCHEE)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), tropical);
-		tag(asTag(FDTrees.MANGO)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), tropical);
 		tag(asTag(FDTrees.ORANGE)).addTags(ModBiomeKeys.WARM.asTag(), oak);
 		tag(asTag(FDTrees.APPLE)).addTags(ModBiomeKeys.WARM.asTag(), oak);
-		tag(asTag(FDBushes.LEMON)).addTags(ModBiomeKeys.WARM.asTag(), plain);
+		tag(asTag(FDTrees.KIWI)).addTags(ModBiomeKeys.WARM.asTag(), oak);
+		tag(asTag(FDTrees.FIG)).addTags(ModBiomeKeys.WARM.asTag(), oak);
 
+		tag(asTag(FDTrees.LYCHEE)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), tropical);
+		tag(asTag(FDTrees.MANGO)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), tropical);
+		tag(asTag(FDTrees.BAYBERRY)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), swamp);
 		tag(asTag(FDTrees.MANGOSTEEN)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), swamp, tropical);
+
+		tag(asTag(FDTrees.HAWBERRY)).addTags(ModBiomeKeys.COLD.asTag(), taiga);
+		tag(asTag(FDTrees.PERSIMMON)).addTags(ModBiomeKeys.COLD.asTag(), taiga_cold);
+		tag(asTag(FDTrees.PEAR)).addTags(ModBiomeKeys.WARM.asTag(), birch);
+		tag(asTag(FDTrees.PEACH)).addTag(ModBiomeKeys.HOT_HUMID.asTag()).add(Biomes.SPARSE_JUNGLE);
+
+		tag(asTag(FDBushes.LEMON)).addTags(ModBiomeKeys.WARM.asTag(), plain);
 		tag(asTag(FDBushes.CRANBERRY)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), swamp, tropical).add(Biomes.DARK_FOREST);
 		tag(asTag(FDBushes.BLUEBERRY)).addTags(ModBiomeKeys.COLD.asTag(), taiga, taiga_cold, swamp, windswpet);
-		tag(asTag(FDTrees.PEACH)).addTag(ModBiomeKeys.HOT_HUMID.asTag()).add(Biomes.SPARSE_JUNGLE);
 		tag(asTag(FDMelons.HAMIMELON)).addTag(ModBiomeKeys.DESERT.asTag()).add(Biomes.DESERT);
 		tag(asTag(FDPineapple.PINEAPPLE)).addTag(ModBiomeKeys.BEACH.asTag()).add(Biomes.BEACH);
 

@@ -4,6 +4,9 @@
     "fruitsdelight:apple_jelly": {
       "color": -3964099
     },
+    "fruitsdelight:bayberry_jelly": {
+      "color": -1
+    },
     "fruitsdelight:blueberry_jelly": {
       "color": -10865985
     },
@@ -13,6 +16,9 @@
     "fruitsdelight:cranberry_jelly": {
       "color": -3201498
     },
+    "fruitsdelight:fig_jelly": {
+      "color": -1
+    },
     "fruitsdelight:glowberry_jelly": {
       "color": -349418
     },
@@ -21,6 +27,9 @@
     },
     "fruitsdelight:hawberry_jelly": {
       "color": -4252387
+    },
+    "fruitsdelight:kiwi_jelly": {
+      "color": -1
     },
     "fruitsdelight:lemon_jelly": {
       "color": -7046

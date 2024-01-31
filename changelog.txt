@@ -1,5 +1,11 @@
-- Add 3 types of fruits, and respective effects and products
-TODO 2 fruits
+TODO durian
+
+1.0.4 / 0.5.4
+- Add figs, kiwi, and bayberry, and respective effects and products
+- Add more tree shapes
+- Add Berry tags
+- use own model for jello block, fix conflict with leaves resource packs
+- add juice to create
 
 1.0.3 / 0.5.3
 - Create compat for jam and jello
@@ -9,6 +15,7 @@ TODO 2 fruits
 - Cuisine Delight Compat
 - Add apple crate
 - Add Mangosteen Cake Block
+- Add BoP and Terralith compat
 
 1.0.2 / 0.5.2
 - Double Pineapple spawn rate
@@ -20,7 +27,7 @@ TODO 2 fruits
 - Add jello block and jam block
 
 1.0.1 / 0.5.1
-- Add 2 types of fruits, and respective effects and products.
+- Add mangosteen and cranberry, and respective effects and products.
 - Add fruit crates
 - Add Recipe compat with Botany pots and Botany trees
 - Add tag compat with Fruit Trees

@@ -4,6 +4,7 @@ import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.entries.FruitFluid;
 import dev.xkmc.fruitsdelight.init.entries.FruitFluidType;
 import dev.xkmc.fruitsdelight.init.entries.VirtualFluidBuilder;
+import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.repack.registrate.builders.FluidBuilder;
@@ -16,7 +17,7 @@ import java.util.Locale;
 
 public class FDFluids {
 
-	public static final FluidEntry<FruitFluid>[] JAM, JELLO;
+	public static final FluidEntry<FruitFluid>[] JAM, JELLO, JUICE;
 
 	static {
 
@@ -34,6 +35,20 @@ public class FDFluids {
 			JELLO[e.ordinal()] = virtualFluid(name + "_jello", jello, jello,
 					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
 					.lang("Melted " + FDItems.toEnglishName(name) + " Jello")
+					.register();
+		}
+	}
+
+	static {
+		int size = FDJuice.values().length;
+		JUICE = new FluidEntry[size];
+		ResourceLocation still = new ResourceLocation("block/water_still");
+		ResourceLocation flow = new ResourceLocation("block/water_flow");
+		for (var e : FDJuice.values()) {
+			String name = e.name().toLowerCase(Locale.ROOT);
+			JUICE[e.ordinal()] = virtualFluid(name, still, flow,
+					(a, b, c) -> new FruitFluidType(a, b, c, e.fruit()), p -> new FruitFluid(p, e.fruit))
+					.lang(FDItems.toEnglishName(name))
 					.register();
 		}
 	}

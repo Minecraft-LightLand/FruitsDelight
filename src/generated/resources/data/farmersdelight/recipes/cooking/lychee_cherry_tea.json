@@ -7,16 +7,22 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:lychee"
-    },
-    {
-      "item": "fruitsdelight:lychee"
+      "item": "minecraft:sugar"
     },
     {
       "item": "minecraft:spore_blossom"
     },
     {
-      "item": "minecraft:sugar"
+      "item": "fruitsdelight:lychee"
+    },
+    {
+      "item": "fruitsdelight:lychee"
+    },
+    {
+      "item": "fruitsdelight:lychee"
+    },
+    {
+      "item": "fruitsdelight:lychee"
     }
   ],
   "result": {

@@ -24,7 +24,7 @@ public class MangosteenCakeBlock extends BaseCakeBlock {
 			Block.box(1.0D, 0.0D, 1.0D, 15.0D, 5.0D, 15.0D)};
 
 	public MangosteenCakeBlock(Properties properties) {
-		super(properties, BITES, MAX_BITES);
+		super(properties, BITES, MAX_BITES, true);
 	}
 
 	public VoxelShape getShape(BlockState p_51222_, BlockGetter p_51223_, BlockPos p_51224_, CollisionContext p_51225_) {
