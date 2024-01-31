@@ -3,6 +3,7 @@ package dev.xkmc.fruitsdelight.init;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
+import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
@@ -10,13 +11,16 @@ import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.base.effects.EffectSyncEvents;
-import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
+import dev.xkmc.l2library.init.events.EffectSyncEvents;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.network.NetworkDirection;
 import org.slf4j.Logger;
 
 @Mod(FruitsDelight.MODID)
@@ -26,6 +30,10 @@ public class FruitsDelight {
 	public static final String MODID = "fruitsdelight";
 	public static final Logger LOGGER = LogUtils.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
+
+	public static final PacketHandler HANDLER = new PacketHandler(new ResourceLocation(MODID, "main"), 1,
+			e -> e.create(BlockEffectToClient.class, NetworkDirection.PLAY_TO_CLIENT)
+	);
 
 	public static final FDTab TAB = new FDTab();
 
