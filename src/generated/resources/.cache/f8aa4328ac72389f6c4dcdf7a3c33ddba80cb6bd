@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T11:16:51.172822	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-01-31T14:22:31.7871	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -237,10 +237,10 @@ b8fea4548d29a35784f15f42dd22048037644e4c assets/fruitsdelight/models/block/fig_j
 f75512a40753b7ae78b354279aaad1b85da3a512 assets/fruitsdelight/models/block/fig_jelly_cauldron_level1.json
 49739a7083954c9430c508e93823e22f1feb62dd assets/fruitsdelight/models/block/fig_jelly_cauldron_level2.json
 5c6a4443161d29cc3a7ab645f3bf0bebb0a547f0 assets/fruitsdelight/models/block/fig_leaves.json
-5c7bf826163223f5c407ce4134f7de1bdae8e90b assets/fruitsdelight/models/block/fig_pudding_0.json
-80dae603ce73c49de46dfc287742c7d32aa36267 assets/fruitsdelight/models/block/fig_pudding_1.json
-a86997131624730a7cc35d8c78148361033bd25d assets/fruitsdelight/models/block/fig_pudding_2.json
-ef5999615aee41aaa7fe7d2a81eae0895d5d3801 assets/fruitsdelight/models/block/fig_pudding_3.json
+6c8b612656bc0d75561fa275ab0cd396b45bd75a assets/fruitsdelight/models/block/fig_pudding_0.json
+2e4a63279b11e4d30297ada6c07d0700c840b1e2 assets/fruitsdelight/models/block/fig_pudding_1.json
+a584de930a351686d933797733339b7dd83588fa assets/fruitsdelight/models/block/fig_pudding_2.json
+6705f57ff8856785bf4257691277cf09a5493e37 assets/fruitsdelight/models/block/fig_pudding_3.json
 83ac03ff2659400cdc1ea8c40d589b660efc9f31 assets/fruitsdelight/models/block/fig_sapling.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/glowberry_cauldron.json
 fea73343eca157d311cc2b6f790d6cb82671c9a7 assets/fruitsdelight/models/block/glowberry_jello_block.json

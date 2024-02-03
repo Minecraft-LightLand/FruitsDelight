@@ -80,7 +80,8 @@ public class FDBlocks {
 					return pvd.models().getBuilder(ctx.getName() + suffix)
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/fig_pudding_base" + suffix)))
 							.texture("top", "block/" + ctx.getName() + "_top")
-							.texture("bottom", "block/" + ctx.getName() + "_bottom");
+							.texture("bottom", "block/" + ctx.getName() + "_bottom")
+							.renderType("cutout");
 				}))
 				.item().model((ctx, pvd) -> pvd.generated(ctx)).build()
 				.loot((pvd, block) -> pvd.add(block, LootTable.lootTable()
