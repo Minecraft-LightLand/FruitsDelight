@@ -127,7 +127,7 @@
 		  "bayberry": "杨梅"
 		},
 		{
-		  "item.fruitsdelight.*_jelly": "果酱",
+		  "block.fruitsdelight.*_jelly": "果酱",
 		  "item.fruitsdelight.*_jello": "果冻",
 		  "block.fruitsdelight.*_cauldron": "水锅",
 		  "block.fruitsdelight.*_jelly_cauldron": "果酱锅",

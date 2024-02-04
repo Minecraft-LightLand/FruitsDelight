@@ -15,6 +15,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.FluidEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.util.entry.ItemProviderEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
@@ -147,7 +148,7 @@ public class CreateRecipeGen {
 	private static void fluidRecipes(RegistrateRecipeProvider pvd,
 									 BlockEntry<?> block,
 									 FluidEntry<?> fluid,
-									 ItemEntry<?> item,
+									 ItemProviderEntry<?> item,
 									 Item container) {
 
 		compacting(block.getId())
