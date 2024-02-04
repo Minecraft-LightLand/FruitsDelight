@@ -14,6 +14,8 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
+import java.util.Locale;
+
 public enum FoodType {
 	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, true, TagGen.JUICE, DietTagGen.FRUITS.tag),
 	JELLY(FoodClass.GLASS, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
@@ -71,8 +73,8 @@ public enum FoodType {
 	public ItemBuilder<Item, L2Registrate> model(ItemBuilder<Item, L2Registrate> b, int overlay, FruitType fruit) {
 		if (this == JELLY) {
 			return b.model((ctx, pvd) -> pvd.generated(ctx,
-							pvd.modLoc("item/jelly_bottle"),
-							pvd.modLoc("item/jelly_content")))
+							pvd.modLoc("item/jam_bottle"),
+							pvd.modLoc("item/" + fruit.name().toLowerCase(Locale.ROOT) + "_jam")))
 					.color(() -> () -> (stack, layer) -> layer == 0 ? -1 : fruit.color);
 		}
 		if (overlay > 0) {

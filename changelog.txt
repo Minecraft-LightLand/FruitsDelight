@@ -6,6 +6,8 @@ TODO durian
 - Add Berry tags
 - use own model for jello block, fix conflict with leaves resource packs
 - add juice to create
+- Fix Jam block particles
+- Juices can always drink
 
 1.0.3 / 0.5.3
 - Create compat for jam and jello
