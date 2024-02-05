@@ -1,5 +1,12 @@
 TODO durian
 
+1.0.5 / 0.5.5
+- Make jam jars placeable
+- Cut tree spawn rate to 1/8 of original
+- Double berry and lemon spawn rate
+- Fix lemon rendering having black faces when next to a block
+- Fix apple jam block recipe
+
 1.0.4 / 0.5.4
 - Add figs, kiwi, and bayberry, and respective effects and products
 - Add more tree shapes

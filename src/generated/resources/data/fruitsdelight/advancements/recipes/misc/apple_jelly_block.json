@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_air": {
+    "has_apple_jelly": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:air"
+              "fruitsdelight:apple_jelly"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_air",
+      "has_apple_jelly",
       "has_the_recipe"
     ]
   ],
