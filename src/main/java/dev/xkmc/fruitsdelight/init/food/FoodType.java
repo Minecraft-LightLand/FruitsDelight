@@ -6,6 +6,7 @@ import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;

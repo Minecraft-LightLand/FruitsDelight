@@ -1,16 +1,19 @@
 package dev.xkmc.fruitsdelight.init.registrate;
 
-import com.tterrag.registrate.util.entry.ItemEntry;
-import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
+import dev.xkmc.fruitsdelight.content.block.JellyBottleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.RecordFood;
+import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.model.generators.ModelFile;
 import org.apache.commons.lang3.StringUtils;
@@ -37,7 +40,7 @@ public class FDItems {
 			String name = fruit.name().toLowerCase(Locale.ROOT);
 			FoodType food = FoodType.JELLY;
 			JELLY[j] = FruitsDelight.REGISTRATE.block(name + "_jelly", p -> new JellyBottleBlock(
-							BlockBehaviour.Properties.of().strength(0.3F).sound(SoundType.GLASS).noOcclusion(), fruit))
+							BlockBehaviour.Properties.of(Material.GLASS).strength(0.3F).sound(SoundType.GLASS).noOcclusion(), fruit))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder(ctx.getName())
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/jam_bottle_block")))
 							.texture("cap_top", pvd.modLoc("block/jam_bottle_cap_top"))
