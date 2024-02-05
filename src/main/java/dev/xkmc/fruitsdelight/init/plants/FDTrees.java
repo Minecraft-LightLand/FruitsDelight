@@ -136,7 +136,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 
 	public void registerPlacements() {
 		wildPF = PlacementUtils.register(placementKey.toString(), wildCF, VegetationPlacements.treePlacement(
-				PlacementUtils.countExtra(0, 0.2F, 2), getSapling()));
+				PlacementUtils.countExtra(0, 0.05F, 1), getSapling()));
 	}
 
 	@Override

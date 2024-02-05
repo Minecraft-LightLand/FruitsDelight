@@ -6,16 +6,19 @@ import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Locale;
 
 public enum FoodType {
 	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, true, TagGen.JUICE, DietTagGen.FRUITS.tag),
-	JELLY(FoodClass.GLASS, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
+	JELLY(FoodClass.JELLY, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
 	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true, TagGen.JELLO, DietTagGen.SUGARS.tag),
 	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false, DietTagGen.FRUITS.tag),
 	SLICE(FoodClass.NONE, 2, 0.3f, 0, true, false, DietTagGen.FRUITS.tag),
@@ -29,7 +32,7 @@ public enum FoodType {
 	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false, false, DietTagGen.FRUITS.tag, DietTagGen.GRAINS.tag, DietTagGen.VEGETABLES.tag),
 	ROLL(FoodClass.NONE, 3, 0.4f, 10, true, false, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
 	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false, DietTagGen.SUGARS.tag),
-	MANGOSTEEN_CAKE((p, e) -> new FDBlockItem(FDBlocks.MANGOSTEEN_CAKE.get(), p.craftRemainder(Items.BOWL).stacksTo(16)),
+	MANGOSTEEN_CAKE((b, p, e) -> new FDBlockItem(FDBlocks.MANGOSTEEN_CAKE.get(), p.craftRemainder(Items.BOWL).stacksTo(16), e),
 			9, 0.6f, 30, false, false, DietTagGen.FRUITS.tag),
 	;
 
@@ -52,6 +55,10 @@ public enum FoodType {
 	}
 
 	public Item build(Item.Properties p, IFDFood type) {
+		return build(p, type, null);
+	}
+
+	public Item build(Item.Properties p, IFDFood type, @Nullable Block block) {
 		var val = new FoodProperties.Builder();
 		val.nutrition(food).saturationMod(sat);
 		if (fast) val.fast();
@@ -63,17 +70,11 @@ public enum FoodType {
 		for (var e : type.getEffects()) {
 			val.effect(e::getEffect, e.chance());
 		}
-		return cls.build(p.food(val.build()), type);
+		return cls.build(block, p.food(val.build()), type);
 	}
 
 
-	public ItemBuilder<Item, L2Registrate> model(ItemBuilder<Item, L2Registrate> b, int overlay, FruitType fruit) {
-		if (this == JELLY) {
-			return b.model((ctx, pvd) -> pvd.generated(ctx,
-							pvd.modLoc("item/jelly_bottle"),
-							pvd.modLoc("item/jelly_content")))
-					.color(() -> () -> (stack, layer) -> layer == 0 ? -1 : fruit.color);
-		}
+	public <T> ItemBuilder<Item, T> model(ItemBuilder<Item, T> b, int overlay, FruitType fruit) {
 		if (overlay > 0) {
 			return b.model((ctx, pvd) -> {
 				ResourceLocation[] res = new ResourceLocation[overlay + 1];

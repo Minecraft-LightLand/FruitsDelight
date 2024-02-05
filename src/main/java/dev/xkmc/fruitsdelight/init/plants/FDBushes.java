@@ -49,9 +49,9 @@ import java.util.List;
 import java.util.Locale;
 
 public enum FDBushes implements PlantDataEntry<FDBushes> {
-	BLUEBERRY(2, 0.3f, true, 64, FDBushType.BLOCK),
-	LEMON(4, 0.3f, false, 64, FDBushType.TALL),
-	CRANBERRY(2, 0.3f, true, 64, FDBushType.CROSS);
+	BLUEBERRY(2, 0.3f, true, 32, FDBushType.BLOCK),
+	LEMON(4, 0.3f, false, 32, FDBushType.TALL),
+	CRANBERRY(2, 0.3f, true, 32, FDBushType.CROSS);
 
 	private final BlockEntry<FruitBushBlock> bush;
 	private final ItemEntry<BushFruitItem> seedItem;

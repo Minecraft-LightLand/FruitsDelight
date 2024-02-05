@@ -11,6 +11,10 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import com.tterrag.registrate.util.entry.BlockEntry;
+import com.tterrag.registrate.util.entry.FluidEntry;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
@@ -147,7 +151,7 @@ public class CreateRecipeGen {
 	private static void fluidRecipes(RegistrateRecipeProvider pvd,
 									 BlockEntry<?> block,
 									 FluidEntry<?> fluid,
-									 ItemEntry<?> item,
+									 ItemProviderEntry<?> item,
 									 Item container) {
 
 		compacting(block.getId())
