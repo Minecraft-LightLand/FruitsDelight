@@ -36,24 +36,8 @@ public class FruitBushBlock extends BaseBushBlock {
 			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 3.0D, 10.0D)
 	);
 
-	private static final VoxelShape TALL_SMALL = Shapes.or(
-			Block.box(4.0D, 3.0D, 4.0D, 12.0D, 11.0D, 12.0D),
-			Block.box(7.0D, 0.0D, 7.0D, 9.0D, 3.0D, 9.0D)
-	);
-
-	private static final VoxelShape TALL_MID = Shapes.or(
-			Block.box(0.0D, 6.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-			Block.box(7.0D, 0.0D, 7.0D, 9.0D, 6.0D, 9.0D)
-	);
-
-	private static final VoxelShape TALL_SHAPE = Shapes.or(
-			Block.box(0.0D, 12.0D, 0.0D, 16.0D, 24.0D, 16.0D),
-			Block.box(6.0D, 0.0D, 6.0D, 10.0D, 12.0D, 10.0D)
-	);
-
 	private static final VoxelShape SAPLING_SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
 	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
-
 
 	private final Supplier<Item> item;
 	private final FDBushType type;
@@ -87,17 +71,10 @@ public class FruitBushBlock extends BaseBushBlock {
 	@Deprecated
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
 		int age = state.getValue(AGE);
-		if (type == FDBushType.TALL) {
-			return age == 0 ? TALL_SMALL : age == 1 ? TALL_MID : TALL_SHAPE;
-		} else if (type == FDBushType.CROSS) {
+		 if (type == FDBushType.CROSS) {
 			return age <= 1 ? SAPLING_SHAPE : age <= 3 ? MID_GROWTH_SHAPE : Shapes.block();
 		}
 		return age <= 1 ? SMALL : SHAPE;
-	}
-
-	@Override
-	public boolean collisionExtendsVertically(BlockState state, BlockGetter level, BlockPos pos, Entity collidingEntity) {
-		return type == FDBushType.TALL && state.getValue(AGE) >= 2;
 	}
 
 }

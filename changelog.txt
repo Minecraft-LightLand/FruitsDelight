@@ -1,11 +1,23 @@
 TODO durian
 
+1.0.6 / 0.5.6
+- Use double block for lemon
+
+1.0.5 / 0.5.5
+- Make jam jars placeable
+- Tweak tree spawn rate to fit their biomes
+- Double berry and lemon spawn rate
+- Fix lemon rendering having black faces when next to a block
+- Fix apple jam block recipe
+
 1.0.4 / 0.5.4
 - Add figs, kiwi, and bayberry, and respective effects and products
 - Add more tree shapes
 - Add Berry tags
 - use own model for jello block, fix conflict with leaves resource packs
 - add juice to create
+- Fix Jam block particles
+- Juices can always drink
 
 1.0.3 / 0.5.3
 - Create compat for jam and jello

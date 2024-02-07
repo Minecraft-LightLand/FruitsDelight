@@ -46,7 +46,7 @@ public class RecipeGen {
 				storageBlock(pvd, FDItems.JELLO[e.ordinal()].get(),
 						FDBlocks.JELLO[e.ordinal()].get(), Items.BOWL);
 
-				storageBlock(pvd, FDItems.JELLY[e.ordinal()].get(),
+				storageBlock(pvd, FDItems.JELLY[e.ordinal()].asItem(),
 						FDBlocks.JELLY[e.ordinal()].get(), Items.GLASS_BOTTLE);
 			}
 

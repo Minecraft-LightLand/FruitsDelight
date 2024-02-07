@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "fruitsdelight:item/jelly_bottle",
-    "layer1": "fruitsdelight:item/jelly_content"
+    "layer0": "fruitsdelight:item/jam_bottle",
+    "layer1": "fruitsdelight:item/glowberry_jam"
   }
 }

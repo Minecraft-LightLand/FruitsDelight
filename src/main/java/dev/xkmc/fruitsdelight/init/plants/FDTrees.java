@@ -34,18 +34,18 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public enum FDTrees implements PlantDataEntry<FDTrees> {
-	PEAR(() -> Blocks.BIRCH_LOG, FDTreeType.TALL, 3, 0.3f, false),
-	HAWBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true),
-	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.TALL, 2, 0.3f, true),
-	MANGO(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
-	PERSIMMON(() -> Blocks.SPRUCE_LOG, FDTreeType.FANCY, 3, 0.3f, false),
-	PEACH(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
-	ORANGE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
-	APPLE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, str -> () -> Items.APPLE),
-	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.FANCY, 3, 0.3f, false),
-	BAYBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true),
-	KIWI(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, true),
-	FIG(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false),
+	PEAR(() -> Blocks.BIRCH_LOG, FDTreeType.TALL, 3, 0.3f, false, 15),
+	HAWBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true, 20),
+	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.TALL, 2, 0.3f, true, 4),
+	MANGO(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 4),
+	PERSIMMON(() -> Blocks.SPRUCE_LOG, FDTreeType.FANCY, 3, 0.3f, false, 50),
+	PEACH(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 8),
+	ORANGE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 20),
+	APPLE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, str -> () -> Items.APPLE, 20),
+	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.FANCY, 3, 0.3f, false, 50),
+	BAYBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true, 15),
+	KIWI(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, true, 20),
+	FIG(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 20),
 	;
 
 	private final BlockEntry<? extends BaseLeavesBlock> leaves;
@@ -57,9 +57,11 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	public final ResourceKey<PlacedFeature> placementKey;
 
 	public final Supplier<Block> log;
+	private final int spawn;
 	public boolean genTree = false;
 
-	FDTrees(Supplier<Block> log, FDTreeType height, Function<String, Supplier<Item>> items) {
+	FDTrees(Supplier<Block> log, FDTreeType height, Function<String, Supplier<Item>> items, int spawn) {
+		this.spawn = spawn;
 		String name = name().toLowerCase(Locale.ROOT);
 		this.log = log;
 		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, false));
@@ -87,11 +89,11 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		fruit = items.apply(name);
 	}
 
-	FDTrees(Supplier<Block> log, FDTreeType height, int food, float sat, boolean fast) {
+	FDTrees(Supplier<Block> log, FDTreeType height, int food, float sat, boolean fast, int spawn) {
 		this(log, height, name -> FruitsDelight.REGISTRATE
 				.item(name, p -> new Item(p.food(food(food, sat, fast))))
 				.transform(b -> PlantDataEntry.addFruitTags(name, b))
-				.register());
+				.register(), spawn);
 		genTree = true;
 	}
 
@@ -123,7 +125,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		ctx.register(placementKey, new PlacedFeature(
 				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKeyWild),
 				VegetationPlacements.treePlacement(
-						PlacementUtils.countExtra(0, 0.2F, 2), getSapling())));
+						PlacementUtils.countExtra(0, 1f / (spawn + 3e-6f), 1), getSapling())));
 	}
 
 	@Override
