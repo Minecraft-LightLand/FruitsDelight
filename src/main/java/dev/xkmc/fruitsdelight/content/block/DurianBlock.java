@@ -10,6 +10,12 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DurianBlock extends FallingBlock {
+
+	public static final VoxelShape SHAPE = Shapes.or(
+			box(3, 0, 3, 13, 13, 13),
+			box(7, 13, 7, 9, 16, 9)
+	);
+
 	public DurianBlock(Properties pProperties) {
 		super(pProperties);
 	}
@@ -20,7 +26,7 @@ public class DurianBlock extends FallingBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return Shapes.block();//TODO
+		return SHAPE;
 	}
 
 }

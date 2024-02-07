@@ -50,7 +50,10 @@
 	"bayberry_cookie": "杨梅曲奇",
 	"fig_chicken_stew": "无花果炖鸡",
 	"fig_tart": "无花果挞",
-	"fig_pudding_slice": "无花果布丁切片"
+	"fig_pudding_slice": "无花果布丁切片",
+	"durian_flesh": "榴莲肉",
+	"baked_durian": "烤榴莲",
+	"durian_pie": "榴莲酥"
   },
   "block.fruitsdelight": {
 	"blueberry_bush": "蓝莓丛",
@@ -61,7 +64,8 @@
 	"pineapple_fried_rice": "菠萝饭",
 	"lemonade_cauldron": "淡柠檬水锅",
 	"mangosteen_cake": "山竹糕",
-	"fig_pudding": "无花果布丁"
+	"fig_pudding": "无花果布丁",
+	"durian": "榴莲"
   },
   "-cartesian": {
 	"tree": {
@@ -79,7 +83,8 @@
 		  "mangosteen": "山竹",
 		  "fig": "无花果",
 		  "kiwi": "猕猴桃",
-		  "bayberry": "杨梅"
+		  "bayberry": "杨梅",
+		  "durian": "榴莲"
 		},
 		{
 		  "leaves": "树叶",
@@ -124,7 +129,8 @@
 		  "chorus": "紫颂果",
 		  "fig": "无花果",
 		  "kiwi": "猕猴桃",
-		  "bayberry": "杨梅"
+		  "bayberry": "杨梅",
+		  "durian": "榴莲"
 		},
 		{
 		  "block.fruitsdelight.*_jelly": "果酱",

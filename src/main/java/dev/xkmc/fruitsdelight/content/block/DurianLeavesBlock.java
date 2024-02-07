@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
+import dev.xkmc.fruitsdelight.init.plants.Durian;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -14,6 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -86,10 +88,18 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	}
 
 	protected boolean doDropFruit(BlockState state, ServerLevel level, BlockPos pos) {
-		//TODO
-		return false;
+		BlockState curSt = state;
+		BlockPos curPos = pos;
+		while (!curSt.canBeReplaced()) {
+			if (!(curSt.getBlock() instanceof BaseLeavesBlock)) {
+				return false;
+			}
+			curPos = curPos.below();
+			curSt = level.getBlockState(curPos);
+		}
+		FallingBlockEntity.fall(level, pos, Durian.FRUIT.getDefaultState());
+		return true;
 	}
-
 
 	protected boolean createFlower(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		if (level.isOutsideBuildHeight(pos.below())) return false;
@@ -170,7 +180,8 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 		var leaves = pvd.models().withExistingParent(name + "_leaves", "block/leaves")
 				.texture("all", "block/" + name + "_leaves");
 		var flowers = pvd.models().withExistingParent(name + "_flowers", "block/cross")
-				.texture("all", "block/" + name + "_flowers");
+				.texture("cross", "block/" + name + "_flowers")
+				.renderType("cutout");
 		var fruits = pvd.models().getBuilder(name + "_fruits")
 				.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/durian_base")))
 				.texture("top", pvd.modLoc("block/durian_top"))

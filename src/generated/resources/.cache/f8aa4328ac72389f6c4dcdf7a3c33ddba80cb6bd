@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-07T20:44:50.047058	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-02-07T22:18:26.129496	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -186,8 +186,8 @@ c407159da6f3ea754478f8583e33b1f2b2b99fc4 assets/fruitsdelight/blockstates/sweetb
 1a018eef63897a322df658330447a32c54785c16 assets/fruitsdelight/blockstates/sweetberry_jelly_block.json
 7626d4ec1af96f1382a8d3c7aaa8d4f6a73678ab assets/fruitsdelight/blockstates/sweetberry_jelly_cauldron.json
 1b579c78266d846acdea9c42ec5827aa27bae474 assets/fruitsdelight/blockstates/wild_pineapple.json
-37223bedacc39a78bed77f4763a8dc9ddd74a351 assets/fruitsdelight/lang/en_ud.json
-e4feca9762d4d33a11e4f0d75a6ce58d906c83f7 assets/fruitsdelight/lang/en_us.json
+8359ca7d6f0e930e5d6eeb38f2ba27b6790fed72 assets/fruitsdelight/lang/en_ud.json
+a0cd8112196459dda344db161f8df60ebff00415 assets/fruitsdelight/lang/en_us.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/apple_cauldron.json
 64dc6915927f16b08cd4fffdff8d0b467e8cfea0 assets/fruitsdelight/models/block/apple_crate.json
 0a2689ea678bee07b02632acb3828d475ab7646e assets/fruitsdelight/models/block/apple_flowers.json
@@ -261,7 +261,7 @@ f75512a40753b7ae78b354279aaad1b85da3a512 assets/fruitsdelight/models/block/cranb
 49739a7083954c9430c508e93823e22f1feb62dd assets/fruitsdelight/models/block/cranberry_jelly_cauldron_level2.json
 c76fa18c6b05f1cc1799706220a8659784b4108c assets/fruitsdelight/models/block/durian.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/durian_cauldron.json
-215fe5e864d7846e5ef27d5dcc30bd9f62c7a3fe assets/fruitsdelight/models/block/durian_flowers.json
+9b1152d4e2607d520591d0885551fd5f6e052378 assets/fruitsdelight/models/block/durian_flowers.json
 c76fa18c6b05f1cc1799706220a8659784b4108c assets/fruitsdelight/models/block/durian_fruits.json
 fea73343eca157d311cc2b6f790d6cb82671c9a7 assets/fruitsdelight/models/block/durian_jello_block.json
 e00ffa9125a0a038d777e3eefc9af49869f5afe9 assets/fruitsdelight/models/block/durian_jello_cauldron.json
@@ -590,6 +590,7 @@ afc305a458da52c753b207ada39ce8b2c2465b2b assets/fruitsdelight/models/item/durian
 146b28b409b5d9512f72a0ddecb0b28f6e8d59d5 assets/fruitsdelight/models/item/durian_jelly_block.json
 5d627c60546a7fd695f7842e53b81a62532f0dd5 assets/fruitsdelight/models/item/durian_jelly_cauldron.json
 338b6aa5b1b866b696fe1ac3325c27021da9d664 assets/fruitsdelight/models/item/durian_leaves.json
+e62a06bafe1d7ba56ed2ba71342b80bd527bc24c assets/fruitsdelight/models/item/durian_pie.json
 33aebeea09684a04b0a35ed3b5b78f26d1952e41 assets/fruitsdelight/models/item/durian_sapling.json
 182ba054290da3321470df2d1389ea44f054d4e4 assets/fruitsdelight/models/item/fig.json
 6216acbdd6d18e582c7e7f42b9ac8525876e0de8 assets/fruitsdelight/models/item/fig_cauldron.json
@@ -790,10 +791,10 @@ efbea1d92db59076e3601cdcb6dde8c673e57ebe assets/fruitsdelight/models/item/pineap
 11abe7006ccb8ed888b3b8683def13b4efc9d887 assets/fruitsdelight/models/item/sweetberry_jelly_block.json
 ef11986f9986fe5ea9d97a6a25d1fde102d6579d assets/fruitsdelight/models/item/sweetberry_jelly_cauldron.json
 38f93892702d974b5156d7cd0fc29bb4e1095f5a assets/fruitsdelight/models/item/wild_pineapple.json
-66210ede53b78c4e7ffe6c72963b4ecff39a4b7f data/diet/tags/items/fruits.json
-af69373d98ccc530376f24f4739835be3b0eaab4 data/diet/tags/items/grains.json
+c074f0e9640728e79597ea4da9e2fc12c5a211e9 data/diet/tags/items/fruits.json
+4dcea9095bf8e0befcd7ac7cf7a307bc6c8c1ae2 data/diet/tags/items/grains.json
 00b6c7892b0706d37df66a7b1e32833c1d3fae32 data/diet/tags/items/proteins.json
-5e0ff1709a7eb96593ec68c7b6e8481a74c2ba9f data/diet/tags/items/sugars.json
+7784c5feae95bf8509bafa6b6a6ff9ae8622bbdb data/diet/tags/items/sugars.json
 2024afcaf6b308b0486c0999920d4ac017597f06 data/diet/tags/items/vegetables.json
 f1741e882aca524a778377830189b84edaa66906 data/farmersdelight/recipes/cooking/apple_jelly.json
 0d5c16da5f8d6979a43eea1c879ddae0d696f081 data/farmersdelight/recipes/cooking/bayberry_jelly.json
@@ -806,6 +807,7 @@ ceb39180d18602923747d700d06491216546d8ee data/farmersdelight/recipes/cooking/cho
 64192946dff77ecad1e84280ca5aa586f7c54a61 data/farmersdelight/recipes/cooking/cranberry_jelly.json
 23cebb3c3699d290c034af7daddc72d5b1501e69 data/farmersdelight/recipes/cooking/cranberry_muffin.json
 759cedc71881614a09b3a212a6d811b782154c26 data/farmersdelight/recipes/cooking/durian_jelly.json
+8322e757b1f1ad9c0459e7c8a909625ceb78e67a data/farmersdelight/recipes/cooking/durian_pie.json
 bcea554f365af6bfd03faf99145cfd107dc3a1cf data/farmersdelight/recipes/cooking/fig_chicken_stew.json
 3c52588b684eb76a71672bb1b0e1ddb56a65c1cf data/farmersdelight/recipes/cooking/fig_jelly.json
 77ccebf3e0b1b0108da81884ccb59893fb58ea7e data/farmersdelight/recipes/cooking/fig_tart.json
@@ -856,6 +858,8 @@ a9a028ce67f2e4d8c95fd8ad5bcbc64c34390075 data/forge/tags/items/fruits/mango.json
 4c1e91ab13fae51882df9d3f17c3fb3727ecbfcf data/forge/tags/items/fruits/pear.json
 d4d831b1840aa3090c7738ca176fb1bffc09a166 data/forge/tags/items/fruits/persimmon.json
 ac35a8d069c7c70785c68127dc824a5bc0db5ff2 data/forge/tags/items/fruits/pineapple.json
+83aaf083d3cf476575c6808474dd3eb2e5d8a458 data/fruitsdelight/advancements/recipes/food/baked_durian_from_durian_flesh_campfire.json
+ac7ec6a24931815cfa11abb1a4126905c46e7a20 data/fruitsdelight/advancements/recipes/food/baked_durian_from_durian_flesh_smoking.json
 b0c97cfaf0e5e1d09704075a6f97d33809bfc612 data/fruitsdelight/advancements/recipes/food/baked_pear_from_pear_campfire.json
 2e37c1273071b77f5bbe9b93c175dcf1e919407c data/fruitsdelight/advancements/recipes/food/baked_pear_from_pear_smoking.json
 0edd89ad9df33e77778d6703db6f1d2f6871e786 data/fruitsdelight/advancements/recipes/food/bayberry_cookie.json
@@ -1193,6 +1197,8 @@ d393511f679053e0f74a999b879a4128c774f85b data/fruitsdelight/loot_tables/blocks/w
 1a0f17e120369b6937886ae319492d3d56006148 data/fruitsdelight/recipes/apple_jello_block.json
 4ec29d44c604b148ceff41bd502e434930ca703b data/fruitsdelight/recipes/apple_jelly.json
 120fe38be53c04db1be3f9fce9360609496c4974 data/fruitsdelight/recipes/apple_jelly_block.json
+1975856ad0207a1d61f9dabb2175b4577aa0cb0b data/fruitsdelight/recipes/baked_durian_from_durian_flesh_campfire.json
+1873c81059b0c12be5752f81df148176dbed8b2a data/fruitsdelight/recipes/baked_durian_from_durian_flesh_smoking.json
 c47d650fd4b4b49fdaf4274ab0f8663f34cbe191 data/fruitsdelight/recipes/baked_pear_from_pear_campfire.json
 e52c1b4dd6df86256c4bf5901c886f6ae6c9f787 data/fruitsdelight/recipes/baked_pear_from_pear_smoking.json
 deb8317333d8b44e0513d01c46274b496f2fda3c data/fruitsdelight/recipes/bayberry_cookie.json
@@ -1270,6 +1276,7 @@ d6d1a8cada8e13acb856821c4bac399a09229dfd data/fruitsdelight/recipes/cranberry_je
 86dd37476b8959edfb2e0e06a6702aa437aeae92 data/fruitsdelight/recipes/cutting/pineapple_slice.json
 294782813994efff4175bfc68fa19b6be0f7016a data/fruitsdelight/recipes/dried_persimmon_from_persimmon_campfire.json
 b74dfa10b64586a72ca1a7cedee6213e6a485236 data/fruitsdelight/recipes/dried_persimmon_from_persimmon_smoking.json
+f445cf5682cf80ac73c3119beffc4572ebb5ced5 data/fruitsdelight/recipes/durian_cutting.json
 e3e40794d6419cd8d4b3bcac53d0d496fe80b972 data/fruitsdelight/recipes/durian_jello.json
 cb43fc789ef51f5621ca5f5633f63f3d001d0d8b data/fruitsdelight/recipes/durian_jello_block.json
 bbeb5983aabc4d6e90ab31c50a873590ba99b147 data/fruitsdelight/recipes/durian_jelly.json

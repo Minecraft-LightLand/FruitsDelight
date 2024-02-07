@@ -35,6 +35,7 @@ public enum FDFood implements IFDFood {
 	BAKED_PEAR(FruitType.PEAR, FoodType.FRUIT),
 	BAKED_DURIAN(FruitType.DURIAN, FoodType.FRUIT),
 	PINEAPPLE_PIE(FruitType.PINEAPPLE, FoodType.DESSERT),
+	DURIAN_PIE(FruitType.DURIAN, FoodType.DESSERT),
 	LEMON_TART(FruitType.LEMON, FoodType.DESSERT),
 	FIG_TART(FruitType.FIG, FoodType.DESSERT),
 	MANGO_MILKSHAKE(FruitType.MANGO, FoodType.JUICE),

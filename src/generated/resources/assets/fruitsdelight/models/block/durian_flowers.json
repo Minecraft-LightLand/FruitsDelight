@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "all": "fruitsdelight:block/durian_flowers"
+    "cross": "fruitsdelight:block/durian_flowers"
   }
 }

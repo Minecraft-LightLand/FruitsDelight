@@ -67,11 +67,17 @@ public class RecipeGen {
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDBlocks.FIG_PUDDING.get()),
 								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.FIG_PUDDING_SLICE.item.get(), 4, 1)
 						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "fig_pudding_cutting"));
+
+				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDTrees.DURIAN.getFruit()),
+								Ingredient.of(ForgeTags.TOOLS_AXES), FDFood.DURIAN_FLESH.item.get(), 6, 1)
+						//TODO helmet
+						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "durian_cutting"));
 			}
 
 			{
 				smoking(pvd, FDFood.BAKED_PEAR);
 				smoking(pvd, FDFood.DRIED_PERSIMMON);
+				smoking(pvd, FDFood.BAKED_DURIAN);
 			}
 
 			{
@@ -201,6 +207,13 @@ public class RecipeGen {
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_PIE.item, 2, 200, 0.1f)
 						.addIngredient(FDFood.PINEAPPLE_PIE.getFruit(), 2)
+						.addIngredient(ModItems.PIE_CRUST.get())
+						.addIngredient(Tags.Items.EGGS)
+						.addIngredient(Items.SUGAR)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item, 2, 200, 0.1f)
+						.addIngredient(FDFood.DURIAN_PIE.getFruit(), 2)
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)

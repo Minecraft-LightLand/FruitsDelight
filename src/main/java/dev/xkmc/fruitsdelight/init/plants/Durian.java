@@ -17,7 +17,8 @@ public class Durian {
 	public static BlockEntry<DurianBlock> FRUIT;
 
 	public static Supplier<Item> buildItem(String s) {
-		FRUIT = FruitsDelight.REGISTRATE.block(s, p -> new DurianBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)))
+		FRUIT = FruitsDelight.REGISTRATE.block(s, p ->
+						new DurianBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion()))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder(ctx.getName())
 						.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/durian_base")))
 						.texture("top", pvd.modLoc("block/durian_top"))

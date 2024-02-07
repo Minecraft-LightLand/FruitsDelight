@@ -1,7 +1,6 @@
-TODO durian
-
 1.0.6 / 0.5.6
 - Use double block for lemon
+- Add Durian
 
 1.0.5 / 0.5.5
 - Make jam jars placeable
