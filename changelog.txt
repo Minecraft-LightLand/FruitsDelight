@@ -1,8 +1,11 @@
 TODO durian
 
+1.0.6 / 0.5.6
+- Use double block for lemon
+
 1.0.5 / 0.5.5
 - Make jam jars placeable
-- Cut tree spawn rate to 1/8 of original
+- Tweak tree spawn rate to fit their biomes
 - Double berry and lemon spawn rate
 - Fix lemon rendering having black faces when next to a block
 - Fix apple jam block recipe

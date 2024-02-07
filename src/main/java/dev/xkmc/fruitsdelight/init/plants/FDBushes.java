@@ -21,15 +21,15 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
@@ -50,12 +50,14 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import java.util.List;
 import java.util.Locale;
 
+import static net.minecraft.world.level.block.DoublePlantBlock.HALF;
+
 public enum FDBushes implements PlantDataEntry<FDBushes> {
 	BLUEBERRY(2, 0.3f, true, 32, FDBushType.BLOCK),
 	LEMON(4, 0.3f, false, 32, FDBushType.TALL),
 	CRANBERRY(2, 0.3f, true, 32, FDBushType.CROSS);
 
-	private final BlockEntry<FruitBushBlock> bush;
+	private final BlockEntry<? extends BushBlock> bush;
 	private final ItemEntry<BushFruitItem> seedItem;
 	private final ItemEntry<FDFoodItem> mid;
 
@@ -74,24 +76,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
 		this.rarity = rarity;
 		this.type = type;
-
-		if (type == FDBushType.CROSS) {
-			bush = FruitsDelight.REGISTRATE
-					.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH), this::getFruit, type))
-					.blockstate(this::buildBushModel)
-					.loot(this::buildLoot)
-					.tag(BlockTags.SWORD_EFFICIENT)
-					.register();
-		} else {
-			bush = FruitsDelight.REGISTRATE
-					.block(name + "_" + suffix, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), this::getFruit, type))
-					.blockstate(this::buildBushModel)
-					.loot(this::buildLoot)
-					.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
-					.item().build()
-					.register();
-		}
-
+		bush = type.build(name + "_" + suffix, this);
 		if (type == FDBushType.TALL) {
 			mid = FruitsDelight.REGISTRATE.item(name, p -> new FDFoodItem(p.food(food(food, sat, fast)), null))
 					.transform(b -> PlantDataEntry.addFruitTags(name, b))
@@ -106,7 +91,6 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 					.transform(b -> PlantDataEntry.addFruitTags(name, b))
 					.register();
 		}
-
 	}
 
 
@@ -154,10 +138,10 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 		}
 	}
 
-	private void buildLoot(RegistrateBlockLootTables pvd, FruitBushBlock block) {
+	public void buildLoot(RegistrateBlockLootTables pvd, BushBlock block) {
 		var table = LootTable.lootTable();
-		if (type != FDBushType.CROSS)
-			table.withPool(LootPool.lootPool()
+		if (type != FDBushType.CROSS) {
+			var pool = LootPool.lootPool()
 					.add(LootItem.lootTableItem(getBush().asItem())
 							.when(LootTableTemplate.silk(false))
 							.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
@@ -168,18 +152,27 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 													.hasProperty(FruitBushBlock.AGE, 1)))
 									.invert()
 							))
-					.when(ExplosionCondition.survivesExplosion()));
-		table.withPool(LootPool.lootPool()
+					.when(ExplosionCondition.survivesExplosion());
+
+			table.withPool(pool);
+		}
+		var pool = LootPool.lootPool()
 				.add(LootItem.lootTableItem(getFruit())
 						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
 								.setProperties(StatePropertiesPredicate.Builder.properties()
 										.hasProperty(FruitBushBlock.AGE, 4)))
 						.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)))
-				.when(ExplosionCondition.survivesExplosion()));
+				.when(ExplosionCondition.survivesExplosion());
+		if (type == FDBushType.TALL) {
+			pool.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+					.setProperties(StatePropertiesPredicate.Builder.properties()
+							.hasProperty(HALF, DoubleBlockHalf.LOWER)));
+		}
+		table.withPool(pool);
 		pvd.add(block, table);
 	}
 
-	public FruitBushBlock getBush() {
+	public BushBlock getBush() {
 		return bush.get();
 	}
 
@@ -191,7 +184,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 		return seedItem.get();
 	}
 
-	private void buildBushModel(DataGenContext<Block, FruitBushBlock> ctx, RegistrateBlockstateProvider pvd) {
+	public void buildBushModel(DataGenContext<Block, ? extends BushBlock> ctx, RegistrateBlockstateProvider pvd) {
 		if (type == FDBushType.CROSS) {
 			pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
 				int age = state.getValue(FruitBushBlock.AGE);
@@ -209,6 +202,12 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 		pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
 			int age = state.getValue(FruitBushBlock.AGE);
 			String id = ctx.getName();
+			if (tall && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+				return ConfiguredModel.builder().modelFile(pvd.models()
+						.withExistingParent(id + "_upper", pvd.mcLoc("block/air"))
+						.texture("particle", pvd.modLoc("block/" + id + "_top"))
+				).build();
+			}
 			String parent = "bush";
 			if (tall) parent = "tall_" + parent;
 			if (age == 0) {

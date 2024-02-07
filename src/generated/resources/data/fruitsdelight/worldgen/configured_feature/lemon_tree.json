@@ -10,7 +10,8 @@
             "state": {
               "Name": "fruitsdelight:lemon_tree",
               "Properties": {
-                "age": "4"
+                "age": "4",
+                "half": "lower"
               }
             }
           }
