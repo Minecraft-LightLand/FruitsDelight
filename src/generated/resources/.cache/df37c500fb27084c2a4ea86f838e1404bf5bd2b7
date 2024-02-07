@@ -1,8 +1,9 @@
-// 1.20.1	2024-02-05T12:56:18.739688	Botany Tree Gen
+// 1.20.1	2024-02-07T20:44:50.057364	Botany Tree Gen
 d805122fd1f84e736f5840f3bce0bc05c97204b3 data/fruitsdelight/recipes/botanypots/apple.json
 e0ee76899b3b9caa930b15b13b9ec4bcf1c8bfae data/fruitsdelight/recipes/botanypots/bayberry.json
 dce39ef49615ab447ed65b16f9bfbb6818b90977 data/fruitsdelight/recipes/botanypots/blueberry.json
 ea112b6d8fbbfa2894c254db79c9f3363a84f615 data/fruitsdelight/recipes/botanypots/cranberry.json
+b30a5422b5db8a8b89197723fa51f6d90d04e08c data/fruitsdelight/recipes/botanypots/durian.json
 9b2c43a4fa85d15aebc64d83e64ab0aaa443bb74 data/fruitsdelight/recipes/botanypots/fig.json
 9803a1806d5ee1210e561636733f52d6b3eb7df8 data/fruitsdelight/recipes/botanypots/hamimelon.json
 c8831d224084780b87d5e3e92faa2ca1ecbd3175 data/fruitsdelight/recipes/botanypots/hawberry.json

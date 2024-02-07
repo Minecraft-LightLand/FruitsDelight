@@ -32,11 +32,12 @@ import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeHooks;
 
 import java.util.Locale;
 
-public class DurainLeavesBlock extends BaseLeavesBlock {
+public class DurianLeavesBlock extends BaseLeavesBlock {
 
 	public enum Leaf implements StringRepresentable {
 		LEAF, BUDDING, BARE;
@@ -59,7 +60,7 @@ public class DurainLeavesBlock extends BaseLeavesBlock {
 	public static final EnumProperty<Fruit> FRUIT = EnumProperty.create("fruit", Fruit.class);
 	public static final EnumProperty<Leaf> LEAF = EnumProperty.create("leaf", Leaf.class);
 
-	public DurainLeavesBlock(Properties props) {
+	public DurianLeavesBlock(Properties props) {
 		super(props);
 	}
 
@@ -170,8 +171,11 @@ public class DurainLeavesBlock extends BaseLeavesBlock {
 				.texture("all", "block/" + name + "_leaves");
 		var flowers = pvd.models().withExistingParent(name + "_flowers", "block/cross")
 				.texture("all", "block/" + name + "_flowers");
-		var fruits = pvd.models().withExistingParent(name + "_flowers", "block/cross")
-				.texture("all", "block/" + name + "_flowers");//TODO
+		var fruits = pvd.models().getBuilder(name + "_fruits")
+				.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/durian_base")))
+				.texture("top", pvd.modLoc("block/durian_top"))
+				.texture("side", pvd.modLoc("block/durian_side"))
+				.renderType("cutout");
 		pvd.getMultipartBuilder(ctx.get())
 				.part().modelFile(leaves).addModel().condition(LEAF, Leaf.LEAF, Leaf.BUDDING).end()
 				.part().modelFile(flowers).addModel().condition(FRUIT, Fruit.FLOWERS).end()

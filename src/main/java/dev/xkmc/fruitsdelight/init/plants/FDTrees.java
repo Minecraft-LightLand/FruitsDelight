@@ -2,7 +2,6 @@ package dev.xkmc.fruitsdelight.init.plants;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
-import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -46,6 +45,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	BAYBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true, 15),
 	KIWI(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, true, 20),
 	FIG(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 20),
+	DURIAN(() -> Blocks.JUNGLE_LOG, FDTreeType.DURIAN, Durian::buildItem, 50),
 	;
 
 	private final BlockEntry<? extends BaseLeavesBlock> leaves;

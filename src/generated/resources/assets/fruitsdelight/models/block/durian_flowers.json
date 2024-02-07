@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "all": "fruitsdelight:block/durian_flowers"
+  }
+}

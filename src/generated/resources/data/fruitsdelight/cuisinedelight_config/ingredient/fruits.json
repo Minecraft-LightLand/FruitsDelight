@@ -291,7 +291,7 @@
         {
           "effect": "fruitsdelight:leaf_piercing",
           "level": 0,
-          "time": 1600
+          "time": 400
         }
       ],
       "ingredient": {
@@ -336,6 +336,20 @@
       ],
       "ingredient": {
         "item": "fruitsdelight:fig"
+      },
+      "max_time": 180,
+      "min_time": 60,
+      "nutrition": 6,
+      "overcook_penalty": 0.5,
+      "raw_penalty": 0.0,
+      "size": 1,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [],
+      "ingredient": {
+        "item": "fruitsdelight:durian_flesh"
       },
       "max_time": 180,
       "min_time": 60,
@@ -730,7 +744,7 @@
         {
           "effect": "fruitsdelight:leaf_piercing",
           "level": 0,
-          "time": 1600
+          "time": 400
         }
       ],
       "ingredient": {
@@ -775,6 +789,20 @@
       ],
       "ingredient": {
         "item": "fruitsdelight:fig_jelly"
+      },
+      "max_time": 180,
+      "min_time": 0,
+      "nutrition": 0,
+      "overcook_penalty": 0.0,
+      "raw_penalty": 0.0,
+      "size": 0,
+      "stir_time": 60
+    },
+    {
+      "type": "VEG",
+      "effects": [],
+      "ingredient": {
+        "item": "fruitsdelight:durian_jelly"
       },
       "max_time": 180,
       "min_time": 0,

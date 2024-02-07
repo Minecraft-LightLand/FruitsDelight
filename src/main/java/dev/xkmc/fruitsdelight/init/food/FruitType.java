@@ -1,9 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import dev.xkmc.fruitsdelight.init.plants.FDBushes;
-import dev.xkmc.fruitsdelight.init.plants.FDMelons;
-import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
-import dev.xkmc.fruitsdelight.init.plants.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.world.effect.MobEffects;
@@ -50,6 +47,7 @@ public enum FruitType {
 	BAYBERRY(4, 0x541135, FDTrees.BAYBERRY::getFruit, List.of(new EffectFunc(FDEffects.LEAF_PIERCING::get, lv -> lv * 20))),
 	KIWI(2, 0x89D90D, FDTrees.KIWI::getFruit, List.of(new EffectFunc(FDEffects.CYCLING::get, lv -> lv * 4))),
 	FIG(2, 0xE08517, FDTrees.FIG::getFruit, List.of(new EffectFunc(FDEffects.DIGESTING::get, lv -> lv * 80))),
+	DURIAN(2, 0xEDD955, Durian::getSlice, List.of()),//TODO
 	;
 
 	public static FruitType empty() {

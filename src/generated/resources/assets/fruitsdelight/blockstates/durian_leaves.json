@@ -1,0 +1,28 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "fruitsdelight:block/durian_leaves"
+      },
+      "when": {
+        "leaf": "leaf|budding"
+      }
+    },
+    {
+      "apply": {
+        "model": "fruitsdelight:block/durian_flowers"
+      },
+      "when": {
+        "fruit": "flowers"
+      }
+    },
+    {
+      "apply": {
+        "model": "fruitsdelight:block/durian_fruits"
+      },
+      "when": {
+        "fruit": "fruits"
+      }
+    }
+  ]
+}
