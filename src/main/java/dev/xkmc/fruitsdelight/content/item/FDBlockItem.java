@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.item;
 
+import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.IFDFood;
 import net.minecraft.network.chat.Component;
@@ -55,7 +56,7 @@ public class FDBlockItem extends BlockItem {
 
 	@Override
 	public InteractionResult place(BlockPlaceContext ctx) {
-		if (ctx.getPlayer() != null && ctx.getPlayer().isShiftKeyDown())
+		if (ctx.getPlayer() != null && !ctx.getPlayer().isShiftKeyDown())
 			return InteractionResult.PASS;
 		return super.place(ctx);
 	}
@@ -81,6 +82,7 @@ public class FDBlockItem extends BlockItem {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+		list.add(LangData.TOOLTIP_PLACE.get());
 		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
 			getFoodEffects(stack, list);
 	}

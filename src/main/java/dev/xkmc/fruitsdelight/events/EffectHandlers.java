@@ -4,6 +4,7 @@ import dev.xkmc.fruitsdelight.content.effects.EffectRemovalEffect;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.vehicle.Boat;

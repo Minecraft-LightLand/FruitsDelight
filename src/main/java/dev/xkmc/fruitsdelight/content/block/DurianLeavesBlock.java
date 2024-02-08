@@ -27,9 +27,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
@@ -202,15 +200,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
 						.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
 								MinMaxBounds.Ints.atLeast(1)))));
-		var saplings = LootItem.lootTableItem(sapling)
-				.when(LootItemBlockStatePropertyCondition
-						.hasBlockStateProperties(block)
-						.setProperties(StatePropertiesPredicate.Builder.properties()
-								.hasProperty(LEAF, Leaf.BARE)).invert())
-				.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,
-						1 / 20f, 1 / 16f, 1 / 12f, 1 / 10f));
-		var drops = AlternativesEntry.alternatives(leaves, saplings);
-		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(drops)
+		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(leaves)
 				.when(ExplosionCondition.survivesExplosion())));
 	}
 

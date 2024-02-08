@@ -347,7 +347,18 @@
     },
     {
       "type": "VEG",
-      "effects": [],
+      "effects": [
+        {
+          "effect": "fruitsdelight:alienating",
+          "level": 0,
+          "time": 800
+        },
+        {
+          "effect": "fruitsdelight:suspicious_smell",
+          "level": 0,
+          "time": 1600
+        }
+      ],
       "ingredient": {
         "item": "fruitsdelight:durian_flesh"
       },
@@ -800,7 +811,18 @@
     },
     {
       "type": "VEG",
-      "effects": [],
+      "effects": [
+        {
+          "effect": "fruitsdelight:alienating",
+          "level": 0,
+          "time": 800
+        },
+        {
+          "effect": "fruitsdelight:suspicious_smell",
+          "level": 0,
+          "time": 1600
+        }
+      ],
       "ingredient": {
         "item": "fruitsdelight:durian_jelly"
       },

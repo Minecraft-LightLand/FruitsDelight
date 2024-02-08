@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
+import dev.xkmc.fruitsdelight.content.item.DurianFleshItem;
 import dev.xkmc.fruitsdelight.content.item.FDBlockItem;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import net.minecraft.world.item.Item;
@@ -14,6 +15,7 @@ public enum FoodClass implements IFoodClass {
 	GLASS((b, p, e) -> new FDFoodItem(p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), e, UseAnim.DRINK)),
 	JELLY((b, p, e) -> new FDBlockItem(b, p.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), e, UseAnim.DRINK)),
 	BOWL((b, p, e) -> new FDFoodItem(p.craftRemainder(Items.BOWL).stacksTo(16), e)),
+	DURIAN_FLESH((b, p, e) -> new DurianFleshItem(p, e)),
 	;
 
 	public final IFoodClass factory;

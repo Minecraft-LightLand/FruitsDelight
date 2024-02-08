@@ -35,6 +35,8 @@ public enum FoodType {
 	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false, DietTagGen.SUGARS.tag),
 	MANGOSTEEN_CAKE((b, p, e) -> new FDBlockItem(FDBlocks.MANGOSTEEN_CAKE.get(), p.craftRemainder(Items.BOWL).stacksTo(16), e),
 			9, 0.6f, 30, false, false, DietTagGen.FRUITS.tag),
+	DURIAN_FLESH(FoodClass.DURIAN_FLESH, 4, 0.3f, 0, false, false, DietTagGen.FRUITS.tag),
+
 	;
 
 	public final int food;

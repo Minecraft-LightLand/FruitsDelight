@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:durian_shell"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bowl"
+  }
+}

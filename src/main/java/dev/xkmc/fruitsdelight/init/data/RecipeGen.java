@@ -71,6 +71,13 @@ public class RecipeGen {
 						.addResult(Durian.LOWER)
 						.addResult(FDTrees.DURIAN.getSapling())
 						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "durian_cutting"));
+
+				pvd.singleItemUnfinished(DataIngredient.items(Durian.LOWER.get()), RecipeCategory.MISC,
+						() -> Items.BOWL, 1, 1).save(pvd,
+						new ResourceLocation(FruitsDelight.MODID, "durian_upper_to_bowl"));
+				pvd.singleItemUnfinished(DataIngredient.items(Durian.UPPER.get()), RecipeCategory.MISC,
+						() -> Items.BOWL, 1, 1).save(pvd,
+						new ResourceLocation(FruitsDelight.MODID, "durian_lower_to_bowl"));
 			}
 
 			{

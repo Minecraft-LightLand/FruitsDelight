@@ -9,6 +9,7 @@ import dev.xkmc.fruitsdelight.content.item.DurianHelmetItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.l2library.base.L2Registrate;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -39,20 +40,22 @@ public class Durian {
 						.renderType("cutout")
 				)).tag(BlockTags.MINEABLE_WITH_AXE)
 				.simpleItem().register();
-		UPPER = FruitsDelight.REGISTRATE.item("upper_durian_shell", DurianHelmetItem::new)
+		UPPER = FruitsDelight.REGISTRATE.item("durian_helmet", DurianHelmetItem::new)
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName())
+						.guiLight(BlockModel.GuiLight.FRONT)
 						.customLoader(SeparateTransformsModelBuilder::begin)
 						.base(new ItemModelBuilder(null, pvd.existingFileHelper)
 								.parent(new ModelFile.UncheckedModelFile("item/generated"))
 								.texture("layer0", pvd.modLoc("item/durian_shell_upper")))
 						.perspective(ItemDisplayContext.HEAD,
 								new ItemModelBuilder(null, pvd.existingFileHelper)
+										.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("item/durian_helmet_base")))
 										.texture("upper", pvd.modLoc("item/durian_shell_upper"))
 										.texture("inner", pvd.modLoc("item/durian_helmet_inner"))
 										.texture("top", pvd.modLoc("block/durian_top"))
 						))
 				.register();
-		LOWER = FruitsDelight.REGISTRATE.item("lower_durian_shell", Item::new)
+		LOWER = FruitsDelight.REGISTRATE.item("durian_shell", Item::new)
 				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/durian_shell_lower")))
 				.register();
 		return FRUIT::asItem;
@@ -62,7 +65,7 @@ public class Durian {
 			BlockBuilder<SaplingBlock, L2Registrate> builder) {
 		return builder.item(ItemNameBlockItem::new)
 				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/durian_seed")))
-				.defaultLang();
+				.lang("Durian Seed");
 	}
 
 	public static Item getSlice() {

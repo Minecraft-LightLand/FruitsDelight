@@ -5,9 +5,11 @@
       "layer0": "fruitsdelight:item/durian_shell_upper"
     }
   },
+  "gui_light": "front",
   "loader": "forge:separate_transforms",
   "perspectives": {
     "head": {
+      "parent": "fruitsdelight:item/durian_helmet_base",
       "textures": {
         "inner": "fruitsdelight:item/durian_helmet_inner",
         "top": "fruitsdelight:block/durian_top",
