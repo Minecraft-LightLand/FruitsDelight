@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-08T20:19:05.270479	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-02-08T21:36:06.096302	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -1060,7 +1060,7 @@ df6ca7f189d9e5d79938c8766d0a1dae521f631f data/fruitsdelight/loot_tables/blocks/d
 d7b79d36fc0834eb9f3aa44cba95a7def41576be data/fruitsdelight/loot_tables/blocks/durian_jelly.json
 a38d12eb5ca65969bd00817a7b186bd44b47e963 data/fruitsdelight/loot_tables/blocks/durian_jelly_block.json
 9bc4f5247a62cabfd861658dd230ec8184951309 data/fruitsdelight/loot_tables/blocks/durian_jelly_cauldron.json
-b465e8bb3fd41d9a90d5ae3157d742da96d9ecd8 data/fruitsdelight/loot_tables/blocks/durian_leaves.json
+0ada938fb21e0b91deb7d72d82d923ec04ca81bb data/fruitsdelight/loot_tables/blocks/durian_leaves.json
 5a5f01818b78e44f3838bfb45e2ce434808cf0c6 data/fruitsdelight/loot_tables/blocks/durian_sapling.json
 a7b8b92976248edfe7015d9e67a467bf740f9a3b data/fruitsdelight/loot_tables/blocks/fig_cauldron.json
 c695a3d8539da05827cd07c1bd2d839a946f084a data/fruitsdelight/loot_tables/blocks/fig_crate.json

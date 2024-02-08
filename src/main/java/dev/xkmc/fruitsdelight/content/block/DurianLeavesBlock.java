@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -70,6 +71,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 
 	@Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+		if (state.getValue(PERSISTENT)) return InteractionResult.PASS;
 		if (state.getValue(FRUIT) == Fruit.FRUITS) {
 			if (level instanceof ServerLevel sl) {
 				dropFruit(state, sl, pos, level.getRandom());
@@ -200,7 +202,13 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
 						.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
 								MinMaxBounds.Ints.atLeast(1)))));
-		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(leaves)
+		var fruits = LootItem.lootTableItem(fruit)
+				.when(LootItemBlockStatePropertyCondition
+						.hasBlockStateProperties(block)
+						.setProperties(StatePropertiesPredicate.Builder.properties()
+								.hasProperty(FRUIT, Fruit.FRUITS)));
+		var drops = AlternativesEntry.alternatives(leaves, fruits);
+		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(drops)
 				.when(ExplosionCondition.survivesExplosion())));
 	}
 

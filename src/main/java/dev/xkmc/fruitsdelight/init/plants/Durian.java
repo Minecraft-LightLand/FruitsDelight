@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -72,4 +73,8 @@ public class Durian {
 		return FDFood.DURIAN_FLESH.get();
 	}
 
+	public static void registerComposter() {
+		ComposterBlock.COMPOSTABLES.put(UPPER.get(), 0.3f);
+		ComposterBlock.COMPOSTABLES.put(LOWER.get(), 0.3f);
+	}
 }

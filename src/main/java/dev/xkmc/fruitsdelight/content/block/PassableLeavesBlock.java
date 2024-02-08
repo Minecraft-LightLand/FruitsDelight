@@ -57,6 +57,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 
 	@Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+		if (state.getValue(PERSISTENT)) return InteractionResult.PASS;
 		if (state.getValue(STATE) == State.FRUITS) {
 			if (level instanceof ServerLevel sl) {
 				dropFruit(state, sl, pos, level.getRandom());

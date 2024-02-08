@@ -69,6 +69,7 @@ public class FruitsDelight {
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			PlantDataEntry.run(PlantDataEntry::registerComposter);
+			Durian.registerComposter();
 
 			if (FDModConfig.COMMON.enableCauldronRecipe.get())
 				FDCauldrons.init();
