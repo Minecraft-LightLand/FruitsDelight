@@ -4,8 +4,10 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import dev.ghen.thirst.Thirst;
 import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
+import dev.xkmc.fruitsdelight.compat.thirst.ThirstCompat;
 import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
@@ -80,6 +82,10 @@ public class FruitsDelight {
 
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
+
+			if (ModList.get().isLoaded(Thirst.ID)){
+				ThirstCompat.init();
+			}
 		});
 	}
 

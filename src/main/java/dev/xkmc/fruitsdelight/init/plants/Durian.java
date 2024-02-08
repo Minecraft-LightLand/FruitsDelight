@@ -76,5 +76,6 @@ public class Durian {
 	public static void registerComposter() {
 		ComposterBlock.COMPOSTABLES.put(UPPER.get(), 0.3f);
 		ComposterBlock.COMPOSTABLES.put(LOWER.get(), 0.3f);
+		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.3f);
 	}
 }
