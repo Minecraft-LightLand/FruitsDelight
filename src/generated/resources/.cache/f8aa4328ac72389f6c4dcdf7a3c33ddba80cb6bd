@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-07T22:18:26.129496	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-02-08T19:24:56.64133	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -186,8 +186,8 @@ c407159da6f3ea754478f8583e33b1f2b2b99fc4 assets/fruitsdelight/blockstates/sweetb
 1a018eef63897a322df658330447a32c54785c16 assets/fruitsdelight/blockstates/sweetberry_jelly_block.json
 7626d4ec1af96f1382a8d3c7aaa8d4f6a73678ab assets/fruitsdelight/blockstates/sweetberry_jelly_cauldron.json
 1b579c78266d846acdea9c42ec5827aa27bae474 assets/fruitsdelight/blockstates/wild_pineapple.json
-8359ca7d6f0e930e5d6eeb38f2ba27b6790fed72 assets/fruitsdelight/lang/en_ud.json
-a0cd8112196459dda344db161f8df60ebff00415 assets/fruitsdelight/lang/en_us.json
+022fe17790661ab1904423b3671c1a5b77a8c95e assets/fruitsdelight/lang/en_ud.json
+60f18ae0f3ec567aab4a1d4f5c8e18ab3a19a785 assets/fruitsdelight/lang/en_us.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/apple_cauldron.json
 64dc6915927f16b08cd4fffdff8d0b467e8cfea0 assets/fruitsdelight/models/block/apple_crate.json
 0a2689ea678bee07b02632acb3828d475ab7646e assets/fruitsdelight/models/block/apple_flowers.json
@@ -591,7 +591,7 @@ afc305a458da52c753b207ada39ce8b2c2465b2b assets/fruitsdelight/models/item/durian
 5d627c60546a7fd695f7842e53b81a62532f0dd5 assets/fruitsdelight/models/item/durian_jelly_cauldron.json
 338b6aa5b1b866b696fe1ac3325c27021da9d664 assets/fruitsdelight/models/item/durian_leaves.json
 e62a06bafe1d7ba56ed2ba71342b80bd527bc24c assets/fruitsdelight/models/item/durian_pie.json
-33aebeea09684a04b0a35ed3b5b78f26d1952e41 assets/fruitsdelight/models/item/durian_sapling.json
+3cd8f904b385d04c30f3096245120e50c39feb67 assets/fruitsdelight/models/item/durian_sapling.json
 182ba054290da3321470df2d1389ea44f054d4e4 assets/fruitsdelight/models/item/fig.json
 6216acbdd6d18e582c7e7f42b9ac8525876e0de8 assets/fruitsdelight/models/item/fig_cauldron.json
 f705ec58cc0debb3ae9df46c7cbb605681cf48b1 assets/fruitsdelight/models/item/fig_chicken_stew.json
@@ -652,7 +652,9 @@ fc9d68bf8cad0ebe9af629a6a1928132386589aa assets/fruitsdelight/models/item/kiwi_j
 907d43d9a37e2724991382b396bc6967e5a75df6 assets/fruitsdelight/models/item/kiwi_jelly.json
 83295699921e36ed9639c9c0fa27adee72f01647 assets/fruitsdelight/models/item/kiwi_jelly_block.json
 9403684182f3e092bb73c5c62086c9230697e2af assets/fruitsdelight/models/item/kiwi_jelly_cauldron.json
+e73203a8f4e9b912260f85ea5ad223d0fb0a8e53 assets/fruitsdelight/models/item/kiwi_juice.json
 0bff47f45b36dde79d9ff309c2a90c40c3badeec assets/fruitsdelight/models/item/kiwi_leaves.json
+0560a8d15635869b744bd1c7506afc1e8bd59db6 assets/fruitsdelight/models/item/kiwi_popsicle.json
 a091a34dfc8bace17ecf7f16fdc417e46a9b37ee assets/fruitsdelight/models/item/kiwi_sapling.json
 a3652f27a98d33be3a31c18f6865d140b9223e5b assets/fruitsdelight/models/item/lemon.json
 648c3f8d4334438b3b1dd8478d4345a57a8be08f assets/fruitsdelight/models/item/lemon_cauldron.json
@@ -670,6 +672,7 @@ a47c836400389662a599ea9c612cc17b5a06241a assets/fruitsdelight/models/item/lemon_
 56dfb4ea5a2e93abbb7ee93ba04703827365bd92 assets/fruitsdelight/models/item/lemon_tart.json
 121bfcdec66d0fae3d8a54e86193730c4dcda81e assets/fruitsdelight/models/item/lemon_tree.json
 ae4dabf88220b16ca7d4d8b0be3419229fbd1eb4 assets/fruitsdelight/models/item/lemonade_cauldron.json
+7e3c9b05efdcb2f4b3427b49e3fe2f4a87ced45f assets/fruitsdelight/models/item/lower_durian_shell.json
 30d279757829f6e30e1a50404ade3f20e32fd5ea assets/fruitsdelight/models/item/lychee.json
 269094a2f989141b178967dd6ccb3aec8274a97c assets/fruitsdelight/models/item/lychee_cauldron.json
 5a17e800a6fb36d68190ac4e2099c317251ba489 assets/fruitsdelight/models/item/lychee_cherry_tea.json
@@ -790,8 +793,9 @@ efbea1d92db59076e3601cdcb6dde8c673e57ebe assets/fruitsdelight/models/item/pineap
 031ad5b9781747b69d2cb97431b165a7ca71e98f assets/fruitsdelight/models/item/sweetberry_jelly.json
 11abe7006ccb8ed888b3b8683def13b4efc9d887 assets/fruitsdelight/models/item/sweetberry_jelly_block.json
 ef11986f9986fe5ea9d97a6a25d1fde102d6579d assets/fruitsdelight/models/item/sweetberry_jelly_cauldron.json
+1821edfba30e17003002eef5291fd20e7e75cf8c assets/fruitsdelight/models/item/upper_durian_shell.json
 38f93892702d974b5156d7cd0fc29bb4e1095f5a assets/fruitsdelight/models/item/wild_pineapple.json
-c074f0e9640728e79597ea4da9e2fc12c5a211e9 data/diet/tags/items/fruits.json
+37f2c0b0ec36085d5a4b3ac6bb6f283c7484c3c2 data/diet/tags/items/fruits.json
 4dcea9095bf8e0befcd7ac7cf7a307bc6c8c1ae2 data/diet/tags/items/grains.json
 00b6c7892b0706d37df66a7b1e32833c1d3fae32 data/diet/tags/items/proteins.json
 7784c5feae95bf8509bafa6b6a6ff9ae8622bbdb data/diet/tags/items/sugars.json
@@ -873,6 +877,8 @@ cfb7ecff0e89709501a29be4348753c7c43c7498 data/fruitsdelight/advancements/recipes
 db01840509cffd8b54e625bbc223ff8ff330bd8b data/fruitsdelight/advancements/recipes/food/hamimelon_shaved_ice.json
 d397c87d27805cba2ebb0b36248090272a1ddb04 data/fruitsdelight/advancements/recipes/food/hawberry_sheet.json
 295e6ade340266b6e7503b19e799f01981e437f1 data/fruitsdelight/advancements/recipes/food/hawberry_stick.json
+22698013d37b3769b11c182d5bf80c7051d7f930 data/fruitsdelight/advancements/recipes/food/kiwi_juice.json
+a64635a678f5e7b54e15aebd710cab0c4ea43c62 data/fruitsdelight/advancements/recipes/food/kiwi_popsicle.json
 9520352f48ff7804eb90db10d82bd35bb188a1a0 data/fruitsdelight/advancements/recipes/food/lemon_cookie.json
 39a21589519fb01af77e92a947ec453f80e97545 data/fruitsdelight/advancements/recipes/food/lemon_juice.json
 bce9dae367075c5ae48d4f8346e82046cd797807 data/fruitsdelight/advancements/recipes/food/orange_juice.json
@@ -1276,7 +1282,7 @@ d6d1a8cada8e13acb856821c4bac399a09229dfd data/fruitsdelight/recipes/cranberry_je
 86dd37476b8959edfb2e0e06a6702aa437aeae92 data/fruitsdelight/recipes/cutting/pineapple_slice.json
 294782813994efff4175bfc68fa19b6be0f7016a data/fruitsdelight/recipes/dried_persimmon_from_persimmon_campfire.json
 b74dfa10b64586a72ca1a7cedee6213e6a485236 data/fruitsdelight/recipes/dried_persimmon_from_persimmon_smoking.json
-f445cf5682cf80ac73c3119beffc4572ebb5ced5 data/fruitsdelight/recipes/durian_cutting.json
+bbc7daebeea94933e4b7abbb2445b408603a412e data/fruitsdelight/recipes/durian_cutting.json
 e3e40794d6419cd8d4b3bcac53d0d496fe80b972 data/fruitsdelight/recipes/durian_jello.json
 cb43fc789ef51f5621ca5f5633f63f3d001d0d8b data/fruitsdelight/recipes/durian_jello_block.json
 bbeb5983aabc4d6e90ab31c50a873590ba99b147 data/fruitsdelight/recipes/durian_jelly.json
@@ -1307,6 +1313,7 @@ c5b9d204822158f115ef424bc7a63cc70ddc1646 data/fruitsdelight/recipes/emptying/ham
 363a720e7f1fd2e08770ed5a57c78cd6ebb100f9 data/fruitsdelight/recipes/emptying/hawberry_tea_emptying.json
 616d4eb78a529dab19e6f3d4aa5d87da381b129f data/fruitsdelight/recipes/emptying/kiwi_jello_emptying.json
 9386d68722c2cae021eefaff9f1b6dad1a101c9b data/fruitsdelight/recipes/emptying/kiwi_jelly_emptying.json
+331b58640eef95c6b5479f891ab57d4326fd8215 data/fruitsdelight/recipes/emptying/kiwi_juice_emptying.json
 d6a240b4f81b2c4eb368053cb62a4c8085d80ebe data/fruitsdelight/recipes/emptying/lemon_jello_emptying.json
 debbeb196d449db51a6ef5f52809e46c58bf478b data/fruitsdelight/recipes/emptying/lemon_jelly_emptying.json
 4d2ce2d605c25a282365688fc65d0ad6fc5d2349 data/fruitsdelight/recipes/emptying/lemon_juice_emptying.json
@@ -1393,6 +1400,7 @@ ba2fb71cce6845662c2ac520ada2a2f0e310e7e0 data/fruitsdelight/recipes/filling/hawb
 6a24e82a0c35f48801d79feccc9aba24adcae5bd data/fruitsdelight/recipes/filling/kiwi_jelly.json
 b1cd853d7262e0a94db4f55eeabf0c52b4aeb08a data/fruitsdelight/recipes/filling/kiwi_jelly_bread.json
 6652d33bb8e1ad83abcad3eb47d4fda85def4bd6 data/fruitsdelight/recipes/filling/kiwi_jelly_roll.json
+8f9338c9544adbffeb04affe8498f997b5520b00 data/fruitsdelight/recipes/filling/kiwi_juice.json
 e33ed06e7718c7e0efd4f79db9c0f78fe62f2a52 data/fruitsdelight/recipes/filling/lemon_jello.json
 b012531e34db13e37363605991cdf3ed7a555884 data/fruitsdelight/recipes/filling/lemon_jelly.json
 cc0b0295274b00b483b77efc2f1ceeb7e98eaa28 data/fruitsdelight/recipes/filling/lemon_jelly_bread.json
@@ -1474,6 +1482,8 @@ a3f33d7a72e9d5030f386355d0e2bd30a6276e5c data/fruitsdelight/recipes/kiwi_from_ki
 1c16f94b97a6fb2ad91d572a5e3560fc071e67d0 data/fruitsdelight/recipes/kiwi_jello_block.json
 4ee4d7c8662674dc143270bbe727473acb079605 data/fruitsdelight/recipes/kiwi_jelly.json
 9d9361b2929ba37f69875e61fe64698777ef3ed0 data/fruitsdelight/recipes/kiwi_jelly_block.json
+75ef6cafe65ae10809b4e07f8ff95bad0deed0f5 data/fruitsdelight/recipes/kiwi_juice.json
+8a3f2442ee9ebb29c7ee61857ccee24abcdacb92 data/fruitsdelight/recipes/kiwi_popsicle.json
 069eb3a1798ea23dee3e2c7559271849c11bafb8 data/fruitsdelight/recipes/lemon_cookie.json
 368059bd60f15868e1fb35c91cc0184700ae61ee data/fruitsdelight/recipes/lemon_crate.json
 c736a5e5b754a28a82c1b8bbcc1d5cbe45240e93 data/fruitsdelight/recipes/lemon_cutting.json
@@ -1533,6 +1543,7 @@ e5559ee3cd54ce11dfc988bdf5bac33e15b3bff2 data/fruitsdelight/recipes/mixing/flowi
 9d434ee0e2412c7aec8a240324b113dd0d4a507a data/fruitsdelight/recipes/mixing/flowing_hawberry_tea.json
 a9bc28d10ee26d62b62605424afdf8fd7d5a49d9 data/fruitsdelight/recipes/mixing/flowing_kiwi_jam.json
 9be22dbcc86526c20e730a43d16523993e69f106 data/fruitsdelight/recipes/mixing/flowing_kiwi_jello.json
+4ff6666518242bec32e1e63cf942586d4b4b1286 data/fruitsdelight/recipes/mixing/flowing_kiwi_juice.json
 6b3c12c509969437b9747d5a7dc82baaf79e8111 data/fruitsdelight/recipes/mixing/flowing_lemon_jam.json
 8bfda8c52f796d3fcba19ffe271aa62598451f1f data/fruitsdelight/recipes/mixing/flowing_lemon_jello.json
 2323e37d566570613e3efb49aa938c11cfafeaac data/fruitsdelight/recipes/mixing/flowing_lemon_juice.json
@@ -1605,7 +1616,7 @@ d5f3417c9304b83127bad3dad8d40655414354cc data/fruitsdelight/recipes/sweetberry_j
 fcbe6756455a8f7813ce2dcad634459bed5d18f1 data/fruitsdelight/tags/items/allow_jelly.json
 58c64f6cef9734937336e5739e05f3175133f46d data/fruitsdelight/tags/items/jello.json
 df02ec12862b5264613432461fcdfcab28f02c51 data/fruitsdelight/tags/items/jelly.json
-35c92f9e566102a94f99f8aed30a134212800545 data/fruitsdelight/tags/items/juice.json
+dfc6ed2ce4917bf9e77a8956446b772e64b7f78d data/fruitsdelight/tags/items/juice.json
 6cd5ea8f22cb91cffd8450e9f19ca865752588fd data/minecraft/tags/blocks/cauldrons.json
 6354eddd8d6c47f30ec465b98032f63ab794f04e data/minecraft/tags/blocks/enderman_holdable.json
 db0be5455533f2b1c2990d8beb091cb188e32b6e data/minecraft/tags/blocks/leaves.json

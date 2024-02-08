@@ -10,10 +10,7 @@ import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.fruitsdelight.init.plants.FDBushes;
-import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
-import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
+import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -70,7 +67,9 @@ public class RecipeGen {
 
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDTrees.DURIAN.getFruit()),
 								Ingredient.of(ForgeTags.TOOLS_AXES), FDFood.DURIAN_FLESH.item.get(), 6, 1)
-						//TODO helmet
+						.addResult(Durian.UPPER)
+						.addResult(Durian.LOWER)
+						.addResult(FDTrees.DURIAN.getSapling())
 						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "durian_cutting"));
 			}
 
@@ -161,6 +160,14 @@ public class RecipeGen {
 						.pattern(" MM").pattern("IMM").pattern("SI ")
 						.define('I', Items.ICE)
 						.define('M', FDFood.HAMIMELON_POPSICLE.getFruit())
+						.define('S', Items.STICK)
+						.save(pvd);
+
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.KIWI_POPSICLE.item.get(), 1)::unlockedBy,
+						FDFood.KIWI_POPSICLE.getFruit())
+						.pattern(" MM").pattern("IMM").pattern("SI ")
+						.define('I', Items.ICE)
+						.define('M', FDFood.KIWI_POPSICLE.getFruit())
 						.define('S', Items.STICK)
 						.save(pvd);
 

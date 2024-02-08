@@ -1,3 +1,7 @@
+Durian sniffing
+Durian effect: alienating
+Durian effect: smelly
+
 1.0.6 / 0.5.6
 - Use double block for lemon
 - Add Durian

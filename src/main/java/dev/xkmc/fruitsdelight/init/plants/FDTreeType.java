@@ -1,17 +1,22 @@
 package dev.xkmc.fruitsdelight.init.plants;
 
+import com.tterrag.registrate.builders.BlockBuilder;
+import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.DurianLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -77,4 +82,9 @@ public enum FDTreeType {
 				.register();
 	}
 
+	public ItemBuilder<? extends BlockItem, BlockBuilder<SaplingBlock, L2Registrate>> sapling(
+			BlockBuilder<SaplingBlock, L2Registrate> builder) {
+		if (this == DURIAN) return Durian.sapling(builder);
+		return builder.item().model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("block/" + ctx.getName())));
+	}
 }

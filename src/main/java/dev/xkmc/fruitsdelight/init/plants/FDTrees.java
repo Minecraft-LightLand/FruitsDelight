@@ -45,7 +45,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	BAYBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true, 15),
 	KIWI(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, true, 20),
 	FIG(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 20),
-	DURIAN(() -> Blocks.JUNGLE_LOG, FDTreeType.DURIAN, Durian::buildItem, 50),
+	DURIAN(() -> Blocks.JUNGLE_LOG, FDTreeType.DURIAN, Durian::buildItem, 200),
 	;
 
 	private final BlockEntry<? extends BaseLeavesBlock> leaves;
@@ -74,15 +74,15 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
 
 		leaves = height.buildLeave(name, this);
-		sapling = FruitsDelight.REGISTRATE.block(
+		var saplingBuilder = FruitsDelight.REGISTRATE.block(
 						name + "_sapling", p -> new SaplingBlock(new TreeGrower(),
 								BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)
 						))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 						.cross(ctx.getName(), pvd.modLoc("block/" + ctx.getName()))
 						.renderType("cutout")))
-				.tag(BlockTags.SAPLINGS)
-				.item().model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("block/" + ctx.getName())))
+				.tag(BlockTags.SAPLINGS);
+		sapling = height.sapling(saplingBuilder)
 				.tag(ItemTags.SAPLINGS).build()
 				.register();
 

@@ -9,6 +9,15 @@
     {
       "count": 6,
       "item": "fruitsdelight:durian_flesh"
+    },
+    {
+      "item": "fruitsdelight:upper_durian_shell"
+    },
+    {
+      "item": "fruitsdelight:lower_durian_shell"
+    },
+    {
+      "item": "fruitsdelight:durian_sapling"
     }
   ],
   "tool": {

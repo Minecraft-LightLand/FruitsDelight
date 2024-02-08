@@ -57,6 +57,7 @@ public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 		tag(asTag(FDTrees.PERSIMMON)).addTags(ModBiomeKeys.COLD.asTag(), taiga_cold);
 		tag(asTag(FDTrees.PEAR)).addTags(ModBiomeKeys.WARM.asTag(), birch);
 		tag(asTag(FDTrees.PEACH)).addTag(ModBiomeKeys.HOT_HUMID.asTag()).add(Biomes.SPARSE_JUNGLE);
+		tag(asTag(FDTrees.DURIAN)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), swamp, tropical).add(Biomes.SPARSE_JUNGLE);
 
 		tag(asTag(FDBushes.LEMON)).addTags(ModBiomeKeys.WARM.asTag(), plain);
 		tag(asTag(FDBushes.CRANBERRY)).addTags(ModBiomeKeys.HOT_HUMID.asTag(), swamp, tropical).add(Biomes.DARK_FOREST);

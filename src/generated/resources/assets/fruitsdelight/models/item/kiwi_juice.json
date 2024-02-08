@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "fruitsdelight:item/durian_seed"
+    "layer0": "fruitsdelight:item/kiwi_juice"
   }
 }

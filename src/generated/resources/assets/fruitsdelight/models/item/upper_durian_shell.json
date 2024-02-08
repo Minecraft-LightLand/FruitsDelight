@@ -1,0 +1,18 @@
+{
+  "base": {
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "fruitsdelight:item/durian_shell_upper"
+    }
+  },
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "head": {
+      "textures": {
+        "inner": "fruitsdelight:item/durian_helmet_inner",
+        "top": "fruitsdelight:block/durian_top",
+        "upper": "fruitsdelight:item/durian_shell_upper"
+      }
+    }
+  }
+}
