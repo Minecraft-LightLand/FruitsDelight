@@ -89,7 +89,7 @@ public class FDEffects {
 
 	public static final RegistryEntry<EmptyEffect> SUSPICIOUS_SMELL = genEffect("suspicious_smell", () ->
 					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.DURIAN.color),
-			"You can find suspicious sand and effects in suspicious stew");
+			"You can see effects in suspicious stew and find suspicious sand easily");
 
 
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {

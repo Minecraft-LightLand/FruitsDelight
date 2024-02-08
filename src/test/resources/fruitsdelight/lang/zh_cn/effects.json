@@ -35,6 +35,6 @@
 	"disgusted": "恶心",
 	"disgusted.description": "有这个效果的生物不会进行繁殖",
 	"suspicious_smell": "嗅觉",
-	"suspicious_smell.description": "你可以看到可疑沙子/沙砾，和可疑炖菜的效果"
+	"suspicious_smell.description": "你可以看到可疑炖菜的效果，更容易发现可疑沙子/沙砾"
   }
 }

@@ -47,17 +47,17 @@ public class Durian {
 						.customLoader(SeparateTransformsModelBuilder::begin)
 						.base(new ItemModelBuilder(null, pvd.existingFileHelper)
 								.parent(new ModelFile.UncheckedModelFile("item/generated"))
-								.texture("layer0", pvd.modLoc("item/durian_shell_upper")))
+								.texture("layer0", pvd.modLoc("item/durian_helmet")))
 						.perspective(ItemDisplayContext.HEAD,
 								new ItemModelBuilder(null, pvd.existingFileHelper)
 										.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("item/durian_helmet_base")))
-										.texture("upper", pvd.modLoc("item/durian_shell_upper"))
+										.texture("upper", pvd.modLoc("item/durian_helmet_side"))
 										.texture("inner", pvd.modLoc("item/durian_helmet_inner"))
 										.texture("top", pvd.modLoc("block/durian_top"))
 						))
 				.register();
 		LOWER = FruitsDelight.REGISTRATE.item("durian_shell", Item::new)
-				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/durian_shell_lower")))
+				.model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("item/durian_shell")))
 				.register();
 		return FRUIT::asItem;
 	}
