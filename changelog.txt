@@ -1,6 +1,5 @@
-Durian sniffing
-Durian effect: smelly
 Sapling Pot
+small Durian
 
 1.0.6 / 0.5.6
 - Use double block for lemon

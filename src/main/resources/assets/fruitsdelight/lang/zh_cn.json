@@ -342,6 +342,8 @@
   "fruitsdelight.tooltip.jelly_block": "带有粘性，但是不和其他粘性方块粘黏",
   "fruitsdelight.jei.cauldron": "点击炼药锅",
   "fruitsdelight.jei.cauldron_heat": "点击加热的炼药锅",
+  "fruitsdelight.tooltip.durian_seed": "喂给嗅探兽重置嗅探冷却",
+  "fruitsdelight.tooltip.place": "蹲下右键放置",
   "effect.fruitsdelight.appetizing": "开胃",
   "effect.fruitsdelight.appetizing.description": "饱食度满时仍然可以吃东西",
   "effect.fruitsdelight.astringent": "涩味",
@@ -372,12 +374,10 @@
   "effect.fruitsdelight.leaf_piercing.description": "射出的箭和投掷物将能穿过树叶",
   "effect.fruitsdelight.cycling": "循环",
   "effect.fruitsdelight.cycling.description": "玩家每秒将1级经验作为经验球掉落",
-  "effect.fruitsdelight.alienating": "Alienating",
-  "effect.fruitsdelight.alienating.description": "Apply disgusted and weakness effect to surrounding entities without this effect",
-  "effect.fruitsdelight.disgusted": "Disgusted",
-  "effect.fruitsdelight.disgusted.description": "Entity with this effect will not breed",
-  "effect.fruitsdelight.suspicious_smell": "Suspicious Smell",
-  "effect.fruitsdelight.suspicious_smell.description": "You can find suspicious sand and effects in suspicious stew",
-  "fruitsdelight.tooltip.durian_seed": "Feed sniffer to reset sniffing cool down",
-  "fruitsdelight.tooltip.place": "Shift right click to place down"
+  "effect.fruitsdelight.alienating": "榴莲味",
+  "effect.fruitsdelight.alienating.description": "对周围的没有榴莲味的生物施加虚弱和恶心效果",
+  "effect.fruitsdelight.disgusted": "恶心",
+  "effect.fruitsdelight.disgusted.description": "有这个效果的生物不会进行繁殖",
+  "effect.fruitsdelight.suspicious_smell": "嗅觉",
+  "effect.fruitsdelight.suspicious_smell.description": "你可以看到可疑沙子/沙砾，和可疑炖菜的效果"
 }
