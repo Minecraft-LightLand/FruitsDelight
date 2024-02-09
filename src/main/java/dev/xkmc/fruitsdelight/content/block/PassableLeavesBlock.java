@@ -73,15 +73,13 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 		builder.add(STATE);
 	}
 
-
 	protected void doDropFruit(BlockState state, ServerLevel level, BlockPos pos) {
 		dropResources(state, level, pos);
 	}
 
 	protected void dropFruit(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		doDropFruit(state, level, pos);
-		State st = random.nextDouble() < FDModConfig.COMMON.flowerDecayChance.get() ? State.LEAVES : State.FLOWERS;
-		level.setBlockAndUpdate(pos, state.setValue(STATE, st));
+		level.setBlockAndUpdate(pos, state.setValue(STATE, State.LEAVES));
 	}
 
 	@Override
@@ -99,6 +97,12 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
 				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
 					level.setBlockAndUpdate(pos, state.setValue(STATE, State.FRUITS));
+					var next = findNextFlowerTarget(level, pos,
+							e -> !e.getValue(PERSISTENT) && e.getValue(STATE) == State.LEAVES);
+					if (next != null) {
+						var ns = level.getBlockState(next);
+						level.setBlockAndUpdate(next, ns.setValue(STATE, State.FLOWERS));
+					}
 					ForgeHooks.onCropsGrowPost(level, pos, state);
 					return;
 				}
@@ -131,6 +135,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 				.forAllStatesExcept(state -> buildModel(pvd, name, state),
 						LeavesBlock.DISTANCE, LeavesBlock.PERSISTENT, LeavesBlock.WATERLOGGED);
 	}
+
 	public void buildLoot(RegistrateBlockLootTables pvd, Block block, Block sapling, Item fruit) {
 		var leaves = LootItem.lootTableItem(block)
 				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()

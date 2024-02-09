@@ -5,6 +5,7 @@
 - Fix fig pudding placement orientation
 - Fix bellini cocktail recipe
 - Thirst compat
+- Flowering / fruiting position change every time, speeding up fruit production
 
 1.0.5 / 0.5.5
 - Make jam jars placeable

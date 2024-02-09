@@ -159,8 +159,12 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
 				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
 					if (createFlower(state, level, pos, random)) {
-						if (random.nextDouble() < FDModConfig.COMMON.flowerDecayChance.get()) {
-							level.setBlockAndUpdate(pos, state.setValue(LEAF, Leaf.LEAF));
+						level.setBlockAndUpdate(pos, state.setValue(LEAF, Leaf.LEAF));
+						var next = findNextFlowerTarget(level, pos,
+								e -> !e.getValue(PERSISTENT) && e.getValue(LEAF) == Leaf.LEAF);
+						if (next != null) {
+							var ns = level.getBlockState(next);
+							level.setBlockAndUpdate(next, ns.setValue(LEAF, Leaf.BUDDING));
 						}
 						return;
 					}
