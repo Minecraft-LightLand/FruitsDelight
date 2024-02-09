@@ -15,16 +15,14 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.common.util.Lazy;
 import org.jetbrains.annotations.Nullable;
 
@@ -51,6 +49,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	private final BlockEntry<? extends BaseLeavesBlock> leaves;
 	private final BlockEntry<SaplingBlock> sapling;
 	private final Supplier<Item> fruit;
+	private final BlockEntry<FlowerPotBlock> pot;
 	private final Lazy<TreeConfiguration> treeConfig, treeConfigWild;
 
 	public final ResourceKey<ConfiguredFeature<?, ?>> configKey, configKeyWild;
@@ -85,6 +84,16 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		sapling = height.sapling(saplingBuilder)
 				.tag(ItemTags.SAPLINGS).build()
 				.register();
+		pot = FruitsDelight.REGISTRATE.block("potted_" + name + "_sapling",
+						p -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, this::getSapling,
+								BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
+				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
+						.withExistingParent(ctx.getName(), "block/flower_pot_cross")
+						.texture("plant", pvd.modLoc("block/" + name + "_sapling"))
+						.renderType("cutout")))
+				.loot((pvd, block) -> pvd.add(block, pvd.createPotFlowerItemTable(getSapling())))
+				.defaultLang()
+				.register();
 
 		fruit = items.apply(name);
 	}
@@ -114,6 +123,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 		ComposterBlock.COMPOSTABLES.put(getFruit(), 0.65f);
 		ComposterBlock.COMPOSTABLES.put(getLeaves().asItem(), 0.3f);
 		ComposterBlock.COMPOSTABLES.put(getSapling().asItem(), 0.3f);
+		pot.get().getEmptyPot().addPlant(sapling.getId(), pot);
 	}
 
 	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {

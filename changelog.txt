@@ -1,10 +1,7 @@
-Sapling Pot
-
-small Durian
-
 1.0.6 / 0.5.6
 - Use double block for lemon
 - Add Durian
+- Add sapling pots
 - Fix fig pudding placement orientation
 - Fix bellini cocktail recipe
 - Thirst compat

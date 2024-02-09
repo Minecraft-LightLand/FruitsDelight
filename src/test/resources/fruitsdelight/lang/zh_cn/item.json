@@ -73,7 +73,7 @@
   },
   "-cartesian": {
 	"tree": {
-	  "path": "block.fruitsdelight",
+	  "path": "",
 	  "list": [
 		{
 		  "hawberry": "山楂",
@@ -91,8 +91,9 @@
 		  "durian": "榴莲"
 		},
 		{
-		  "leaves": "树叶",
-		  "sapling": "树苗"
+		  "block.fruitsdelight.*_leaves": "树叶",
+		  "block.fruitsdelight.*_sapling": "树苗",
+		  "block.fruitsdelight.potted_*_sapling": "树苗盆栽"
 		}
 	  ]
 	},
