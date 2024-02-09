@@ -21,6 +21,7 @@ public class FDModConfig {
 		public final ForgeConfigSpec.DoubleValue flowerDecayChance;
 		public final ForgeConfigSpec.IntValue rageEffectRange;
 		public final ForgeConfigSpec.IntValue healEffectRange;
+		public final ForgeConfigSpec.IntValue alienatingEffectRange;
 
 		public final ForgeConfigSpec.BooleanValue enableCauldronRecipe;
 
@@ -35,6 +36,8 @@ public class FDModConfig {
 					.defineInRange("rageEffectRange", 24, 0, 64);
 			healEffectRange = builder.comment("Effect application range for Heal Aura effect")
 					.defineInRange("healEffectRange", 6, 0, 64);
+			alienatingEffectRange = builder.comment("Effect application range for Alienating effect")
+					.defineInRange("alienatingEffectRange", 12, 0, 64);
 			enableCauldronRecipe = builder.comment("Enable cauldron jam and jello recipe")
 					.define("enableCauldronRecipe", true);
 		}

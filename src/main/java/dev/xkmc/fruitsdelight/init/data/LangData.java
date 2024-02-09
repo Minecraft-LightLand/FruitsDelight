@@ -17,6 +17,8 @@ public enum LangData {
 	JEI_CAULDRON_HEAT("jei.cauldron_heat", "Click Heated Cauldron", 0, null),
 	TOOLTIP_JELLY("tooltip.jelly_block", "Sticky, but not connecting to other sticky blocks.", 0, ChatFormatting.GRAY),
 	TOOLTIP_JELLO("tooltip.jello_block", "Slippery. Sticks to sticky blocks and same jello/jelly blocks.", 0, ChatFormatting.GRAY),
+	TOOLTIP_PLACE("tooltip.place", "Shift right click to place down", 0, ChatFormatting.GRAY),
+	TOOLTIP_DURIAN_SEED("tooltip.durian_seed", "Feed sniffer to reset sniffing cool down", 0, ChatFormatting.GRAY),
 	;
 
 	private final String key, def;

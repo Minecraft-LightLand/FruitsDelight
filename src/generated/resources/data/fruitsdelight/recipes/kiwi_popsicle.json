@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "M": {
+      "item": "fruitsdelight:kiwi"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " MM",
+    "IMM",
+    "SI "
+  ],
+  "result": {
+    "item": "fruitsdelight:kiwi_popsicle"
+  },
+  "show_notification": true
+}

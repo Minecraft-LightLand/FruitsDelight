@@ -7,8 +7,10 @@
   "mixins": [
 	"AbstractArrowMixin",
 	"AbstractCauldronBlockAccessor",
+	"AnimalMixin",
 	"BlockStateBaseMixin",
 	"BoatMixin",
+	"BrushableBlockMixin",
 	"FoodDataMixin",
 	"HoneyBlockMixin",
 	"LivingEntityMixin",

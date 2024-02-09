@@ -81,6 +81,18 @@ public class FDEffects {
 					new CyclingEffect(MobEffectCategory.BENEFICIAL, FruitType.KIWI.color),
 			"Player will drop 1 level of experience as orbs every second");
 
+	public static final RegistryEntry<EmptyEffect> DISGUSTED = genEffect("disgusted", () ->
+					new EmptyEffect(MobEffectCategory.HARMFUL, FruitType.DURIAN.color),
+			"Entity with this effect will not breed");
+
+	public static final RegistryEntry<AlienatingAuraEffect> ALIENATING = genEffect("alienating", () ->
+					new AlienatingAuraEffect(MobEffectCategory.BENEFICIAL, FruitType.DURIAN.color),
+			"Apply disgusted and weakness effect to surrounding entities without this effect");
+
+	public static final RegistryEntry<EmptyEffect> SUSPICIOUS_SMELL = genEffect("suspicious_smell", () ->
+					new EmptyEffect(MobEffectCategory.BENEFICIAL, FruitType.DURIAN.color),
+			"You can see effects in suspicious stew and find suspicious sand easily");
+
 	public static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
 		FruitsDelight.REGISTRATE.addRawLang("effect." + FruitsDelight.MODID + "." + name + ".description", desc);
 		return FruitsDelight.REGISTRATE.entry(name, cb -> new NoConfigBuilder<>(FruitsDelight.REGISTRATE,

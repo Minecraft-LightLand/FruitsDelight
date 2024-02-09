@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:block/template_cauldron_level1",
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    }
+  },
+  "gui_light": "side",
+  "textures": {
+    "bottom": "minecraft:block/cauldron_bottom",
+    "content": "fruitsdelight:block/jello",
+    "inside": "minecraft:block/cauldron_inner",
+    "particle": "minecraft:block/cauldron_side",
+    "side": "minecraft:block/cauldron_side",
+    "top": "minecraft:block/cauldron_top"
+  }
+}

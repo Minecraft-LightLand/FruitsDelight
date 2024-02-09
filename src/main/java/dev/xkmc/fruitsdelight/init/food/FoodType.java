@@ -9,16 +9,19 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Locale;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Supplier;
 
 public enum FoodType {
-	JUICE(FoodClass.GLASS, 6, 0.2f, 10, false, true, TagGen.JUICE, DietTagGen.FRUITS.tag),
+	JUICE(FoodClass.GLASS, 1, 0.2f, 10, false, true, TagGen.JUICE, DietTagGen.FRUITS.tag),
 	JELLY(FoodClass.JELLY, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
 	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true, TagGen.JELLO, DietTagGen.SUGARS.tag),
 	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false, DietTagGen.FRUITS.tag),
@@ -35,6 +38,8 @@ public enum FoodType {
 	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false, DietTagGen.SUGARS.tag),
 	MANGOSTEEN_CAKE((b, p, e) -> new FDBlockItem(FDBlocks.MANGOSTEEN_CAKE.get(), p.craftRemainder(Items.BOWL).stacksTo(16), e),
 			9, 0.6f, 30, false, false, DietTagGen.FRUITS.tag),
+	DURIAN_FLESH(FoodClass.DURIAN_FLESH, 4, 0.3f, 0, false, false, DietTagGen.FRUITS.tag),
+
 	;
 
 	public final int food;
@@ -64,13 +69,16 @@ public enum FoodType {
 		val.nutrition(food).saturationMod(sat);
 		if (fast) val.fast();
 		if (alwaysEat) val.alwaysEat();
-		if (effectLevel > 0)
-			for (var e : type.fruit().eff) {
-				val.effect(() -> e.getEffect(effectLevel), e.getChance(effectLevel));
-			}
+		Set<Supplier<MobEffect>> set = new HashSet<>();
 		for (var e : type.getEffects()) {
 			val.effect(e::getEffect, e.chance());
+			set.add(e.eff());
 		}
+		if (effectLevel > 0)
+			for (var e : type.fruit().eff) {
+				if (set.contains(e.eff())) continue;
+				val.effect(() -> e.getEffect(effectLevel), e.getChance(effectLevel));
+			}
 		return cls.build(block, p.food(val.build()), type);
 	}
 

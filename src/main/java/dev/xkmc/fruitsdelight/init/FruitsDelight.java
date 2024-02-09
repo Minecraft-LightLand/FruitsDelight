@@ -3,6 +3,7 @@ package dev.xkmc.fruitsdelight.init;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
+import dev.xkmc.fruitsdelight.compat.thirst.ThirstCompat;
 import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
 import dev.xkmc.fruitsdelight.init.data.*;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
@@ -54,6 +55,7 @@ public class FruitsDelight {
 		FDCauldrons.register();
 		FDMiscs.register();
 		FDModConfig.init();
+		FDGLMProvider.register();
 		FDFluids.register();
 
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
@@ -68,6 +70,7 @@ public class FruitsDelight {
 			PlantDataEntry.run(PlantDataEntry::registerConfigs);
 			PlantDataEntry.run(PlantDataEntry::registerPlacements);
 			PlantDataEntry.run(PlantDataEntry::registerComposter);
+			Durian.registerComposter();
 
 			if (FDModConfig.COMMON.enableCauldronRecipe.get())
 				FDCauldrons.init();
@@ -78,6 +81,10 @@ public class FruitsDelight {
 
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
+
+			if (ModList.get().isLoaded(Thirst.ID)){
+				ThirstCompat.init();
+			}
 		});
 	}
 
@@ -87,6 +94,7 @@ public class FruitsDelight {
 		var gen = event.getGenerator();
 		gen.addProvider(server, new FDConfigGen(gen));
 		gen.addProvider(server, new FDBiomeTagsProvider(gen, event.getExistingFileHelper()));
+		gen.addProvider(server, new FDGLMProvider(output));
 	}
 
 }

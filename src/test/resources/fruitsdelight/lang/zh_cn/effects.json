@@ -29,6 +29,12 @@
 	"leaf_piercing": "穿杨",
 	"leaf_piercing.description": "射出的箭和投掷物将能穿过树叶",
 	"cycling": "循环",
-	"cycling.description": "玩家每秒将1级经验作为经验球掉落"
+	"cycling.description": "玩家每秒将1级经验作为经验球掉落",
+	"alienating": "榴莲味",
+	"alienating.description": "对周围的没有榴莲味的生物施加虚弱和恶心效果",
+	"disgusted": "恶心",
+	"disgusted.description": "有这个效果的生物不会进行繁殖",
+	"suspicious_smell": "嗅觉",
+	"suspicious_smell.description": "你可以看到可疑炖菜的效果，更容易发现可疑沙子/沙砾"
   }
 }

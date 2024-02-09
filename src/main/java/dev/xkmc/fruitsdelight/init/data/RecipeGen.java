@@ -8,10 +8,7 @@ import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.fruitsdelight.init.plants.FDBushes;
-import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
-import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import dev.xkmc.fruitsdelight.init.plants.PlantDataEntry;
+import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
@@ -66,11 +63,26 @@ public class RecipeGen {
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDBlocks.FIG_PUDDING.get()),
 								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.FIG_PUDDING_SLICE.item.get(), 4, 1)
 						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "fig_pudding_cutting"));
+
+				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDTrees.DURIAN.getFruit()),
+								Ingredient.of(ForgeTags.TOOLS_AXES), FDFood.DURIAN_FLESH.item.get(), 6, 1)
+						.addResult(Durian.UPPER)
+						.addResult(Durian.LOWER)
+						.addResult(FDTrees.DURIAN.getSapling())
+						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "durian_cutting"));
+
+				pvd.singleItemUnfinished(DataIngredient.items(Durian.LOWER.get()), RecipeCategory.MISC,
+						() -> Items.BOWL, 1, 1).save(pvd,
+						new ResourceLocation(FruitsDelight.MODID, "durian_upper_to_bowl"));
+				pvd.singleItemUnfinished(DataIngredient.items(Durian.UPPER.get()), RecipeCategory.MISC,
+						() -> Items.BOWL, 1, 1).save(pvd,
+						new ResourceLocation(FruitsDelight.MODID, "durian_lower_to_bowl"));
 			}
 
 			{
 				smoking(pvd, FDFood.BAKED_PEAR);
 				smoking(pvd, FDFood.DRIED_PERSIMMON);
+				smoking(pvd, FDFood.BAKED_DURIAN);
 			}
 
 			{
@@ -157,6 +169,14 @@ public class RecipeGen {
 						.define('S', Items.STICK)
 						.save(pvd);
 
+				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.KIWI_POPSICLE.item.get(), 1)::unlockedBy,
+						FDFood.KIWI_POPSICLE.getFruit())
+						.pattern(" MM").pattern("IMM").pattern("SI ")
+						.define('I', Items.ICE)
+						.define('M', FDFood.KIWI_POPSICLE.getFruit())
+						.define('S', Items.STICK)
+						.save(pvd);
+
 				unlock(pvd, ShapedRecipeBuilder.shaped(FDBlocks.FIG_PUDDING.get(), 1)::unlockedBy,
 						FDFood.FIG_PUDDING_SLICE.getFruit())
 						.pattern("MSM").pattern("EJE").pattern("FDF")
@@ -200,6 +220,13 @@ public class RecipeGen {
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_PIE.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.PINEAPPLE_PIE.getFruit(), 2)
+						.addIngredient(ModItems.PIE_CRUST.get())
+						.addIngredient(Tags.Items.EGGS)
+						.addIngredient(Items.SUGAR)
+						.build(pvd);
+
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item, 2, 200, 0.1f)
+						.addIngredient(FDFood.DURIAN_PIE.getFruit(), 2)
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)

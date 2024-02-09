@@ -1,9 +1,6 @@
 package dev.xkmc.fruitsdelight.init.food;
 
-import dev.xkmc.fruitsdelight.init.plants.FDBushes;
-import dev.xkmc.fruitsdelight.init.plants.FDMelons;
-import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
-import dev.xkmc.fruitsdelight.init.plants.FDTrees;
+import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.world.effect.MobEffects;
@@ -47,9 +44,13 @@ public enum FruitType {
 	MANGOSTEEN(2, 0xFBECD6, FDTrees.MANGOSTEEN::getFruit, List.of(new EffectFunc(FDEffects.SLIDING::get, lv -> lv * 80))),
 	SWEETBERRY(4, 0xC41A4F, () -> Items.SWEET_BERRIES, List.of()),
 	CHORUS(2, 0xD0A9D7, () -> Items.CHORUS_FRUIT, List.of(new EffectFunc(FDEffects.CHORUS::get, lv -> 1, lv -> 0, lv -> Math.min(1, lv * 0.05f)))),
-	BAYBERRY(4, 0x541135, FDTrees.BAYBERRY::getFruit, List.of(new EffectFunc(FDEffects.LEAF_PIERCING::get, lv -> lv * 80))),
+	BAYBERRY(4, 0x541135, FDTrees.BAYBERRY::getFruit, List.of(new EffectFunc(FDEffects.LEAF_PIERCING::get, lv -> lv * 20))),
 	KIWI(2, 0x89D90D, FDTrees.KIWI::getFruit, List.of(new EffectFunc(FDEffects.CYCLING::get, lv -> lv * 4))),
 	FIG(2, 0xE08517, FDTrees.FIG::getFruit, List.of(new EffectFunc(FDEffects.DIGESTING::get, lv -> lv * 80))),
+	DURIAN(2, 0xEDD955, Durian::getSlice, List.of(
+			new EffectFunc(FDEffects.ALIENATING::get, lv -> lv * 40),
+			new EffectFunc(FDEffects.SUSPICIOUS_SMELL::get, lv -> lv * 80)
+	)),
 	;
 
 	public static FruitType empty() {
