@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_kiwi": {
+    "has_durian_flesh": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:kiwi"
+              "fruitsdelight:durian_flesh"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:kiwi_popsicle"
+        "recipe": "fruitsdelight:baked_durian_from_durian_flesh_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_kiwi",
+      "has_durian_flesh",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:kiwi_popsicle"
+      "fruitsdelight:baked_durian_from_durian_flesh_smoking"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

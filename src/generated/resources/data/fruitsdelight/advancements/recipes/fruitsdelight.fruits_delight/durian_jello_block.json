@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_durian_flesh": {
+    "has_durian_jello": {
       "conditions": {
         "items": [
           {
             "items": [
-              "fruitsdelight:durian_flesh"
+              "fruitsdelight:durian_jello"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "fruitsdelight:baked_durian_from_durian_flesh_smoking"
+        "recipe": "fruitsdelight:durian_jello_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_durian_flesh",
+      "has_durian_jello",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "fruitsdelight:baked_durian_from_durian_flesh_smoking"
+      "fruitsdelight:durian_jello_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
