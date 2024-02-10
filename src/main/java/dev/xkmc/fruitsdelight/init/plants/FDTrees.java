@@ -1,15 +1,8 @@
 package dev.xkmc.fruitsdelight.init.plants;
 
-import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
+import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
-import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
-import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -28,16 +21,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
-import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.common.util.Lazy;
 
 import java.util.Locale;
@@ -97,7 +82,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 				.register();
 		pot = FruitsDelight.REGISTRATE.block("potted_" + name + "_sapling",
 						p -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, this::getSapling,
-								BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)))
+								BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 						.withExistingParent(ctx.getName(), "block/flower_pot_cross")
 						.texture("plant", pvd.modLoc("block/" + name + "_sapling"))
@@ -148,7 +133,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 
 	public void registerPlacements() {
 		wildPF = PlacementUtils.register(placementKey.toString(), wildCF, VegetationPlacements.treePlacement(
-				PlacementUtils.countExtra(0,  1f / (spawn + 3e-6f), 1), getSapling()));
+				PlacementUtils.countExtra(0, 1f / (spawn + 3e-6f), 1), getSapling()));
 	}
 
 	@Override

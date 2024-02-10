@@ -1,7 +1,12 @@
 package dev.xkmc.fruitsdelight.init.plants;
 
+import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
+import dev.xkmc.fruitsdelight.content.block.DurianLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.repack.registrate.builders.BlockBuilder;
+import dev.xkmc.l2library.repack.registrate.builders.ItemBuilder;
 import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
@@ -30,6 +35,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraftforge.common.util.NonNullFunction;
 
 import java.util.OptionalInt;
 import java.util.function.Supplier;

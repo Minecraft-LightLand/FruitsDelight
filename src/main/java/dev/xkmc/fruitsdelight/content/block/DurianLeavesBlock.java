@@ -1,10 +1,10 @@
 package dev.xkmc.fruitsdelight.content.block;
 
-import com.tterrag.registrate.providers.DataGenContext;
-import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
-import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.fruitsdelight.init.plants.Durian;
+import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
+import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
+import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -90,7 +90,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	protected boolean doDropFruit(BlockState state, ServerLevel level, BlockPos pos) {
 		BlockState curSt = state;
 		BlockPos curPos = pos;
-		while (!curSt.canBeReplaced()) {
+		while (!curSt.getMaterial().isReplaceable()) {
 			if (!(curSt.getBlock() instanceof BaseLeavesBlock)) {
 				return false;
 			}

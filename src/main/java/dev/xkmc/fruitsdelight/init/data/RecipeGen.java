@@ -66,15 +66,15 @@ public class RecipeGen {
 
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDTrees.DURIAN.getFruit()),
 								Ingredient.of(ForgeTags.TOOLS_AXES), FDFood.DURIAN_FLESH.item.get(), 6, 1)
-						.addResult(Durian.UPPER)
-						.addResult(Durian.LOWER)
+						.addResult(Durian.UPPER.get())
+						.addResult(Durian.LOWER.get())
 						.addResult(FDTrees.DURIAN.getSapling())
 						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "durian_cutting"));
 
-				pvd.singleItemUnfinished(DataIngredient.items(Durian.LOWER.get()), RecipeCategory.MISC,
+				pvd.singleItemUnfinished(DataIngredient.items(Durian.LOWER.get()),
 						() -> Items.BOWL, 1, 1).save(pvd,
 						new ResourceLocation(FruitsDelight.MODID, "durian_upper_to_bowl"));
-				pvd.singleItemUnfinished(DataIngredient.items(Durian.UPPER.get()), RecipeCategory.MISC,
+				pvd.singleItemUnfinished(DataIngredient.items(Durian.UPPER.get()),
 						() -> Items.BOWL, 1, 1).save(pvd,
 						new ResourceLocation(FruitsDelight.MODID, "durian_lower_to_bowl"));
 			}
@@ -169,7 +169,7 @@ public class RecipeGen {
 						.define('S', Items.STICK)
 						.save(pvd);
 
-				unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, FDFood.KIWI_POPSICLE.item.get(), 1)::unlockedBy,
+				unlock(pvd, ShapedRecipeBuilder.shaped(FDFood.KIWI_POPSICLE.item.get(), 1)::unlockedBy,
 						FDFood.KIWI_POPSICLE.getFruit())
 						.pattern(" MM").pattern("IMM").pattern("SI ")
 						.define('I', Items.ICE)
@@ -225,7 +225,7 @@ public class RecipeGen {
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.DURIAN_PIE.getFruit(), 2)
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)

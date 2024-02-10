@@ -161,6 +161,9 @@ dependencies {
     implementation fg.deobf("curse.maven:botany-pots-353928:4912182")
     implementation fg.deobf("curse.maven:serene-seasons-291874:4037228")
     implementation fg.deobf("curse.maven:create-328085:4835190")
+    implementation fg.deobf("curse.maven:thirst-was-taken-679270:5071552")
+    implementation fg.deobf("curse.maven:archaeology-api-950822:4996103")
+
 
 }
 

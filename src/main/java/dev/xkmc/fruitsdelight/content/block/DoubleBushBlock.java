@@ -7,6 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -39,7 +40,7 @@ public abstract class DoubleBushBlock extends DoublePlantBlock implements Boneme
 		super.createBlockStateDefinition(builder);
 	}
 
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+	public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean client) {
 		return state.getValue(AGE) < MAX_AGE;
 	}
 
@@ -80,7 +81,7 @@ public abstract class DoubleBushBlock extends DoublePlantBlock implements Boneme
 			boolean fail = level.isOutsideBuildHeight(pos.above());
 			if (!fail) {
 				var above = level.getBlockState(pos.above());
-				fail = !above.is(this) && !above.canBeReplaced();
+				fail = !above.is(this) && !above.getMaterial().isReplaceable();
 			}
 			if (fail) {
 				age = getDoubleBlockStart() - 1;

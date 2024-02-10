@@ -1,15 +1,12 @@
 package dev.xkmc.fruitsdelight.init.data;
 
 import com.mojang.serialization.Codec;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import net.minecraft.data.PackOutput;
+import dev.xkmc.l2library.repack.registrate.util.entry.RegistryEntry;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
-import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class FDGLMProvider extends GlobalLootModifierProvider {
@@ -21,14 +18,13 @@ public class FDGLMProvider extends GlobalLootModifierProvider {
 
 	}
 
-	public FDGLMProvider(PackOutput gen) {
+	public FDGLMProvider(DataGenerator gen) {
 		super(gen, FruitsDelight.MODID);
 	}
 
 	@Override
 	protected void start() {
-		add(FDTrees.DURIAN.getSapling().asItem(), 0.05,
-				LootTableIdCondition.builder(BuiltInLootTables.SNIFFER_DIGGING).build());
+		//add(FDTrees.DURIAN.getSapling().asItem(), 0.05, LootTableIdCondition.builder(BuiltInLootTables.SNIFFER_DIGGING).build());
 	}
 
 	private void add(Item item, double chance, LootItemCondition... conds) {

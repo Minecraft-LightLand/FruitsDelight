@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
+import dev.ghen.thirst.Thirst;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
 import dev.xkmc.fruitsdelight.compat.thirst.ThirstCompat;
 import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
@@ -94,7 +95,7 @@ public class FruitsDelight {
 		var gen = event.getGenerator();
 		gen.addProvider(server, new FDConfigGen(gen));
 		gen.addProvider(server, new FDBiomeTagsProvider(gen, event.getExistingFileHelper()));
-		gen.addProvider(server, new FDGLMProvider(output));
+		gen.addProvider(server, new FDGLMProvider(gen));
 	}
 
 }
