@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-09T19:54:41.583851	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-02-13T20:46:19.292561	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -47,7 +47,7 @@ d15dd7a0fdc99aa1876188b92eb3dd3ac0e8a964 assets/fruitsdelight/blockstates/durian
 17a385fcd6b029472e2b69e9e599001951552d6e assets/fruitsdelight/blockstates/durian_jelly.json
 64878d638016b2bde5543173edb20a16a6921792 assets/fruitsdelight/blockstates/durian_jelly_block.json
 f98d9927d14f865f74e67f8caba6f5690e187898 assets/fruitsdelight/blockstates/durian_jelly_cauldron.json
-77df901943db15ace6f2c26f18ff483a6f6b13e0 assets/fruitsdelight/blockstates/durian_leaves.json
+2121e6268d4faee61260a89fd74e440c8650a0cd assets/fruitsdelight/blockstates/durian_leaves.json
 241ba9a3c8f88529761fd00d446300113947683b assets/fruitsdelight/blockstates/durian_sapling.json
 1b6ed2dd40f6938d05c51e6649b8dfffeec5ff62 assets/fruitsdelight/blockstates/fig_cauldron.json
 10ea466119b1b13b0ea62f5f2ac009fdeb14dded assets/fruitsdelight/blockstates/fig_crate.json
@@ -287,6 +287,7 @@ f75512a40753b7ae78b354279aaad1b85da3a512 assets/fruitsdelight/models/block/duria
 49739a7083954c9430c508e93823e22f1feb62dd assets/fruitsdelight/models/block/durian_jelly_cauldron_level2.json
 71695f438bdccf2008218e61faeea56ddf6e9630 assets/fruitsdelight/models/block/durian_leaves.json
 174c983f6306934d160448513ec3755bcfb2ed8f assets/fruitsdelight/models/block/durian_sapling.json
+17663e3ca15988d365f98789dbf37653ce58addf assets/fruitsdelight/models/block/durian_small.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/fig_cauldron.json
 b1011bcbabc1feb46bbd6f3ea863f53d12b53646 assets/fruitsdelight/models/block/fig_crate.json
 b34d7fae9c212fe06878c5cbe32a2ebdb163cf92 assets/fruitsdelight/models/block/fig_flowers.json

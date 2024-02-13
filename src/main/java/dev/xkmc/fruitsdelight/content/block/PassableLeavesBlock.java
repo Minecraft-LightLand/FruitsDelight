@@ -12,9 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -32,7 +30,6 @@ import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableConditio
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -56,8 +53,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-		if (state.getValue(PERSISTENT)) return InteractionResult.PASS;
+	protected InteractionResult doClick(Level level, BlockPos pos, BlockState state) {
 		if (state.getValue(STATE) == State.FRUITS) {
 			if (level instanceof ServerLevel sl) {
 				dropFruit(state, sl, pos, level.getRandom());

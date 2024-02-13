@@ -13,10 +13,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.FallingBlockEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -32,7 +30,6 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -50,7 +47,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	}
 
 	public enum Fruit implements StringRepresentable {
-		NONE, FLOWERS, FRUITS;
+		NONE, FLOWERS, SMALL, FRUITS;
 
 		@Override
 		public String getSerializedName() {
@@ -70,8 +67,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-		if (state.getValue(PERSISTENT)) return InteractionResult.PASS;
+	protected InteractionResult doClick(Level level, BlockPos pos, BlockState state) {
 		if (state.getValue(FRUIT) == Fruit.FRUITS) {
 			if (level instanceof ServerLevel sl) {
 				dropFruit(state, sl, pos, level.getRandom());
@@ -142,7 +138,19 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 			if (st == Fruit.FLOWERS) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
 				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
-					level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.FRUITS));
+					level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.SMALL));
+					ForgeHooks.onCropsGrowPost(level, pos, state);
+					return;
+				}
+			}
+			if (st == Fruit.SMALL) {
+				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
+				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+					if (FDModConfig.COMMON.fruitsDropChance.get() < FDModConfig.COMMON.fruitsGrowChance.get()) {
+						level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.FRUITS));
+					} else {
+						dropFruit(state, level, pos, random);
+					}
 					ForgeHooks.onCropsGrowPost(level, pos, state);
 					return;
 				}
@@ -186,6 +194,11 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 		var flowers = pvd.models().withExistingParent(name + "_flowers", "block/cross")
 				.texture("cross", "block/" + name + "_flowers")
 				.renderType("cutout");
+		var small = pvd.models().getBuilder(name + "_small")
+				.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/durian_small_base")))
+				.texture("top", pvd.modLoc("block/durian_top_small"))
+				.texture("side", pvd.modLoc("block/durian_side_small"))
+				.renderType("cutout");
 		var fruits = pvd.models().getBuilder(name + "_fruits")
 				.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/durian_base")))
 				.texture("top", pvd.modLoc("block/durian_top"))
@@ -194,6 +207,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 		pvd.getMultipartBuilder(ctx.get())
 				.part().modelFile(leaves).addModel().condition(LEAF, Leaf.LEAF, Leaf.BUDDING).end()
 				.part().modelFile(flowers).addModel().condition(FRUIT, Fruit.FLOWERS).end()
+				.part().modelFile(small).addModel().condition(FRUIT, Fruit.SMALL).end()
 				.part().modelFile(fruits).addModel().condition(FRUIT, Fruit.FRUITS).end();
 	}
 

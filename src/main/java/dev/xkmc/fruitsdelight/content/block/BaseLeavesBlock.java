@@ -7,15 +7,19 @@ import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -36,6 +40,20 @@ public abstract class BaseLeavesBlock extends LeavesBlock {
 		if (e instanceof FallingBlockEntity) return true;
 		return false;
 	}
+
+	@Override
+	public final InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+		if (state.getValue(PERSISTENT)) return InteractionResult.PASS;
+		return doClick(level, pos, state);
+	}
+
+	@Override
+	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+		if (pState.getValue(PERSISTENT)) return;
+		doClick(pLevel, pPos, pState);
+	}
+
+	protected abstract InteractionResult doClick(Level level, BlockPos pos, BlockState state);
 
 	@Nullable
 	protected BlockPos findNextFlowerTarget(Level level, BlockPos pos, Predicate<BlockState> pred) {
