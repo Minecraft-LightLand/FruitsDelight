@@ -36,7 +36,7 @@ public enum FDTrees implements PlantDataEntry<FDTrees> {
 	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.TALL, 2, 0.3f, true, 4),
 	MANGO(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 4),
 	PERSIMMON(() -> Blocks.SPRUCE_LOG, FDTreeType.FANCY, 3, 0.3f, false, 50),
-	PEACH(() -> Blocks.JUNGLE_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 8),
+	PEACH(() -> Blocks.JUNGLE_LOG, FDTreeType.PEACH, 3, 0.3f, false, 8),
 	ORANGE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, 3, 0.3f, false, 20),
 	APPLE(() -> Blocks.OAK_LOG, FDTreeType.NORMAL, str -> () -> Items.APPLE, 20),
 	MANGOSTEEN(() -> Blocks.OAK_LOG, FDTreeType.FANCY, 3, 0.3f, false, 50),

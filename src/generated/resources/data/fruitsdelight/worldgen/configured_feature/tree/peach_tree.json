@@ -15,33 +15,17 @@
       "radius": 2
     },
     "foliage_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "fruitsdelight:peach_leaves",
-            "Properties": {
-              "type": "leaves",
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 70
-        },
-        {
-          "data": {
-            "Name": "fruitsdelight:peach_leaves",
-            "Properties": {
-              "type": "flowers",
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 30
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "fruitsdelight:peach_leaves",
+        "Properties": {
+          "type": "leaves",
+          "distance": "7",
+          "fertile": "true",
+          "persistent": "false",
+          "waterlogged": "false"
         }
-      ]
+      }
     },
     "force_dirt": false,
     "ignore_vines": true,

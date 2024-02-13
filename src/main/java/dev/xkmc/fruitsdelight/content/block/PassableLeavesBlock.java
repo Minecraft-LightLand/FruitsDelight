@@ -122,7 +122,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 		return defaultBlockState().setValue(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FLOWERS);
 	}
 
-	private ConfiguredModel[] buildModel(RegistrateBlockstateProvider pvd, String treeName, BlockState state) {
+	protected ConfiguredModel[] buildModel(RegistrateBlockstateProvider pvd, String treeName, BlockState state) {
 		String name = treeName + "_" +
 				state.getValue(PassableLeavesBlock.STATE).getSerializedName();
 		return ConfiguredModel.builder()
