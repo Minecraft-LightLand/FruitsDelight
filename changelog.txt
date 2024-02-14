@@ -1,11 +1,13 @@
 1.0.6 / 0.5.6
-- Use double block for lemon
 - Add Durian
 - Add sapling pots
+- Dropping items on leaves can knock down fruits
+- Change peach flowering mechanics
+- Flowering / fruiting position change every time, speeding up fruit production
+- Use double block for lemon
 - Fix fig pudding placement orientation
 - Fix bellini cocktail recipe
 - Thirst compat
-- Flowering / fruiting position change every time, speeding up fruit production
 
 1.0.5 / 0.5.5
 - Make jam jars placeable

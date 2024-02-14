@@ -19,6 +19,9 @@ public class FDModConfig {
 		public final ForgeConfigSpec.DoubleValue fruitsGrowChance;
 		public final ForgeConfigSpec.DoubleValue fruitsDropChance;
 		public final ForgeConfigSpec.DoubleValue flowerDecayChance;
+		public final ForgeConfigSpec.DoubleValue peachGrowChance;
+		public final ForgeConfigSpec.DoubleValue peachFruitChance;
+		public final ForgeConfigSpec.DoubleValue peachDecayChance;
 		public final ForgeConfigSpec.IntValue rageEffectRange;
 		public final ForgeConfigSpec.IntValue healEffectRange;
 		public final ForgeConfigSpec.IntValue alienatingEffectRange;
@@ -32,6 +35,13 @@ public class FDModConfig {
 					.defineInRange("fruitsDropChance", 0.1, 0, 1);
 			flowerDecayChance = builder.comment("Chance for flower to decay when fruits are picked up / dropped")
 					.defineInRange("flowerDecayChance", 0.1, 0, 1);
+
+			peachGrowChance = builder.comment("Chance for peach to grow per random tick")
+					.defineInRange("peachGrowChance", 0.1, 0, 1);
+			peachFruitChance = builder.comment("Chance for peach to grow fruit when stop flowering")
+					.defineInRange("peachFruitChance", 0.3, 0, 1);
+			peachDecayChance = builder.comment("Chance for peach to decay when fruiting")
+					.defineInRange("peachDecayChance", 0.1, 0, 1);
 			rageEffectRange = builder.comment("Effect application range for Rage Aura effect")
 					.defineInRange("rageEffectRange", 24, 0, 64);
 			healEffectRange = builder.comment("Effect application range for Heal Aura effect")

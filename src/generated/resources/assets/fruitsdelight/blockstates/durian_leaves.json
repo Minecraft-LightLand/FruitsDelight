@@ -18,6 +18,14 @@
     },
     {
       "apply": {
+        "model": "fruitsdelight:block/durian_small"
+      },
+      "when": {
+        "fruit": "small"
+      }
+    },
+    {
+      "apply": {
         "model": "fruitsdelight:block/durian_fruits"
       },
       "when": {

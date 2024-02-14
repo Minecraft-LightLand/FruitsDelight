@@ -3,6 +3,7 @@ package dev.xkmc.fruitsdelight.init.plants;
 import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.DurianLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
+import dev.xkmc.fruitsdelight.content.block.PeachLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.repack.registrate.builders.BlockBuilder;
@@ -48,6 +49,9 @@ public enum FDTreeType {
 			() -> new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(2), 4)),
 	FANCY(2, 6, PassableLeavesBlock::new, () -> new FancyTrunkPlacer(6, 11, 3),
 			() -> new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4)),
+	PEACH(100, 0, PeachLeavesBlock::new, () -> new StraightTrunkPlacer(5, 2, 0),
+			() -> new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3)),
+
 	DURIAN(2, 6, DurianLeavesBlock::new, () -> new FancyTrunkPlacer(6, 11, 3),
 			() -> new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4)),
 	;
@@ -70,11 +74,17 @@ public enum FDTreeType {
 		int flowers = wild ? flowerWild : flowerSapling;
 		var leaf = leaves.defaultBlockState();
 		var flower = leaves.flowerState();
+		BlockStateProvider state;
+		if (flowers == 0) {
+			state = BlockStateProvider.simple(leaf);
+		} else if (flowers == 100) {
+			state = BlockStateProvider.simple(flower);
+		} else {
+			state = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+					.add(leaf, 100 - flowers).add(flower, flowers).build());
+		}
 		return new TreeConfiguration.TreeConfigurationBuilder(
-				BlockStateProvider.simple(log), trunk.get(),
-				new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-						.add(leaf, 100 - flowers).add(flower, flowers).build()),
-				foliage.get(),
+				BlockStateProvider.simple(log), trunk.get(), state, foliage.get(),
 				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4)))
 				.ignoreVines().build();
 	}
