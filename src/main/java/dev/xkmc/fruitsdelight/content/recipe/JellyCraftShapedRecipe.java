@@ -1,6 +1,8 @@
 package dev.xkmc.fruitsdelight.content.recipe;
 
+import dev.xkmc.fruitsdelight.content.item.FDBlockItem;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
+import dev.xkmc.fruitsdelight.content.item.IFDFoodItem;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
 import dev.xkmc.l2library.base.recipe.AbstractShapedRecipe;
@@ -24,8 +26,8 @@ public class JellyCraftShapedRecipe extends AbstractShapedRecipe<JellyCraftShape
 		ListTag list = new ListTag();
 		for (int i = 0; i < cont.getContainerSize(); i++) {
 			ItemStack input = cont.getItem(i);
-			if (!input.isEmpty() && input.getItem() instanceof FDFoodItem item && item.food != null && input.is(TagGen.JELLY)) {
-				list.add(StringTag.valueOf(item.food.fruit().name()));
+			if (!input.isEmpty() && input.getItem() instanceof IFDFoodItem item && item.food() != null && input.is(TagGen.JELLY)) {
+				list.add(StringTag.valueOf(item.food().fruit().name()));
 			}
 		}
 		stack.getOrCreateTag().put(FDFoodItem.ROOT, list);
