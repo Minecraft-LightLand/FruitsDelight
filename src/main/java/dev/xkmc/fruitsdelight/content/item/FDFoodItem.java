@@ -33,7 +33,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FDFoodItem extends Item {
+public class FDFoodItem extends Item implements IFDFoodItem{
 
 	public static final String ROOT = "JellyEffectRoot";
 
@@ -206,4 +206,8 @@ public class FDFoodItem extends Item {
 		}
 	}
 
+	@Override
+	public @Nullable IFDFood food() {
+		return food;
+	}
 }

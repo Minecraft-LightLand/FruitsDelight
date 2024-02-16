@@ -23,7 +23,7 @@ import java.util.List;
 
 import static dev.xkmc.fruitsdelight.content.item.FDFoodItem.getFoodEffects;
 
-public class FDBlockItem extends BlockItem {
+public class FDBlockItem extends BlockItem implements IFDFoodItem {
 
 
 	@Nullable
@@ -85,6 +85,11 @@ public class FDBlockItem extends BlockItem {
 		list.add(LangData.TOOLTIP_PLACE.get());
 		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
 			getFoodEffects(stack, list);
+	}
+
+	@Override
+	public @Nullable IFDFood food() {
+		return food;
 	}
 
 }
