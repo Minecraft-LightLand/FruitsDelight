@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets = "com.min01.archaeology.block.BrushableBlock")
 public class BrushableBlockMixin {
 
-	@Inject(at = @At("HEAD"), method = "animateTick", remap = false)
+	@Inject(at = @At("HEAD"), method = "animateTick", remap = true)
 	public void fruitsdelight$animateTick$durian(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
 		if (!level.isClientSide()) return;
 		ClientEffectHandlers.suspiciousBlockAnimate(state, level, pos, random);
