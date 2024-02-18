@@ -10,13 +10,13 @@
 	"AnimalMixin",
 	"BlockStateBaseMixin",
 	"BoatMixin",
-	"BrushableBlockMixin",
 	"FoodDataMixin",
 	"HoneyBlockMixin",
 	"LivingEntityMixin",
 	"PlayerMixin"
   ],
   "client": [
+	"BrushableBlockMixin"
   ],
   "injectors": {
 	"defaultRequire": 1
