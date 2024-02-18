@@ -14,7 +14,6 @@ import com.simibubi.create.foundation.fluid.FluidIngredient;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.FluidEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
@@ -54,7 +53,7 @@ public class CreateRecipeGen {
 			List<Ingredient> list = new ArrayList<>(List.of(
 					Ingredient.of(FDFood.LEMON_SLICE.get()), Ingredient.of(Items.SUGAR)));
 			for (int i = 0; i < cost; i++)
-				list.add(Ingredient.of(e.fruit.get()));
+				list.add(e.getFruitTag());
 			b.withItemIngredients(list.toArray(Ingredient[]::new));
 			b.output(jamFluid.get(), 125);
 			b.requiresHeat(HeatCondition.HEATED);
@@ -91,7 +90,7 @@ public class CreateRecipeGen {
 			}
 			List<Ingredient> list = new ArrayList<>(e.type.list);
 			for (int i = 0; i < e.fruit.jellyCost; i++)
-				list.add(Ingredient.of(e.getFruit()));
+				list.add(e.getFruitTag());
 			builder.withItemIngredients(list.toArray(Ingredient[]::new));
 			builder.output(juice.get(), 250);
 			if (e.type.category.heated)

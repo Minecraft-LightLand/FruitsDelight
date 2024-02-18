@@ -7,10 +7,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:persimmon"
+      "tag": "forge:fruits/persimmon"
     },
     {
-      "item": "fruitsdelight:persimmon"
+      "tag": "forge:fruits/persimmon"
     },
     {
       "item": "minecraft:sugar"

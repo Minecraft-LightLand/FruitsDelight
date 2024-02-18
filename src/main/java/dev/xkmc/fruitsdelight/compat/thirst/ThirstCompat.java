@@ -12,16 +12,16 @@ public class ThirstCompat {
 			ThirstHelper.addDrink(e.get(), 8, 13);
 		}
 
-		ThirstHelper.addFood(FruitType.ORANGE.fruit.get(), 4, 6);
-		ThirstHelper.addFood(FruitType.LYCHEE.fruit.get(), 4, 6);
-		ThirstHelper.addFood(FruitType.PINEAPPLE.fruit.get(), 4, 6);
+		ThirstHelper.addFood(FruitType.ORANGE.getFruit(), 4, 6);
+		ThirstHelper.addFood(FruitType.LYCHEE.getFruit(), 4, 6);
+		ThirstHelper.addFood(FruitType.PINEAPPLE.getFruit(), 4, 6);
 
-		ThirstHelper.addFood(FruitType.KIWI.fruit.get(), 6, 10);
-		ThirstHelper.addFood(FruitType.PEACH.fruit.get(), 6, 10);
-		ThirstHelper.addFood(FruitType.HAMIMELON.fruit.get(), 6, 10);
-		ThirstHelper.addFood(FruitType.MANGO.fruit.get(), 6, 10);
+		ThirstHelper.addFood(FruitType.KIWI.getFruit(), 6, 10);
+		ThirstHelper.addFood(FruitType.PEACH.getFruit(), 6, 10);
+		ThirstHelper.addFood(FruitType.HAMIMELON.getFruit(), 6, 10);
+		ThirstHelper.addFood(FruitType.MANGO.getFruit(), 6, 10);
 
-		ThirstHelper.addFood(FruitType.PEAR.fruit.get(), 10, 16);
+		ThirstHelper.addFood(FruitType.PEAR.getFruit(), 10, 16);
 		ThirstHelper.addFood(FDFood.BAKED_PEAR.get(), 10, 16);
 		ThirstHelper.addFood(FDFood.HAMIMELON_POPSICLE.get(), 10, 16);
 		ThirstHelper.addFood(FDFood.HAMIMELON_SHAVED_ICE.get(), 10, 16);

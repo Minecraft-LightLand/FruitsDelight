@@ -2,7 +2,7 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "fruitsdelight:lemon"
+      "tag": "forge:fruits/lemon"
     }
   ],
   "result": [

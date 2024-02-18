@@ -15,10 +15,10 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:fig"
+      "tag": "forge:fruits/fig"
     },
     {
-      "item": "fruitsdelight:fig"
+      "tag": "forge:fruits/fig"
     },
     {
       "amount": 100,

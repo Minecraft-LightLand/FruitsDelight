@@ -30,7 +30,7 @@ import java.util.Locale;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public enum FDTrees implements PlantDataEntry<FDTrees> {
+public enum FDTrees implements FruitPlant<FDTrees> {
 	PEAR(() -> Blocks.BIRCH_LOG, FDTreeType.TALL, 3, 0.3f, false, 15),
 	HAWBERRY(() -> Blocks.SPRUCE_LOG, FDTreeType.TALL, 2, 0.3f, true, 20),
 	LYCHEE(() -> Blocks.JUNGLE_LOG, FDTreeType.TALL, 2, 0.3f, true, 4),

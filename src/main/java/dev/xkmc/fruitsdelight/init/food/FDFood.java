@@ -6,11 +6,10 @@ import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
-import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -110,8 +109,8 @@ public enum FDFood implements IFDFood {
 
 	}
 
-	public Item getFruit() {
-		return fruit.fruit.get();
+	public Ingredient getFruitTag() {
+		return fruit.getFruitTag();
 	}
 
 	public FDFoodItem get() {
@@ -131,5 +130,9 @@ public enum FDFood implements IFDFood {
 	@Override
 	public EffectEntry[] getEffects() {
 		return effs;
+	}
+
+	public Item getFruit() {
+		return fruit.getFruit();
 	}
 }

@@ -6,10 +6,10 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "item": "fruitsdelight:kiwi"
+      "tag": "forge:fruits/kiwi"
     },
     {
-      "item": "fruitsdelight:kiwi"
+      "tag": "forge:fruits/kiwi"
     }
   ],
   "result": {

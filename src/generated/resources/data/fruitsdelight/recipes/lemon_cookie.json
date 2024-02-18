@@ -6,7 +6,7 @@
       "item": "minecraft:wheat"
     },
     "B": {
-      "item": "fruitsdelight:lemon"
+      "tag": "forge:fruits/lemon"
     },
     "C": {
       "tag": "forge:milk/milk_bottle"

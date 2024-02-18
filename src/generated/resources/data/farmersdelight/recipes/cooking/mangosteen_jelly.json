@@ -7,10 +7,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:mangosteen"
+      "tag": "forge:fruits/mangosteen"
     },
     {
-      "item": "fruitsdelight:mangosteen"
+      "tag": "forge:fruits/mangosteen"
     },
     {
       "item": "minecraft:sugar"

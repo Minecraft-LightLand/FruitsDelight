@@ -6,7 +6,7 @@
       "item": "minecraft:wheat"
     },
     "B": {
-      "item": "fruitsdelight:cranberry"
+      "tag": "forge:fruits/cranberry"
     }
   },
   "pattern": [

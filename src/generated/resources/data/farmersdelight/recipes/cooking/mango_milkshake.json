@@ -7,7 +7,7 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:mango"
+      "tag": "forge:fruits/mango"
     },
     {
       "tag": "forge:milk/milk_bottle"

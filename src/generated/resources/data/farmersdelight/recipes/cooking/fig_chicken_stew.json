@@ -10,10 +10,10 @@
       "tag": "forge:raw_chicken"
     },
     {
-      "item": "fruitsdelight:fig"
+      "tag": "forge:fruits/fig"
     },
     {
-      "item": "fruitsdelight:fig"
+      "tag": "forge:fruits/fig"
     }
   ],
   "result": {

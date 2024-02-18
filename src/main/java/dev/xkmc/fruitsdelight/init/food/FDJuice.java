@@ -13,6 +13,7 @@ import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -71,8 +72,12 @@ public enum FDJuice implements IFDFood {
 
 	}
 
+	public Ingredient getFruitTag() {
+		return fruit.getFruitTag();
+	}
+
 	public Item getFruit() {
-		return fruit.fruit.get();
+		return fruit.getFruit();
 	}
 
 	public FDFoodItem get() {
@@ -103,7 +108,7 @@ public enum FDJuice implements IFDFood {
 		if (type.category.cook) {
 			var e = CookingPotRecipeBuilder.cookingPotRecipe(item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			type.list.forEach(e::addIngredient);
-			e.addIngredient(getFruit(), count);
+			e.addIngredient(getFruitTag(), count);
 			e.build(pvd);
 		} else {
 			var e = RecipeGen.unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item)::unlockedBy, getFruit());
@@ -111,7 +116,7 @@ public enum FDJuice implements IFDFood {
 				e.requires(new PotionIngredient(Potions.WATER));
 			}
 			type.list.forEach(e::requires);
-			e.requires(getFruit(), count);
+			e.requires(getFruitTag(), count);
 			e.save(pvd);
 		}
 	}

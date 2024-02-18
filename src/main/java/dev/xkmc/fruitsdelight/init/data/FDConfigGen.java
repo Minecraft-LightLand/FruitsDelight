@@ -24,7 +24,7 @@ public class FDConfigGen extends ConfigDataProvider {
 		var config = new IngredientConfig();
 		var transform = new CookTransformConfig();
 		for (var e : FruitType.values()) {
-			Item item = e.fruit.get();
+			Item item = e.getFruit();
 			ResourceLocation rl = ForgeRegistries.ITEMS.getKey(item);
 			if (rl == null || rl.getNamespace().equals("minecraft"))
 				continue;
