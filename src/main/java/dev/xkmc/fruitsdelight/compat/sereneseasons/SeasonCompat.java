@@ -14,9 +14,9 @@ public class SeasonCompat {
 
 	private static final Multimap<Seasons, FDTrees> TREE = new ImmutableMultimap.Builder<Seasons, FDTrees>()
 			.putAll(Seasons.SPRING, FDTrees.PEAR, FDTrees.PEACH)
-			.putAll(Seasons.SUMMER, FDTrees.LYCHEE, FDTrees.MANGO, FDTrees.MANGOSTEEN)
-			.putAll(Seasons.AUTUMN, FDTrees.ORANGE, FDTrees.APPLE)
-			.putAll(Seasons.WINTER, FDTrees.HAWBERRY, FDTrees.PERSIMMON)
+			.putAll(Seasons.SUMMER, FDTrees.LYCHEE, FDTrees.MANGO, FDTrees.MANGOSTEEN, FDTrees.BAYBERRY, FDTrees.DURIAN)
+			.putAll(Seasons.AUTUMN, FDTrees.ORANGE, FDTrees.APPLE, FDTrees.FIG)
+			.putAll(Seasons.WINTER, FDTrees.HAWBERRY, FDTrees.PERSIMMON, FDTrees.KIWI)
 			.build();
 
 	private static final Multimap<Seasons, FDBushes> BUSH = new ImmutableMultimap.Builder<Seasons, FDBushes>()

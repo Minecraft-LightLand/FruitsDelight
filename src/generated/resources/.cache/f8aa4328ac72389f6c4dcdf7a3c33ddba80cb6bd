@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-18T11:18:02.226784	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-02-18T17:17:33.225473	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -1671,11 +1671,11 @@ db0be5455533f2b1c2990d8beb091cb188e32b6e data/minecraft/tags/blocks/mineable/hoe
 964eaa58cef06e5ef8cd03d235296e6a7147d1f6 data/minecraft/tags/blocks/sword_efficient.json
 db0be5455533f2b1c2990d8beb091cb188e32b6e data/minecraft/tags/items/leaves.json
 8bd1ca1a18f8a4f1d07694d6e75a4cf0c982f80b data/minecraft/tags/items/saplings.json
-68f72029c4b4c35b016fbf814c6c4c46bd4af51f data/sereneseasons/tags/blocks/autumn_crops.json
+40b164a0d0f9cd4449b5289f9b973d04e35a09ed data/sereneseasons/tags/blocks/autumn_crops.json
 f8ac1a90d24efa967f3503347776f0a38240e55d data/sereneseasons/tags/blocks/spring_crops.json
-eb8a328676d1d0b7e7787e0b3379fc4558083d0a data/sereneseasons/tags/blocks/summer_crops.json
-04f8c63d5b7779a0aedabb2164d29096d2fe8fb8 data/sereneseasons/tags/blocks/winter_crops.json
-401d7f22659a4f2b0d0cd1c7be88676fb80133c1 data/sereneseasons/tags/items/autumn_crops.json
+a0fdf52b6c3b025d9147b832998c35f5981651d4 data/sereneseasons/tags/blocks/summer_crops.json
+5ec8424220d506e92c5270c0f6baff5739ccce1d data/sereneseasons/tags/blocks/winter_crops.json
+1403005c41e714e958b70d8a1e55f2ffb1200d1d data/sereneseasons/tags/items/autumn_crops.json
 b0ed53ff39672d830268f0d07479761233058cec data/sereneseasons/tags/items/spring_crops.json
-c229ee7e19e18e35d5b9494660f9b3f6b7db77a6 data/sereneseasons/tags/items/summer_crops.json
-a62801c429efb0daf624b9d2f358408ec85a6ab1 data/sereneseasons/tags/items/winter_crops.json
+86266cccbfd44c946264a03bacc761084f97f0dc data/sereneseasons/tags/items/summer_crops.json
+892adfea6b99bed9ac5b29f9f1afdcb1e1008e3e data/sereneseasons/tags/items/winter_crops.json
