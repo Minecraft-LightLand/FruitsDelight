@@ -205,34 +205,34 @@ public class RecipeGen {
 						.addIngredient(Tags.Items.EGGS)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGO_MILKSHAKE.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGO_MILKSHAKE.item.get(), 1, 200, 0.1f, Items.GLASS_BOTTLE)
 						.addIngredient(FDFood.MANGO_MILKSHAKE.getFruitTag())
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_CUSTARD.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_CUSTARD.item.get(), 1, 200, 0.1f, Items.GLASS_BOTTLE)
 						.addIngredient(FDFood.BLUEBERRY_CUSTARD.getFruitTag(), 2)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_PIE.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_PIE.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.PINEAPPLE_PIE.getFruitTag(), 2)
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.DURIAN_PIE.getFruitTag(), 2)
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LEMON_TART.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LEMON_TART.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.LEMON_TART.getFruitTag())
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
@@ -240,7 +240,7 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_TART.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_TART.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.FIG_TART.getFruitTag())
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
@@ -248,7 +248,7 @@ public class RecipeGen {
 						.addIngredient(ForgeTags.MILK_BOTTLE)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.BLUEBERRY_MUFFIN.getFruitTag(), 2)
 						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
@@ -256,7 +256,7 @@ public class RecipeGen {
 						.addIngredient(Items.SUGAR)
 						.build(pvd);
 
-				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item, 2, 200, 0.1f)
+				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item.get(), 2, 200, 0.1f)
 						.addIngredient(FDFood.CRANBERRY_MUFFIN.getFruitTag(), 2)
 						.addIngredient(ForgeTags.DOUGH_WHEAT)
 						.addIngredient(ForgeTags.MILK_BOTTLE)
@@ -329,8 +329,8 @@ public class RecipeGen {
 	}
 
 	private static void smoking(RegistrateRecipeProvider pvd, FDFood food) {
-		pvd.smoking(DataIngredient.ingredient(food.getFruitTag(), food.getFruit()), RecipeCategory.FOOD, food.item, 0.1f);
-		pvd.campfire(DataIngredient.ingredient(food.getFruitTag(), food.getFruit()), RecipeCategory.FOOD, food.item, 0.1f);
+		pvd.smoking(DataIngredient.ingredient(food.getFruitTag(), food.getFruit()), food.item, 0.1f);
+		pvd.campfire(DataIngredient.ingredient(food.getFruitTag(), food.getFruit()), food.item, 0.1f);
 	}
 
 	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
