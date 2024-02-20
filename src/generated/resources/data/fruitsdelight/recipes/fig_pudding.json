@@ -8,7 +8,7 @@
       "item": "minecraft:egg"
     },
     "F": {
-      "item": "fruitsdelight:fig"
+      "tag": "forge:fruits/fig"
     },
     "J": {
       "item": "fruitsdelight:orange_jelly"

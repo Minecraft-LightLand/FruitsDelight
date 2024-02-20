@@ -7,16 +7,16 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
       "item": "minecraft:sugar"

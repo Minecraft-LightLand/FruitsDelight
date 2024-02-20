@@ -15,10 +15,10 @@
       "tag": "minecraft:leaves"
     },
     {
-      "item": "fruitsdelight:peach"
+      "tag": "forge:fruits/peach"
     },
     {
-      "item": "fruitsdelight:peach"
+      "tag": "forge:fruits/peach"
     },
     {
       "amount": 250,

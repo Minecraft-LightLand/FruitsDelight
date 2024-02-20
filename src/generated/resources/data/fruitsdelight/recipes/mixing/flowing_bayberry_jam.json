@@ -15,16 +15,16 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
       "amount": 100,

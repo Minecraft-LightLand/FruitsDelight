@@ -15,16 +15,16 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:cranberry"
+      "tag": "forge:fruits/cranberry"
     },
     {
-      "item": "fruitsdelight:cranberry"
+      "tag": "forge:fruits/cranberry"
     },
     {
-      "item": "fruitsdelight:cranberry"
+      "tag": "forge:fruits/cranberry"
     },
     {
-      "item": "fruitsdelight:cranberry"
+      "tag": "forge:fruits/cranberry"
     },
     {
       "amount": 100,

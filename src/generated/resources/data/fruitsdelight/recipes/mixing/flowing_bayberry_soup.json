@@ -9,16 +9,16 @@
   "heatRequirement": "heated",
   "ingredients": [
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
       "amount": 250,

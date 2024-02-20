@@ -80,10 +80,10 @@ public class FDCauldrons {
 									fruit.defaultBlockState().setValue(fruitProp, 4) : null),
 					fruit.asItem());
 
-			CauldronRecipe.create(LEMON.get(), type.fruit.get(), 12 / level, FDCauldronInteraction.withHeat(state ->
+			CauldronRecipe.create(LEMON.get(), type.getFruit(), 12 / level, FDCauldronInteraction.withHeat(state ->
 							fruit.defaultBlockState().setValue(fruitProp, level)),
 					fruit.asItem());
-			fruit.getInteractions().put(type.fruit.get(), FDCauldronInteraction.withHeat(state ->
+			fruit.getInteractions().put(type.getFruit(), FDCauldronInteraction.withHeat(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + level))));
 			fruit.getInteractions().put(type.getJelly(), FDCauldronInteraction.of(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + 4))));

@@ -3,7 +3,7 @@
   "cookingtime": 100,
   "experience": 0.1,
   "ingredient": {
-    "item": "fruitsdelight:pear"
+    "tag": "forge:fruits/pear"
   },
   "result": "fruitsdelight:baked_pear"
 }

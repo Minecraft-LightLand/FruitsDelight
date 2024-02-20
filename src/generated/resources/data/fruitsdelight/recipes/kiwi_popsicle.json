@@ -5,7 +5,7 @@
       "item": "minecraft:ice"
     },
     "M": {
-      "item": "fruitsdelight:kiwi"
+      "tag": "forge:fruits/kiwi"
     },
     "S": {
       "item": "minecraft:stick"

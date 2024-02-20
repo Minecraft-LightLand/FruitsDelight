@@ -15,16 +15,16 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:blueberry"
+      "tag": "forge:fruits/blueberry"
     },
     {
-      "item": "fruitsdelight:blueberry"
+      "tag": "forge:fruits/blueberry"
     },
     {
-      "item": "fruitsdelight:blueberry"
+      "tag": "forge:fruits/blueberry"
     },
     {
-      "item": "fruitsdelight:blueberry"
+      "tag": "forge:fruits/blueberry"
     },
     {
       "amount": 100,

@@ -9,6 +9,7 @@ import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2library.repack.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -111,8 +112,8 @@ public enum FDFood implements IFDFood {
 
 	}
 
-	public Item getFruit() {
-		return fruit.fruit.get();
+	public Ingredient getFruitTag() {
+		return fruit.getFruitTag();
 	}
 
 	public FDFoodItem get() {
@@ -132,5 +133,9 @@ public enum FDFood implements IFDFood {
 	@Override
 	public EffectEntry[] getEffects() {
 		return effs;
+	}
+
+	public Item getFruit() {
+		return fruit.getFruit();
 	}
 }

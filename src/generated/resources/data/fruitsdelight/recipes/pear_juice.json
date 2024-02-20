@@ -9,10 +9,10 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:pear"
+      "tag": "forge:fruits/pear"
     },
     {
-      "item": "fruitsdelight:pear"
+      "tag": "forge:fruits/pear"
     }
   ],
   "result": {

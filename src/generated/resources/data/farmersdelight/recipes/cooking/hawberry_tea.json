@@ -13,16 +13,16 @@
       "tag": "minecraft:leaves"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     }
   ],
   "result": {

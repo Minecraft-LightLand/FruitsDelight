@@ -19,10 +19,10 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "fruitsdelight:mangosteen"
+      "tag": "forge:fruits/mangosteen"
     },
     {
-      "item": "fruitsdelight:mangosteen"
+      "tag": "forge:fruits/mangosteen"
     }
   ],
   "result": {

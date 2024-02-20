@@ -14,10 +14,10 @@
       "item": "minecraft:ice"
     },
     {
-      "item": "fruitsdelight:peach"
+      "tag": "forge:fruits/peach"
     },
     {
-      "item": "fruitsdelight:peach"
+      "tag": "forge:fruits/peach"
     }
   ],
   "results": [

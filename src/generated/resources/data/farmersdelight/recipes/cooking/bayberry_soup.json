@@ -7,16 +7,16 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     },
     {
-      "item": "fruitsdelight:bayberry"
+      "tag": "forge:fruits/bayberry"
     }
   ],
   "result": {

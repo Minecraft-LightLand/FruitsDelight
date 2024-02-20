@@ -15,16 +15,16 @@
       "item": "minecraft:spore_blossom"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
-      "item": "fruitsdelight:lychee"
+      "tag": "forge:fruits/lychee"
     },
     {
       "amount": 250,

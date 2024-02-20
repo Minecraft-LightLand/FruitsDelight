@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
       "item": "minecraft:sugar"

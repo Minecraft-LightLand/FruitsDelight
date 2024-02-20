@@ -18,6 +18,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -50,7 +52,7 @@ import java.util.Locale;
 
 import static net.minecraft.world.level.block.DoublePlantBlock.HALF;
 
-public enum FDBushes implements PlantDataEntry<FDBushes> {
+public enum FDBushes implements FruitPlant<FDBushes> {
 	BLUEBERRY(2, 0.3f, true, 32, FDBushType.BLOCK),
 	LEMON(4, 0.3f, false, 32, FDBushType.TALL),
 	CRANBERRY(2, 0.3f, true, 32, FDBushType.CROSS);
@@ -181,6 +183,7 @@ public enum FDBushes implements PlantDataEntry<FDBushes> {
 	public Item getSeed() {
 		return seedItem.get();
 	}
+
 
 	public void buildBushModel(DataGenContext<Block, ? extends BushBlock> ctx, RegistrateBlockstateProvider pvd) {
 		if (type == FDBushType.CROSS) {

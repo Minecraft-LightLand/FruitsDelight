@@ -5,7 +5,7 @@
       "item": "minecraft:bowl"
     },
     {
-      "item": "fruitsdelight:mango"
+      "tag": "forge:fruits/mango"
     },
     {
       "tag": "fruitsdelight:jelly"

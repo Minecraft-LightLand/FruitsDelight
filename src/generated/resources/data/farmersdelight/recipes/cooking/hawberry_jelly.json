@@ -7,16 +7,16 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
-      "item": "fruitsdelight:hawberry"
+      "tag": "forge:fruits/hawberry"
     },
     {
       "item": "minecraft:sugar"

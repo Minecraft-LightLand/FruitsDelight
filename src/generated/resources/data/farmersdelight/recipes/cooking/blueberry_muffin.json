@@ -4,10 +4,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "item": "fruitsdelight:blueberry"
+      "tag": "forge:fruits/blueberry"
     },
     {
-      "item": "fruitsdelight:blueberry"
+      "tag": "forge:fruits/blueberry"
     },
     {
       "tag": "forge:dough/wheat"
