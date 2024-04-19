@@ -17,6 +17,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -30,6 +31,8 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -58,8 +61,15 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	public static final EnumProperty<Fruit> FRUIT = EnumProperty.create("fruit", Fruit.class);
 	public static final EnumProperty<Leaf> LEAF = EnumProperty.create("leaf", Leaf.class);
 
+	private static final VoxelShape BID = Block.box(3, 3, 3, 13, 16, 13);
+
 	public DurianLeavesBlock(Properties props) {
 		super(props);
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
+		return state.getValue(LEAF) == Leaf.BARE ? BID : super.getShape(state, level, pos, ctx);
 	}
 
 	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
