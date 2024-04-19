@@ -16,7 +16,9 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -35,7 +37,7 @@ import net.minecraftforge.common.ForgeHooks;
 
 import java.util.Locale;
 
-public class PassableLeavesBlock extends BaseLeavesBlock {
+public class PassableLeavesBlock extends BaseLeavesBlock implements BonemealableBlock {
 
 	public enum State implements StringRepresentable {
 		LEAVES, FLOWERS, FRUITS;
@@ -116,6 +118,21 @@ public class PassableLeavesBlock extends BaseLeavesBlock {
 	@Override
 	public BlockState flowerState() {
 		return defaultBlockState().setValue(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FLOWERS);
+	}
+
+	@Override
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+		return state.getValue(PERSISTENT) || state.getValue(STATE) == State.FLOWERS;
+	}
+
+	@Override
+	public boolean isBonemealSuccess(Level level, RandomSource r, BlockPos pos, BlockState state) {
+		return true;
+	}
+
+	@Override
+	public void performBonemeal(ServerLevel level, RandomSource r, BlockPos pos, BlockState state) {
+		level.setBlockAndUpdate(pos, state.cycle(STATE));
 	}
 
 	protected ConfiguredModel[] buildModel(RegistrateBlockstateProvider pvd, String treeName, BlockState state) {
