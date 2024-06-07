@@ -27,6 +27,7 @@ public class FDModConfig {
 		public final ForgeConfigSpec.IntValue alienatingEffectRange;
 
 		public final ForgeConfigSpec.BooleanValue enableCauldronRecipe;
+		public final ForgeConfigSpec.BooleanValue enableThirstCompat;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			fruitsGrowChance = builder.comment("Chance for fruits to grow per random tick")
@@ -50,6 +51,8 @@ public class FDModConfig {
 					.defineInRange("alienatingEffectRange", 12, 0, 64);
 			enableCauldronRecipe = builder.comment("Enable cauldron jam and jello recipe")
 					.define("enableCauldronRecipe", true);
+			enableThirstCompat = builder.comment("Enable Thirst Compat")
+					.define("enableThirstCompat", true);
 		}
 
 	}

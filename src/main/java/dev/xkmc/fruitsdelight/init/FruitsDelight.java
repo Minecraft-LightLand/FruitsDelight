@@ -83,7 +83,7 @@ public class FruitsDelight {
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
 
-			if (ModList.get().isLoaded(Thirst.ID)){
+			if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)){
 				ThirstCompat.init();
 			}
 		});
