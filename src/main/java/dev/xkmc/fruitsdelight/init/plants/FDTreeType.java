@@ -9,7 +9,7 @@ import dev.xkmc.fruitsdelight.content.block.DurianLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PassableLeavesBlock;
 import dev.xkmc.fruitsdelight.content.block.PeachLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -84,7 +84,7 @@ public enum FDTreeType {
 
 	public BlockEntry<? extends BaseLeavesBlock> buildLeave(String name, FDTrees tree) {
 		return FruitsDelight.REGISTRATE
-				.block(name + "_leaves", p -> block.apply(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
+				.block(name + "_leaves", p -> block.apply(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)))
 				.blockstate((ctx, pvd) -> ctx.get().buildLeavesModel(ctx, pvd, name))
 				.loot((pvd, block) -> block.buildLoot(pvd, block, tree.getSapling(), tree.getFruit()))
 				.tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)

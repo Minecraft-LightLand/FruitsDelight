@@ -20,7 +20,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 
 public class FigPuddingBlock extends BaseCakeBlock {
 
@@ -42,7 +42,7 @@ public class FigPuddingBlock extends BaseCakeBlock {
 
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		ItemStack itemstack = player.getItemInHand(hand);
-		if (itemstack.is(ForgeTags.TOOLS_KNIVES)) {
+		if (itemstack.is(CommonTags.TOOLS_KNIFE)) {
 			int i = state.getValue(bite);
 			if (i > 0) {
 				level.setBlockAndUpdate(pos, state.setValue(bite, i - 1));

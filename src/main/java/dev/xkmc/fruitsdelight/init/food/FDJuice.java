@@ -9,6 +9,7 @@ import dev.xkmc.fruitsdelight.init.entries.FruitFluid;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
+import dev.xkmc.l2core.serial.ingredients.PotionIngredient;
 import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;

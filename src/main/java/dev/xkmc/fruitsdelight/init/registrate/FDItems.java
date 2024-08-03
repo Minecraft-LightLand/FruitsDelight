@@ -13,7 +13,6 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
@@ -54,6 +53,7 @@ public class FDItems {
 							.color(() -> () -> (stack, layer) -> layer == 0 ? -1 : fruit.color))
 					.tag(food.tags)
 					.build()
+					.color(() -> () -> FDItems::jellyColor)
 					.lang(FDItems.toEnglishName(name) + " Jam")
 					.register();
 		}
@@ -74,12 +74,6 @@ public class FDItems {
 	}
 
 	public static void register() {
-	}
-
-	public static void registerColor(RegisterColorHandlersEvent.Block event) {//TODO reg
-		for (var e : JELLY) {
-			event.register(FDItems::jellyColor, e.get());
-		}
 	}
 
 	private static int jellyColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index) {

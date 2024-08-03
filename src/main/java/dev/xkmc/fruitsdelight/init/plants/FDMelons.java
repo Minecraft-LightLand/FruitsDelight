@@ -12,11 +12,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -43,13 +42,8 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import vectorwing.farmersdelight.common.tag.CommonTags;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
-import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import javax.annotation.Nullable;
@@ -58,7 +52,7 @@ import java.util.Locale;
 public enum FDMelons implements PlantDataEntry<FDMelons> {
 	HAMIMELON(2, 0.3f, true);
 
-	private final BlockEntry<FDMelonBlock> melon;
+	private final BlockEntry<Block> melon;
 	private final BlockEntry<StemBlock> stem;
 	private final BlockEntry<AttachedStemBlock> attachedStem;
 
@@ -76,7 +70,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				FruitsDelight.loc(name));
 
 		melon = FruitsDelight.REGISTRATE
-				.block(name, p -> new FDMelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)))
+				.block(name, p -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)))
 				.blockstate(this::buildMelonModel)
 				.loot(this::buildMelonLoot)
 				.tag(BlockTags.ENDERMAN_HOLDABLE, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
@@ -84,16 +78,18 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				.register();
 		stem = FruitsDelight.REGISTRATE
 				.block(name + "_stem", p -> new StemBlock(getMelonBlock(), this::getSeed,
-						BlockBehaviour.Properties.copy(Blocks.MELON_STEM)))
+						BlockBehaviour.Properties.ofFullCopy(Blocks.MELON_STEM)))
 				.blockstate(this::buildStemModel)
 				.loot(this::buildStemLoot)
+				.color(() -> () -> FDMelons::stemColor)
 				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.register();
 		attachedStem = FruitsDelight.REGISTRATE
 				.block("attached_" + name + "_stem", p -> new AttachedStemBlock(getMelonBlock(), this::getSeed,
-						BlockBehaviour.Properties.copy(Blocks.ATTACHED_MELON_STEM)))
+						BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_MELON_STEM)))
 				.blockstate(this::buildAttachedStemModel)
 				.loot(this::buildAttachedStemLoot)
+				.color(() -> () -> FDMelons::attachedColor)
 				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.register();
 
@@ -107,7 +103,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 
 	}
 
-	public StemGrownBlock getMelonBlock() {
+	public Block getMelonBlock() {
 		return melon.get();
 	}
 
@@ -128,7 +124,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	}
 
 	@Override
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+	public void registerConfigs(BootstrapContext<ConfiguredFeature<?, ?>> ctx) {
 		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
 				new RandomPatchConfiguration(24, 5, 3,
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
@@ -138,7 +134,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	}
 
 	@Override
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
+	public void registerPlacements(BootstrapContext<PlacedFeature> ctx) {
 		PlacementUtils.register(ctx, placementKey, ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
 				RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	}
@@ -167,7 +163,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				FruitsDelight.loc(getName() + "_cutting"));
 	}
 
-	private void buildMelonModel(DataGenContext<Block, FDMelonBlock> ctx, RegistrateBlockstateProvider pvd) {
+	private void buildMelonModel(DataGenContext<Block, Block> ctx, RegistrateBlockstateProvider pvd) {
 		String name = name().toLowerCase(Locale.ROOT);
 		pvd.simpleBlock(ctx.get(), pvd.models().cubeColumn(ctx.getName(),
 				pvd.modLoc("block/" + name + "_side"),
@@ -193,7 +189,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				.renderType("cutout"), 270);
 	}
 
-	private void buildMelonLoot(RegistrateBlockLootTables pvd, FDMelonBlock block) {
+	private void buildMelonLoot(RegistrateBlockLootTables pvd, Block block) {
 		pvd.add(block, RegistrateBlockLootTables.createSilkTouchDispatchTable(block,
 				pvd.applyExplosionDecay(block,
 						LootItem.lootTableItem(getSlice())
@@ -226,32 +222,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		return 14731036;
 	}
 
-	public static void registerColor(RegisterColorHandlersEvent.Block event) {//TODO reg
-		for (FDMelons melon : FDMelons.values()) {
-			event.register(FDMelons::stemColor, melon.getStem());
-			event.register(FDMelons::attachedColor, melon.getAttachedStem());
-		}
-	}
-
 	public static void register() {
-
-	}
-
-	private class FDMelonBlock extends StemGrownBlock {
-
-		public FDMelonBlock(Properties properties) {
-			super(properties);
-		}
-
-		@Override
-		public StemBlock getStem() {
-			return stem.get();
-		}
-
-		@Override
-		public AttachedStemBlock getAttachedStem() {
-			return attachedStem.get();
-		}
 
 	}
 

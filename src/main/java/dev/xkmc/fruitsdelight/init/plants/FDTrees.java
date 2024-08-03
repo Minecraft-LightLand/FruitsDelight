@@ -10,12 +10,11 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -23,9 +22,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.common.util.Lazy;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -73,8 +72,13 @@ public enum FDTrees implements FruitPlant<FDTrees> {
 
 		leaves = height.buildLeave(name, this);
 		var saplingBuilder = FruitsDelight.REGISTRATE.block(
-						name + "_sapling", p -> new SaplingBlock(new TreeGrower(),
-								BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)
+						name + "_sapling", p -> new SaplingBlock(new TreeGrower(
+								name,
+								Optional.empty(),
+								Optional.of(configKey),
+								Optional.empty()
+						),
+								BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)
 						))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 						.cross(ctx.getName(), pvd.modLoc("block/" + ctx.getName()))
@@ -159,16 +163,6 @@ public enum FDTrees implements FruitPlant<FDTrees> {
 	}
 
 	public static void register() {
-	}
-
-	private class TreeGrower extends AbstractTreeGrower {
-
-		@Nullable
-		@Override
-		protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource rand, boolean large) {
-			return configKey;
-		}
-
 	}
 
 }

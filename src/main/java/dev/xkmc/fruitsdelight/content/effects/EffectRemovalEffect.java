@@ -1,6 +1,7 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
 import dev.xkmc.l2core.base.effects.api.InherentEffect;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,12 +15,12 @@ import java.util.function.Supplier;
 
 public class EffectRemovalEffect extends InherentEffect {
 
-	public final Lazy<Set<MobEffect>> set;
+	public final Lazy<Set<Holder<MobEffect>>> set;
 
-	public EffectRemovalEffect(MobEffectCategory category, int color, List<Supplier<MobEffect>> sup) {
+	public EffectRemovalEffect(MobEffectCategory category, int color, List<Supplier<Holder<MobEffect>>> sup) {
 		super(category, color);
 		set = Lazy.of(() -> {
-			Set<MobEffect> ans = new HashSet<>();
+			Set<Holder<MobEffect>> ans = new HashSet<>();
 			for (var e : sup) {
 				ans.add(e.get());
 			}

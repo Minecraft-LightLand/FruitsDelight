@@ -9,9 +9,9 @@ import dev.xkmc.fruitsdelight.init.entries.FruitFluidType;
 import dev.xkmc.fruitsdelight.init.entries.VirtualFluidBuilder;
 import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
-import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 import java.util.Locale;
 
@@ -42,8 +42,8 @@ public class FDFluids {
 	static {
 		int size = FDJuice.values().length;
 		JUICE = new FluidEntry[size];
-		ResourceLocation still = new ResourceLocation("block/water_still");
-		ResourceLocation flow = new ResourceLocation("block/water_flow");
+		ResourceLocation still = ResourceLocation.withDefaultNamespace("block/water_still");
+		ResourceLocation flow = ResourceLocation.withDefaultNamespace("block/water_flow");
 		for (var e : FDJuice.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
 			JUICE[e.ordinal()] = virtualFluid(name, still, flow,
@@ -56,7 +56,7 @@ public class FDFluids {
 	private static <T extends FruitFluid> FluidBuilder<T, L2Registrate>
 	virtualFluid(String id, ResourceLocation still, ResourceLocation flow,
 				 FluidBuilder.FluidTypeFactory typeFactory,
-				 NonNullFunction<ForgeFlowingFluid.Properties, T> factory) {
+				 NonNullFunction<BaseFlowingFluid.Properties, T> factory) {
 		return FruitsDelight.REGISTRATE.entry(id, (c) -> new VirtualFluidBuilder<>(
 				FruitsDelight.REGISTRATE, FruitsDelight.REGISTRATE,
 				id, c, still, flow, typeFactory, factory));

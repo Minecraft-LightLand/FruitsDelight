@@ -16,7 +16,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.InvertedLootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import vectorwing.farmersdelight.common.block.FeastBlock;
 
 import java.util.Locale;
@@ -34,7 +34,7 @@ public class FDBlocks {
 	static {
 
 		PINEAPPLE_RICE = FruitsDelight.REGISTRATE.block("pineapple_fried_rice",
-						p -> new PineappleRiceBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL),
+						p -> new PineappleRiceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL),
 								FDFood.BOWL_OF_PINEAPPLE_FRIED_RICE.item, true))
 				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
 					int serve = state.getValue(FeastBlock.SERVINGS);
@@ -54,7 +54,7 @@ public class FDBlocks {
 				.register();
 
 		MANGOSTEEN_CAKE = FruitsDelight.REGISTRATE.block("mangosteen_cake",
-						p -> new MangosteenCakeBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)))
+						p -> new MangosteenCakeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)))
 				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
 					int serve = state.getValue(MangosteenCakeBlock.BITES);
 					String suffix = "_" + serve;
@@ -73,7 +73,7 @@ public class FDBlocks {
 				.register();
 
 		FIG_PUDDING = FruitsDelight.REGISTRATE.block("fig_pudding",
-						p -> new FigPuddingBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_WOOL)))
+						p -> new FigPuddingBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_WOOL)))
 				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
 					int serve = state.getValue(MangosteenCakeBlock.BITES);
 					String suffix = "_" + serve;
@@ -99,7 +99,7 @@ public class FDBlocks {
 			FruitType type = FruitType.values()[i];
 			String name = type.name().toLowerCase(Locale.ROOT);
 			JELLY[i] = FruitsDelight.REGISTRATE.block(name + "_jelly_block", p ->
-							new JellyBlock(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK), type))
+							new JellyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HONEY_BLOCK), type))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 							.withExistingParent(ctx.getName(), pvd.modLoc("block/tinted"))
 							.texture("all", pvd.modLoc("block/jelly"))
@@ -117,7 +117,7 @@ public class FDBlocks {
 			FruitType type = FruitType.values()[i];
 			String name = type.name().toLowerCase(Locale.ROOT);
 			JELLO[i] = FruitsDelight.REGISTRATE.block(name + "_jello_block", p ->
-							new JelloBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK), type))
+							new JelloBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SLIME_BLOCK), type))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 							.withExistingParent(ctx.getName(), pvd.modLoc("block/tinted"))
 							.texture("all", pvd.modLoc("block/jello"))
