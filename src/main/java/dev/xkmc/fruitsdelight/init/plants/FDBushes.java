@@ -12,17 +12,14 @@ import dev.xkmc.fruitsdelight.content.block.BushFruitItem;
 import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.l2library.util.data.LootTableTemplate;
+import dev.xkmc.l2core.serial.loot.LootTableTemplate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -46,8 +43,8 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 import java.util.List;
 import java.util.Locale;
@@ -73,9 +70,9 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 		String name = name().toLowerCase(Locale.ROOT);
 		String suffix = type == FDBushType.TALL ? "tree" : "bush";
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
+				FruitsDelight.loc(name + "_" + suffix));
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name + "_" + suffix));
+				FruitsDelight.loc(name + "_" + suffix));
 		this.rarity = rarity;
 		this.type = type;
 		bush = type.build(name + "_" + suffix, this);
@@ -104,7 +101,7 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 			ComposterBlock.COMPOSTABLES.put(getBush().asItem(), 0.65f);
 	}
 
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+	public void registerConfigs(BootstrapContext<ConfiguredFeature<?, ?>> ctx) {
 		BlockState state = getBush().defaultBlockState().setValue(BaseBushBlock.AGE, 4);
 		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
 				FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK,
@@ -112,7 +109,7 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 						List.of(Blocks.GRASS_BLOCK), 20));
 	}
 
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
+	public void registerPlacements(BootstrapContext<PlacedFeature> ctx) {
 		ctx.register(placementKey, new PlacedFeature(
 				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
 				List.of(
@@ -240,7 +237,7 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 
 	private static FoodProperties food(int food, float sat, boolean fast) {
 		var ans = new FoodProperties.Builder()
-				.nutrition(food).saturationMod(sat);
+				.nutrition(food).saturationModifier(sat);
 		if (fast) ans.fast();
 		return ans.build();
 	}

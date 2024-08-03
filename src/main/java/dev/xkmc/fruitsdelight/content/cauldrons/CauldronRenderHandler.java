@@ -12,8 +12,8 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.ModelBuilder;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import org.jetbrains.annotations.Nullable;
 
 public class CauldronRenderHandler {
@@ -58,7 +58,7 @@ public class CauldronRenderHandler {
 				.end().end();
 	}
 
-	public static BlockModelBuilder guiAndTexture(BlockModelBuilder builder){
+	public static BlockModelBuilder guiAndTexture(BlockModelBuilder builder) {
 		return gui(builder)
 				.texture("bottom", "minecraft:block/cauldron_bottom")
 				.texture("inside", "minecraft:block/cauldron_inner")

@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.CommonHooks;
 
 public class BaseBushBlock extends BushBlock implements BonemealableBlock {
 
@@ -32,11 +32,11 @@ public class BaseBushBlock extends BushBlock implements BonemealableBlock {
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
 		int i = state.getValue(AGE);
 		if (i < MAX_AGE && level.getRawBrightness(pos.above(), 0) >= 9 &&
-				ForgeHooks.onCropsGrowPre(level, pos, state, rand.nextInt(5) == 0)) {
+				CommonHooks.canCropGrow(level, pos, state, rand.nextInt(5) == 0)) {
 			BlockState blockstate = state.setValue(AGE, i + 1);
 			level.setBlock(pos, blockstate, 2);
 			level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockstate));
-			ForgeHooks.onCropsGrowPost(level, pos, state);
+			CommonHooks.fireCropGrowPost(level, pos, state);
 		}
 	}
 
@@ -46,7 +46,7 @@ public class BaseBushBlock extends BushBlock implements BonemealableBlock {
 		super.createBlockStateDefinition(builder);
 	}
 
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return state.getValue(AGE) < MAX_AGE;
 	}
 

@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 public class FDGLMProvider extends GlobalLootModifierProvider {
 

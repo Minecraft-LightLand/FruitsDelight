@@ -24,8 +24,8 @@ public class FDFluids {
 		int size = FruitType.values().length;
 		JAM = new FluidEntry[size];
 		JELLO = new FluidEntry[size];
-		ResourceLocation jelly = new ResourceLocation(FruitsDelight.MODID, "block/jelly");
-		ResourceLocation jello = new ResourceLocation(FruitsDelight.MODID, "block/jello");
+		ResourceLocation jelly = FruitsDelight.loc("block/jelly");
+		ResourceLocation jello = FruitsDelight.loc("block/jello");
 		for (var e : FruitType.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
 			JAM[e.ordinal()] = virtualFluid(name + "_jam", jelly, jelly,

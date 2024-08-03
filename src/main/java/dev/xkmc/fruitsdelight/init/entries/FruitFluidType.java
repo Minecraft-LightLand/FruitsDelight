@@ -2,8 +2,8 @@ package dev.xkmc.fruitsdelight.init.entries;
 
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.fluids.FluidType;
 
 import java.util.function.Consumer;
 
@@ -19,7 +19,7 @@ public class FruitFluidType extends FluidType {
 		this.type = type;
 	}
 
-	public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
+	public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {//TODO
 		consumer.accept(new ClientFruitFluid(this));
 	}
 

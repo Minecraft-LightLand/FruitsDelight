@@ -3,8 +3,8 @@ package dev.xkmc.fruitsdelight.init.plants;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
-import dev.xkmc.l2library.base.L2Registrate;
-import net.minecraft.data.worldgen.BootstapContext;
+import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -49,9 +49,9 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 
 	void registerComposter();
 
-	void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx);
+	void registerConfigs(BootstrapContext<ConfiguredFeature<?, ?>> ctx);
 
-	void registerPlacements(BootstapContext<PlacedFeature> ctx);
+	void registerPlacements(BootstrapContext<PlacedFeature> ctx);
 
 	String getName();
 

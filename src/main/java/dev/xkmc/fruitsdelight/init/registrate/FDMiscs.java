@@ -5,6 +5,8 @@ import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapedRecipe;
 import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessRecipe;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.l2core.serial.recipe.AbstractShapedRecipe;
+import dev.xkmc.l2core.serial.recipe.AbstractShapelessRecipe;
 import dev.xkmc.l2library.serial.recipe.AbstractShapedRecipe;
 import dev.xkmc.l2library.serial.recipe.AbstractShapelessRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;

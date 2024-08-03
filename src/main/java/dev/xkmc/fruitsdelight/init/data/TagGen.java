@@ -19,13 +19,13 @@ import sereneseasons.core.SereneSeasons;
 
 public class TagGen {
 
-	public static final TagKey<Block> PINEAPPLE_GROW = BlockTags.create(new ResourceLocation(FruitsDelight.MODID, "pineapple_grows_on"));
+	public static final TagKey<Block> PINEAPPLE_GROW = BlockTags.create(FruitsDelight.loc("pineapple_grows_on"));
 
-	public static final TagKey<Item> JELLY = ItemTags.create(new ResourceLocation(FruitsDelight.MODID, "jelly"));
-	public static final TagKey<Item> JUICE = ItemTags.create(new ResourceLocation(FruitsDelight.MODID, "juice"));
-	public static final TagKey<Item> ALLOW_JELLY = ItemTags.create(new ResourceLocation(FruitsDelight.MODID, "allow_jelly"));
+	public static final TagKey<Item> JELLY = ItemTags.create(FruitsDelight.loc("jelly"));
+	public static final TagKey<Item> JUICE = ItemTags.create(FruitsDelight.loc("juice"));
+	public static final TagKey<Item> ALLOW_JELLY = ItemTags.create(FruitsDelight.loc("allow_jelly"));
 
-	public static final TagKey<Item> JELLO = ItemTags.create(new ResourceLocation(FruitsDelight.MODID, "jello"));
+	public static final TagKey<Item> JELLO = ItemTags.create(FruitsDelight.loc("jello"));
 
 
 	public static void onBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {

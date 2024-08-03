@@ -4,6 +4,7 @@ import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.content.item.IFDFoodItem;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDMiscs;
+import dev.xkmc.l2core.serial.recipe.AbstractShapelessRecipe;
 import dev.xkmc.l2library.serial.recipe.AbstractShapelessRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;

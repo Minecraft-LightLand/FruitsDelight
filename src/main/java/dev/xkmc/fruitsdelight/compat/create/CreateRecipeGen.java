@@ -122,17 +122,17 @@ public class CreateRecipeGen {
 					.output(FDFood.ORANGE_SLICE.get(), 4)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			cutting(new ResourceLocation(FruitsDelight.MODID, "hamimelon_slice"))
+			cutting(FruitsDelight.loc("hamimelon_slice"))
 					.withItemIngredients(Ingredient.of(FDMelons.HAMIMELON.getMelonBlock()))
 					.output(FDMelons.HAMIMELON.getSlice(), 9)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			cutting(new ResourceLocation(FruitsDelight.MODID, "pineapple_slice"))
+			cutting(FruitsDelight.loc("pineapple_slice"))
 					.withItemIngredients(Ingredient.of(FDPineapple.PINEAPPLE.getWholeFruit()))
 					.output(FDPineapple.PINEAPPLE.getSlice(), 8)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			compacting(new ResourceLocation(FruitsDelight.MODID, "hawberry_sheet"))
+			compacting(FruitsDelight.loc("hawberry_sheet"))
 					.withItemIngredients(
 							Ingredient.of(FDTrees.HAWBERRY.getFruit()),
 							Ingredient.of(FDTrees.HAWBERRY.getFruit()),

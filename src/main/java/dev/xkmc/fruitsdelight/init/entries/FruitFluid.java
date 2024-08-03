@@ -7,13 +7,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
-public class FruitFluid extends ForgeFlowingFluid {
+public class FruitFluid extends BaseFlowingFluid {
 
 	public final FruitType type;
 
-	public FruitFluid(ForgeFlowingFluid.Properties properties, FruitType type) {
+	public FruitFluid(Properties properties, FruitType type) {
 		super(properties);
 		this.type = type;
 	}

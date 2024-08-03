@@ -45,7 +45,11 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import javax.annotation.Nullable;
@@ -67,9 +71,9 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	FDMelons(int food, float sat, boolean fast) {
 		String name = name().toLowerCase(Locale.ROOT);
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
+				FruitsDelight.loc(name));
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
+				FruitsDelight.loc(name));
 
 		melon = FruitsDelight.REGISTRATE
 				.block(name, p -> new FDMelonBlock(BlockBehaviour.Properties.copy(Blocks.MELON)))
@@ -159,8 +163,8 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		pvd.singleItem(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getSeed, 1, 1);
 		pvd.square(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getMelonBlock, false);
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getMelonBlock()),
-				Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 9, 1).build(pvd,
-				new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
+				Ingredient.of(CommonTags.TOOLS_KNIFE), getSlice(), 9, 1).build(pvd,
+				FruitsDelight.loc(getName() + "_cutting"));
 	}
 
 	private void buildMelonModel(DataGenContext<Block, FDMelonBlock> ctx, RegistrateBlockstateProvider pvd) {
@@ -194,7 +198,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				pvd.applyExplosionDecay(block,
 						LootItem.lootTableItem(getSlice())
 								.apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
-								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
+								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE))
 								.apply(LimitCount.limitCount(IntRange.upperBound(9))))));
 	}
 
@@ -208,7 +212,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 
 	private static FoodProperties food(int food, float sat, boolean fast) {
 		var ans = new FoodProperties.Builder()
-				.nutrition(food).saturationMod(sat);
+				.nutrition(food).saturationModifier(sat);
 		if (fast) ans.fast();
 		return ans.build();
 	}
@@ -222,7 +226,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		return 14731036;
 	}
 
-	public static void registerColor(RegisterColorHandlersEvent.Block event) {
+	public static void registerColor(RegisterColorHandlersEvent.Block event) {//TODO reg
 		for (FDMelons melon : FDMelons.values()) {
 			event.register(FDMelons::stemColor, melon.getStem());
 			event.register(FDMelons::attachedColor, melon.getAttachedStem());

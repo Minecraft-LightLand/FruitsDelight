@@ -19,7 +19,7 @@ public class FDJeiPlugin implements IModPlugin {
 
 	public static FDJeiPlugin INSTANCE;
 
-	public final ResourceLocation UID = new ResourceLocation(FruitsDelight.MODID, "main");
+	public final ResourceLocation UID = FruitsDelight.loc("main");
 
 	public final CauldronRecipeCategory NO_HEAT = new CauldronRecipeCategory(LangData.JEI_CAULDRON, "cauldron");
 	public final CauldronRecipeCategory HEAT = new CauldronRecipeCategory(LangData.JEI_CAULDRON_HEAT, "cauldron_heated");

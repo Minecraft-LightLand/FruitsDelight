@@ -1,11 +1,11 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
-import dev.xkmc.l2library.base.effects.api.InherentEffect;
+import dev.xkmc.l2core.base.effects.api.InherentEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.minecraftforge.common.util.Lazy;
+import net.neoforged.neoforge.common.util.Lazy;
 
 import java.util.HashSet;
 import java.util.List;

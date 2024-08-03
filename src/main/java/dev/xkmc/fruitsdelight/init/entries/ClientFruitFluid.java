@@ -1,7 +1,7 @@
 package dev.xkmc.fruitsdelight.init.entries;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 
 public record ClientFruitFluid(FruitFluidType type) implements IClientFluidTypeExtensions {
 

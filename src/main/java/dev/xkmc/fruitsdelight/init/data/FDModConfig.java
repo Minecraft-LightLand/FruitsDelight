@@ -1,84 +1,67 @@
 package dev.xkmc.fruitsdelight.init.data;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
-import org.apache.commons.lang3.tuple.Pair;
+import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.l2core.util.ConfigInit;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class FDModConfig {
 
-	public static class Client {
+	public static class Client extends ConfigInit {
 
-		Client(ForgeConfigSpec.Builder builder) {
+		Client(Builder builder) {
+			markPlain();
 		}
 
 	}
 
-	public static class Common {
+	public static class Common extends ConfigInit {
 
-		public final ForgeConfigSpec.DoubleValue fruitsGrowChance;
-		public final ForgeConfigSpec.DoubleValue fruitsDropChance;
-		public final ForgeConfigSpec.DoubleValue flowerDecayChance;
-		public final ForgeConfigSpec.DoubleValue peachGrowChance;
-		public final ForgeConfigSpec.DoubleValue peachFruitChance;
-		public final ForgeConfigSpec.DoubleValue peachDecayChance;
-		public final ForgeConfigSpec.IntValue rageEffectRange;
-		public final ForgeConfigSpec.IntValue healEffectRange;
-		public final ForgeConfigSpec.IntValue alienatingEffectRange;
+		public final ModConfigSpec.DoubleValue fruitsGrowChance;
+		public final ModConfigSpec.DoubleValue fruitsDropChance;
+		public final ModConfigSpec.DoubleValue flowerDecayChance;
+		public final ModConfigSpec.DoubleValue peachGrowChance;
+		public final ModConfigSpec.DoubleValue peachFruitChance;
+		public final ModConfigSpec.DoubleValue peachDecayChance;
+		public final ModConfigSpec.IntValue rageEffectRange;
+		public final ModConfigSpec.IntValue healEffectRange;
+		public final ModConfigSpec.IntValue alienatingEffectRange;
 
-		public final ForgeConfigSpec.BooleanValue enableCauldronRecipe;
-		public final ForgeConfigSpec.BooleanValue enableThirstCompat;
+		public final ModConfigSpec.BooleanValue enableCauldronRecipe;
+		public final ModConfigSpec.BooleanValue enableThirstCompat;
 
-		Common(ForgeConfigSpec.Builder builder) {
-			fruitsGrowChance = builder.comment("Chance for fruits to grow per random tick")
+		Common(Builder builder) {
+			markPlain();
+			fruitsGrowChance = builder.text("Chance for fruits to grow per random tick")
 					.defineInRange("fruitsGrowChance", 0.1, 0, 1);
-			fruitsDropChance = builder.comment("Chance for fruits to drop per random tick")
+			fruitsDropChance = builder.text("Chance for fruits to drop per random tick")
 					.defineInRange("fruitsDropChance", 0.1, 0, 1);
-			flowerDecayChance = builder.comment("Chance for flower to decay when fruits are picked up / dropped")
+			flowerDecayChance = builder.text("Chance for flower to decay when fruits are picked up / dropped")
 					.defineInRange("flowerDecayChance", 0.1, 0, 1);
 
-			peachGrowChance = builder.comment("Chance for peach to grow per random tick")
+			peachGrowChance = builder.text("Chance for peach to grow per random tick")
 					.defineInRange("peachGrowChance", 0.1, 0, 1);
-			peachFruitChance = builder.comment("Chance for peach to grow fruit when stop flowering")
+			peachFruitChance = builder.text("Chance for peach to grow fruit when stop flowering")
 					.defineInRange("peachFruitChance", 0.3, 0, 1);
-			peachDecayChance = builder.comment("Chance for peach to decay when fruiting")
+			peachDecayChance = builder.text("Chance for peach to decay when fruiting")
 					.defineInRange("peachDecayChance", 0.1, 0, 1);
-			rageEffectRange = builder.comment("Effect application range for Rage Aura effect")
+			rageEffectRange = builder.text("Effect application range for Rage Aura effect")
 					.defineInRange("rageEffectRange", 24, 0, 64);
-			healEffectRange = builder.comment("Effect application range for Heal Aura effect")
+			healEffectRange = builder.text("Effect application range for Heal Aura effect")
 					.defineInRange("healEffectRange", 6, 0, 64);
-			alienatingEffectRange = builder.comment("Effect application range for Alienating effect")
+			alienatingEffectRange = builder.text("Effect application range for Alienating effect")
 					.defineInRange("alienatingEffectRange", 12, 0, 64);
-			enableCauldronRecipe = builder.comment("Enable cauldron jam and jello recipe")
+			enableCauldronRecipe = builder.text("Enable cauldron jam and jello recipe")
 					.define("enableCauldronRecipe", true);
-			enableThirstCompat = builder.comment("Enable Thirst Compat")
+			enableThirstCompat = builder.text("Enable Thirst Compat")
 					.define("enableThirstCompat", true);
 		}
 
 	}
 
-	public static final ForgeConfigSpec CLIENT_SPEC;
-	public static final Client CLIENT;
+	public static final Client CLIENT = FruitsDelight.REGISTRATE.registerClient(Client::new);
+	public static final Common COMMON = FruitsDelight.REGISTRATE.registerSynced(Common::new);
 
-	public static final ForgeConfigSpec COMMON_SPEC;
-	public static final Common COMMON;
-
-	static {
-		final Pair<Client, ForgeConfigSpec> client = new ForgeConfigSpec.Builder().configure(Client::new);
-		CLIENT_SPEC = client.getRight();
-		CLIENT = client.getLeft();
-
-		final Pair<Common, ForgeConfigSpec> common = new ForgeConfigSpec.Builder().configure(Common::new);
-		COMMON_SPEC = common.getRight();
-		COMMON = common.getLeft();
-	}
-
-	/**
-	 * Registers any relevant listeners for config
-	 */
 	public static void init() {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_SPEC);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
 	}
 
 

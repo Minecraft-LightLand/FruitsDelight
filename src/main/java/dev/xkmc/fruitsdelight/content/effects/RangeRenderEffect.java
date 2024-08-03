@@ -1,9 +1,9 @@
 package dev.xkmc.fruitsdelight.content.effects;
 
-import dev.xkmc.l2library.base.effects.api.ClientRenderEffect;
-import dev.xkmc.l2library.base.effects.api.DelayedEntityRender;
-import dev.xkmc.l2library.base.effects.api.FirstPlayerRenderEffect;
-import dev.xkmc.l2library.util.Proxy;
+import dev.xkmc.l2core.base.effects.api.ClientRenderEffect;
+import dev.xkmc.l2core.base.effects.api.DelayedEntityRender;
+import dev.xkmc.l2core.base.effects.api.FirstPlayerRenderEffect;
+import dev.xkmc.l2core.util.Proxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.particles.ParticleOptions;
@@ -13,8 +13,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.function.Consumer;
 
@@ -30,7 +30,7 @@ public abstract class RangeRenderEffect extends RangeSearchEffect implements Cli
 		renderEffect(lv, entity);
 	}
 
-	@OnlyIn(Dist.CLIENT)
+	@OnlyIn(Dist.CLIENT)//TODO
 	@Override
 	public void onClientLevelRender(AbstractClientPlayer player, MobEffectInstance ins) {
 		renderEffect(ins.getAmplifier(), player);

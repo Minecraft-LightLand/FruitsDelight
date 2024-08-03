@@ -8,7 +8,7 @@ import dev.xkmc.fruitsdelight.content.block.DurianBlock;
 import dev.xkmc.fruitsdelight.content.item.DurianHelmetItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
-import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
@@ -19,9 +19,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
 import java.util.function.Supplier;
 
@@ -33,7 +33,7 @@ public class Durian {
 
 	public static Supplier<Item> buildItem(String s) {
 		FRUIT = FruitsDelight.REGISTRATE.block(s, p ->
-						new DurianBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion()))
+						new DurianBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion()))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder(ctx.getName())
 						.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/durian_base")))
 						.texture("top", pvd.modLoc("block/durian_top"))
@@ -73,7 +73,7 @@ public class Durian {
 		return FDFood.DURIAN_FLESH.get();
 	}
 
-	public static void registerComposter() {
+	public static void registerComposter() {//TODO
 		ComposterBlock.COMPOSTABLES.put(UPPER.get(), 0.3f);
 		ComposterBlock.COMPOSTABLES.put(LOWER.get(), 0.3f);
 		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.3f);

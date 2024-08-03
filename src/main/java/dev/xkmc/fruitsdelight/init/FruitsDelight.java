@@ -3,7 +3,6 @@ package dev.xkmc.fruitsdelight.init;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.ProviderType;
-import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.ghen.thirst.Thirst;
 import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
@@ -15,33 +14,35 @@ import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
-import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
+import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2library.init.events.EffectSyncEvents;
-import dev.xkmc.l2library.serial.config.PacketHandler;
+import dev.xkmc.l2serial.network.PacketHandler;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.network.NetworkDirection;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 
 @Mod(FruitsDelight.MODID)
-@Mod.EventBusSubscriber(modid = FruitsDelight.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = FruitsDelight.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class FruitsDelight {
 
 	public static final String MODID = "fruitsdelight";
 	public static final Logger LOGGER = LogUtils.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
-	public static final PacketHandler HANDLER = new PacketHandler(new ResourceLocation(MODID, "main"), 1,
-			e -> e.create(BlockEffectToClient.class, NetworkDirection.PLAY_TO_CLIENT)
+	public static final PacketHandler HANDLER = new PacketHandler(MODID, 1,
+			e -> e.create(BlockEffectToClient.class, PacketHandler.NetDir.PLAY_TO_CLIENT)
 	);
 
-	public static final RegistryEntry<CreativeModeTab> TAB =
+	public static final SimpleEntry<CreativeModeTab> TAB =
 			REGISTRATE.buildModCreativeTab("fruits_delight", "Fruits Delight",
 					e -> e.icon(() -> FDTrees.LYCHEE.getFruit().getDefaultInstance()));
 
@@ -67,6 +68,10 @@ public class FruitsDelight {
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::genLang);
 	}
 
+	public static ResourceLocation loc(String id) {
+		return ResourceLocation.fromNamespaceAndPath(MODID, id);
+	}
+
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
@@ -83,7 +88,7 @@ public class FruitsDelight {
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
 
-			if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)){
+			if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)) {
 				ThirstCompat.init();
 			}
 		});

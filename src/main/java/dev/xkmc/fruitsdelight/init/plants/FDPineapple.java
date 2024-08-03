@@ -16,11 +16,10 @@ import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -46,6 +45,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
@@ -66,16 +66,16 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	FDPineapple(int food, float sat, boolean fast) {
 		String name = name().toLowerCase(Locale.ROOT);
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
+				FruitsDelight.loc(name));
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, name));
+				FruitsDelight.loc(name));
 
-		PLANT = FruitsDelight.REGISTRATE.block(name, p -> new PineappleBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)))
+		PLANT = FruitsDelight.REGISTRATE.block(name, p -> new PineappleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)))
 				.blockstate(this::buildPlantModel)
 				.loot(this::buildPlantLoot)
 				.register();
 
-		WILD = FruitsDelight.REGISTRATE.block("wild_" + name, p -> new WildPineappleBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)))
+		WILD = FruitsDelight.REGISTRATE.block("wild_" + name, p -> new WildPineappleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)))
 				.blockstate(this::buildWildModel)
 				.loot(this::buildWildLoot)
 				.item().model((ctx, pvd) -> pvd.generated(ctx, pvd.modLoc("block/" + name + "_wild"))).build()
@@ -132,7 +132,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 						Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 6, 1)
 				.addResult(getSapling())
 				.addResultWithChance(getSapling(), 0.5f)
-				.build(pvd, new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
+				.build(pvd, FruitsDelight.loc(getName() + "_cutting"));
 	}
 
 	public BaseBushBlock getPlant() {
@@ -164,7 +164,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	}
 
 	@Override
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+	public void registerConfigs(BootstrapContext<ConfiguredFeature<?, ?>> ctx) {
 		FeatureUtils.register(ctx, configKey, Feature.RANDOM_PATCH,
 				new RandomPatchConfiguration(24, 5, 3,
 						PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
@@ -174,7 +174,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	}
 
 	@Override
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
+	public void registerPlacements(BootstrapContext<PlacedFeature> ctx) {
 		PlacementUtils.register(ctx, placementKey, ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKey),
 				RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	}
@@ -191,7 +191,7 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 
 	private static FoodProperties food(int food, float sat, boolean fast) {
 		var ans = new FoodProperties.Builder()
-				.nutrition(food).saturationMod(sat);
+				.nutrition(food).saturationModifier(sat);
 		if (fast) ans.fast();
 		return ans.build();
 	}

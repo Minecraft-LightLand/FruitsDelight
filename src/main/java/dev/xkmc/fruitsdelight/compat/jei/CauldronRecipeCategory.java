@@ -15,13 +15,13 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CauldronRecipeCategory extends BaseRecipeCategory<CauldronRecipe, CauldronRecipeCategory> {
 
-	protected static final ResourceLocation BG = new ResourceLocation(FruitsDelight.MODID, "textures/jei/background.png");
+	protected static final ResourceLocation BG = FruitsDelight.loc("textures/jei/background.png");
 
 	private final LangData lang;
 
 
 	public CauldronRecipeCategory(LangData lang, String id) {
-		super(new ResourceLocation(FruitsDelight.MODID, id), CauldronRecipe.class);
+		super(FruitsDelight.loc(id), CauldronRecipe.class);
 		this.lang = lang;
 	}
 

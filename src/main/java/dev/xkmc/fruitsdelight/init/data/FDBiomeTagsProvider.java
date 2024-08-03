@@ -7,11 +7,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -73,7 +72,7 @@ public final class FDBiomeTagsProvider extends BiomeTagsProvider {
 	}
 
 	public static TagKey<Biome> asTag(String name) {
-		return TagKey.create(Registries.BIOME, new ResourceLocation(FruitsDelight.MODID, name));
+		return TagKey.create(Registries.BIOME, FruitsDelight.loc(name));
 	}
 
 	// savanna,savanna_plateau, windswept_savanna

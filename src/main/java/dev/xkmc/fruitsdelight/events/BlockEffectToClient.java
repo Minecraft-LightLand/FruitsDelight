@@ -2,15 +2,15 @@ package dev.xkmc.fruitsdelight.events;
 
 import dev.xkmc.fruitsdelight.content.block.JellyBlock;
 import dev.xkmc.l2serial.network.SerialPacketBase;
-import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.BiConsumer;
 
-@SerialClass
-public class BlockEffectToClient extends SerialPacketBase {
+public record BlockEffectToClient(
+		Block block, int id, Type type
+) implements SerialPacketBase<BlockEffectToClient> {
 
 	public enum Type {
 		JELLY_SLIDE((b, e) -> {
@@ -28,26 +28,8 @@ public class BlockEffectToClient extends SerialPacketBase {
 		}
 	}
 
-	@SerialClass.SerialField
-	public Block block;
-	@SerialClass.SerialField
-	public int id;
-	@SerialClass.SerialField
-	public Type type;
-
-	@Deprecated
-	public BlockEffectToClient() {
-
-	}
-
-	public BlockEffectToClient(Block block, int id, Type type) {
-		this.block = block;
-		this.id = id;
-		this.type = type;
-	}
-
 	@Override
-	public void handle(NetworkEvent.Context context) {
+	public void handle(Player player) {
 		BlockEffectHandler.handle(block, id, type);
 	}
 

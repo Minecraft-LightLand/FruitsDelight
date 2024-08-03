@@ -55,29 +55,29 @@ public class RecipeGen {
 				CuttingBoardRecipeBuilder.cuttingRecipe(FruitType.LEMON.getFruitTag(),
 								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.LEMON_SLICE.item.get(), 4, 1)
 						.addResult(FDBushes.LEMON.getSeed())
-						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "lemon_cutting"));
+						.build(pvd, FruitsDelight.loc("lemon_cutting"));
 
 				CuttingBoardRecipeBuilder.cuttingRecipe(FruitType.ORANGE.getFruitTag(),
 								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.ORANGE_SLICE.item.get(), 4, 1)
-						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "orange_cutting"));
+						.build(pvd, FruitsDelight.loc("orange_cutting"));
 
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDBlocks.FIG_PUDDING.get()),
 								Ingredient.of(ForgeTags.TOOLS_KNIVES), FDFood.FIG_PUDDING_SLICE.item.get(), 4, 1)
-						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "fig_pudding_cutting"));
+						.build(pvd, FruitsDelight.loc("fig_pudding_cutting"));
 
 				CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(FDTrees.DURIAN.getFruit()),
 								Ingredient.of(ForgeTags.TOOLS_AXES), FDFood.DURIAN_FLESH.item.get(), 6, 1)
 						.addResult(Durian.UPPER)
 						.addResult(Durian.LOWER)
 						.addResult(FDTrees.DURIAN.getSapling())
-						.build(pvd, new ResourceLocation(FruitsDelight.MODID, "durian_cutting"));
+						.build(pvd, FruitsDelight.loc("durian_cutting"));
 
 				pvd.singleItemUnfinished(DataIngredient.items(Durian.LOWER.get()), RecipeCategory.MISC,
 						() -> Items.BOWL, 1, 1).save(pvd,
-						new ResourceLocation(FruitsDelight.MODID, "durian_upper_to_bowl"));
+						FruitsDelight.loc("durian_upper_to_bowl"));
 				pvd.singleItemUnfinished(DataIngredient.items(Durian.UPPER.get()), RecipeCategory.MISC,
 						() -> Items.BOWL, 1, 1).save(pvd,
-						new ResourceLocation(FruitsDelight.MODID, "durian_lower_to_bowl"));
+						FruitsDelight.loc("durian_lower_to_bowl"));
 			}
 
 			{

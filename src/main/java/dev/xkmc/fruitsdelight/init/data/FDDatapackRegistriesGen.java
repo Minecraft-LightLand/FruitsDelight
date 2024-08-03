@@ -41,7 +41,7 @@ public class FDDatapackRegistriesGen extends DatapackBuiltinEntriesProvider {
 										  HolderGetter<Biome> biomeGetter,
 										  HolderGetter<PlacedFeature> features) {
 		HolderSet<Biome> set = biomeGetter.getOrThrow(FDBiomeTagsProvider.asTag(tree));
-		ctx.register(ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(FruitsDelight.MODID,
+		ctx.register(ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, FruitsDelight.loc(
 				tree.getName())), new ForgeBiomeModifiers.AddFeaturesBiomeModifier(set,
 				HolderSet.direct(features.getOrThrow(tree.getPlacementKey())),
 				GenerationStep.Decoration.VEGETAL_DECORATION));

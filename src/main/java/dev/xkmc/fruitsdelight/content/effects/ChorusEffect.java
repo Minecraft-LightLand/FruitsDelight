@@ -7,15 +7,13 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.EntityTeleportEvent;
-import org.jetbrains.annotations.Nullable;
+import net.neoforged.neoforge.event.EventHooks;
+import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
 
 public class ChorusEffect extends MobEffect {
 
@@ -24,13 +22,14 @@ public class ChorusEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean isDurationEffectTick(int tick, int lv) {
+	public boolean shouldApplyEffectTickThisTick(int tick, int lv) {
 		return tick == 1;
 	}
 
 	@Override
-	public void applyEffectTick(LivingEntity user, int lv) {
+	public boolean applyEffectTick(LivingEntity user, int lv) {
 		teleport(user);
+		return true;
 	}
 
 	public void teleport(LivingEntity target) {
@@ -50,7 +49,7 @@ public class ChorusEffect extends MobEffect {
 
 			Vec3 vec3 = target.position();
 			level.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(target));
-			EntityTeleportEvent.ChorusFruit event = ForgeEventFactory.onChorusFruitTeleport(target, d3, d4, d5);
+			EntityTeleportEvent.ChorusFruit event = EventHooks.onChorusFruitTeleport(target, d3, d4, d5);
 			if (event.isCanceled()) return;
 			if (target.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true)) {
 				SoundEvent soundevent = target instanceof Fox ? SoundEvents.FOX_TELEPORT : SoundEvents.CHORUS_FRUIT_TELEPORT;

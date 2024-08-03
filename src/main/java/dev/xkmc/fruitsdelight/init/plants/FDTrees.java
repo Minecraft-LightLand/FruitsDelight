@@ -4,11 +4,10 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import dev.xkmc.fruitsdelight.content.block.BaseLeavesBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
@@ -23,7 +22,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraftforge.common.util.Lazy;
+import net.neoforged.neoforge.common.util.Lazy;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
@@ -66,11 +65,11 @@ public enum FDTrees implements FruitPlant<FDTrees> {
 		this.treeConfig = Lazy.of(() -> buildTreeConfig(log, height, false));
 		this.treeConfigWild = Lazy.of(() -> buildTreeConfig(log, height, true));
 		this.configKey = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
+				FruitsDelight.loc("tree/" + name + "_tree"));
 		this.configKeyWild = ResourceKey.create(Registries.CONFIGURED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree_wild"));
+				FruitsDelight.loc("tree/" + name + "_tree_wild"));
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
-				new ResourceLocation(FruitsDelight.MODID, "tree/" + name + "_tree"));
+				FruitsDelight.loc("tree/" + name + "_tree"));
 
 		leaves = height.buildLeave(name, this);
 		var saplingBuilder = FruitsDelight.REGISTRATE.block(
@@ -126,12 +125,12 @@ public enum FDTrees implements FruitPlant<FDTrees> {
 		pot.get().getEmptyPot().addPlant(sapling.getId(), pot);
 	}
 
-	public void registerConfigs(BootstapContext<ConfiguredFeature<?, ?>> ctx) {
+	public void registerConfigs(BootstrapContext<ConfiguredFeature<?, ?>> ctx) {
 		ctx.register(configKey, new ConfiguredFeature<>(Feature.TREE, treeConfig.get()));
 		ctx.register(configKeyWild, new ConfiguredFeature<>(Feature.TREE, treeConfigWild.get()));
 	}
 
-	public void registerPlacements(BootstapContext<PlacedFeature> ctx) {
+	public void registerPlacements(BootstrapContext<PlacedFeature> ctx) {
 		ctx.register(placementKey, new PlacedFeature(
 				ctx.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(configKeyWild),
 				VegetationPlacements.treePlacement(
@@ -154,7 +153,7 @@ public enum FDTrees implements FruitPlant<FDTrees> {
 
 	private static FoodProperties food(int food, float sat, boolean fast) {
 		var ans = new FoodProperties.Builder()
-				.nutrition(food).saturationMod(sat);
+				.nutrition(food).saturationModifier(sat);
 		if (fast) ans.fast();
 		return ans.build();
 	}

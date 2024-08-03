@@ -2,7 +2,7 @@ package dev.xkmc.fruitsdelight.content.effects;
 
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
-import dev.xkmc.l2library.base.effects.EffectUtil;
+import dev.xkmc.l2core.base.effects.EffectUtil;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -45,11 +45,9 @@ public class AlienatingAuraEffect extends RangeRenderEffect {
 	protected void applyEffect(LivingEntity le, LivingEntity target, int amplifier) {
 		if (target.hasEffect(FDEffects.ALIENATING.get())) return;
 		EffectUtil.addEffect(target, new MobEffectInstance(MobEffects.WEAKNESS,
-						40, 0, true, true),
-				EffectUtil.AddReason.SKILL, le);
+				40, 0, true, true), le);
 		EffectUtil.addEffect(target, new MobEffectInstance(FDEffects.DISGUSTED.get(),
-						40, 0, true, true),
-				EffectUtil.AddReason.SKILL, le);
+				40, 0, true, true), le);
 	}
 
 }
