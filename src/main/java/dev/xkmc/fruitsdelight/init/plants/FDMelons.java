@@ -22,9 +22,11 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockAndTintGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.AttachedStemBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -39,13 +41,10 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
@@ -73,6 +72,11 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		this.placementKey = ResourceKey.create(Registries.PLACED_FEATURE,
 				FruitsDelight.loc(name));
 
+		ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, FruitsDelight.loc(name));
+		ResourceKey<Block> stemKey = ResourceKey.create(Registries.BLOCK, FruitsDelight.loc(name + "_stem"));
+		ResourceKey<Block> attachKey = ResourceKey.create(Registries.BLOCK, FruitsDelight.loc("attached_" + name + "_stem"));
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, FruitsDelight.loc(name + "_seeds"));
+
 		melon = FruitsDelight.REGISTRATE
 				.block(name, p -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MELON)))
 				.blockstate(this::buildMelonModel)
@@ -81,7 +85,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				.item().build()
 				.register();
 		stem = FruitsDelight.REGISTRATE
-				.block(name + "_stem", p -> new StemBlock(getMelonBlock(), this::getSeed,
+				.block(name + "_stem", p -> new StemBlock(blockKey, attachKey, itemKey,
 						BlockBehaviour.Properties.ofFullCopy(Blocks.MELON_STEM)))
 				.blockstate(this::buildStemModel)
 				.loot(this::buildStemLoot)
@@ -89,7 +93,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 				.tag(BlockTags.MAINTAINS_FARMLAND, BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 				.register();
 		attachedStem = FruitsDelight.REGISTRATE
-				.block("attached_" + name + "_stem", p -> new AttachedStemBlock(getMelonBlock(), this::getSeed,
+				.block("attached_" + name + "_stem", p -> new AttachedStemBlock(stemKey, blockKey, itemKey,
 						BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_MELON_STEM)))
 				.blockstate(this::buildAttachedStemModel)
 				.loot(this::buildAttachedStemLoot)
