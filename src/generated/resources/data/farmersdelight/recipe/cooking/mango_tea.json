@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "minecraft:leaves"
+    },
+    {
+      "tag": "c:fruits/mango"
+    },
+    {
+      "tag": "c:fruits/mango"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:mango_tea"
+  }
+}

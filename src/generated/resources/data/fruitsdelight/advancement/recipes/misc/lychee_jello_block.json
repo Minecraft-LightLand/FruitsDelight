@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lychee_jello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:lychee_jello"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:lychee_jello_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lychee_jello"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:lychee_jello_block"
+    ]
+  }
+}

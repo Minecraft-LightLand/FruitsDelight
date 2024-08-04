@@ -11,6 +11,6 @@ import java.util.Map;
 @Mixin(AbstractCauldronBlock.class)
 public interface AbstractCauldronBlockAccessor {
 	@Accessor
-	Map<Item, CauldronInteraction> getInteractions();
+	CauldronInteraction.InteractionMap getInteractions();
 
 }

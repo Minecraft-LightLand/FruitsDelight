@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#fruitsdelight:plants/persimmon_biomes",
+  "features": "fruitsdelight:tree/persimmon_tree",
+  "step": "vegetal_decoration"
+}

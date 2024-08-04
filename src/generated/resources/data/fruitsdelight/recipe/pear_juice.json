@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "l2core:potion",
+      "potion": "minecraft:water"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:fruits/pear"
+    },
+    {
+      "tag": "c:fruits/pear"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:pear_juice"
+  }
+}

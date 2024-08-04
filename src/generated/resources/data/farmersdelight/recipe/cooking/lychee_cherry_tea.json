@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:cherry_leaves"
+    },
+    {
+      "tag": "c:fruits/lychee"
+    },
+    {
+      "tag": "c:fruits/lychee"
+    },
+    {
+      "tag": "c:fruits/lychee"
+    },
+    {
+      "tag": "c:fruits/lychee"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:lychee_cherry_tea"
+  }
+}

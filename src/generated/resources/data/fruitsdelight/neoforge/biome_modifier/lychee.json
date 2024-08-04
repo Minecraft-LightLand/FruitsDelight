@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#fruitsdelight:plants/lychee_biomes",
+  "features": "fruitsdelight:tree/lychee_tree",
+  "step": "vegetal_decoration"
+}

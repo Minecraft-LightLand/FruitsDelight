@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_jelly"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:hamimelon_jelly_block"
+  }
+}

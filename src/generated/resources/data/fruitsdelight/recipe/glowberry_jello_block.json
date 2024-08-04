@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    },
+    {
+      "item": "fruitsdelight:glowberry_jello"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:glowberry_jello_block"
+  }
+}

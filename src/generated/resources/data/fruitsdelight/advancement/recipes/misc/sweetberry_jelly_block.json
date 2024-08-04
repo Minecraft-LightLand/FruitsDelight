@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sweetberry_jelly": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:sweetberry_jelly"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:sweetberry_jelly_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sweetberry_jelly"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:sweetberry_jelly_block"
+    ]
+  }
+}

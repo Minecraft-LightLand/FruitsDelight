@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_durian_jello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:durian_jello"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:durian_jello_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_durian_jello"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:durian_jello_block"
+    ]
+  }
+}

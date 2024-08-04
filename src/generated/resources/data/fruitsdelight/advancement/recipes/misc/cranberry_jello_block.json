@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cranberry_jello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:cranberry_jello"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:cranberry_jello_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cranberry_jello"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:cranberry_jello_block"
+    ]
+  }
+}

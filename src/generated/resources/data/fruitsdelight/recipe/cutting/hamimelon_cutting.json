@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hamimelon"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 9,
+        "id": "fruitsdelight:hamimelon_slice"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

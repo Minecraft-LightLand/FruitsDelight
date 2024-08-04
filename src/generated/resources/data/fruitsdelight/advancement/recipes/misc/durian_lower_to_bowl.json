@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_durian_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:durian_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:durian_lower_to_bowl"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_durian_helmet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:durian_lower_to_bowl"
+    ]
+  }
+}

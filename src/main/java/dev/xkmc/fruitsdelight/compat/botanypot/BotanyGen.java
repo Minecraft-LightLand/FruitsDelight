@@ -15,7 +15,7 @@ import java.util.function.BiConsumer;
 
 public class BotanyGen extends RecordDataProvider {
 
-	private static final String PATH = FruitsDelight.MODID + "/recipes/botanypots/";
+	private static final String PATH = FruitsDelight.MODID + "/recipe/botanypots/";
 
 	public BotanyGen(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd) {
 		super(output, pvd, "Botany Tree Gen");

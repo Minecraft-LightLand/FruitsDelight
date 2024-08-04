@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    },
+    {
+      "item": "fruitsdelight:chorus_jello"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:chorus_jello_block"
+  }
+}

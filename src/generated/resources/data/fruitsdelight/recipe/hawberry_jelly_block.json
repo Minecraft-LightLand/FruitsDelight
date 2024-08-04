@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    },
+    {
+      "item": "fruitsdelight:hawberry_jelly"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:hawberry_jelly_block"
+  }
+}

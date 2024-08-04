@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.1,
+  "ingredient": {
+    "tag": "c:fruits/pear"
+  },
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:baked_pear"
+  }
+}

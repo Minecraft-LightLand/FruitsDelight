@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#fruitsdelight:plants/orange_biomes",
-  "features": "fruitsdelight:tree/orange_tree",
-  "step": "vegetal_decoration"
-}

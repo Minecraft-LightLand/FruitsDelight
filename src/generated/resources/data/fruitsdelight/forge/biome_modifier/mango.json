@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#fruitsdelight:plants/mango_biomes",
-  "features": "fruitsdelight:tree/mango_tree",
-  "step": "vegetal_decoration"
-}

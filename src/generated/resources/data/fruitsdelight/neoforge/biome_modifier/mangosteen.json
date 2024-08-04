@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#fruitsdelight:plants/mangosteen_biomes",
+  "features": "fruitsdelight:tree/mangosteen_tree",
+  "step": "vegetal_decoration"
+}

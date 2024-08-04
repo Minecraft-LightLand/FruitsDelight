@@ -1,0 +1,37 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:durian"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 6,
+        "id": "fruitsdelight:durian_flesh"
+      }
+    },
+    {
+      "item": {
+        "count": 1,
+        "id": "fruitsdelight:durian_helmet"
+      }
+    },
+    {
+      "item": {
+        "count": 1,
+        "id": "fruitsdelight:durian_shell"
+      }
+    },
+    {
+      "item": {
+        "count": 1,
+        "id": "fruitsdelight:durian_sapling"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "minecraft:axes"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    },
+    {
+      "item": "fruitsdelight:apple_jelly"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:apple_jelly_block"
+  }
+}

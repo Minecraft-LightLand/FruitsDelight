@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#fruitsdelight:plants/pineapple_biomes",
+  "features": "fruitsdelight:pineapple",
+  "step": "vegetal_decoration"
+}

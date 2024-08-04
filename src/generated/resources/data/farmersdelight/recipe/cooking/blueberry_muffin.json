@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "c:fruits/blueberry"
+    },
+    {
+      "tag": "c:fruits/blueberry"
+    },
+    {
+      "tag": "c:foods/dough"
+    },
+    {
+      "tag": "c:foods/milk"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 2,
+    "id": "fruitsdelight:blueberry_muffin"
+  }
+}

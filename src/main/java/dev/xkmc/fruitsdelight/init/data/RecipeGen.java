@@ -22,6 +22,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
+import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
@@ -202,12 +203,14 @@ public class RecipeGen {
 						.addIngredient(Ingredient.of(CommonTags.CROPS_RICE), 3)
 						.addIngredient(CommonTags.FOODS_CABBAGE)
 						.addIngredient(Tags.Items.EGGS)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGO_MILKSHAKE.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
 						.addIngredient(FDFood.MANGO_MILKSHAKE.getFruitTag())
 						.addIngredient(CommonTags.FOODS_MILK)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_CUSTARD.item, 1, 200, 0.1f, Items.GLASS_BOTTLE)
@@ -215,6 +218,7 @@ public class RecipeGen {
 						.addIngredient(CommonTags.FOODS_MILK)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.DRINKS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_PIE.item, 2, 200, 0.1f)
@@ -222,6 +226,7 @@ public class RecipeGen {
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.DURIAN_PIE.item, 2, 200, 0.1f)
@@ -229,6 +234,7 @@ public class RecipeGen {
 						.addIngredient(ModItems.PIE_CRUST.get())
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LEMON_TART.item, 2, 200, 0.1f)
@@ -237,6 +243,7 @@ public class RecipeGen {
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
 						.addIngredient(CommonTags.FOODS_MILK)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_TART.item, 2, 200, 0.1f)
@@ -245,6 +252,7 @@ public class RecipeGen {
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
 						.addIngredient(CommonTags.FOODS_MILK)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.BLUEBERRY_MUFFIN.item, 2, 200, 0.1f)
@@ -253,6 +261,7 @@ public class RecipeGen {
 						.addIngredient(CommonTags.FOODS_MILK)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.CRANBERRY_MUFFIN.item, 2, 200, 0.1f)
@@ -261,46 +270,54 @@ public class RecipeGen {
 						.addIngredient(CommonTags.FOODS_MILK)
 						.addIngredient(Tags.Items.EGGS)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_CHICKEN.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(CommonTags.FOODS_RAW_CHICKEN)
 						.addIngredient(FDFood.ORANGE_SLICE.item.get(), 4)
 						.addIngredient(Items.SUGAR)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.FIG_CHICKEN_STEW.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(CommonTags.FOODS_RAW_CHICKEN)
 						.addIngredient(FDFood.FIG_CHICKEN_STEW.getFruitTag(), 2)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.ORANGE_MARINATED_PORK.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(CommonTags.FOODS_RAW_PORK)
 						.addIngredient(FDFood.ORANGE_SLICE.item.get(), 4)
 						.addIngredient(CommonTags.FOODS_CABBAGE)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PEAR_WITH_ROCK_SUGAR.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(Items.SUGAR, 4)
 						.addIngredient(FDFood.PEAR_WITH_ROCK_SUGAR.getFruitTag(), 2)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.MANGOSTEEN_CAKE.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(Items.WHEAT, 2)
 						.addIngredient(Items.SUGAR, 2)
 						.addIngredient(FDFood.MANGOSTEEN_CAKE.getFruitTag(), 2)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.LYCHEE_CHICKEN.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(CommonTags.FOODS_RAW_CHICKEN)
 						.addIngredient(FDFood.LYCHEE_CHICKEN.getFruitTag(), 4)
 						.addIngredient(CommonTags.FOODS_CABBAGE)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 
 				CookingPotRecipeBuilder.cookingPotRecipe(FDFood.PINEAPPLE_MARINATED_PORK.item, 1, 200, 0.1f, Items.BOWL)
 						.addIngredient(CommonTags.FOODS_RAW_PORK)
 						.addIngredient(FDFood.PINEAPPLE_MARINATED_PORK.getFruitTag(), 4)
 						.addIngredient(Items.CARROT)
+						.setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
 						.build(pvd);
 			}
 
@@ -327,6 +344,7 @@ public class RecipeGen {
 				.addIngredient(jelly.getFruitTag(), jelly.jellyCost)
 				.addIngredient(Items.SUGAR)
 				.addIngredient(FDFood.LEMON_SLICE.item.get())
+				.setRecipeBookTab(CookingPotRecipeBookTab.MISC)
 				.build(pvd);
 	}
 

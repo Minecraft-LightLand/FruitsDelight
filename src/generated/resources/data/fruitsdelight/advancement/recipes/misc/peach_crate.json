@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_peach": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:peach"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:peach_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_peach"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:peach_crate"
+    ]
+  }
+}

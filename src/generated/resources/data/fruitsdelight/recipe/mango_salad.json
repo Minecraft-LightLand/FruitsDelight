@@ -1,0 +1,19 @@
+{
+  "type": "fruitsdelight:jelly_craft_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "c:fruits/mango"
+    },
+    {
+      "tag": "fruitsdelight:jelly"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:mango_salad"
+  }
+}

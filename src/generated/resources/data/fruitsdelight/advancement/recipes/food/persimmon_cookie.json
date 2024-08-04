@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_persimmon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:persimmon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:persimmon_cookie"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_persimmon"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:persimmon_cookie"
+    ]
+  }
+}

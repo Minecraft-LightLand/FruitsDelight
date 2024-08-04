@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#fruitsdelight:plants/lemon_biomes",
-  "features": "fruitsdelight:lemon_tree",
-  "step": "vegetal_decoration"
-}

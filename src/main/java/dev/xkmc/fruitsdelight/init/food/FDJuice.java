@@ -19,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 
 import java.util.List;
@@ -108,6 +109,7 @@ public enum FDJuice implements IFDFood {
 			var e = CookingPotRecipeBuilder.cookingPotRecipe(item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			type.list.forEach(e::addIngredient);
 			e.addIngredient(getFruitTag(), count);
+			e.setRecipeBookTab(CookingPotRecipeBookTab.DRINKS);
 			e.build(pvd);
 		} else {
 			var e = RecipeGen.unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item)::unlockedBy, getFruit());

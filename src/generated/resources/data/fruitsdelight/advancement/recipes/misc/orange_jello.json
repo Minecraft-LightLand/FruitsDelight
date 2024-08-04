@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_jello_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:orange_jello_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:orange_jello"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange_jello_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:orange_jello"
+    ]
+  }
+}

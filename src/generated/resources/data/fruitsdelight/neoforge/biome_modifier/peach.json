@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#fruitsdelight:plants/peach_biomes",
+  "features": "fruitsdelight:tree/peach_tree",
+  "step": "vegetal_decoration"
+}

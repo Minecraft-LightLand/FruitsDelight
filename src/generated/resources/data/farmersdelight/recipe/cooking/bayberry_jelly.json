@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "c:fruits/bayberry"
+    },
+    {
+      "tag": "c:fruits/bayberry"
+    },
+    {
+      "tag": "c:fruits/bayberry"
+    },
+    {
+      "tag": "c:fruits/bayberry"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:lemon_slice"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:bayberry_jelly"
+  }
+}

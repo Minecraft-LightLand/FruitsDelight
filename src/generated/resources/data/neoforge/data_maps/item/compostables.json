@@ -1,0 +1,224 @@
+{
+  "values": {
+    "fruitsdelight:apple_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:apple_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:bayberry": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:bayberry_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:bayberry_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:blueberry": {
+      "can_villager_compost": true,
+      "chance": 0.15
+    },
+    "fruitsdelight:blueberry_bush": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:cranberry": {
+      "can_villager_compost": true,
+      "chance": 0.15
+    },
+    "fruitsdelight:durian": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:durian_flesh": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:durian_helmet": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:durian_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:durian_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:durian_shell": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:fig": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:fig_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:fig_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:hamimelon": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:hamimelon_seeds": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:hamimelon_slice": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "fruitsdelight:hawberry": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:hawberry_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:hawberry_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:kiwi": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:kiwi_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:kiwi_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:lemon": {
+      "can_villager_compost": true,
+      "chance": 0.35
+    },
+    "fruitsdelight:lemon_seeds": {
+      "can_villager_compost": true,
+      "chance": 0.15
+    },
+    "fruitsdelight:lemon_tree": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:lychee": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:lychee_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:lychee_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:mango": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:mango_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:mango_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:mangosteen": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:mangosteen_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:mangosteen_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:orange": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:orange_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:orange_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:peach": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:peach_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:peach_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:pear": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:pear_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:pear_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:persimmon": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:persimmon_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:persimmon_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:pineapple": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "fruitsdelight:pineapple_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "fruitsdelight:pineapple_slice": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "fruitsdelight:wild_pineapple": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "minecraft:apple": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    }
+  }
+}

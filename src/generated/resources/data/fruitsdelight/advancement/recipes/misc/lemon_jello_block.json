@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lemon_jello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:lemon_jello"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:lemon_jello_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lemon_jello"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:lemon_jello_block"
+    ]
+  }
+}

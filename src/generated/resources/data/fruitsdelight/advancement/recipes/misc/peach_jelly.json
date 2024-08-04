@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_peach_jelly_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:peach_jelly_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:peach_jelly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_peach_jelly_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:peach_jelly"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bayberry_jello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:bayberry_jello"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:bayberry_jello_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bayberry_jello"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:bayberry_jello_block"
+    ]
+  }
+}

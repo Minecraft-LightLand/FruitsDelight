@@ -30,7 +30,6 @@ public class FDBlocks {
 	public static final BlockEntry<JellyBlock>[] JELLY;
 	public static final BlockEntry<JelloBlock>[] JELLO;
 
-
 	static {
 
 		PINEAPPLE_RICE = FruitsDelight.REGISTRATE.block("pineapple_fried_rice",
@@ -75,7 +74,7 @@ public class FDBlocks {
 		FIG_PUDDING = FruitsDelight.REGISTRATE.block("fig_pudding",
 						p -> new FigPuddingBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_WOOL)))
 				.blockstate((ctx, pvd) -> pvd.horizontalBlock(ctx.get(), state -> {
-					int serve = state.getValue(MangosteenCakeBlock.BITES);
+					int serve = state.getValue(FigPuddingBlock.BITES);
 					String suffix = "_" + serve;
 					return pvd.models().getBuilder(ctx.getName() + suffix)
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/fig_pudding_base" + suffix)))

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "M": {
+      "item": "fruitsdelight:hamimelon_slice"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " MM",
+    "IMM",
+    "SI "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:hamimelon_popsicle"
+  }
+}

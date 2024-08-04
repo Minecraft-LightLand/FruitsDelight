@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_persimmon_jello": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:persimmon_jello"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:persimmon_jello_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_persimmon_jello"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:persimmon_jello_block"
+    ]
+  }
+}

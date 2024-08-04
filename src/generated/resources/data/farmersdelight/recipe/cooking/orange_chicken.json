@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_chicken"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "fruitsdelight:orange_slice"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:orange_chicken"
+  }
+}

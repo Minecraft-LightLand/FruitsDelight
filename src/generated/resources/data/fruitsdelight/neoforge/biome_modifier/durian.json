@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#fruitsdelight:plants/durian_biomes",
+  "features": "fruitsdelight:tree/durian_tree",
+  "step": "vegetal_decoration"
+}
