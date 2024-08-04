@@ -78,7 +78,7 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 			State st = state.getValue(STATE);
 			if (st == State.LEAVES) {
 				if (state.getValue(FERTILE) && state.getValue(DISTANCE) == 1) {
-					boolean grow = random.nextDouble() < FDModConfig.COMMON.peachGrowChance.get();
+					boolean grow = random.nextDouble() < FDModConfig.SERVER.peachGrowChance.get();
 					if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 						var list = scanLeaves(level, pos);
 						for (var e : list) {
@@ -92,7 +92,7 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 				}
 			}
 			if (st == State.FLOWERS) {
-				boolean grow = random.nextDouble() < FDModConfig.COMMON.peachGrowChance.get();
+				boolean grow = random.nextDouble() < FDModConfig.SERVER.peachGrowChance.get();
 				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					var list = scanLeaves(level, pos);
 					for (var e : list) {
@@ -100,11 +100,11 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 						if (est.getValue(STATE) == State.FRUITS) {
 							doDropFruit(est, level, e);
 						}
-						if (random.nextDouble() < FDModConfig.COMMON.peachFruitChance.get())
+						if (random.nextDouble() < FDModConfig.SERVER.peachFruitChance.get())
 							est = est.setValue(STATE, State.FRUITS);
 						else est = est.setValue(STATE, State.LEAVES);
 						if (est.getValue(DISTANCE) > 1 || e.equals(pos) &&
-								random.nextDouble() < FDModConfig.COMMON.flowerDecayChance.get()) {
+								random.nextDouble() < FDModConfig.SERVER.flowerDecayChance.get()) {
 							est = est.setValue(FERTILE, false);
 						}
 						level.setBlockAndUpdate(e, est);
@@ -115,7 +115,7 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 				return;
 			}
 			if (st == State.FRUITS) {
-				if (random.nextDouble() < FDModConfig.COMMON.fruitsDropChance.get()) {
+				if (random.nextDouble() < FDModConfig.SERVER.fruitsDropChance.get()) {
 					dropFruit(state, level, pos, random);
 				}
 				return;

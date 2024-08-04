@@ -7,7 +7,6 @@ import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
@@ -57,7 +56,7 @@ public abstract class BaseLeavesBlock extends LeavesBlock {
 
 	@Nullable
 	protected BlockPos findNextFlowerTarget(Level level, BlockPos pos, Predicate<BlockState> pred) {
-		if (FDModConfig.COMMON.flowerDecayChance.get() > level.getRandom().nextDouble())
+		if (FDModConfig.SERVER.flowerDecayChance.get() > level.getRandom().nextDouble())
 			return null;
 		var builder = SimpleWeightedRandomList.<BlockPos>builder();
 		for (var e : Direction.values()) {

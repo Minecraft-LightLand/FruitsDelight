@@ -140,7 +140,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 		if (!state.getValue(PERSISTENT) && !decaying(state)) {
 			Fruit st = state.getValue(FRUIT);
 			if (st == Fruit.FLOWERS) {
-				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
+				boolean grow = random.nextDouble() < FDModConfig.SERVER.fruitsGrowChance.get();
 				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.SMALL));
 					CommonHooks.fireCropGrowPost(level, pos, state);
@@ -148,9 +148,9 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 				}
 			}
 			if (st == Fruit.SMALL) {
-				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
+				boolean grow = random.nextDouble() < FDModConfig.SERVER.fruitsGrowChance.get();
 				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
-					if (FDModConfig.COMMON.fruitsDropChance.get() < FDModConfig.COMMON.fruitsGrowChance.get()) {
+					if (FDModConfig.SERVER.fruitsDropChance.get() < FDModConfig.SERVER.fruitsGrowChance.get()) {
 						level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.FRUITS));
 					} else {
 						dropFruit(state, level, pos, random);
@@ -160,7 +160,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 				}
 			}
 			if (st == Fruit.FRUITS) {
-				if (random.nextDouble() < FDModConfig.COMMON.fruitsDropChance.get()) {
+				if (random.nextDouble() < FDModConfig.SERVER.fruitsDropChance.get()) {
 					dropFruit(state, level, pos, random);
 					return;
 				}
@@ -168,7 +168,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 
 			Leaf leaf = state.getValue(LEAF);
 			if (st == Fruit.NONE && leaf == Leaf.BUDDING) {
-				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
+				boolean grow = random.nextDouble() < FDModConfig.SERVER.fruitsGrowChance.get();
 				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					if (createFlower(state, level, pos, random)) {
 						level.setBlockAndUpdate(pos, state.setValue(LEAF, Leaf.LEAF));

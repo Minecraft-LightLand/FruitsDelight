@@ -22,7 +22,7 @@ public class AlienatingAuraEffect extends RangeRenderEffect {
 	}
 
 	protected int getRange() {
-		return FDModConfig.COMMON.alienatingEffectRange.get();
+		return FDModConfig.SERVER.alienatingEffectRange.get();
 	}
 
 	@Override

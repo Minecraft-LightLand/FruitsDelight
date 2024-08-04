@@ -19,7 +19,7 @@ public class RageAuraEffect extends RangeRenderEffect {
 	}
 
 	protected int getRange() {
-		return FDModConfig.COMMON.rageEffectRange.get();
+		return FDModConfig.SERVER.rageEffectRange.get();
 	}
 
 	@Override

@@ -19,7 +19,7 @@ public class HealAuraEffect extends RangeRenderEffect {
 	}
 
 	protected int getRange() {
-		return FDModConfig.COMMON.healEffectRange.get();
+		return FDModConfig.SERVER.healEffectRange.get();
 	}
 
 	@Override

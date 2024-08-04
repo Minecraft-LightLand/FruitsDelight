@@ -84,7 +84,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 		if (!state.getValue(PERSISTENT) && !decaying(state)) {
 			State st = state.getValue(STATE);
 			if (st == State.FLOWERS) {
-				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
+				boolean grow = random.nextDouble() < FDModConfig.SERVER.fruitsGrowChance.get();
 				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					level.setBlockAndUpdate(pos, state.setValue(STATE, State.FRUITS));
 					var next = findNextFlowerTarget(level, pos,
@@ -98,7 +98,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 				}
 			}
 			if (st == State.FRUITS) {
-				if (random.nextDouble() < FDModConfig.COMMON.fruitsDropChance.get()) {
+				if (random.nextDouble() < FDModConfig.SERVER.fruitsDropChance.get()) {
 					dropFruit(state, level, pos, random);
 					return;
 				}
