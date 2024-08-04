@@ -4,7 +4,7 @@ import dev.xkmc.fruitsdelight.content.cauldrons.CauldronRecipe;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.food.FDCauldrons;
-import dev.xkmc.l2library.serial.recipe.BaseRecipeCategory;
+import dev.xkmc.l2core.compat.jei.BaseRecipeCategory;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.helpers.IGuiHelper;

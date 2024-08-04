@@ -33,8 +33,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.Locale;
 
@@ -147,21 +147,21 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 			Fruit st = state.getValue(FRUIT);
 			if (st == Fruit.FLOWERS) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
-				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.SMALL));
-					ForgeHooks.onCropsGrowPost(level, pos, state);
+					CommonHooks.fireCropGrowPost(level, pos, state);
 					return;
 				}
 			}
 			if (st == Fruit.SMALL) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
-				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					if (FDModConfig.COMMON.fruitsDropChance.get() < FDModConfig.COMMON.fruitsGrowChance.get()) {
 						level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.FRUITS));
 					} else {
 						dropFruit(state, level, pos, random);
 					}
-					ForgeHooks.onCropsGrowPost(level, pos, state);
+					CommonHooks.fireCropGrowPost(level, pos, state);
 					return;
 				}
 			}
@@ -175,7 +175,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 			Leaf leaf = state.getValue(LEAF);
 			if (st == Fruit.NONE && leaf == Leaf.BUDDING) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
-				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					if (createFlower(state, level, pos, random)) {
 						level.setBlockAndUpdate(pos, state.setValue(LEAF, Leaf.LEAF));
 						var next = findNextFlowerTarget(level, pos,

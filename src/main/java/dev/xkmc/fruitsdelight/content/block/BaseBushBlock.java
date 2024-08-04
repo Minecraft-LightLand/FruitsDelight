@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -57,6 +58,11 @@ public class BaseBushBlock extends BushBlock implements BonemealableBlock {
 	public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
 		int i = Math.min(MAX_AGE, state.getValue(AGE) + 1);
 		level.setBlock(pos, state.setValue(AGE, i), 2);
+	}
+
+	@Override
+	protected MapCodec<? extends BushBlock> codec() {
+		return null;//TODO
 	}
 
 }

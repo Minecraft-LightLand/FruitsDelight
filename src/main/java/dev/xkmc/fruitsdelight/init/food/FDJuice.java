@@ -10,11 +10,9 @@ import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2core.serial.ingredients.PotionIngredient;
-import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -40,8 +38,8 @@ public enum FDJuice implements IFDFood {
 	BAYBERRY_SOUP(FruitType.BAYBERRY, Type.SOUP),
 	KIWI_JUICE(FruitType.KIWI, Type.JUICE),
 	BELLINI_COCKTAIL(FruitType.PEACH, Type.ICED,
-			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
-			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
+			new EffectEntry(FDEffects.HEAL_AURA, 200),
+			new EffectEntry(MobEffects.CONFUSION, 100)),
 
 	;
 
@@ -114,7 +112,7 @@ public enum FDJuice implements IFDFood {
 		} else {
 			var e = RecipeGen.unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item)::unlockedBy, getFruit());
 			if (type.category.waterCraft) {
-				e.requires(new PotionIngredient(Potions.WATER));
+				e.requires(PotionIngredient.of(Potions.WATER));
 			}
 			type.list.forEach(e::requires);
 			e.requires(getFruitTag(), count);

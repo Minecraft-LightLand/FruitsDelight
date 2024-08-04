@@ -5,18 +5,20 @@ import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import dev.xkmc.l2library.serial.config.RecordDataProvider;
-import net.minecraft.data.DataGenerator;
+import dev.xkmc.l2core.serial.config.RecordDataProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 public class BotanyGen extends RecordDataProvider {
 
 	private static final String PATH = FruitsDelight.MODID + "/recipes/botanypots/";
 
-	public BotanyGen(DataGenerator generator) {
-		super(generator, "Botany Tree Gen");
+	public BotanyGen(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd) {
+		super(output, pvd, "Botany Tree Gen");
 	}
 
 	@Override

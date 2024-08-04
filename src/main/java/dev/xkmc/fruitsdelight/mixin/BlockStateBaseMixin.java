@@ -30,7 +30,7 @@ public abstract class BlockStateBaseMixin {
 		if (!is(BlockTags.LEAVES)) return;
 		if (ctx instanceof EntityCollisionContext ectx &&
 				ectx.getEntity() instanceof Projectile proj &&
-				proj.getTags().contains(FDEffects.LEAF_PIERCING.getId().toString())) {
+				proj.getTags().contains(FDEffects.LEAF_PIERCING.key().location().toString())) {
 			cir.setReturnValue(Shapes.empty());
 		}
 	}

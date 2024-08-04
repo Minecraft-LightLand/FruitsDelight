@@ -28,10 +28,10 @@ public class FoodDataMixin implements FoodDataAccessor {
 	}
 
 	@Inject(at = @At("HEAD"), method = "eat(IF)V")
-	public void fruitsdelight$eat(int food, float satMod, CallbackInfo ci, @Local LocalFloatRef sat) {
+	public void fruitsdelight$eat(int food, float satMod, CallbackInfo ci, @Local(argsOnly = true) LocalFloatRef sat) {
 		int diff = food + foodLevel - 20;
 		if (diff <= 0) return;
-		if (fruitsdelight$player == null || !fruitsdelight$player.hasEffect(FDEffects.DIGESTING.get())) return;
+		if (fruitsdelight$player == null || !fruitsdelight$player.hasEffect(FDEffects.DIGESTING)) return;
 		sat.set(sat.get() + diff / 2f / food);
 	}
 

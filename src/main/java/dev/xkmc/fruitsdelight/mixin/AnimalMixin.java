@@ -19,7 +19,7 @@ public abstract class AnimalMixin extends AgeableMob {
 
 	@Inject(at = @At("HEAD"), method = "canFallInLove", cancellable = true)
 	public void fruitsdelight$canFallInLove$durian(CallbackInfoReturnable<Boolean> cir) {
-		if (hasEffect(FDEffects.DISGUSTED.get())) {
+		if (hasEffect(FDEffects.DISGUSTED)) {
 			cir.setReturnValue(false);
 		}
 	}

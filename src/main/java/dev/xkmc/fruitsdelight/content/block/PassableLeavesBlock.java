@@ -32,8 +32,8 @@ import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableConditio
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.Locale;
 
@@ -93,7 +93,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 			State st = state.getValue(STATE);
 			if (st == State.FLOWERS) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.fruitsGrowChance.get();
-				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					level.setBlockAndUpdate(pos, state.setValue(STATE, State.FRUITS));
 					var next = findNextFlowerTarget(level, pos,
 							e -> !e.getValue(PERSISTENT) && e.getValue(STATE) == State.LEAVES);
@@ -101,7 +101,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 						var ns = level.getBlockState(next);
 						level.setBlockAndUpdate(next, ns.setValue(STATE, State.FLOWERS));
 					}
-					ForgeHooks.onCropsGrowPost(level, pos, state);
+					CommonHooks.fireCropGrowPost(level, pos, state);
 					return;
 				}
 			}
@@ -121,7 +121,7 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return state.getValue(PERSISTENT) || state.getValue(STATE) == State.FLOWERS;
 	}
 

@@ -2,7 +2,6 @@ package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import com.tterrag.registrate.util.nullness.NonNullFunction;
 import dev.xkmc.fruitsdelight.content.cauldrons.*;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.Locale;
+import java.util.function.BiFunction;
 
 public class FDCauldrons {
 
@@ -36,9 +36,9 @@ public class FDCauldrons {
 		for (int i = 0; i < size; i++) {
 			FruitType type = FruitType.values()[i];
 			String name = type.name().toLowerCase(Locale.ROOT);
-			FRUIT[i] = simple(name + "_cauldron", properties -> new FruitCauldronBlock(properties, type));
-			JELLY[i] = simple(name + "_jelly_cauldron", properties -> new JellyCauldronBlock(properties, type));
-			JELLO[i] = simple(name + "_jello_cauldron", properties -> new JellyCauldronBlock(properties, type));
+			FRUIT[i] = simple(name + "_cauldron", (p, s) -> new FruitCauldronBlock(p, type, s));
+			JELLY[i] = simple(name + "_jelly_cauldron", (p, s) -> new JellyCauldronBlock(p, type, s));
+			JELLO[i] = simple(name + "_jello_cauldron", (p, s) -> new JellyCauldronBlock(p, type, s));
 		}
 		FAKE_CAULDRON = FruitsDelight.REGISTRATE.item("dummy_cauldron", Item::new)
 				.lang("Water Cauldron")
@@ -83,9 +83,9 @@ public class FDCauldrons {
 			CauldronRecipe.create(LEMON.get(), type.getFruit(), 12 / level, FDCauldronInteraction.withHeat(state ->
 							fruit.defaultBlockState().setValue(fruitProp, level)),
 					fruit.asItem());
-			fruit.getInteractions().put(type.getFruit(), FDCauldronInteraction.withHeat(state ->
+			fruit.getInteractions().map().put(type.getFruit(), FDCauldronInteraction.withHeat(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + level))));
-			fruit.getInteractions().put(type.getJelly(), FDCauldronInteraction.of(state ->
+			fruit.getInteractions().map().put(type.getJelly(), FDCauldronInteraction.of(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + 4))));
 			CauldronRecipe.create(fruit, Items.SUGAR, 1, FDCauldronInteraction.withHeat(state ->
 							state.getValue(fruitProp) == max ? jelly.defaultBlockState() : null),
@@ -110,9 +110,11 @@ public class FDCauldrons {
 		DispenserBlock.registerBehavior(FDFood.LEMON_SLICE.item.get(), new CauldronDispenseBehavior());
 	}
 
-	private static <T extends FDCauldronBlock> BlockEntry<T> simple(String id, NonNullFunction<BlockBehaviour.Properties, T> factory) {
-		return FruitsDelight.REGISTRATE.block(id, p -> factory.apply(BlockBehaviour.Properties.copy(Blocks.WATER_CAULDRON)))
-				.blockstate((ctx, pvd) -> ctx.get().build(ctx, pvd))
+	private static <T extends FDCauldronBlock> BlockEntry<T> simple(String id, BiFunction<BlockBehaviour.Properties, String, T> factory) {
+		return FruitsDelight.REGISTRATE.block(id, p -> factory.apply(
+						BlockBehaviour.Properties.ofFullCopy(Blocks.WATER_CAULDRON),
+						FruitsDelight.MODID + "_" + id
+				)).blockstate((ctx, pvd) -> ctx.get().build(ctx, pvd))
 				.loot((pvd, block) -> pvd.dropOther(block, Items.CAULDRON))
 				.color(() -> () -> CauldronRenderHandler::getBlockColor)
 				.item().removeTab(FruitsDelight.TAB.getKey())

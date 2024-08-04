@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.CommonHooks;
 
 import javax.annotation.Nullable;
 
@@ -57,9 +57,9 @@ public abstract class DoubleBushBlock extends DoublePlantBlock implements Boneme
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
 		int i = state.getValue(AGE);
 		if (i < MAX_AGE && level.getRawBrightness(pos.above(), 0) >= 9 &&
-				ForgeHooks.onCropsGrowPre(level, pos, state, rand.nextInt(5) == 0)) {
+				CommonHooks.canCropGrow(level, pos, state, rand.nextInt(5) == 0)) {
 			setGrowth(level, pos, i + 1, 2);
-			ForgeHooks.onCropsGrowPost(level, pos, state);
+			CommonHooks.fireCropGrowPost(level, pos, state);
 		}
 	}
 

@@ -33,7 +33,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FDFoodItem extends Item implements IFDFoodItem{
+public class FDFoodItem extends Item implements IFDFoodItem {
 
 	public static final String ROOT = "JellyEffectRoot";
 
@@ -54,7 +54,7 @@ public class FDFoodItem extends Item implements IFDFoodItem{
 
 	private static Component getTooltip(MobEffectInstance eff) {
 		MutableComponent ans = Component.translatable(eff.getDescriptionId());
-		MobEffect mobeffect = eff.getEffect();
+		MobEffect mobeffect = eff.getEffect().value();
 		if (eff.getAmplifier() > 0) {
 			ans = Component.translatable("potion.withAmplifier", ans,
 					Component.translatable("potion.potency." + eff.getAmplifier()));
@@ -62,7 +62,7 @@ public class FDFoodItem extends Item implements IFDFoodItem{
 
 		if (eff.getDuration() > 20) {
 			ans = Component.translatable("potion.withDuration", ans,
-					MobEffectUtil.formatDuration(eff, 1));
+					MobEffectUtil.formatDuration(eff, 1, 20));
 		}
 
 		return ans.withStyle(mobeffect.getCategory().getTooltipFormatting());
@@ -75,10 +75,9 @@ public class FDFoodItem extends Item implements IFDFoodItem{
 	}
 
 	public static void getFoodEffects(FoodProperties food, List<Component> list) {
-		for (var eff : food.getEffects()) {
-			int chance = Math.round(eff.getSecond() * 100);
-			if (eff.getFirst() == null) continue; //I hate stupid modders
-			Component ans = getTooltip(eff.getFirst());
+		for (var eff : food.effects()) {
+			int chance = Math.round(eff.probability() * 100);
+			Component ans = getTooltip(eff.effect());
 			if (chance == 100) {
 				list.add(ans);
 			} else {
@@ -127,11 +126,10 @@ public class FDFoodItem extends Item implements IFDFoodItem{
 			var old = super.getFoodProperties(stack, entity);
 			if (old == null) return null;
 			var builder = new FoodProperties.Builder();
-			builder.nutrition(old.getNutrition());
-			builder.saturationMod(old.getSaturationModifier());
-			if (old.canAlwaysEat()) builder.alwaysEat();
-			if (old.isFastFood()) builder.fast();
-			if (old.isMeat()) builder.meat();
+			builder.nutrition(old.nutrition());
+			builder.saturationModifier(old.saturation());
+			if (old.canAlwaysEat()) builder.alwaysEdible();
+			if (old.eatSeconds() < 1) builder.fast();
 			if (food == null) return null;
 			Map<FruitType, Integer> map = new LinkedHashMap<>();
 			map.put(food.fruit(), food.getType().effectLevel);
@@ -180,7 +178,7 @@ public class FDFoodItem extends Item implements IFDFoodItem{
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, TooltipContext level, List<Component> list, TooltipFlag flag) {
 		var types = getFruits(stack);
 		if (!types.isEmpty()) {
 			list.add(LangData.JELLY_CONTENT.get());

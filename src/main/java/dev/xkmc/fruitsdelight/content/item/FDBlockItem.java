@@ -81,7 +81,7 @@ public class FDBlockItem extends BlockItem implements IFDFoodItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, TooltipContext level, List<Component> list, TooltipFlag flag) {
 		list.add(LangData.TOOLTIP_PLACE.get());
 		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
 			getFoodEffects(stack, list);

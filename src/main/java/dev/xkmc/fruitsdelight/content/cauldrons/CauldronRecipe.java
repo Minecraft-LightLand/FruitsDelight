@@ -7,18 +7,17 @@ import net.minecraft.world.item.Items;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public record CauldronRecipe(Item block, Item item, int count, Item outBlock, ItemStack outItem, boolean requiresHeat) {
 
 	public static final List<CauldronRecipe> LIST = new ArrayList<>();
 
-	public static void create(Map<Item, CauldronInteraction> map, Item block, Item item, int count, FDCauldronInteraction action, Item outBlock) {
-		map.put(item, action);
+	public static void create(CauldronInteraction.InteractionMap map, Item block, Item item, int count, FDCauldronInteraction action, Item outBlock) {
+		map.map().put(item, action);
 		LIST.add(new CauldronRecipe(block, item, count, outBlock, action.result(), action.requiresHeat()));
 	}
 
-	public static void create(Map<Item, CauldronInteraction> map, Item block, Item item, FDCauldronInteraction action, Item outBlock) {
+	public static void create(CauldronInteraction.InteractionMap map, Item block, Item item, FDCauldronInteraction action, Item outBlock) {
 		create(map, block, item, 1, action, outBlock);
 	}
 

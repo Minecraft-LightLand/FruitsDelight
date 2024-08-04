@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.block;
 
+import com.mojang.serialization.MapCodec;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -19,6 +20,11 @@ public class WildPineappleBlock extends BushBlock {
 
 	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
 		return level.getBlockState(pos.below()).is(TagGen.PINEAPPLE_GROW);
+	}
+
+	@Override
+	protected MapCodec<? extends BushBlock> codec() {
+		return null;//TODO
 	}
 
 }

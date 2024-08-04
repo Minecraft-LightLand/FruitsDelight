@@ -40,7 +40,7 @@ public class HealAuraEffect extends RangeRenderEffect {
 
 	@Override
 	protected void applyEffect(LivingEntity le, LivingEntity target, int amplifier) {
-		MobEffects.HEAL.applyEffectTick(target, amplifier);
+		MobEffects.HEAL.value().applyEffectTick(target, amplifier);
 	}
 
 }

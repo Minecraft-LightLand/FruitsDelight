@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.cauldrons;
 
+import com.mojang.serialization.MapCodec;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import net.minecraft.core.BlockPos;
@@ -10,7 +11,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCauldronBlock;
@@ -20,18 +20,16 @@ import vectorwing.farmersdelight.common.registry.ModParticleTypes;
 import vectorwing.farmersdelight.common.registry.ModSounds;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
-import java.util.Map;
-
 public class FDCauldronBlock extends AbstractCauldronBlock {
 
-	private final Map<Item, CauldronInteraction> interactions;
+	private final CauldronInteraction.InteractionMap interactions;
 
-	private FDCauldronBlock(Properties properties, Map<Item, CauldronInteraction> interactions) {
+	private FDCauldronBlock(Properties properties, CauldronInteraction.InteractionMap interactions) {
 		super(properties, interactions);
 		this.interactions = interactions;
 	}
 
-	public Map<Item, CauldronInteraction> getInteractions() {
+	public CauldronInteraction.InteractionMap getInteractions() {
 		return interactions;
 	}
 
@@ -69,8 +67,8 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 		}
 	}
 
-	public FDCauldronBlock(Properties properties) {
-		this(properties, CauldronInteraction.newInteractionMap());
+	public FDCauldronBlock(Properties properties, String name) {
+		this(properties, CauldronInteraction.newInteractionMap(name));
 	}
 
 	protected double getContentHeight(BlockState state) {
@@ -83,7 +81,7 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if (entity instanceof ItemEntity item && this.isEntityInsideContent(state, pos, entity)) {
-			var action = interactions.get(item.getItem().getItem());
+			var action = interactions.map().get(item.getItem().getItem());
 			if (action instanceof FDCauldronInteraction act &&
 					act.perform(state, level, pos, item.getItem())) {
 				if (!level.isClientSide) {
@@ -109,6 +107,12 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 				.withExistingParent(ctx.getName(), "block/template_cauldron_full")
 				.texture("content", "minecraft:block/water_still"))
 		);
+	}
+
+
+	@Override
+	protected MapCodec<? extends AbstractCauldronBlock> codec() {
+		return null;//TODO codec
 	}
 
 }

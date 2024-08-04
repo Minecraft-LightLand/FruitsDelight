@@ -2,23 +2,22 @@ package dev.xkmc.fruitsdelight.init.food;
 
 import it.unimi.dsi.fastutil.ints.Int2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 
-import java.util.function.Supplier;
-
-public record EffectFunc(Supplier<MobEffect> eff,
+public record EffectFunc(Holder<MobEffect> eff,
 						 Int2IntFunction duration,
 						 Int2IntFunction amplifier,
 						 Int2FloatFunction chance) {
 
-	public EffectFunc(Supplier<MobEffect> eff,
+	public EffectFunc(Holder<MobEffect> eff,
 					  Int2IntFunction duration,
 					  Int2IntFunction amplifier) {
 		this(eff, duration, amplifier, x -> 1);
 	}
 
-	public EffectFunc(Supplier<MobEffect> eff,
+	public EffectFunc(Holder<MobEffect> eff,
 					  Int2IntFunction duration) {
 		this(eff, duration, x -> 0, x -> 1);
 	}
@@ -28,6 +27,6 @@ public record EffectFunc(Supplier<MobEffect> eff,
 	}
 
 	public MobEffectInstance getEffect(int effectLevel) {
-		return new MobEffectInstance(eff.get(), duration.get(effectLevel), amplifier.get(effectLevel));
+		return new MobEffectInstance(eff, duration.get(effectLevel), amplifier.get(effectLevel));
 	}
 }

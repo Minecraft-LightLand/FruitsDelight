@@ -7,6 +7,7 @@ import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
@@ -66,10 +67,10 @@ public enum FoodType {
 
 	public Item build(Item.Properties p, IFDFood type, @Nullable Block block) {
 		var val = new FoodProperties.Builder();
-		val.nutrition(food).saturationMod(sat);
+		val.nutrition(food).saturationModifier(sat);
 		if (fast) val.fast();
-		if (alwaysEat) val.alwaysEat();
-		Set<Supplier<MobEffect>> set = new HashSet<>();
+		if (alwaysEat) val.alwaysEdible();
+		Set<Supplier<Holder<MobEffect>>> set = new HashSet<>();
 		for (var e : type.getEffects()) {
 			val.effect(e::getEffect, e.chance());
 			set.add(e.eff());
@@ -93,7 +94,7 @@ public enum FoodType {
 						}
 						pvd.generated(ctx, res);
 					}).color(() -> () -> FDFoodItem::color)
-					.transform(e -> e.tab(FruitsDelight.TAB.getKey(), x -> {
+					.transform(e -> e.tab(FruitsDelight.TAB.key(), (a, x) -> {
 						if (e.getEntry() instanceof FDFoodItem item)
 							item.fillItemCategory(overlay, x);
 					}));

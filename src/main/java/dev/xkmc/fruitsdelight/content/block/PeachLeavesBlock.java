@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.*;
 
@@ -79,21 +79,21 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 			if (st == State.LEAVES) {
 				if (state.getValue(FERTILE) && state.getValue(DISTANCE) == 1) {
 					boolean grow = random.nextDouble() < FDModConfig.COMMON.peachGrowChance.get();
-					if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+					if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 						var list = scanLeaves(level, pos);
 						for (var e : list) {
 							BlockState est = level.getBlockState(e);
 							est = est.setValue(STATE, State.FLOWERS);
 							level.setBlockAndUpdate(e, est);
 						}
-						ForgeHooks.onCropsGrowPost(level, pos, state);
+						CommonHooks.fireCropGrowPost(level, pos, state);
 						return;
 					}
 				}
 			}
 			if (st == State.FLOWERS) {
 				boolean grow = random.nextDouble() < FDModConfig.COMMON.peachGrowChance.get();
-				if (ForgeHooks.onCropsGrowPre(level, pos, state, grow)) {
+				if (CommonHooks.canCropGrow(level, pos, state, grow)) {
 					var list = scanLeaves(level, pos);
 					for (var e : list) {
 						BlockState est = level.getBlockState(e);
@@ -109,7 +109,7 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 						}
 						level.setBlockAndUpdate(e, est);
 					}
-					ForgeHooks.onCropsGrowPost(level, pos, state);
+					CommonHooks.fireCropGrowPost(level, pos, state);
 
 				}
 				return;
@@ -125,7 +125,7 @@ public class PeachLeavesBlock extends PassableLeavesBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return state.getValue(PERSISTENT);
 	}
 

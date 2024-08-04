@@ -51,7 +51,7 @@ public class FDCrates {
 	public FDCrates(String str, Supplier<Item> type) {
 		this.type = type;
 		String name = str + "_crate";
-		block = FruitsDelight.REGISTRATE.block(name, p -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+		block = FruitsDelight.REGISTRATE.block(name, p -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
 						.strength(2.0F, 3.0F).sound(SoundType.WOOD)))
 				.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().cubeBottomTop(ctx.getName(),
 						pvd.modLoc("block/" + name + "_side"),

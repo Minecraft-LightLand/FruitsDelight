@@ -43,10 +43,10 @@ public class AlienatingAuraEffect extends RangeRenderEffect {
 
 	@Override
 	protected void applyEffect(LivingEntity le, LivingEntity target, int amplifier) {
-		if (target.hasEffect(FDEffects.ALIENATING.get())) return;
+		if (target.hasEffect(FDEffects.ALIENATING)) return;
 		EffectUtil.addEffect(target, new MobEffectInstance(MobEffects.WEAKNESS,
 				40, 0, true, true), le);
-		EffectUtil.addEffect(target, new MobEffectInstance(FDEffects.DISGUSTED.get(),
+		EffectUtil.addEffect(target, new MobEffectInstance(FDEffects.DISGUSTED,
 				40, 0, true, true), le);
 	}
 

@@ -14,8 +14,8 @@ public class FruitCauldronBlock extends FDCauldronBlock {
 
 	public final FruitType type;
 
-	public FruitCauldronBlock(Properties properties, FruitType type) {
-		super(properties);
+	public FruitCauldronBlock(Properties properties, FruitType type, String name) {
+		super(properties, name);
 		this.type = type;
 		registerDefaultState(defaultBlockState().setValue(LEVEL, MAX));
 	}

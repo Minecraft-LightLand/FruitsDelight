@@ -26,7 +26,7 @@ public class DurianHelmetItem extends Item {
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
 		if (slotId != 39) return;
 		if (entity instanceof LivingEntity player)
-			EffectUtil.refreshEffect(player, new MobEffectInstance(FDEffects.ALIENATING.holder(), 40
+			EffectUtil.refreshEffect(player, new MobEffectInstance(FDEffects.ALIENATING, 40
 					, 0, true, true), player);
 	}
 

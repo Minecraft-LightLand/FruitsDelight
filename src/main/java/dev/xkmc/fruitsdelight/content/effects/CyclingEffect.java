@@ -13,20 +13,21 @@ public class CyclingEffect extends MobEffect {
 	}
 
 	@Override
-	public void applyEffectTick(LivingEntity entity, int lv) {
-		if (!(entity instanceof ServerPlayer player)) return;
-		if (player.experienceLevel <= 1) return;
-		if (player.takeXpDelay > 0) return;
+	public boolean applyEffectTick(LivingEntity entity, int lv) {
+		if (!(entity instanceof ServerPlayer player)) return true;
+		if (player.experienceLevel <= 1) return true;
+		if (player.takeXpDelay > 0) return true;
 		int exp = Math.round(player.experienceProgress * player.getXpNeededForNextLevel());
 		player.experienceLevel--;
 		exp += player.getXpNeededForNextLevel();
 		player.experienceLevel++;
 		player.giveExperiencePoints(-exp);
 		ExperienceOrb.award(player.serverLevel(), player.position(), exp);
+		return true;
 	}
 
 	@Override
-	public boolean isDurationEffectTick(int tick, int lv) {
+	public boolean shouldApplyEffectTickThisTick(int tick, int lv) {
 		return tick % (20 << lv) == 0;
 	}
 

@@ -2,7 +2,7 @@ package dev.xkmc.fruitsdelight.content.cauldrons;
 
 import dev.xkmc.fruitsdelight.mixin.AbstractCauldronBlockAccessor;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
@@ -15,8 +15,8 @@ public class CauldronDispenseBehavior extends DefaultDispenseItemBehavior {
 
 	@Override
 	protected ItemStack execute(BlockSource source, ItemStack stack) {
-		BlockPos pos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
-		ServerLevel level = source.getLevel();
+		BlockPos pos = source.pos().relative(source.state().getValue(DispenserBlock.FACING));
+		ServerLevel level = source.level();
 		BlockState state = level.getBlockState(pos);
 		if (state.getBlock() instanceof AbstractCauldronBlock cauldronBlock) {
 			var interactions = ((AbstractCauldronBlockAccessor) cauldronBlock).getInteractions();

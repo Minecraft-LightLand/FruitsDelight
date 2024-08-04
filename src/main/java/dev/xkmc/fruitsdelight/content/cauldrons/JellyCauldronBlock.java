@@ -15,8 +15,8 @@ public class JellyCauldronBlock extends FDCauldronBlock {
 
 	public final FruitType type;
 
-	public JellyCauldronBlock(Properties properties, FruitType type) {
-		super(properties);
+	public JellyCauldronBlock(Properties properties, FruitType type, String name) {
+		super(properties, name);
 		this.type = type;
 		registerDefaultState(defaultBlockState().setValue(LEVEL, 3));
 	}

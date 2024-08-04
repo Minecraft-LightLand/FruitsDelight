@@ -17,20 +17,20 @@ public enum FDBushType {
 	public BlockEntry<? extends BushBlock> build(String name, FDBushes bush){
 		return switch (this){
 			case CROSS ->  FruitsDelight.REGISTRATE
-					.block(name, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.SWEET_BERRY_BUSH), bush::getFruit, this))
+					.block(name, p -> new FruitBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), bush::getFruit, this))
 					.blockstate(bush::buildBushModel)
 					.loot(bush::buildLoot)
 					.tag(BlockTags.SWORD_EFFICIENT)
 					.register();
 			case BLOCK -> FruitsDelight.REGISTRATE
-					.block(name, p -> new FruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), bush::getFruit, this))
+					.block(name, p -> new FruitBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA), bush::getFruit, this))
 					.blockstate(bush::buildBushModel)
 					.loot(bush::buildLoot)
 					.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
 					.item().build()
 					.register();
 			case TALL -> FruitsDelight.REGISTRATE
-					.block(name, p -> new DoubleFruitBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), bush::getFruit, this))
+					.block(name, p -> new DoubleFruitBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA), bush::getFruit, this))
 					.blockstate(bush::buildBushModel)
 					.loot(bush::buildLoot)
 					.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
