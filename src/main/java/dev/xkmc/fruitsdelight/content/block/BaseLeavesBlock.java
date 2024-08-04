@@ -42,7 +42,7 @@ public abstract class BaseLeavesBlock extends LeavesBlock {
 	}
 
 	@Override
-	public final InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
 		if (state.getValue(PERSISTENT)) return InteractionResult.PASS;
 		return doClick(level, pos, state);
 	}

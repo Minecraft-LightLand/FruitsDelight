@@ -6,10 +6,8 @@ import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.IFDFood;
+import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvent;
@@ -35,21 +33,8 @@ import java.util.Map;
 
 public class FDFoodItem extends Item implements IFDFoodItem {
 
-	public static final String ROOT = "JellyEffectRoot";
-
 	private static List<FruitType> getFruits(ItemStack stack) {
-		List<FruitType> ans = new ArrayList<>();
-		if (stack.getTag() != null && stack.getTag().contains(ROOT)) {
-			var strs = stack.getTag().getList(ROOT, Tag.TAG_STRING);
-			for (int i = 0; i < strs.size(); i++) {
-				String str = strs.getString(i);
-				try {
-					ans.add(FruitType.valueOf(str));
-				} catch (Exception ignored) {
-				}
-			}
-		}
-		return ans;
+		return FDItems.FRUITS.getOrDefault(stack, List.of());
 	}
 
 	private static Component getTooltip(MobEffectInstance eff) {
@@ -93,11 +78,7 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 	}
 
 	public static ItemStack setContent(FDFoodItem item, FruitType e) {
-		var ans = item.getDefaultInstance();
-		ListTag list = new ListTag();
-		list.add(StringTag.valueOf(e.name()));
-		ans.getOrCreateTag().put(ROOT, list);
-		return ans;
+		return FDItems.FRUITS.set(item.getDefaultInstance(), List.of(e));
 	}
 
 	@Override
@@ -150,18 +131,17 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 		return super.getFoodProperties(stack, entity);
 	}
 
-	@Nullable
 	public final IFDFood food;
 
 	private final UseAnim anim;
 
-	public FDFoodItem(Properties props, @Nullable IFDFood food, UseAnim anim) {
+	public FDFoodItem(Properties props, IFDFood food, UseAnim anim) {
 		super(props);
 		this.food = food;
 		this.anim = anim;
 	}
 
-	public FDFoodItem(Properties props, @Nullable IFDFood food) {
+	public FDFoodItem(Properties props, IFDFood food) {
 		this(props, food, UseAnim.EAT);
 	}
 
@@ -195,17 +175,17 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 	public void fillItemCategory(int size, CreativeModeTabModifier tab) {
 		for (FruitType fruit : FruitType.values()) {
 			ItemStack stack = new ItemStack(this);
-			ListTag list = new ListTag();
+			List<FruitType> list = new ArrayList<>();
 			for (int i = 0; i < size; i++) {
-				list.add(StringTag.valueOf(fruit.name()));
+				list.add(fruit);
 			}
-			stack.getOrCreateTag().put(FDFoodItem.ROOT, list);
-			tab.accept(stack);
+			tab.accept(FDItems.FRUITS.set(stack, list));
 		}
 	}
 
 	@Override
-	public @Nullable IFDFood food() {
+	public IFDFood food() {
 		return food;
 	}
+
 }

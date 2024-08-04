@@ -3,13 +3,13 @@ package dev.xkmc.fruitsdelight.compat.jei;
 import dev.xkmc.fruitsdelight.content.cauldrons.CauldronRecipe;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.LangData;
-import dev.xkmc.l2library.util.Proxy;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import vectorwing.farmersdelight.common.registry.ModItems;
@@ -45,7 +45,7 @@ public class FDJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
-		var level = Proxy.getClientWorld();
+		var level = Minecraft.getInstance().level;
 		assert level != null;
 		registration.addRecipes(NO_HEAT.getRecipeType(), CauldronRecipe.LIST.stream().filter(e -> !e.requiresHeat()).toList());
 		registration.addRecipes(HEAT.getRecipeType(), CauldronRecipe.LIST.stream().filter(CauldronRecipe::requiresHeat).toList());

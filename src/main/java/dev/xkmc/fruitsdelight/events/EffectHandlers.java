@@ -29,6 +29,22 @@ public class EffectHandlers {
 	}
 
 	@SubscribeEvent
+	public static void onEffectEnd(MobEffectEvent.Expired event) {
+		var ins = event.getEffectInstance();
+		if (ins == null) return;
+		if (ins.getEffect().value() == FDEffects.SHRINKING.get())
+			event.getEntity().refreshDimensions();
+	}
+
+	@SubscribeEvent
+	public static void onEffectEnd(MobEffectEvent.Remove event) {
+		var ins = event.getEffectInstance();
+		if (ins == null) return;
+		if (ins.getEffect().value() == FDEffects.SHRINKING.get())
+			event.getEntity().refreshDimensions();
+	}
+
+	@SubscribeEvent
 	public static void onItemStartUse(LivingEntityUseItemEvent.Start event) {
 		var ins = event.getEntity().getEffect(FDEffects.LOZENGE.holder());
 		if (ins != null && isEatOrDrink(event.getEntity(), event.getItem())) {
@@ -60,7 +76,6 @@ public class EffectHandlers {
 			}
 		}
 	}
-
 
 	public static boolean isEatOrDrink(LivingEntity le, ItemStack stack) {
 		if (stack.getFoodProperties(le) == null) return true;

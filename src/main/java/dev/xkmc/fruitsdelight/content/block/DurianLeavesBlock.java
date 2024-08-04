@@ -5,10 +5,7 @@ import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.fruitsdelight.init.plants.Durian;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import dev.xkmc.l2core.serial.loot.LootHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -16,7 +13,6 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -29,8 +25,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -222,19 +216,12 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	}
 
 	public void buildLoot(RegistrateBlockLootTables pvd, Block block, Block sapling, Item fruit) {
+		var helper = new LootHelper(pvd);
 		var leaves = LootItem.lootTableItem(block)
-				.when(LootItemBlockStatePropertyCondition
-						.hasBlockStateProperties(block)
-						.setProperties(StatePropertiesPredicate.Builder.properties()
-								.hasProperty(LEAF, Leaf.BARE)).invert())
-				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
-						.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
-								MinMaxBounds.Ints.atLeast(1)))));
+				.when(helper.enumState(block, LEAF, Leaf.BARE).invert())
+				.when(helper.silk());
 		var fruits = LootItem.lootTableItem(fruit)
-				.when(LootItemBlockStatePropertyCondition
-						.hasBlockStateProperties(block)
-						.setProperties(StatePropertiesPredicate.Builder.properties()
-								.hasProperty(FRUIT, Fruit.FRUITS)));
+				.when(helper.enumState(block, FRUIT, Fruit.FRUITS));
 		var drops = AlternativesEntry.alternatives(leaves, fruits);
 		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(drops)
 				.when(ExplosionCondition.survivesExplosion())));

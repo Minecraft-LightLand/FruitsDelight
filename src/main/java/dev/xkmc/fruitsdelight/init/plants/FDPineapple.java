@@ -10,10 +10,7 @@ import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import dev.xkmc.l2core.serial.loot.LootHelper;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -24,10 +21,8 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -42,14 +37,12 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import java.util.Locale;
+import java.util.function.BiConsumer;
 
 public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	PINEAPPLE(2, 0.3f, true);
@@ -108,28 +101,26 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	}
 
 	private void buildPlantLoot(RegistrateBlockLootTables pvd, PineappleBlock block) {
+		var helper = new LootHelper(pvd);
 		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool()
 				.add(LootItem.lootTableItem(getWholeFruit())
-						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-								.setProperties(StatePropertiesPredicate.Builder.properties()
-										.hasProperty(PineappleBlock.AGE, 4)))
+						.when(helper.intState(block, PineappleBlock.AGE, 4))
 						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getSapling())))
 				)));
 	}
 
 	private void buildWildLoot(RegistrateBlockLootTables pvd, WildPineappleBlock block) {
+		var helper = new LootHelper(pvd);
 		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool()
 				.add(LootItem.lootTableItem(block.asItem())
-						.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
-								.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
-										MinMaxBounds.Ints.atLeast(1)))))
+						.when(helper.silk())
 						.otherwise(pvd.applyExplosionDecay(block, LootItem.lootTableItem(getWholeFruit())))
 				)));
 	}
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getWholeFruit()),
-						Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 6, 1)
+						Ingredient.of(CommonTags.TOOLS_KNIFE), getSlice(), 6, 1)
 				.addResult(getSapling())
 				.addResultWithChance(getSapling(), 0.5f)
 				.build(pvd, FruitsDelight.loc(getName() + "_cutting"));
@@ -156,11 +147,11 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 	}
 
 	@Override
-	public void registerComposter() {
-		ComposterBlock.COMPOSTABLES.put(getSapling(), 0.3f);
-		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.5f);
-		ComposterBlock.COMPOSTABLES.put(getWholeFruit(), 0.65f);
-		ComposterBlock.COMPOSTABLES.put(getWildPlant().asItem(), 0.65f);
+	public void registerComposter(BiConsumer<Item, Float> builder) {
+		builder.accept(getSapling(), 0.3f);
+		builder.accept(getSlice(), 0.5f);
+		builder.accept(getWholeFruit(), 0.65f);
+		builder.accept(getWildPlant().asItem(), 0.65f);
 	}
 
 	@Override

@@ -7,7 +7,6 @@ import org.jetbrains.annotations.Nullable;
 public interface IFDFoodItem {
 
 	@Contract
-	@Nullable
 	IFDFood food();
 
 }

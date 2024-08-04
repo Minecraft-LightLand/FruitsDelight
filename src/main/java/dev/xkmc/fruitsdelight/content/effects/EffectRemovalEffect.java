@@ -5,7 +5,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.neoforged.neoforge.common.util.Lazy;
 
 import java.util.HashSet;
@@ -29,7 +28,7 @@ public class EffectRemovalEffect extends InherentEffect {
 	}
 
 	@Override
-	public void addAttributeModifiers(LivingEntity le, AttributeMap pAttributeMap, int pAmplifier) {
+	public void onEffectStarted(LivingEntity le, int amplifier) {
 		for (var e : set.get()) {
 			if (le.hasEffect(e))
 				le.removeEffect(e);

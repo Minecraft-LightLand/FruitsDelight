@@ -13,7 +13,10 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -25,6 +28,7 @@ import net.neoforged.neoforge.common.util.Lazy;
 
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -122,10 +126,10 @@ public enum FDTrees implements FruitPlant<FDTrees> {
 		return sapling.get();
 	}
 
-	public void registerComposter() {
-		ComposterBlock.COMPOSTABLES.put(getFruit(), 0.65f);
-		ComposterBlock.COMPOSTABLES.put(getLeaves().asItem(), 0.3f);
-		ComposterBlock.COMPOSTABLES.put(getSapling().asItem(), 0.3f);
+	public void registerComposter(BiConsumer<Item, Float> builder) {
+		builder.accept(getFruit(), 0.65f);
+		builder.accept(getLeaves().asItem(), 0.3f);
+		builder.accept(getSapling().asItem(), 0.3f);
 		pot.get().getEmptyPot().addPlant(sapling.getId(), pot);
 	}
 

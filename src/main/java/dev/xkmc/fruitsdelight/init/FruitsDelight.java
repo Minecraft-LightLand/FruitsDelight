@@ -23,8 +23,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import org.slf4j.Logger;
 
 @Mod(FruitsDelight.MODID)
@@ -69,8 +71,6 @@ public class FruitsDelight {
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			PlantDataEntry.run(PlantDataEntry::registerComposter);
-			Durian.registerComposter();
 
 			if (FDModConfig.COMMON.enableCauldronRecipe.get())
 				FDCauldrons.init();
@@ -90,10 +90,12 @@ public class FruitsDelight {
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::genLang);
+		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, PlantDataEntry::registerComposter);
 		var init = REGISTRATE.getDataGenInitializer();
 		init.add(Registries.CONFIGURED_FEATURE, ctx -> PlantDataEntry.gen(ctx, PlantDataEntry::registerConfigs));
 		init.add(Registries.PLACED_FEATURE, ctx -> PlantDataEntry.gen(ctx, PlantDataEntry::registerPlacements));
 		init.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, FDDatapackRegistriesGen::registerBiomeModifiers);
+
 
 		boolean server = event.includeServer();
 		var gen = event.getGenerator();

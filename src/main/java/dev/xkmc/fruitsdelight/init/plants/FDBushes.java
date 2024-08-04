@@ -10,10 +10,8 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.BushFruitItem;
 import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
-import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.l2core.serial.loot.LootTableTemplate;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import dev.xkmc.l2core.serial.loot.LootHelper;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -22,11 +20,9 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -40,14 +36,13 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.function.BiConsumer;
 
 import static net.minecraft.world.level.block.DoublePlantBlock.HALF;
 
@@ -58,7 +53,7 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 
 	private final BlockEntry<? extends BushBlock> bush;
 	private final ItemEntry<BushFruitItem> seedItem;
-	private final ItemEntry<FDFoodItem> mid;
+	private final ItemEntry<Item> mid;
 
 	private final int rarity;
 	private final FDBushType type;
@@ -77,7 +72,7 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 		this.type = type;
 		bush = type.build(name + "_" + suffix, this);
 		if (type == FDBushType.TALL) {
-			mid = FruitsDelight.REGISTRATE.item(name, p -> new FDFoodItem(p.food(food(food, sat, fast)), null))
+			mid = FruitsDelight.REGISTRATE.item(name, p -> new Item(p.food(food(food, sat, fast))))
 					.transform(b -> PlantDataEntry.addFruitTags(name, b))
 					.register();
 			seedItem = FruitsDelight.REGISTRATE
@@ -93,12 +88,12 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 	}
 
 
-	public void registerComposter() {
+	public void registerComposter(BiConsumer<Item, Float> builder) {
 		if (type == FDBushType.TALL)
-			ComposterBlock.COMPOSTABLES.put(mid.get(), 0.35f);
-		ComposterBlock.COMPOSTABLES.put(seedItem.get(), 0.15f);
+			builder.accept(mid.get(), 0.35f);
+		builder.accept(seedItem.get(), 0.15f);
 		if (type != FDBushType.CROSS)
-			ComposterBlock.COMPOSTABLES.put(getBush().asItem(), 0.65f);
+			builder.accept(getBush().asItem(), 0.65f);
 	}
 
 	public void registerConfigs(BootstrapContext<ConfiguredFeature<?, ?>> ctx) {
@@ -138,34 +133,23 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 	}
 
 	public void buildLoot(RegistrateBlockLootTables pvd, BushBlock block) {
+		var helper = new LootHelper(pvd);
 		var table = LootTable.lootTable();
 		if (type != FDBushType.CROSS) {
 			var pool = LootPool.lootPool()
 					.add(LootItem.lootTableItem(getBush().asItem())
-							.when(LootTableTemplate.silk(false))
-							.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-									.setProperties(StatePropertiesPredicate.Builder.properties()
-											.hasProperty(FruitBushBlock.AGE, 0))
-									.or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-											.setProperties(StatePropertiesPredicate.Builder.properties()
-													.hasProperty(FruitBushBlock.AGE, 1)))
-									.invert()
-							))
+							.when(helper.silk())
+							.when(helper.intRangeState(block, FruitBushBlock.AGE, 2, 4)))
 					.when(ExplosionCondition.survivesExplosion());
-
 			table.withPool(pool);
 		}
 		var pool = LootPool.lootPool()
 				.add(LootItem.lootTableItem(getFruit())
-						.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-								.setProperties(StatePropertiesPredicate.Builder.properties()
-										.hasProperty(FruitBushBlock.AGE, 4)))
-						.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)))
+						.when(helper.intState(block, FruitBushBlock.AGE, 4))
+						.apply(helper.fortuneCount(1)))
 				.when(ExplosionCondition.survivesExplosion());
 		if (type == FDBushType.TALL) {
-			pool.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-					.setProperties(StatePropertiesPredicate.Builder.properties()
-							.hasProperty(HALF, DoubleBlockHalf.LOWER)));
+			pool.when(helper.enumState(block, HALF, DoubleBlockHalf.LOWER));
 		}
 		table.withPool(pool);
 		pvd.add(block, table);

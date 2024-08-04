@@ -25,17 +25,15 @@ import static dev.xkmc.fruitsdelight.content.item.FDFoodItem.getFoodEffects;
 
 public class FDBlockItem extends BlockItem implements IFDFoodItem {
 
-
-	@Nullable
 	public final IFDFood food;
 
 	private final UseAnim anim;
 
-	public FDBlockItem(Block block, Properties properties, @Nullable IFDFood food) {
+	public FDBlockItem(Block block, Properties properties, IFDFood food) {
 		this(block, properties, food, UseAnim.EAT);
 	}
 
-	public FDBlockItem(Block block, Properties props, @Nullable IFDFood food, UseAnim anim) {
+	public FDBlockItem(Block block, Properties props, IFDFood food, UseAnim anim) {
 		super(block, props);
 		this.food = food;
 		this.anim = anim;
@@ -88,7 +86,7 @@ public class FDBlockItem extends BlockItem implements IFDFoodItem {
 	}
 
 	@Override
-	public @Nullable IFDFood food() {
+	public IFDFood food() {
 		return food;
 	}
 

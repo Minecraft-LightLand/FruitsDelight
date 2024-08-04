@@ -70,7 +70,7 @@ public enum FoodType {
 		val.nutrition(food).saturationModifier(sat);
 		if (fast) val.fast();
 		if (alwaysEat) val.alwaysEdible();
-		Set<Supplier<Holder<MobEffect>>> set = new HashSet<>();
+		Set<Holder<MobEffect>> set = new HashSet<>();
 		for (var e : type.getEffects()) {
 			val.effect(e::getEffect, e.chance());
 			set.add(e.eff());

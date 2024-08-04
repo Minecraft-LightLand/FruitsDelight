@@ -4,17 +4,13 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import dev.xkmc.l2core.serial.loot.LootHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -27,11 +23,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.CommonHooks;
 
@@ -150,19 +142,13 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 	}
 
 	public void buildLoot(RegistrateBlockLootTables pvd, Block block, Block sapling, Item fruit) {
-		var leaves = LootItem.lootTableItem(block)
-				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
-						.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
-								MinMaxBounds.Ints.atLeast(1)))));
+		var helper = new LootHelper(pvd);
+		var leaves = LootItem.lootTableItem(block).when(helper.silk());
 		var fruits = LootItem.lootTableItem(fruit)
-				.when(LootItemBlockStatePropertyCondition
-						.hasBlockStateProperties(block)
-						.setProperties(StatePropertiesPredicate.Builder.properties()
-								.hasProperty(PassableLeavesBlock.STATE, PassableLeavesBlock.State.FRUITS)))
-				.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1));
+				.when(helper.enumState(block, STATE, State.FRUITS))
+				.apply(helper.fortuneCount(1));
 		var saplings = LootItem.lootTableItem(sapling)
-				.when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,
-						1 / 20f, 1 / 16f, 1 / 12f, 1 / 10f));
+				.when(helper.fortuneChance(20, 16, 12, 10));
 		var drops = AlternativesEntry.alternatives(leaves, fruits, saplings);
 		pvd.add(block, LootTable.lootTable().withPool(LootPool.lootPool().add(drops)
 				.when(ExplosionCondition.survivesExplosion())));

@@ -14,8 +14,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.fml.ModList;
-import sereneseasons.core.SereneSeasons;
+import net.neoforged.fml.ModList;
 
 public class TagGen {
 
@@ -30,15 +29,15 @@ public class TagGen {
 
 	public static void onBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
 		pvd.addTag(PINEAPPLE_GROW).add(Blocks.SAND, Blocks.RED_SAND, Blocks.COARSE_DIRT);
-		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)) {
+		if (ModList.get().isLoaded("sereneseasons")) {
 			SeasonCompat.genBlock(pvd);
 		}
 	}
 
 	public static void onItemTagGen(RegistrateItemTagsProvider pvd) {
-		pvd.addTag(ItemTags.create(new ResourceLocation("forge", "berries")))
+		pvd.addTag(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "berries")))
 				.add(FDBushes.BLUEBERRY.getFruit(), FDBushes.CRANBERRY.getFruit());
-		if (ModList.get().isLoaded(SereneSeasons.MOD_ID)) {
+		if (ModList.get().isLoaded("sereneseasons")) {
 			SeasonCompat.genItem(pvd);
 		}
 		pvd.addTag(DietTagGen.GRAINS.tag).add(FDFood.MANGOSTEEN_CAKE.item.get());

@@ -8,6 +8,7 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.l2core.serial.loot.LootHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -43,11 +44,14 @@ import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.common.data.DataMapProvider;
+import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import javax.annotation.Nullable;
 import java.util.Locale;
+import java.util.function.BiConsumer;
 
 public enum FDMelons implements PlantDataEntry<FDMelons> {
 	HAMIMELON(2, 0.3f, true);
@@ -149,10 +153,10 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		return placementKey;
 	}
 
-	public void registerComposter() {
-		ComposterBlock.COMPOSTABLES.put(getSeed(), 0.3f);
-		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.5f);
-		ComposterBlock.COMPOSTABLES.put(getMelonBlock().asItem(), 0.65f);
+	public void registerComposter(BiConsumer<Item, Float> builder) {
+		builder.accept(getSeed(), 0.3f);
+		builder.accept(getSlice(), 0.5f);
+		builder.accept(getMelonBlock().asItem(), 0.65f);
 	}
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
@@ -190,11 +194,12 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 	}
 
 	private void buildMelonLoot(RegistrateBlockLootTables pvd, Block block) {
-		pvd.add(block, RegistrateBlockLootTables.createSilkTouchDispatchTable(block,
+		var helper = new LootHelper(pvd);
+		pvd.add(block, pvd.createSilkTouchDispatchTable(block,
 				pvd.applyExplosionDecay(block,
 						LootItem.lootTableItem(getSlice())
 								.apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
-								.apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE))
+								.apply(helper.fortuneCount(1))
 								.apply(LimitCount.limitCount(IntRange.upperBound(9))))));
 	}
 

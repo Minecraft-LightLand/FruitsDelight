@@ -7,6 +7,9 @@ import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.RecordFood;
+import dev.xkmc.l2core.init.reg.simple.DCReg;
+import dev.xkmc.l2core.init.reg.simple.DCVal;
+import dev.xkmc.l2core.init.reg.simple.EnumCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -18,6 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,8 +30,11 @@ public class FDItems {
 
 	private static final Set<String> SMALL_WORDS = Set.of("of", "the", "with");
 
-	public static BlockEntry<JellyBottleBlock>[] JELLY;
-	public static ItemEntry<Item>[] JELLO;
+	public static final BlockEntry<JellyBottleBlock>[] JELLY;
+	public static final ItemEntry<Item>[] JELLO;
+
+	public static final DCReg DC = DCReg.of(FruitsDelight.REG);
+	public static final DCVal<List<FruitType>> FRUITS = DC.enumVal("fruits", EnumCodec.of(FruitType.class, FruitType.values()).toList());
 
 	static {
 		int fruits = FruitType.values().length;

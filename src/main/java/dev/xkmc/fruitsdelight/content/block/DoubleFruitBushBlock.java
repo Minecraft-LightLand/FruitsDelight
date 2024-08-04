@@ -6,12 +6,14 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -58,11 +60,8 @@ public class DoubleFruitBushBlock extends DoubleBushBlock {
 		return 2;
 	}
 
-	@Deprecated
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-		if (state.getValue(AGE) != MAX_AGE && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
-			return InteractionResult.PASS;
-		}
+	@Override
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
 		if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
 			state = level.getBlockState(pos.below());
 			pos = pos.below();
@@ -77,7 +76,7 @@ public class DoubleFruitBushBlock extends DoubleBushBlock {
 			}
 			return InteractionResult.sidedSuccess(level.isClientSide);
 		} else {
-			return super.use(state, level, pos, player, hand, result);
+			return InteractionResult.PASS;
 		}
 	}
 
@@ -87,7 +86,6 @@ public class DoubleFruitBushBlock extends DoubleBushBlock {
 		boolean lower = state.getValue(HALF) == DoubleBlockHalf.LOWER;
 		return age == 0 ? TALL_SMALL : age == 1 ? TALL_MID :
 				lower ? TALL_LOWER : TALL_UPPER;
-
 	}
 
 }

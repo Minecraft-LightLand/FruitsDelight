@@ -10,7 +10,7 @@ public interface FruitPlant<T extends Enum<T> & FruitPlant<T>> extends PlantData
 	Item getFruit();
 
 	default TagKey<Item> getFruitTag() {
-		return ItemTags.create(new ResourceLocation("forge", "fruits/" + getName()));
+		return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "fruits/" + getName()));
 	}
 
 }

@@ -39,7 +39,7 @@ public abstract class DoubleBushBlock extends DoublePlantBlock implements Boneme
 		super.createBlockStateDefinition(builder);
 	}
 
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return state.getValue(AGE) < MAX_AGE;
 	}
 

@@ -16,13 +16,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class Durian {
@@ -73,9 +73,10 @@ public class Durian {
 		return FDFood.DURIAN_FLESH.get();
 	}
 
-	public static void registerComposter() {//TODO
-		ComposterBlock.COMPOSTABLES.put(UPPER.get(), 0.3f);
-		ComposterBlock.COMPOSTABLES.put(LOWER.get(), 0.3f);
-		ComposterBlock.COMPOSTABLES.put(getSlice(), 0.3f);
+	public static void registerComposter(BiConsumer<Item, Float> builder) {
+		builder.accept(UPPER.get(), 0.3f);
+		builder.accept(LOWER.get(), 0.3f);
+		builder.accept(getSlice(), 0.3f);
 	}
+
 }
