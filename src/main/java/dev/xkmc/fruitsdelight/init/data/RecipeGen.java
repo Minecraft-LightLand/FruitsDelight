@@ -127,7 +127,7 @@ public class RecipeGen {
 						FDFood.HAMIMELON_SHAVED_ICE.getFruit())
 						.requires(Items.GLASS_BOTTLE)
 						.requires(FDFood.HAMIMELON_SHAVED_ICE.getFruitTag(), 2)
-						.requires(CommonTags.FOODS_MILK)//TODO milk bottle tags
+						.requires(CommonTags.FOODS_MILK)
 						.requires(Items.SUGAR)
 						.requires(Items.ICE)
 						.save(pvd);

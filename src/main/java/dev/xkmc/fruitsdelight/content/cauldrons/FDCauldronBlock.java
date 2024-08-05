@@ -109,7 +109,6 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 		);
 	}
 
-
 	@Override
 	protected MapCodec<? extends AbstractCauldronBlock> codec() {
 		return null;//TODO codec
