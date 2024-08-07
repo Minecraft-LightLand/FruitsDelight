@@ -1,0 +1,204 @@
+{
+  "item.fruitsdelight": {
+	"hawberry": "山楂",
+	"lychee": "荔枝",
+	"mango": "芒果",
+	"pear": "梨子",
+	"persimmon": "柿子",
+	"blueberry": "蓝莓",
+	"peach": "水蜜桃",
+	"orange": "橘子",
+	"hamimelon_seeds": "哈密瓜籽",
+	"hamimelon_slice": "哈密瓜片",
+	"pineapple": "菠萝",
+	"pineapple_sapling": "菠萝苗",
+	"pineapple_slice": "菠萝切片",
+	"baked_pear": "烤梨",
+	"blueberry_custard": "蓝莓蛋奶沙司",
+	"blueberry_muffin": "蓝莓玛芬",
+	"bowl_of_pineapple_fried_rice": "碗装菠萝饭",
+	"hamimelon_popsicle": "哈密瓜冰棒",
+	"hawberry_roll": "果丹卷",
+	"hawberry_sheet": "果丹皮",
+	"hawberry_stick": "山楂串",
+	"orange_chicken": "橘子鸡",
+	"orange_marinated_pork": "橘子酿肉",
+	"orange_slice": "橘子片",
+	"pineapple_marinated_pork": "菠萝咕唠肉",
+	"pineapple_pie": "菠萝派",
+	"dried_persimmon": "柿饼",
+	"hamimelon_shaved_ice": "蜜瓜冰沙",
+	"lemon": "黄柠檬",
+	"lemon_slice": "黄柠檬片",
+	"lychee_chicken": "荔枝鸡球",
+	"mango_milkshake": "芒果鲜奶",
+	"mango_salad": "生拌芒果",
+	"pear_with_rock_sugar": "冰糖雪梨",
+	"persimmon_cookie": "柿饼干",
+	"jelly_bread": "果酱面包",
+	"lemon_seeds": "柠檬种子",
+	"lemon_cookie": "柠檬饼干",
+	"lemon_tart": "柠檬蛋挞",
+	"cranberry": "蔓越莓",
+	"mangosteen": "山竹",
+	"cranberry_cookie": "蔓越莓饼干",
+	"cranberry_muffin": "蔓越莓玛芬",
+	"dummy_cauldron": "装满水的炼药锅",
+	"fig": "无花果",
+	"kiwi": "猕猴桃",
+	"bayberry": "杨梅",
+	"bayberry_cookie": "杨梅曲奇",
+	"fig_chicken_stew": "无花果炖鸡",
+	"fig_tart": "无花果挞",
+	"fig_pudding_slice": "无花果布丁切片",
+	"durian_flesh": "榴莲肉",
+	"baked_durian": "烤榴莲",
+	"durian_pie": "榴莲酥",
+	"durian_helmet": "榴莲壳头盔",
+	"durian_sapling": "榴莲种子",
+	"durian_shell": "榴莲壳",
+	"kiwi_popsicle": "猕猴桃棒冰"
+  },
+  "block.fruitsdelight": {
+	"blueberry_bush": "蓝莓丛",
+	"cranberry_bush": "蔓越莓丛",
+	"lemon_tree": "柠檬树",
+	"pineapple": "菠萝",
+	"wild_pineapple": "野生菠萝",
+	"pineapple_fried_rice": "菠萝饭",
+	"lemonade_cauldron": "淡柠檬水锅",
+	"mangosteen_cake": "山竹糕",
+	"fig_pudding": "无花果布丁",
+	"durian": "榴莲"
+  },
+  "-cartesian": {
+	"tree": {
+	  "path": "",
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "apple": "苹果",
+		  "mangosteen": "山竹",
+		  "fig": "无花果",
+		  "kiwi": "猕猴桃",
+		  "bayberry": "杨梅",
+		  "durian": "榴莲"
+		},
+		{
+		  "block.fruitsdelight.*_leaves": "树叶",
+		  "block.fruitsdelight.*_sapling": "树苗",
+		  "block.fruitsdelight.potted_*_sapling": "树苗盆栽"
+		}
+	  ]
+	},
+	"melon": {
+	  "path": "block.fruitsdelight",
+	  "list": [
+		{
+		  "hamimelon": "哈密瓜"
+		},
+		{
+		  "attached_*_stem": "藤",
+		  "*": "",
+		  "stem": "藤"
+		}
+	  ]
+	},
+	"jelly": {
+	  "path": "",
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "apple": "苹果",
+		  "blueberry": "蓝莓",
+		  "glowberry": "发光浆果",
+		  "hamimelon": "哈密瓜",
+		  "sweetberry": "浆果",
+		  "pineapple": "菠萝",
+		  "lemon": "柠檬",
+		  "melon": "西瓜",
+		  "mangosteen": "山竹",
+		  "cranberry": "蔓越莓",
+		  "chorus": "紫颂果",
+		  "fig": "无花果",
+		  "kiwi": "猕猴桃",
+		  "bayberry": "杨梅",
+		  "durian": "榴莲"
+		},
+		{
+		  "block.fruitsdelight.*_jelly": "果酱",
+		  "item.fruitsdelight.*_jello": "果冻",
+		  "block.fruitsdelight.*_cauldron": "水锅",
+		  "block.fruitsdelight.*_jelly_cauldron": "果酱锅",
+		  "block.fruitsdelight.*_jello_cauldron": "果冻锅",
+		  "block.fruitsdelight.*_jello_block": "果冻块",
+		  "block.fruitsdelight.*_jelly_block": "果酱块",
+		  "fluid.fruitsdelight.*_jello": "熔融果冻",
+		  "fluid.fruitsdelight.*_jam": "果酱"
+		}
+	  ]
+	},
+	"juice": {
+	  "path": "",
+	  "list": [
+		{
+		  "pear_juice": "梨汁",
+		  "hamimelon_juice": "哈密瓜汁",
+		  "hawberry_tea": "山楂茶",
+		  "orange_juice": "橘子汁",
+		  "bellini_cocktail": "贝里尼鸡尾酒",
+		  "mango_tea": "芒果茶",
+		  "peach_tea": "白桃乌龙茶",
+		  "lemon_juice": "柠檬水",
+		  "mangosteen_tea": "山竹清茶",
+		  "bayberry_soup": "杨梅汁",
+		  "lychee_cherry_tea": "荔枝樱花饮",
+		  "kiwi_juice": "猕猴桃饮"
+		},
+		{
+		  "item.fruitsdelight.*": "",
+		  "fluid.fruitsdelight.*": ""
+		}
+	  ]
+	},
+	"crate": {
+	  "path": "block.fruitsdelight",
+	  "reverse": true,
+	  "list": [
+		{
+		  "hawberry": "山楂",
+		  "lychee": "荔枝",
+		  "mango": "芒果",
+		  "pear": "梨子",
+		  "persimmon": "柿子",
+		  "peach": "水蜜桃",
+		  "orange": "橘子",
+		  "blueberry": "蓝莓",
+		  "pineapple": "菠萝",
+		  "lemon": "柠檬",
+		  "mangosteen": "山竹",
+		  "cranberry": "蔓越莓",
+		  "apple": "苹果",
+		  "fig": "无花果",
+		  "kiwi": "猕猴桃",
+		  "bayberry": "杨梅"
+		},
+		{
+		  "crate": "箱装"
+		}
+	  ]
+	}
+  }
+}
