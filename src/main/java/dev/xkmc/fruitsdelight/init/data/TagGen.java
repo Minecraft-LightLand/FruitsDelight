@@ -7,10 +7,13 @@ import dev.xkmc.fruitsdelight.compat.sereneseasons.SeasonCompat;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.plants.FDBushes;
+import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
+import dev.xkmc.l2core.init.L2TagGen;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,6 +28,13 @@ public class TagGen {
 
 	public static final TagKey<Item> JELLO = ItemTags.create(FruitsDelight.loc("jello"));
 
+	public static void onEffectTagGen(RegistrateTagsProvider.IntrinsicImpl<MobEffect> pvd) {
+		pvd.addTag(L2TagGen.TRACKED_EFFECTS).add(
+				FDEffects.HEAL_AURA.key(),
+				FDEffects.RAGE_AURA.key(),
+				FDEffects.ALIENATING.key()
+		);
+	}
 
 	public static void onBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> pvd) {
 		pvd.addTag(PINEAPPLE_GROW).add(Blocks.SAND, Blocks.RED_SAND, Blocks.COARSE_DIRT);

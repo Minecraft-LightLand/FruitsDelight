@@ -10,6 +10,7 @@ import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.plants.*;
 import dev.xkmc.fruitsdelight.init.registrate.*;
+import dev.xkmc.l2core.init.L2TagGen;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import dev.xkmc.l2core.init.reg.registrate.SimpleEntry;
 import dev.xkmc.l2core.init.reg.simple.Reg;
@@ -75,8 +76,6 @@ public class FruitsDelight {
 
 			//TODO if (ModList.get().isLoaded(Create.ID)) CreateCompat.init();
 
-			//TODO tag EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get(),FDEffects.HEAL_AURA.get());
-
 			//TODO if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)) ThirstCompat.init();
 
 		});
@@ -86,6 +85,7 @@ public class FruitsDelight {
 	public static void gatherData(GatherDataEvent event) {
 		REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TagGen::onBlockTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagGen::onItemTagGen);
+		REGISTRATE.addDataGenerator(L2TagGen.EFF_TAGS, TagGen::onEffectTagGen);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeGen::genRecipes);
 		REGISTRATE.addDataGenerator(ProviderType.LANG, LangData::genLang);
 		REGISTRATE.addDataGenerator(ProviderType.DATA_MAP, PlantDataEntry::registerComposter);

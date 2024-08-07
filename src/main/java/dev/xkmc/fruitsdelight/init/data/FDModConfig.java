@@ -15,8 +15,10 @@ public class FDModConfig {
 			markPlain();
 
 			enableCauldronRecipe = builder.text("Enable cauldron jam and jello recipe")
+					.gameRestart()
 					.define("enableCauldronRecipe", true);
 			enableThirstCompat = builder.text("Enable Thirst Compat")
+					.gameRestart()
 					.define("enableThirstCompat", true);
 		}
 
