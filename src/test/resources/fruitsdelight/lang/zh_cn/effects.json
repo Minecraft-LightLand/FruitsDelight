@@ -22,6 +22,7 @@
   "-cartesian": {
 	"effect": {
 	  "path": "effect.fruitsdelight",
+	  "use_dot": "true",
 	  "list": [
 		{
 		  "appetizing": "饱食度满时仍然可以吃东西",
