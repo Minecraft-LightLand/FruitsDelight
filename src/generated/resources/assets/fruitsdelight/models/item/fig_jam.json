@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fruitsdelight:item/jam_bottle",
+    "layer1": "fruitsdelight:item/fig_jam"
+  }
+}

@@ -16,13 +16,11 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.Configuration;
 
@@ -95,7 +93,7 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 			if (food == null) return null;
 			Map<FruitType, Integer> map = new LinkedHashMap<>();
 			map.put(food.fruit(), food.getType().effectLevel);
-			int lv = FoodType.JELLY.effectLevel;
+			int lv = FoodType.JAM.effectLevel;
 			for (var type : list) {
 				map.compute(type, (k, v) -> v == null ? lv : v + lv);
 			}
@@ -133,7 +131,7 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 
 	@Override
 	public SoundEvent getDrinkingSound() {
-		if (food != null && food.getType() == FoodType.JELLY)
+		if (food != null && food.getType() == FoodType.JAM)
 			return SoundEvents.HONEY_DRINK;
 		return SoundEvents.GENERIC_DRINK;
 	}
@@ -142,12 +140,12 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 	public void appendHoverText(ItemStack stack, TooltipContext level, List<Component> list, TooltipFlag flag) {
 		var types = getFruits(stack);
 		if (!types.isEmpty()) {
-			list.add(LangData.JELLY_CONTENT.get());
+			list.add(LangData.JAM_CONTENT.get());
 			for (var type : types) {
-				list.add(type.getJelly().getDescription().copy().withStyle(ChatFormatting.GRAY));
+				list.add(type.getJam().getDescription().copy().withStyle(ChatFormatting.GRAY));
 			}
-		} else if (stack.is(TagGen.ALLOW_JELLY)) {
-			list.add(LangData.ALLOW_JELLY.get());
+		} else if (stack.is(TagGen.ALLOW_JAM)) {
+			list.add(LangData.ALLOW_JAM.get());
 		}
 		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
 			getFoodEffects(stack, list);

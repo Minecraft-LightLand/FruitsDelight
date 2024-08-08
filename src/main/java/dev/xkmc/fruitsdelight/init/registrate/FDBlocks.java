@@ -27,7 +27,7 @@ public class FDBlocks {
 	public static final BlockEntry<MangosteenCakeBlock> MANGOSTEEN_CAKE;
 	public static final BlockEntry<FigPuddingBlock> FIG_PUDDING;
 
-	public static final BlockEntry<JellyBlock>[] JELLY;
+	public static final BlockEntry<JamBlock>[] JAM;
 	public static final BlockEntry<JelloBlock>[] JELLO;
 
 	static {
@@ -93,15 +93,15 @@ public class FDBlocks {
 
 		int size = FruitType.values().length;
 
-		JELLY = new BlockEntry[size];
+		JAM = new BlockEntry[size];
 		for (int i = 0; i < size; i++) {
 			FruitType type = FruitType.values()[i];
 			String name = type.name().toLowerCase(Locale.ROOT);
-			JELLY[i] = FruitsDelight.REGISTRATE.block(name + "_jelly_block", p ->
-							new JellyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HONEY_BLOCK), type))
+			JAM[i] = FruitsDelight.REGISTRATE.block(name + "_jam_block", p ->
+							new JamBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HONEY_BLOCK), type))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models()
 							.withExistingParent(ctx.getName(), pvd.modLoc("block/tinted"))
-							.texture("all", pvd.modLoc("block/jelly"))
+							.texture("all", pvd.modLoc("block/jam"))
 							.renderType("translucent")))
 					.lang(FDItems.toEnglishName(name) + " Jam Block")
 					.color(() -> () -> (s, l, p, x) -> type.color)

@@ -56,7 +56,7 @@ public enum FDFood implements IFDFood {
 	BOWL_OF_PINEAPPLE_FRIED_RICE(FruitType.PINEAPPLE, FoodType.STAPLE, new EffectEntry(ModEffects.COMFORT, 6000)),
 	PINEAPPLE_MARINATED_PORK(FruitType.PINEAPPLE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	LYCHEE_CHICKEN(FruitType.LYCHEE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
-	JELLY_BREAD(FruitType.SWEETBERRY, FoodType.SWEET, 1),
+	JAM_BREAD(FruitType.SWEETBERRY, FoodType.SWEET, 1),
 	;
 
 	private final String name;
@@ -66,13 +66,13 @@ public enum FDFood implements IFDFood {
 	public final ItemEntry<Item> item;
 	public final EffectEntry[] effs;
 
-	FDFood(boolean allowJelly, int overlay, FruitType fruit, FoodType food, @Nullable String str, EffectEntry... effs) {
+	FDFood(boolean allowJam, int overlay, FruitType fruit, FoodType food, @Nullable String str, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);
 		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this))
 				.transform(b -> food.model(b, overlay, fruit)).lang(str != null ? str : FDItems.toEnglishName(name))
-				.tag(getTags(allowJelly, food.tags))
+				.tag(getTags(allowJam, food.tags))
 				.register();
 		this.effs = effs;
 	}
@@ -102,9 +102,9 @@ public enum FDFood implements IFDFood {
 	}
 
 	@SuppressWarnings({"unsafe", "unchecked"})
-	private TagKey<Item>[] getTags(boolean allowJelly, TagKey<Item>[] tags) {
+	private TagKey<Item>[] getTags(boolean allowJam, TagKey<Item>[] tags) {
 		var ans = new ArrayList<>(Arrays.stream(tags).toList());
-		if (allowJelly) ans.add(TagGen.ALLOW_JELLY);
+		if (allowJam) ans.add(TagGen.ALLOW_JAM);
 		return ans.toArray(TagKey[]::new);
 	}
 

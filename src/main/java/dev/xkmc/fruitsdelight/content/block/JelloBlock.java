@@ -8,11 +8,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SlimeBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -37,8 +35,8 @@ public class JelloBlock extends SlimeBlock {
 
 	@Override
 	public boolean canStickTo(BlockState state, BlockState other) {
-		if (other.getBlock() instanceof JellyBlock jelly) {
-			return jelly.fruit == fruit;
+		if (other.getBlock() instanceof JamBlock jam) {
+			return jam.fruit == fruit;
 		}
 		if (other.getBlock() instanceof JelloBlock jello) {
 			return jello == this;

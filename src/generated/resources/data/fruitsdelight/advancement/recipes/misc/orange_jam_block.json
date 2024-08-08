@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_jam": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:orange_jam"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:orange_jam_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange_jam"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:orange_jam_block"
+    ]
+  }
+}

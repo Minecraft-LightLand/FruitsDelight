@@ -15,9 +15,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JellyCraftShapelessRecipe extends AbstractShapelessRecipe<JellyCraftShapelessRecipe> {
+public class JamCraftShapelessRecipe extends AbstractShapelessRecipe<JamCraftShapelessRecipe> {
 
-	public JellyCraftShapelessRecipe(String group, ItemStack result, NonNullList<Ingredient> ingredients) {
+	public JamCraftShapelessRecipe(String group, ItemStack result, NonNullList<Ingredient> ingredients) {
 		super(group, result, ingredients);
 	}
 
@@ -35,7 +35,7 @@ public class JellyCraftShapelessRecipe extends AbstractShapelessRecipe<JellyCraf
 	}
 
 	@Override
-	public Serializer<JellyCraftShapelessRecipe> getSerializer() {
+	public Serializer<JamCraftShapelessRecipe> getSerializer() {
 		return FDMiscs.SHAPELESS.get();
 	}
 

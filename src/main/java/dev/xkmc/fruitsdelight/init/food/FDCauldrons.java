@@ -22,8 +22,8 @@ public class FDCauldrons {
 
 	public static final BlockEntry<FDCauldronBlock> LEMON;
 	public static final BlockEntry<FruitCauldronBlock>[] FRUIT;
-	public static final BlockEntry<JellyCauldronBlock>[] JELLY;
-	public static final BlockEntry<JellyCauldronBlock>[] JELLO;
+	public static final BlockEntry<JamCauldronBlock>[] JAM;
+	public static final BlockEntry<JamCauldronBlock>[] JELLO;
 
 	public static final ItemEntry<Item> FAKE_CAULDRON;
 
@@ -31,20 +31,20 @@ public class FDCauldrons {
 		LEMON = simple("lemonade_cauldron", FDCauldronBlock::new);
 		int size = FruitType.values().length;
 		FRUIT = new BlockEntry[size];
-		JELLY = new BlockEntry[size];
+		JAM = new BlockEntry[size];
 		JELLO = new BlockEntry[size];
 		for (int i = 0; i < size; i++) {
 			FruitType type = FruitType.values()[i];
 			String name = type.name().toLowerCase(Locale.ROOT);
 			FRUIT[i] = simple(name + "_cauldron", (p, s) -> new FruitCauldronBlock(p, type, s));
-			JELLY[i] = simple(name + "_jelly_cauldron", (p, s) -> new JellyCauldronBlock(p, type, s));
-			JELLO[i] = simple(name + "_jello_cauldron", (p, s) -> new JellyCauldronBlock(p, type, s));
+			JAM[i] = simple(name + "_jam_cauldron", (p, s) -> new JamCauldronBlock(p, type, s));
+			JELLO[i] = simple(name + "_jello_cauldron", (p, s) -> new JamCauldronBlock(p, type, s));
 		}
 		FAKE_CAULDRON = FruitsDelight.REGISTRATE.item("dummy_cauldron", Item::new)
 				.lang("Water Cauldron")
 				.model((ctx, pvd) -> CauldronRenderHandler.gui(pvd.withExistingParent(ctx.getName(), "block/water_cauldron_full")))
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
-				.removeTab(FruitsDelight.TAB.getKey())
+				.removeTab(FruitsDelight.TAB.key())
 				.register();
 	}
 
@@ -63,19 +63,19 @@ public class FDCauldrons {
 				LEMON.get().asItem());
 
 		var fruitProp = FruitCauldronBlock.LEVEL;
-		var jellyProp = JellyCauldronBlock.LEVEL;
+		var jamProp = JamCauldronBlock.LEVEL;
 		int max = FruitCauldronBlock.MAX;
 
 		for (FruitType type : FruitType.values()) {
-			int level = 4 / type.jellyCost;
+			int level = 4 / type.jamCost;
 			int index = type.ordinal();
 			var fruit = FRUIT[index].get();
-			var jelly = JELLY[index].get();
+			var jam = JAM[index].get();
 			var jello = JELLO[index].get();
 
 			CauldronRecipe.create(CauldronInteraction.WATER,
 					FAKE_CAULDRON.get(),
-					type.getJelly(), 3, FDCauldronInteraction.of(state ->
+					type.getJam(), 3, FDCauldronInteraction.of(state ->
 							state.getValue(LayeredCauldronBlock.LEVEL) == 3 ?
 									fruit.defaultBlockState().setValue(fruitProp, 4) : null),
 					fruit.asItem());
@@ -85,27 +85,27 @@ public class FDCauldrons {
 					fruit.asItem());
 			fruit.getInteractions().map().put(type.getFruit(), FDCauldronInteraction.withHeat(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + level))));
-			fruit.getInteractions().map().put(type.getJelly(), FDCauldronInteraction.of(state ->
+			fruit.getInteractions().map().put(type.getJam(), FDCauldronInteraction.of(state ->
 					state.getValue(fruitProp) == max ? null : state.setValue(fruitProp, Math.min(max, state.getValue(fruitProp) + 4))));
 			CauldronRecipe.create(fruit, Items.SUGAR, 1, FDCauldronInteraction.withHeat(state ->
-							state.getValue(fruitProp) == max ? jelly.defaultBlockState() : null),
-					jelly.asItem());
-			CauldronRecipe.create(jelly, Items.SLIME_BALL, 1, FDCauldronInteraction.withHeat(state ->
-							jello.defaultBlockState().setValue(jellyProp, state.getValue(jellyProp))),
+							state.getValue(fruitProp) == max ? jam.defaultBlockState() : null),
+					jam.asItem());
+			CauldronRecipe.create(jam, Items.SLIME_BALL, 1, FDCauldronInteraction.withHeat(state ->
+							jello.defaultBlockState().setValue(jamProp, state.getValue(jamProp))),
 					jello.asItem());
-			CauldronRecipe.empty(jelly, Items.GLASS_BOTTLE, 3, FDCauldronInteraction.of(state ->
-									state.getValue(jellyProp) == 1 ? Blocks.CAULDRON.defaultBlockState() :
-											state.setValue(jellyProp, state.getValue(jellyProp) - 1),
-							type.getJelly().getDefaultInstance(), SoundEvents.BOTTLE_FILL),
+			CauldronRecipe.empty(jam, Items.GLASS_BOTTLE, 3, FDCauldronInteraction.of(state ->
+									state.getValue(jamProp) == 1 ? Blocks.CAULDRON.defaultBlockState() :
+											state.setValue(jamProp, state.getValue(jamProp) - 1),
+							type.getJam().getDefaultInstance(), SoundEvents.BOTTLE_FILL),
 					Items.CAULDRON);
 
 			CauldronRecipe.empty(jello, Items.BOWL, 3, FDCauldronInteraction.of(state ->
-									state.getValue(jellyProp) == 1 ? Blocks.CAULDRON.defaultBlockState() :
-											state.setValue(jellyProp, state.getValue(jellyProp) - 1),
+									state.getValue(jamProp) == 1 ? Blocks.CAULDRON.defaultBlockState() :
+											state.setValue(jamProp, state.getValue(jamProp) - 1),
 							type.getJello().getDefaultInstance(), SoundEvents.BOTTLE_FILL),
 					Items.CAULDRON);
 
-			DispenserBlock.registerBehavior(type.getJelly(), new CauldronDispenseBehavior());
+			DispenserBlock.registerBehavior(type.getJam(), new CauldronDispenseBehavior());
 		}
 		DispenserBlock.registerBehavior(FDFood.LEMON_SLICE.item.get(), new CauldronDispenseBehavior());
 	}
@@ -117,10 +117,10 @@ public class FDCauldrons {
 				)).blockstate((ctx, pvd) -> ctx.get().build(ctx, pvd))
 				.loot((pvd, block) -> pvd.dropOther(block, Items.CAULDRON))
 				.color(() -> () -> CauldronRenderHandler::getBlockColor)
-				.item().removeTab(FruitsDelight.TAB.getKey())
+				.item().removeTab(FruitsDelight.TAB.key())
 				.color(() -> () -> CauldronRenderHandler::getItemColor)
 				.build()
-				.lang(FDItems.toEnglishName(id).replaceAll("Jelly", "Jam"))
+				.lang(FDItems.toEnglishName(id))
 				.tag(BlockTags.CAULDRONS).register();
 	}
 

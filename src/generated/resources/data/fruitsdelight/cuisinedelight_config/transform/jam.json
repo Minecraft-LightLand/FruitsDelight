@@ -1,0 +1,71 @@
+{
+  "fluidTransform": {
+    "fruitsdelight:apple_jam": {
+      "color": -3964099
+    },
+    "fruitsdelight:bayberry_jam": {
+      "color": -11267787
+    },
+    "fruitsdelight:blueberry_jam": {
+      "color": -10865985
+    },
+    "fruitsdelight:chorus_jam": {
+      "color": -3102249
+    },
+    "fruitsdelight:cranberry_jam": {
+      "color": -3201498
+    },
+    "fruitsdelight:durian_jam": {
+      "color": -1189547
+    },
+    "fruitsdelight:fig_jam": {
+      "color": -2063081
+    },
+    "fruitsdelight:glowberry_jam": {
+      "color": -349418
+    },
+    "fruitsdelight:hamimelon_jam": {
+      "color": -16050
+    },
+    "fruitsdelight:hawberry_jam": {
+      "color": -4252387
+    },
+    "fruitsdelight:kiwi_jam": {
+      "color": -7743219
+    },
+    "fruitsdelight:lemon_jam": {
+      "color": -7046
+    },
+    "fruitsdelight:lychee_jam": {
+      "color": -3332
+    },
+    "fruitsdelight:mango_jam": {
+      "color": -19927
+    },
+    "fruitsdelight:mangosteen_jam": {
+      "color": -267050
+    },
+    "fruitsdelight:melon_jam": {
+      "color": -3656153
+    },
+    "fruitsdelight:orange_jam": {
+      "color": -551153
+    },
+    "fruitsdelight:peach_jam": {
+      "color": -1605020
+    },
+    "fruitsdelight:pear_jam": {
+      "color": -4273358
+    },
+    "fruitsdelight:persimmon_jam": {
+      "color": -2007266
+    },
+    "fruitsdelight:pineapple_jam": {
+      "color": -140248
+    },
+    "fruitsdelight:sweetberry_jam": {
+      "color": -3925425
+    }
+  },
+  "itemTransform": {}
+}

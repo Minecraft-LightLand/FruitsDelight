@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 public class CauldronRenderHandler {
 
 	public static int getBlockColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int layer) {
-		if (state.getBlock() instanceof JellyCauldronBlock block) {
+		if (state.getBlock() instanceof JamCauldronBlock block) {
 			return block.type.color;
 		}
 		int lemon = merge(-1, FruitType.LEMON.color, 0.3f);
@@ -28,7 +28,7 @@ public class CauldronRenderHandler {
 			int lv = state.getValue(FruitCauldronBlock.LEVEL);
 			return merge(lemon, block.type.color, lv / 12f);
 		}
-		return level != null && pos != null ? BiomeColors.getAverageWaterColor(level, pos) : 4159204;
+		return 0xff000000 | (level != null && pos != null ? BiomeColors.getAverageWaterColor(level, pos) : 4159204);
 	}
 
 	private static int merge(int x, int y, float f) {

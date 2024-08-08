@@ -2,7 +2,7 @@ package dev.xkmc.fruitsdelight.init.registrate;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import dev.xkmc.fruitsdelight.content.block.JellyBottleBlock;
+import dev.xkmc.fruitsdelight.content.block.JamBottleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
@@ -30,7 +30,7 @@ public class FDItems {
 
 	private static final Set<String> SMALL_WORDS = Set.of("of", "the", "with");
 
-	public static final BlockEntry<JellyBottleBlock>[] JELLY;
+	public static final BlockEntry<JamBottleBlock>[] JAM;
 	public static final ItemEntry<Item>[] JELLO;
 
 	public static final DCReg DC = DCReg.of(FruitsDelight.REG);
@@ -38,13 +38,13 @@ public class FDItems {
 
 	static {
 		int fruits = FruitType.values().length;
-		JELLY = new BlockEntry[fruits];
+		JAM = new BlockEntry[fruits];
 		JELLO = new ItemEntry[fruits];
 		for (int j = 0; j < fruits; j++) {
 			FruitType fruit = FruitType.values()[j];
 			String name = fruit.name().toLowerCase(Locale.ROOT);
-			FoodType food = FoodType.JELLY;
-			JELLY[j] = FruitsDelight.REGISTRATE.block(name + "_jelly", p -> new JellyBottleBlock(
+			FoodType food = FoodType.JAM;
+			JAM[j] = FruitsDelight.REGISTRATE.block(name + "_jam", p -> new JamBottleBlock(
 							BlockBehaviour.Properties.of().strength(0.3F).sound(SoundType.GLASS).noOcclusion(), fruit))
 					.blockstate((ctx, pvd) -> pvd.simpleBlock(ctx.get(), pvd.models().getBuilder(ctx.getName())
 							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/jam_bottle_block")))
@@ -60,7 +60,7 @@ public class FDItems {
 							.color(() -> () -> (stack, layer) -> layer == 0 ? -1 : fruit.color))
 					.tag(food.tags)
 					.build()
-					.color(() -> () -> FDItems::jellyColor)
+					.color(() -> () -> FDItems::jamColor)
 					.lang(FDItems.toEnglishName(name) + " Jam")
 					.register();
 		}
@@ -83,8 +83,8 @@ public class FDItems {
 	public static void register() {
 	}
 
-	private static int jellyColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index) {
-		if (state.getBlock() instanceof JellyBottleBlock b) {
+	private static int jamColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index) {
+		if (state.getBlock() instanceof JamBottleBlock b) {
 			return b.fruit.color;
 		}
 		return -1;

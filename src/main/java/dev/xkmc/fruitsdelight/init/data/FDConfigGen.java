@@ -40,7 +40,7 @@ public class FDConfigGen extends ConfigDataProvider {
 			config.entries.add(ing);
 		}
 		for (var e : FruitType.values()) {
-			Item item = e.getJelly();
+			Item item = e.getJam();
 			var ing = IngredientConfig.get(Ingredient.of(item), FoodType.VEG,
 					0, 180, 60, 0, 0, 0, 0);
 			for (var eff : e.eff) {
@@ -51,7 +51,7 @@ public class FDConfigGen extends ConfigDataProvider {
 			transform.fluid(item, e.color);
 		}
 		collector.add(CuisineDelight.INGREDIENT, FruitsDelight.loc("fruits"), config);
-		collector.add(CuisineDelight.TRANSFORM, FruitsDelight.loc("jelly"), transform);
+		collector.add(CuisineDelight.TRANSFORM, FruitsDelight.loc("jam"), transform);
 	}
 
 }

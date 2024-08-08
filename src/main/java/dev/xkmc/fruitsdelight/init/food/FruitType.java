@@ -60,25 +60,25 @@ public enum FruitType {
 		return SWEETBERRY;
 	}
 
-	public final int color, jellyCost;
+	public final int color, jamCost;
 	private final Supplier<Item> fruit;
 	private final TagKey<Item> tag;
 	public final List<EffectFunc> eff;
 
-	FruitType(int jellyCost, int color, Supplier<Item> fruit, @Nullable TagKey<Item> tag, List<EffectFunc> eff) {
-		this.jellyCost = jellyCost;
+	FruitType(int jamCost, int color, Supplier<Item> fruit, @Nullable TagKey<Item> tag, List<EffectFunc> eff) {
+		this.jamCost = jamCost;
 		this.color = 0xFF000000 | color;
 		this.fruit = fruit;
 		this.tag = tag;
 		this.eff = eff;
 	}
 
-	FruitType(int jellyCost, int color, FruitPlant<?> plant, List<EffectFunc> eff) {
-		this(jellyCost, color, plant::getFruit, plant.getFruitTag(), eff);
+	FruitType(int jamCost, int color, FruitPlant<?> plant, List<EffectFunc> eff) {
+		this(jamCost, color, plant::getFruit, plant.getFruitTag(), eff);
 	}
 
-	FruitType(int jellyCost, int color, Supplier<Item> fruit, List<EffectFunc> eff) {
-		this(jellyCost, color, fruit, null, eff);
+	FruitType(int jamCost, int color, Supplier<Item> fruit, List<EffectFunc> eff) {
+		this(jamCost, color, fruit, null, eff);
 	}
 
 	public Ingredient getFruitTag() {
@@ -89,8 +89,8 @@ public enum FruitType {
 		return fruit.get();
 	}
 
-	public Item getJelly() {
-		return FDItems.JELLY[ordinal()].asItem();
+	public Item getJam() {
+		return FDItems.JAM[ordinal()].asItem();
 	}
 
 	public Item getJello() {

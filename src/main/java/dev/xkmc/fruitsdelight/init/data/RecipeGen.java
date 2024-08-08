@@ -2,7 +2,7 @@ package dev.xkmc.fruitsdelight.init.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
-import dev.xkmc.fruitsdelight.content.recipe.JellyCraftShapelessBuilder;
+import dev.xkmc.fruitsdelight.content.recipe.JamCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
@@ -38,12 +38,12 @@ public class RecipeGen {
 		{
 
 			for (var e : FruitType.values()) {
-				jelly(pvd, e);
+				jam(pvd, e);
 				storageBlock(pvd, FDItems.JELLO[e.ordinal()].get(),
 						FDBlocks.JELLO[e.ordinal()].get(), Items.BOWL);
 
-				storageBlock(pvd, FDItems.JELLY[e.ordinal()].asItem(),
-						FDBlocks.JELLY[e.ordinal()].get(), Items.GLASS_BOTTLE);
+				storageBlock(pvd, FDItems.JAM[e.ordinal()].asItem(),
+						FDBlocks.JAM[e.ordinal()].get(), Items.GLASS_BOTTLE);
 			}
 
 			for (var e : FDJuice.values()) {
@@ -87,23 +87,23 @@ public class RecipeGen {
 
 			{
 
-				unlock(pvd, new JellyCraftShapelessBuilder(FDFood.HAWBERRY_ROLL.item, 1)::unlockedBy,
+				unlock(pvd, new JamCraftShapelessBuilder(FDFood.HAWBERRY_ROLL.item, 1)::unlockedBy,
 						FDFood.HAWBERRY_SHEET.item.get())
 						.requires(FDFood.HAWBERRY_SHEET.item.get())
-						.requires(TagGen.JELLY)
+						.requires(TagGen.JAM)
 						.save(pvd);
 
-				unlock(pvd, new JellyCraftShapelessBuilder(FDFood.MANGO_SALAD.item, 1)::unlockedBy,
+				unlock(pvd, new JamCraftShapelessBuilder(FDFood.MANGO_SALAD.item, 1)::unlockedBy,
 						FDFood.MANGO_SALAD.getFruit())
 						.requires(Items.BOWL)
 						.requires(FDFood.MANGO_SALAD.getFruitTag())
-						.requires(TagGen.JELLY)
+						.requires(TagGen.JAM)
 						.save(pvd);
 
-				unlock(pvd, new JellyCraftShapelessBuilder(FDFood.JELLY_BREAD.item, 1)::unlockedBy,
+				unlock(pvd, new JamCraftShapelessBuilder(FDFood.JAM_BREAD.item, 1)::unlockedBy,
 						Items.BREAD)
 						.requires(Items.BREAD)
-						.requires(TagGen.JELLY)
+						.requires(TagGen.JAM)
 						.save(pvd);
 			}
 
@@ -184,7 +184,7 @@ public class RecipeGen {
 						.define('F', FDFood.FIG_PUDDING_SLICE.getFruitTag())
 						.define('E', Items.EGG)
 						.define('M', CommonTags.FOODS_MILK)
-						.define('J', FruitType.ORANGE.getJelly())
+						.define('J', FruitType.ORANGE.getJam())
 						.define('S', Items.SWEET_BERRIES)
 						.save(pvd);
 
@@ -339,9 +339,9 @@ public class RecipeGen {
 				.save(pvd);
 	}
 
-	private static void jelly(RegistrateRecipeProvider pvd, FruitType jelly) {
-		CookingPotRecipeBuilder.cookingPotRecipe(jelly.getJelly(), 1, 200, 0.1f, Items.GLASS_BOTTLE)
-				.addIngredient(jelly.getFruitTag(), jelly.jellyCost)
+	private static void jam(RegistrateRecipeProvider pvd, FruitType type) {
+		CookingPotRecipeBuilder.cookingPotRecipe(type.getJam(), 1, 200, 0.1f, Items.GLASS_BOTTLE)
+				.addIngredient(type.getFruitTag(), type.jamCost)
 				.addIngredient(Items.SUGAR)
 				.addIngredient(FDFood.LEMON_SLICE.item.get())
 				.setRecipeBookTab(CookingPotRecipeBookTab.MISC)

@@ -22,9 +22,9 @@ public class TagGen {
 
 	public static final TagKey<Block> PINEAPPLE_GROW = BlockTags.create(FruitsDelight.loc("pineapple_grows_on"));
 
-	public static final TagKey<Item> JELLY = ItemTags.create(FruitsDelight.loc("jelly"));
+	public static final TagKey<Item> JAM = ItemTags.create(FruitsDelight.loc("jam"));
 	public static final TagKey<Item> JUICE = ItemTags.create(FruitsDelight.loc("juice"));
-	public static final TagKey<Item> ALLOW_JELLY = ItemTags.create(FruitsDelight.loc("allow_jelly"));
+	public static final TagKey<Item> ALLOW_JAM = ItemTags.create(FruitsDelight.loc("allow_jam"));
 
 	public static final TagKey<Item> JELLO = ItemTags.create(FruitsDelight.loc("jello"));
 

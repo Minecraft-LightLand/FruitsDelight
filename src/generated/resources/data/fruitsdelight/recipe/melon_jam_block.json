@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    },
+    {
+      "item": "fruitsdelight:melon_jam"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:melon_jam_block"
+  }
+}

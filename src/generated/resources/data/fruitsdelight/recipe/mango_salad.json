@@ -1,5 +1,5 @@
 {
-  "type": "fruitsdelight:jelly_craft_shapeless",
+  "type": "fruitsdelight:jam_craft_shapeless",
   "category": "misc",
   "ingredients": [
     {
@@ -9,7 +9,7 @@
       "tag": "c:fruits/mango"
     },
     {
-      "tag": "fruitsdelight:jelly"
+      "tag": "fruitsdelight:jam"
     }
   ],
   "result": {

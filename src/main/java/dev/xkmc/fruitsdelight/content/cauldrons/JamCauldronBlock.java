@@ -9,13 +9,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 
-public class JellyCauldronBlock extends FDCauldronBlock {
+public class JamCauldronBlock extends FDCauldronBlock {
 
 	public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, 3);
 
 	public final FruitType type;
 
-	public JellyCauldronBlock(Properties properties, FruitType type, String name) {
+	public JamCauldronBlock(Properties properties, FruitType type, String name) {
 		super(properties, name);
 		this.type = type;
 		registerDefaultState(defaultBlockState().setValue(LEVEL, 3));

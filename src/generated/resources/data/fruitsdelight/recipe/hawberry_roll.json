@@ -1,12 +1,12 @@
 {
-  "type": "fruitsdelight:jelly_craft_shapeless",
+  "type": "fruitsdelight:jam_craft_shapeless",
   "category": "misc",
   "ingredients": [
     {
       "item": "fruitsdelight:hawberry_sheet"
     },
     {
-      "tag": "fruitsdelight:jelly"
+      "tag": "fruitsdelight:jam"
     }
   ],
   "result": {

@@ -1,6 +1,6 @@
 package dev.xkmc.fruitsdelight.events;
 
-import dev.xkmc.fruitsdelight.content.block.JellyBlock;
+import dev.xkmc.fruitsdelight.content.block.JamBlock;
 import dev.xkmc.l2serial.network.SerialPacketBase;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -13,11 +13,11 @@ public record BlockEffectToClient(
 ) implements SerialPacketBase<BlockEffectToClient> {
 
 	public enum Type {
-		JELLY_SLIDE((b, e) -> {
-			if (b instanceof JellyBlock j) j.showJellySlideParticles(e);
+		JAM_SLIDE((b, e) -> {
+			if (b instanceof JamBlock j) j.showJamSlideParticles(e);
 		}),
-		JELLY_JUMP((b, e) -> {
-			if (b instanceof JellyBlock j) j.showJellyJumpParticles(e);
+		JAM_JUMP((b, e) -> {
+			if (b instanceof JamBlock j) j.showJamJumpParticles(e);
 		}),
 		;
 

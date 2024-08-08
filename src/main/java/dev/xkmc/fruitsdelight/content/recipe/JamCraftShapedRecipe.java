@@ -14,9 +14,9 @@ import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JellyCraftShapedRecipe extends AbstractShapedRecipe<JellyCraftShapedRecipe> {
+public class JamCraftShapedRecipe extends AbstractShapedRecipe<JamCraftShapedRecipe> {
 
-	public JellyCraftShapedRecipe(String group, ShapedRecipePattern pattern, ItemStack result) {
+	public JamCraftShapedRecipe(String group, ShapedRecipePattern pattern, ItemStack result) {
 		super(group, pattern, result);
 	}
 
@@ -34,7 +34,7 @@ public class JellyCraftShapedRecipe extends AbstractShapedRecipe<JellyCraftShape
 	}
 
 	@Override
-	public Serializer<JellyCraftShapedRecipe> getSerializer() {
+	public Serializer<JamCraftShapedRecipe> getSerializer() {
 		return FDMiscs.SHAPED.get();
 	}
 

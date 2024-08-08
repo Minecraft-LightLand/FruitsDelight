@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sweetberry_jam": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fruitsdelight:sweetberry_jam"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fruitsdelight:sweetberry_jam_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sweetberry_jam"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fruitsdelight:sweetberry_jam_block"
+    ]
+  }
+}

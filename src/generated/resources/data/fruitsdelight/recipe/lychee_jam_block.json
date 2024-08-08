@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    },
+    {
+      "item": "fruitsdelight:lychee_jam"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:lychee_jam_block"
+  }
+}

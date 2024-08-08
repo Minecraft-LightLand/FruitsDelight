@@ -11,18 +11,16 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.HoneyBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class JellyBlock extends HoneyBlock {
+public class JamBlock extends HoneyBlock {
 
 	public final FruitType fruit;
 
-	public JellyBlock(Properties properties, FruitType fruit) {
+	public JamBlock(Properties properties, FruitType fruit) {
 		super(properties);
 		this.fruit = fruit;
 	}
@@ -44,21 +42,21 @@ public class JellyBlock extends HoneyBlock {
 
 	@Override
 	public void appendHoverText(ItemStack stack, Item.TooltipContext level, List<Component> list, TooltipFlag flag) {
-		list.add(LangData.TOOLTIP_JELLY.get());
+		list.add(LangData.TOOLTIP_JAM.get());
 	}
 
-	public void showJellySlideParticles(Entity entity) {
+	public void showJamSlideParticles(Entity entity) {
 		if (entity.level().isClientSide())
 			showParticles(entity, 5);
 		else FruitsDelight.HANDLER.toTrackingPlayers(new BlockEffectToClient(this, entity.getId(),
-				BlockEffectToClient.Type.JELLY_SLIDE), entity);
+				BlockEffectToClient.Type.JAM_SLIDE), entity);
 	}
 
-	public void showJellyJumpParticles(Entity entity) {
+	public void showJamJumpParticles(Entity entity) {
 		if (entity.level().isClientSide())
 			showParticles(entity, 10);
 		else FruitsDelight.HANDLER.toTrackingPlayers(new BlockEffectToClient(this, entity.getId(),
-				BlockEffectToClient.Type.JELLY_JUMP), entity);
+				BlockEffectToClient.Type.JAM_JUMP), entity);
 	}
 
 	private void showParticles(Entity entity, int count) {

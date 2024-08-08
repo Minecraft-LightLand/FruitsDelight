@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    },
+    {
+      "item": "fruitsdelight:chorus_jam"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:chorus_jam_block"
+  }
+}

@@ -8,13 +8,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class JellyBottleBlock extends Block {
+public class JamBottleBlock extends Block {
 
 	public static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 15, 13);
 
 	public final FruitType fruit;
 
-	public JellyBottleBlock(Properties prop, FruitType fruit) {
+	public JamBottleBlock(Properties prop, FruitType fruit) {
 		super(prop);
 		this.fruit = fruit;
 	}

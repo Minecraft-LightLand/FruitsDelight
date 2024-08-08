@@ -12,11 +12,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
-public enum FoodClass implements IFoodBuilder {
+public enum FoodClass {
 	NONE((b, p, e) -> new FDFoodItem(p, e), null),
 	STICK((b, p, e) -> new FDFoodItem(p, e), () -> Items.STICK),
 	GLASS((b, p, e) -> new FDFoodItem(p.stacksTo(16), e, UseAnim.DRINK), () -> Items.GLASS_BOTTLE),
-	JELLY((b, p, e) -> new FDBlockItem(b, p.stacksTo(16), e, UseAnim.DRINK), () -> Items.GLASS_BOTTLE),
+	JAM((b, p, e) -> new FDBlockItem(b, p.stacksTo(16), e, UseAnim.DRINK), () -> Items.GLASS_BOTTLE),
 	BOWL((b, p, e) -> new FDFoodItem(p.stacksTo(16), e), () -> Items.BOWL),
 	DURIAN_FLESH((b, p, e) -> new DurianFleshItem(p, e), null),
 	PLATE((b, p, e) -> new FDBlockItem(b, p.stacksTo(16), e), () -> Items.BOWL),
