@@ -16,7 +16,6 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.Configuration;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public class FDBlockItem extends BlockItem implements IFDFoodItem {
 
 	@Override
 	public SoundEvent getDrinkingSound() {
-		if (food != null && food.getType() == FoodType.JELLY)
+		if (food != null && food.getType() == FoodType.JAM)
 			return SoundEvents.HONEY_DRINK;
 		return SoundEvents.GENERIC_DRINK;
 	}

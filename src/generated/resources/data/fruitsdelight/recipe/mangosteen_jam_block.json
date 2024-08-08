@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    },
+    {
+      "item": "fruitsdelight:mangosteen_jam"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:mangosteen_jam_block"
+  }
+}

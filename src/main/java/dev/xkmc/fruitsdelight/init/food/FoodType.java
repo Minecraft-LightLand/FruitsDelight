@@ -2,28 +2,24 @@ package dev.xkmc.fruitsdelight.init.food;
 
 import com.tterrag.registrate.builders.ItemBuilder;
 import dev.xkmc.fruitsdelight.compat.diet.DietTagGen;
-import dev.xkmc.fruitsdelight.content.item.FDBlockItem;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
-import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
 
 public enum FoodType {
 	JUICE(FoodClass.GLASS, 1, 0.2f, 10, false, true, TagGen.JUICE, DietTagGen.FRUITS.tag),
-	JELLY(FoodClass.JELLY, 4, 0.3f, 20, false, false, TagGen.JELLY, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
+	JAM(FoodClass.JAM, 4, 0.3f, 20, false, false, TagGen.JAM, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
 	JELLO(FoodClass.BOWL, 1, 0.3f, 20, true, true, TagGen.JELLO, DietTagGen.SUGARS.tag),
 	FRUIT(FoodClass.NONE, 4, 0.3f, 5, false, false, DietTagGen.FRUITS.tag),
 	SLICE(FoodClass.NONE, 2, 0.3f, 0, true, false, DietTagGen.FRUITS.tag),
@@ -37,21 +33,20 @@ public enum FoodType {
 	STAPLE(FoodClass.BOWL, 14, 0.8f, 40, false, false, DietTagGen.FRUITS.tag, DietTagGen.GRAINS.tag, DietTagGen.VEGETABLES.tag),
 	ROLL(FoodClass.NONE, 3, 0.4f, 10, true, false, DietTagGen.FRUITS.tag, DietTagGen.SUGARS.tag),
 	COOKIE(FoodClass.NONE, 1, 0.3f, 5, true, false, DietTagGen.SUGARS.tag),
-	MANGOSTEEN_CAKE((b, p, e) -> new FDBlockItem(FDBlocks.MANGOSTEEN_CAKE.get(), p.craftRemainder(Items.BOWL).stacksTo(16), e),
-			9, 0.6f, 30, false, false, DietTagGen.FRUITS.tag),
+	PLATE(FoodClass.PLATE, 9, 0.6f, 30, false, false, DietTagGen.FRUITS.tag),
 	DURIAN_FLESH(FoodClass.DURIAN_FLESH, 4, 0.3f, 0, false, false, DietTagGen.FRUITS.tag),
 
 	;
 
 	public final int food;
-	private final IFoodClass cls;
+	private final FoodClass cls;
 	private final float sat;
 	private final boolean fast, alwaysEat;
 	public final TagKey<Item>[] tags;
 	public final int effectLevel;
 
 	@SafeVarargs
-	FoodType(IFoodClass cls, int food, float sat, int effectLevel, boolean fast, boolean alwaysEat, TagKey<Item>... tags) {
+	FoodType(FoodClass cls, int food, float sat, int effectLevel, boolean fast, boolean alwaysEat, TagKey<Item>... tags) {
 		this.cls = cls;
 		this.food = food;
 		this.sat = sat;
@@ -80,7 +75,7 @@ public enum FoodType {
 				if (set.contains(e.eff())) continue;
 				val.effect(() -> e.getEffect(effectLevel), e.getChance(effectLevel));
 			}
-		return cls.build(block, p.food(val.build()), type);
+		return cls.build(block, p, type, val);
 	}
 
 

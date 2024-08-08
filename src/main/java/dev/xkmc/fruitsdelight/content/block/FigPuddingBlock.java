@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -40,9 +40,9 @@ public class FigPuddingBlock extends BaseCakeBlock {
 		return SHAPE_BY_BITE[p_51222_.getValue(BITES)];
 	}
 
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-		ItemStack itemstack = player.getItemInHand(hand);
-		if (itemstack.is(CommonTags.TOOLS_KNIFE)) {
+	@Override
+	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+		if (stack.is(CommonTags.TOOLS_KNIFE)) {
 			int i = state.getValue(bite);
 			if (i > 0) {
 				level.setBlockAndUpdate(pos, state.setValue(bite, i - 1));
@@ -52,7 +52,7 @@ public class FigPuddingBlock extends BaseCakeBlock {
 			}
 			popResource(level, pos, FDFood.FIG_PUDDING_SLICE.get().getDefaultInstance());
 		}
-		return super.use(state, level, pos, player, hand, hit);
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
 	@Override

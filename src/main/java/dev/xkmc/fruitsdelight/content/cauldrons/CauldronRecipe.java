@@ -25,7 +25,7 @@ public record CauldronRecipe(Item block, Item item, int count, Item outBlock, It
 		create(block.getInteractions(), block.asItem(), item, count, action, outBlock);
 	}
 
-	public static void empty(JellyCauldronBlock block, Item item, int count, FDCauldronInteraction action, Item outBlock) {
+	public static void empty(JamCauldronBlock block, Item item, int count, FDCauldronInteraction action, Item outBlock) {
 		create(block.getInteractions(), block.asItem(), item, count, action, outBlock);
 	}
 

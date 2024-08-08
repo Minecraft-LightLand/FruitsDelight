@@ -1,0 +1,16 @@
+{
+  "type": "fruitsdelight:jam_craft_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "tag": "fruitsdelight:jam"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:jam_bread"
+  }
+}

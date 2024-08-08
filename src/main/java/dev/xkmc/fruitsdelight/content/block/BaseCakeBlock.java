@@ -41,15 +41,11 @@ public abstract class BaseCakeBlock extends Block {
 
 	protected abstract void eat(Player player);
 
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-		ItemStack itemstack = player.getItemInHand(hand);
+	@Override
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
 		if (level.isClientSide) {
 			if (eat(level, pos, state, player).consumesAction()) {
 				return InteractionResult.SUCCESS;
-			}
-
-			if (itemstack.isEmpty()) {
-				return InteractionResult.CONSUME;
 			}
 		}
 		return eat(level, pos, state, player);

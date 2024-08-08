@@ -24,11 +24,11 @@ public class FDFluids {
 		int size = FruitType.values().length;
 		JAM = new FluidEntry[size];
 		JELLO = new FluidEntry[size];
-		ResourceLocation jelly = FruitsDelight.loc("block/jelly");
+		ResourceLocation jam = FruitsDelight.loc("block/jam");
 		ResourceLocation jello = FruitsDelight.loc("block/jello");
 		for (var e : FruitType.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
-			JAM[e.ordinal()] = virtualFluid(name + "_jam", jelly, jelly,
+			JAM[e.ordinal()] = virtualFluid(name + "_jam", jam, jam,
 					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
 					.lang(FDItems.toEnglishName(name) + " Jam")
 					.register();

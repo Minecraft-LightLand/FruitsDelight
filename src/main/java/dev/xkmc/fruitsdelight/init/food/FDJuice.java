@@ -104,7 +104,7 @@ public enum FDJuice implements IFDFood {
 	}
 
 	public void recipe(RegistrateRecipeProvider pvd) {
-		int count = fruit.jellyCost;
+		int count = fruit.jamCost;
 		if (type.category.cook) {
 			var e = CookingPotRecipeBuilder.cookingPotRecipe(item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			type.list.forEach(e::addIngredient);

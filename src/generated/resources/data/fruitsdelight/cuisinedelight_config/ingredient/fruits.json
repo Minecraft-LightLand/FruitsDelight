@@ -380,7 +380,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:apple_jelly"
+        "item": "fruitsdelight:apple_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -405,7 +405,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:blueberry_jelly"
+        "item": "fruitsdelight:blueberry_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -425,7 +425,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:glowberry_jelly"
+        "item": "fruitsdelight:glowberry_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -445,7 +445,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:hamimelon_jelly"
+        "item": "fruitsdelight:hamimelon_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -465,7 +465,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:melon_jelly"
+        "item": "fruitsdelight:melon_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -485,7 +485,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:hawberry_jelly"
+        "item": "fruitsdelight:hawberry_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -505,7 +505,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:lychee_jelly"
+        "item": "fruitsdelight:lychee_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -530,7 +530,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:mango_jelly"
+        "item": "fruitsdelight:mango_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -555,7 +555,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:orange_jelly"
+        "item": "fruitsdelight:orange_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -575,7 +575,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:peach_jelly"
+        "item": "fruitsdelight:peach_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -595,7 +595,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:pear_jelly"
+        "item": "fruitsdelight:pear_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -615,7 +615,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:persimmon_jelly"
+        "item": "fruitsdelight:persimmon_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -640,7 +640,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:pineapple_jelly"
+        "item": "fruitsdelight:pineapple_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -665,7 +665,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:lemon_jelly"
+        "item": "fruitsdelight:lemon_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -685,7 +685,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:cranberry_jelly"
+        "item": "fruitsdelight:cranberry_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -705,7 +705,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:mangosteen_jelly"
+        "item": "fruitsdelight:mangosteen_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -719,7 +719,7 @@
       "type": "VEG",
       "effects": [],
       "ingredient": {
-        "item": "fruitsdelight:sweetberry_jelly"
+        "item": "fruitsdelight:sweetberry_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -739,7 +739,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:chorus_jelly"
+        "item": "fruitsdelight:chorus_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -759,7 +759,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:bayberry_jelly"
+        "item": "fruitsdelight:bayberry_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -779,7 +779,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:kiwi_jelly"
+        "item": "fruitsdelight:kiwi_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -799,7 +799,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:fig_jelly"
+        "item": "fruitsdelight:fig_jam"
       },
       "max_time": 180,
       "min_time": 0,
@@ -824,7 +824,7 @@
         }
       ],
       "ingredient": {
-        "item": "fruitsdelight:durian_jelly"
+        "item": "fruitsdelight:durian_jam"
       },
       "max_time": 180,
       "min_time": 0,

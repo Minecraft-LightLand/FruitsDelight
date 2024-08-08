@@ -57,7 +57,7 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 			}
 		}
 		{
-			SoundEvent boilSound = this instanceof JellyCauldronBlock ? ModSounds.BLOCK_COOKING_POT_BOIL_SOUP.get() : ModSounds.BLOCK_COOKING_POT_BOIL.get();
+			SoundEvent boilSound = this instanceof JamCauldronBlock ? ModSounds.BLOCK_COOKING_POT_BOIL_SOUP.get() : ModSounds.BLOCK_COOKING_POT_BOIL.get();
 			double x = pos.getX() + 0.5;
 			double y = pos.getY();
 			double z = pos.getZ() + 0.5;
