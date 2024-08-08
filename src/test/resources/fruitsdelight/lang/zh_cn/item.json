@@ -145,8 +145,7 @@
 		  "block.fruitsdelight.*_jello_cauldron": "果冻锅",
 		  "block.fruitsdelight.*_jello_block": "果冻块",
 		  "block.fruitsdelight.*_jam_block": "果酱块",
-		  "fluid.fruitsdelight.*_jello": "熔融果冻",
-		  "fluid.fruitsdelight.*_jam": "果酱"
+		  "fluid.fruitsdelight.*_jello": "熔融果冻"
 		}
 	  ]
 	},
