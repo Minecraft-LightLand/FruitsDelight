@@ -10,6 +10,7 @@ import dev.xkmc.fruitsdelight.init.entries.VirtualFluidBuilder;
 import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
+import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
@@ -29,8 +30,7 @@ public class FDFluids {
 		for (var e : FruitType.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
 			JAM[e.ordinal()] = virtualFluid(name + "_jam", jam, jam,
-					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
-					.lang(FDItems.toEnglishName(name) + " Jam")
+					(a, b, c) -> new FruitFluidType(a.descriptionId(Util.makeDescriptionId("block", b)), b, c, e), p -> new FruitFluid(p, e))
 					.register();
 			JELLO[e.ordinal()] = virtualFluid(name + "_jello", jello, jello,
 					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
