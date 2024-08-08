@@ -35,7 +35,7 @@
 	"mango_salad": "生拌芒果",
 	"pear_with_rock_sugar": "冰糖雪梨",
 	"persimmon_cookie": "柿饼干",
-	"jelly_bread": "果酱面包",
+	"jam_bread": "果酱面包",
 	"lemon_seeds": "柠檬种子",
 	"lemon_cookie": "柠檬饼干",
 	"lemon_tart": "柠檬蛋挞",
@@ -110,7 +110,7 @@
 		}
 	  ]
 	},
-	"jelly": {
+	"jam": {
 	  "path": "",
 	  "list": [
 		{
@@ -138,13 +138,13 @@
 		  "durian": "榴莲"
 		},
 		{
-		  "block.fruitsdelight.*_jelly": "果酱",
+		  "block.fruitsdelight.*_jam": "果酱",
 		  "item.fruitsdelight.*_jello": "果冻",
 		  "block.fruitsdelight.*_cauldron": "水锅",
-		  "block.fruitsdelight.*_jelly_cauldron": "果酱锅",
+		  "block.fruitsdelight.*_jam_cauldron": "果酱锅",
 		  "block.fruitsdelight.*_jello_cauldron": "果冻锅",
 		  "block.fruitsdelight.*_jello_block": "果冻块",
-		  "block.fruitsdelight.*_jelly_block": "果酱块",
+		  "block.fruitsdelight.*_jam_block": "果酱块",
 		  "fluid.fruitsdelight.*_jello": "熔融果冻",
 		  "fluid.fruitsdelight.*_jam": "果酱"
 		}
