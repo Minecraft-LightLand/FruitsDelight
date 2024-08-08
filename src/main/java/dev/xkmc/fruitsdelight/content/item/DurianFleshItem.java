@@ -17,7 +17,7 @@ import java.util.List;
 
 public class DurianFleshItem extends FDFoodItem {
 
-	public DurianFleshItem(Properties props, @Nullable IFDFood food) {
+	public DurianFleshItem(Properties props, IFDFood food) {
 		super(props, food);
 	}
 

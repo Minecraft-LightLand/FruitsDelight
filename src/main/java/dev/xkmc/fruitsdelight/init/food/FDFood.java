@@ -6,16 +6,19 @@ import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.TagGen;
+import dev.xkmc.fruitsdelight.init.registrate.FDBlocks;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.function.Supplier;
 
 public enum FDFood implements IFDFood {
 
@@ -45,7 +48,7 @@ public enum FDFood implements IFDFood {
 	LEMON_COOKIE(FruitType.LEMON, FoodType.COOKIE),
 	CRANBERRY_COOKIE(FruitType.CRANBERRY, FoodType.COOKIE),
 	BAYBERRY_COOKIE(FruitType.BAYBERRY, FoodType.COOKIE),
-	MANGOSTEEN_CAKE(FoodType.MANGOSTEEN_CAKE, FruitType.MANGOSTEEN, new EffectEntry(ModEffects.COMFORT, 1200)),
+	MANGOSTEEN_CAKE(FoodType.PLATE, FruitType.MANGOSTEEN, FDBlocks.MANGOSTEEN_CAKE::get, new EffectEntry(ModEffects.COMFORT, 1200)),
 	PEAR_WITH_ROCK_SUGAR(FruitType.PEAR, FoodType.BOWL, new EffectEntry(ModEffects.COMFORT, 1200)),
 	ORANGE_CHICKEN(FruitType.ORANGE, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
 	FIG_CHICKEN_STEW(FruitType.FIG, FoodType.MEAL, new EffectEntry(ModEffects.NOURISHMENT, 3600)),
@@ -78,11 +81,11 @@ public enum FDFood implements IFDFood {
 		this(false, 0, fruit, food, null, effs);
 	}
 
-	FDFood(FoodType food, FruitType fruit, EffectEntry... effs) {
+	FDFood(FoodType food, FruitType fruit, Supplier<Block> block, EffectEntry... effs) {
 		this.fruit = fruit;
 		this.type = food;
 		this.name = name().toLowerCase(Locale.ROOT);
-		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this))
+		this.item = FruitsDelight.REGISTRATE.item(name, p -> food.build(p, this, block.get()))
 				.model((ctx, pvd) -> pvd.generated(ctx))
 				.setData(ProviderType.LANG, NonNullBiConsumer.noop())
 				.tag(getTags(false, food.tags))

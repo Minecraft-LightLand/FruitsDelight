@@ -82,25 +82,6 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 	}
 
 	@Override
-	public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity consumer) {
-		ItemStack itemStack = getCraftingRemainingItem(stack);
-		super.finishUsingItem(stack, worldIn, consumer);
-		if (itemStack.isEmpty()) {
-			return stack;
-		}
-		if (stack.isEmpty()) {
-			return itemStack;
-		}
-		if (consumer instanceof Player player && !player.getAbilities().instabuild) {
-			if (!player.getInventory().add(itemStack)) {
-				player.drop(itemStack, false);
-			}
-		}
-
-		return stack;
-	}
-
-	@Override
 	public @Nullable FoodProperties getFoodProperties(ItemStack stack, @Nullable LivingEntity entity) {
 		var list = getFruits(stack);
 		if (!list.isEmpty()) {
