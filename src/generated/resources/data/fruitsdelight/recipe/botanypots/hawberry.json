@@ -1,13 +1,13 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "botanypots"
+    }
+  ],
   "type": "botanypots:crop",
   "categories": [
     "dirt"
-  ],
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "botanypots"
-    }
   ],
   "display": {
     "block": "fruitsdelight:hawberry_sapling"

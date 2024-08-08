@@ -1,2 +1,4 @@
 1.2.0
+- Improve Fig Pudding collision shape
+- Rename jelly to jam for ids
 - Port to 1.21
