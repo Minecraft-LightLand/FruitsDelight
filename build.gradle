@@ -162,6 +162,8 @@ dependencies {
 
     implementation "dev.xkmc:cuisinedelight:1.2.1-slim"
     implementation "curse.maven:farmers-delight-398521:5566383"
+
+    implementation "curse.maven:thirst-was-taken-679270:5568715"
 }
 
 tasks.register('publishCurseForge', TaskPublishCurseForge) {
