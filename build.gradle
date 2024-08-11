@@ -1,3 +1,5 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
@@ -12,11 +14,18 @@ buildscript {
     }
 }
 
+plugins {
+    id 'net.darkhax.curseforgegradle' version '[1.1.24,)'
+    id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
+    id "com.modrinth.minotaur" version "2.+"
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
+
 
 version = "${ll_version}"
 group = "dev.xkmc.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -156,7 +165,7 @@ dependencies {
     implementation fg.deobf("curse.maven:botany-trees-411357:4719845")
     implementation fg.deobf("curse.maven:botany-pots-353928:4793076")
     implementation fg.deobf("curse.maven:serene-seasons-291874:4761603")
-    implementation fg.deobf("curse.maven:thirst-was-taken-679270:5071555")
+    implementation fg.deobf("curse.maven:thirst-was-taken-679270:5568703")
 
     compileOnly fg.deobf("curse.maven:biomes-o-plenty-220318:4764804")
     compileOnly fg.deobf("curse.maven:terralith-513688:4938254")
@@ -222,4 +231,48 @@ jar {
     // this now conflicts with jarJar as filenames are the same
     // append a `-slim` to this jar, as this jar contains no pre-packaged libs
     classifier 'slim'
+}
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+    apiToken = secrets.get("curseforge_token")
+    def mainFile = upload(project.curseforge_project, new File("./build/libs/${modid}-${ll_version}.jar"))
+    mainFile.changelog = new File('./changelog.txt')
+    mainFile.addEnvironment("Client", "Server")
+    mainFile.addGameVersion("1.20.1")
+    mainFile.addModLoader("Forge","NeoForge")
+    mainFile.addRequirement("farmers-delight")
+    mainFile.addOptional(
+            "biomes-o-plenty",
+            "botany-pots",
+            "create",
+            "cuisine-delight",
+            "diet",
+            "serene-seasons",
+            "terralith",
+            "thirst-was-taken")
+    mainFile.releaseType = "release"
+    disableVersionDetection()
+}
+
+modrinth {
+    token = secrets.get("modrinth_token")
+    projectId = project.modrinth_project
+    versionName = "Fruits Delight ${project.ll_version}"
+    versionNumber = project.ll_version
+    versionType = "release"
+    uploadFile = new File("./build/libs/${modid}-${ll_version}.jar")
+    gameVersions = ["1.20.1"]
+    loaders = ["forge","neoforge"]
+    changelog = new File('./changelog.txt').text.split("\n\n")[0]
+    dependencies {
+        required.project "farmers-delight"
+        optional.project "biomes-o-plenty"
+        optional.project "botany-pots"
+        optional.project "create"
+        optional.project "cuisine-delight"
+        optional.project "diet"
+        optional.project "serene-seasons"
+        optional.project "terralith"
+        optional.project "thirst-was-taken"
+    }
 }

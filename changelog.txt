@@ -1,3 +1,6 @@
+1.0.11
+- Use the new Thirst compat
+
 1.0.10
 - Add config option to disable Thirst compat
 
