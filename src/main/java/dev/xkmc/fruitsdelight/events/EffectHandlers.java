@@ -32,7 +32,7 @@ public class EffectHandlers {
 	public static void onEffectEnd(MobEffectEvent.Expired event) {
 		var ins = event.getEffectInstance();
 		if (ins == null) return;
-		if (ins.getEffect().value() == FDEffects.SHRINKING.get())
+		if (ins.getEffect().value() == FDEffects.SHRINKING.get())//TODO fix
 			event.getEntity().refreshDimensions();
 	}
 
@@ -40,7 +40,7 @@ public class EffectHandlers {
 	public static void onEffectEnd(MobEffectEvent.Remove event) {
 		var ins = event.getEffectInstance();
 		if (ins == null) return;
-		if (ins.getEffect().value() == FDEffects.SHRINKING.get())
+		if (ins.getEffect().value() == FDEffects.SHRINKING.get())//TODO fix
 			event.getEntity().refreshDimensions();
 	}
 

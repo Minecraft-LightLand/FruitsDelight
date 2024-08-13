@@ -9,7 +9,6 @@ import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.l2core.init.L2TagGen;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -17,6 +16,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 
 public class TagGen {
 
@@ -42,7 +42,7 @@ public class TagGen {
 	}
 
 	public static void onItemTagGen(RegistrateItemTagsProvider pvd) {
-		pvd.addTag(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "berries")))
+		pvd.addTag(Tags.Items.FOODS_BERRY)
 				.add(FDBushes.BLUEBERRY.getFruit(), FDBushes.CRANBERRY.getFruit());
 		SeasonCompat.genItem(pvd);
 		pvd.addTag(DietTagGen.GRAINS.tag).add(FDFood.MANGOSTEEN_CAKE.item.get());

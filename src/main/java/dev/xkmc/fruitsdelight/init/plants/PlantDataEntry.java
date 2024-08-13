@@ -13,7 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.neoforged.neoforge.common.data.DataMapProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 
@@ -45,10 +45,8 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 	}
 
 	static <T extends Item> ItemBuilder<T, L2Registrate> addFruitTags(String name, ItemBuilder<T, L2Registrate> b) {
-		return b.tag(
-				ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "fruits")),
-				DietTagGen.FRUITS.tag,
-				ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "fruits/" + name))
+		return b.tag(Tags.Items.FOODS_FRUIT, DietTagGen.FRUITS.tag,
+				ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "foods/fruit/" + name))
 		);
 	}
 

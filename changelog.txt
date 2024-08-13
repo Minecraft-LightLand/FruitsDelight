@@ -1,6 +1,7 @@
 1.2.1
 - Add Thirst Compat
 - Add cauldron registration
+- Use common tag names
 
 1.2.0
 - Improve Fig Pudding collision shape
