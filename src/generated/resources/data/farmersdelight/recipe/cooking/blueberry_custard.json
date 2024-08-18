@@ -7,10 +7,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/blueberry"
+      "tag": "c:foods/fruits/blueberry"
     },
     {
-      "tag": "c:fruits/blueberry"
+      "tag": "c:foods/fruits/blueberry"
     },
     {
       "tag": "c:foods/milk"

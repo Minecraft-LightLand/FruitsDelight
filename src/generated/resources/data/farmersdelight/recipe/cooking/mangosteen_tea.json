@@ -13,10 +13,10 @@
       "tag": "minecraft:leaves"
     },
     {
-      "tag": "c:fruits/mangosteen"
+      "tag": "c:foods/fruits/mangosteen"
     },
     {
-      "tag": "c:fruits/mangosteen"
+      "tag": "c:foods/fruits/mangosteen"
     }
   ],
   "recipe_book_tab": "drinks",

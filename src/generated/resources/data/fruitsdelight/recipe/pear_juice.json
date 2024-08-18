@@ -10,10 +10,10 @@
       "item": "minecraft:sugar"
     },
     {
-      "tag": "c:fruits/pear"
+      "tag": "c:foods/fruits/pear"
     },
     {
-      "tag": "c:fruits/pear"
+      "tag": "c:foods/fruits/pear"
     }
   ],
   "result": {

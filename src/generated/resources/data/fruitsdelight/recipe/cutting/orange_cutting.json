@@ -2,7 +2,7 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "tag": "c:fruits/orange"
+      "tag": "c:foods/fruits/orange"
     }
   ],
   "result": [

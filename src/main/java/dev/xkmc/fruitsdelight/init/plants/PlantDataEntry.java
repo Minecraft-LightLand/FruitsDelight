@@ -10,6 +10,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -44,10 +45,12 @@ public interface PlantDataEntry<E extends Enum<E> & PlantDataEntry<E>> {
 		}
 	}
 
+	static TagKey<Item> getFruitTag(String name) {
+		return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "foods/fruits/" + name));
+	}
+
 	static <T extends Item> ItemBuilder<T, L2Registrate> addFruitTags(String name, ItemBuilder<T, L2Registrate> b) {
-		return b.tag(Tags.Items.FOODS_FRUIT, DietTagGen.FRUITS.tag,
-				ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "foods/fruit/" + name))
-		);
+		return b.tag(Tags.Items.FOODS_FRUIT, DietTagGen.FRUITS.tag, getFruitTag(name));
 	}
 
 	static void registerComposter(RegistrateDataMapProvider pvd) {

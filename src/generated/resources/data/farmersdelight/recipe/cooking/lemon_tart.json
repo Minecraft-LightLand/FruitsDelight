@@ -3,7 +3,7 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/lemon"
+      "tag": "c:foods/fruits/lemon"
     },
     {
       "item": "farmersdelight:pie_crust"

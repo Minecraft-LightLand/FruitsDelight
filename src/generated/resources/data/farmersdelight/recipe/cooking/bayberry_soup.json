@@ -7,16 +7,16 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/bayberry"
+      "tag": "c:foods/fruits/bayberry"
     },
     {
-      "tag": "c:fruits/bayberry"
+      "tag": "c:foods/fruits/bayberry"
     },
     {
-      "tag": "c:fruits/bayberry"
+      "tag": "c:foods/fruits/bayberry"
     },
     {
-      "tag": "c:fruits/bayberry"
+      "tag": "c:foods/fruits/bayberry"
     }
   ],
   "recipe_book_tab": "drinks",

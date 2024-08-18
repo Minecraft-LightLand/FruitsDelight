@@ -13,10 +13,10 @@
       "tag": "minecraft:leaves"
     },
     {
-      "tag": "c:fruits/mango"
+      "tag": "c:foods/fruits/mango"
     },
     {
-      "tag": "c:fruits/mango"
+      "tag": "c:foods/fruits/mango"
     }
   ],
   "recipe_book_tab": "drinks",

@@ -7,10 +7,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/persimmon"
+      "tag": "c:foods/fruits/persimmon"
     },
     {
-      "tag": "c:fruits/persimmon"
+      "tag": "c:foods/fruits/persimmon"
     },
     {
       "item": "minecraft:sugar"

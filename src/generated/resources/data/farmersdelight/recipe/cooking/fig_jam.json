@@ -7,10 +7,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/fig"
+      "tag": "c:foods/fruits/fig"
     },
     {
-      "tag": "c:fruits/fig"
+      "tag": "c:foods/fruits/fig"
     },
     {
       "item": "minecraft:sugar"

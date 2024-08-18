@@ -7,10 +7,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/mangosteen"
+      "tag": "c:foods/fruits/mangosteen"
     },
     {
-      "tag": "c:fruits/mangosteen"
+      "tag": "c:foods/fruits/mangosteen"
     },
     {
       "item": "minecraft:sugar"

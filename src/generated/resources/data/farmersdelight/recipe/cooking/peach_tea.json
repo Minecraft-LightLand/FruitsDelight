@@ -13,10 +13,10 @@
       "tag": "minecraft:leaves"
     },
     {
-      "tag": "c:fruits/peach"
+      "tag": "c:foods/fruits/peach"
     },
     {
-      "tag": "c:fruits/peach"
+      "tag": "c:foods/fruits/peach"
     }
   ],
   "recipe_book_tab": "drinks",

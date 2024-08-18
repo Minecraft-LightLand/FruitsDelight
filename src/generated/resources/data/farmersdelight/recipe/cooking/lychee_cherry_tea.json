@@ -13,16 +13,16 @@
       "item": "minecraft:cherry_leaves"
     },
     {
-      "tag": "c:fruits/lychee"
+      "tag": "c:foods/fruits/lychee"
     },
     {
-      "tag": "c:fruits/lychee"
+      "tag": "c:foods/fruits/lychee"
     },
     {
-      "tag": "c:fruits/lychee"
+      "tag": "c:foods/fruits/lychee"
     },
     {
-      "tag": "c:fruits/lychee"
+      "tag": "c:foods/fruits/lychee"
     }
   ],
   "recipe_book_tab": "drinks",

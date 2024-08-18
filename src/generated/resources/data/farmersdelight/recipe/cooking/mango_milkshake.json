@@ -7,7 +7,7 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/mango"
+      "tag": "c:foods/fruits/mango"
     },
     {
       "tag": "c:foods/milk"

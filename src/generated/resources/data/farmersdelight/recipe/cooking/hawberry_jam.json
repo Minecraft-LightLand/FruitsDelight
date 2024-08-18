@@ -7,16 +7,16 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
       "item": "minecraft:sugar"

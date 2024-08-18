@@ -10,10 +10,10 @@
       "tag": "c:foods/raw_chicken"
     },
     {
-      "tag": "c:fruits/fig"
+      "tag": "c:foods/fruits/fig"
     },
     {
-      "tag": "c:fruits/fig"
+      "tag": "c:foods/fruits/fig"
     }
   ],
   "recipe_book_tab": "meals",

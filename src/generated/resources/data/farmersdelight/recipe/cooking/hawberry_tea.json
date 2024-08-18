@@ -13,16 +13,16 @@
       "tag": "minecraft:leaves"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     },
     {
-      "tag": "c:fruits/hawberry"
+      "tag": "c:foods/fruits/hawberry"
     }
   ],
   "recipe_book_tab": "drinks",

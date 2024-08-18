@@ -6,10 +6,10 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "tag": "c:fruits/kiwi"
+      "tag": "c:foods/fruits/kiwi"
     },
     {
-      "tag": "c:fruits/kiwi"
+      "tag": "c:foods/fruits/kiwi"
     }
   ],
   "result": {

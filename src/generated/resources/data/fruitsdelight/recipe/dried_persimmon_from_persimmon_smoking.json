@@ -4,7 +4,7 @@
   "cookingtime": 100,
   "experience": 0.1,
   "ingredient": {
-    "tag": "c:fruits/persimmon"
+    "tag": "c:foods/fruits/persimmon"
   },
   "result": {
     "count": 1,

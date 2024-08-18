@@ -3,10 +3,10 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:fruits/cranberry"
+      "tag": "c:foods/fruits/cranberry"
     },
     {
-      "tag": "c:fruits/cranberry"
+      "tag": "c:foods/fruits/cranberry"
     },
     {
       "tag": "c:foods/dough"
