@@ -1,3 +1,9 @@
+1.2.1+2
+- Fix compat with Enchantment Description
+
+1.2.1+1
+- Fix fruit tags
+
 1.2.1
 - Add Thirst Compat
 - Add cauldron registration
