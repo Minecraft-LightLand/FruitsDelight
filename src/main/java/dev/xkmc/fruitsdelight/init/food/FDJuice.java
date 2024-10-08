@@ -24,6 +24,7 @@ import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Supplier;
 
 public enum FDJuice implements IFDFood {
 
@@ -107,7 +108,7 @@ public enum FDJuice implements IFDFood {
 		int count = fruit.jamCost;
 		if (type.category.cook) {
 			var e = CookingPotRecipeBuilder.cookingPotRecipe(item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
-			type.list.forEach(e::addIngredient);
+			type.list.get().forEach(e::addIngredient);
 			e.addIngredient(getFruitTag(), count);
 			e.setRecipeBookTab(CookingPotRecipeBookTab.DRINKS);
 			e.build(pvd);
@@ -116,32 +117,37 @@ public enum FDJuice implements IFDFood {
 			if (type.category.waterCraft) {
 				e.requires(PotionIngredient.of(Potions.WATER));
 			}
-			type.list.forEach(e::requires);
+			type.list.get().forEach(e::requires);
 			e.requires(getFruitTag(), count);
 			e.save(pvd);
 		}
 	}
 
+	/**
+	 * For DataGen only
+	 * */
 	public enum Type {
-		JUICE(Category.PLAIN, Ingredient.of(Items.GLASS_BOTTLE)),
-		SWEETENED(Category.RINSE, Ingredient.of(Items.SUGAR)),
-		BOILED(Category.BOIL),
-		SOUP(Category.SOUP),
-		TEA(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(ItemTags.LEAVES)),
-		ICED(Category.COLD_COOK, Ingredient.of(Items.SUGAR), Ingredient.of(Items.ICE)),
-		CHERRY(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(Items.CHERRY_LEAVES));
+		JUICE(Category.PLAIN, () -> List.of(Ingredient.of(Items.GLASS_BOTTLE))),
+		SWEETENED(Category.RINSE, () -> List.of((Ingredient.of(Items.SUGAR)))),
+		BOILED(Category.BOIL, List::of),
+		SOUP(Category.SOUP, List::of),
+		TEA(Category.BOIL, () -> List.of(Ingredient.of(Items.SUGAR), Ingredient.of(ItemTags.LEAVES))),
+		ICED(Category.COLD_COOK, () -> List.of(Ingredient.of(Items.SUGAR), Ingredient.of(Items.ICE))),
+		CHERRY(Category.BOIL, () -> List.of(Ingredient.of(Items.SUGAR), Ingredient.of(Items.CHERRY_LEAVES)));
 
 		public final Category category;
-		public final List<Ingredient> list;
+		public final Supplier<List<Ingredient>> list;
 
-		Type(Category category, Ingredient... list) {
+		Type(Category category, Supplier<List<Ingredient>> list) {
 			this.category = category;
-			this.list = List.of(list);
+			this.list = list;
 		}
-
 
 	}
 
+	/**
+	 * For DataGen only
+	 * */
 	public enum Category {
 		PLAIN(false, false, false, false),
 		RINSE(false, false, true, true),
