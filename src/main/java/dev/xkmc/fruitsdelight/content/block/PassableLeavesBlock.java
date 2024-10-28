@@ -34,6 +34,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.Tags;
 
 import java.util.Locale;
 
@@ -153,7 +154,10 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 		var leaves = LootItem.lootTableItem(block)
 				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
 						.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
-								MinMaxBounds.Ints.atLeast(1)))));
+								MinMaxBounds.Ints.atLeast(1)))).or(
+						MatchTool.toolMatches(ItemPredicate.Builder.item()
+								.of(Tags.Items.SHEARS))
+				));
 		var fruits = LootItem.lootTableItem(fruit)
 				.when(LootItemBlockStatePropertyCondition
 						.hasBlockStateProperties(block)

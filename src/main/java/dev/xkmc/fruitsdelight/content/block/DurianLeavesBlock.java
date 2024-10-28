@@ -35,6 +35,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.Tags;
 
 import java.util.Locale;
 
@@ -229,7 +230,10 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 								.hasProperty(LEAF, Leaf.BARE)).invert())
 				.when(MatchTool.toolMatches(ItemPredicate.Builder.item()
 						.hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH,
-								MinMaxBounds.Ints.atLeast(1)))));
+								MinMaxBounds.Ints.atLeast(1)))).or(
+						MatchTool.toolMatches(ItemPredicate.Builder.item()
+								.of(Tags.Items.SHEARS))
+				));
 		var fruits = LootItem.lootTableItem(fruit)
 				.when(LootItemBlockStatePropertyCondition
 						.hasBlockStateProperties(block)

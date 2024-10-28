@@ -1,3 +1,6 @@
+1.0.12
+- Fix leaves drop with shear
+
 1.0.11
 - Use the new Thirst compat
 
