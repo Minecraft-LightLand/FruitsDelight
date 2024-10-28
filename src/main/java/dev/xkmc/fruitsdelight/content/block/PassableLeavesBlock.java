@@ -5,6 +5,7 @@ import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.l2core.serial.loot.LootHelper;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -24,8 +25,10 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.Locale;
 
@@ -143,7 +146,8 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 
 	public void buildLoot(RegistrateBlockLootTables pvd, Block block, Block sapling, Item fruit) {
 		var helper = new LootHelper(pvd);
-		var leaves = LootItem.lootTableItem(block).when(helper.silk());
+		var cond = helper.silk().or(MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.TOOLS_SHEAR)));
+		var leaves = LootItem.lootTableItem(block).when(cond);
 		var fruits = LootItem.lootTableItem(fruit)
 				.when(helper.enumState(block, STATE, State.FRUITS))
 				.apply(helper.fortuneCount(1));
