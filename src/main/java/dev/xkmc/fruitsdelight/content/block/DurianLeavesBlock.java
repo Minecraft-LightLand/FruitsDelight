@@ -5,6 +5,8 @@ import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.fruitsdelight.init.plants.Durian;
+import dev.xkmc.l2harvester.api.HarvestResult;
+import dev.xkmc.l2harvester.api.HarvestableBlock;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -36,10 +38,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.Tags;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Locale;
 
-public class DurianLeavesBlock extends BaseLeavesBlock {
+public class DurianLeavesBlock extends BaseLeavesBlock implements HarvestableBlock {
 
 	public enum Leaf implements StringRepresentable {
 		LEAF, BUDDING, BARE;
@@ -81,11 +85,19 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 	protected InteractionResult doClick(Level level, BlockPos pos, BlockState state) {
 		if (state.getValue(FRUIT) == Fruit.FRUITS) {
 			if (level instanceof ServerLevel sl) {
-				dropFruit(state, sl, pos, level.getRandom());
+				dropFruit(state, sl, pos);
 			}
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.PASS;
+	}
+
+	@Override
+	public @Nullable HarvestResult getHarvestResult(Level level, BlockState state, BlockPos pos) {
+		if (state.getValue(PERSISTENT)) return null;
+		if (state.getValue(FRUIT) != Fruit.FRUITS) return null;
+		return new HarvestResult((l, p) -> postDropFruit(state, (ServerLevel) l, p),
+				List.of(Durian.FRUIT.asStack()));
 	}
 
 	@Override
@@ -124,13 +136,17 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 		return false;
 	}
 
-	protected void dropFruit(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+	protected void dropFruit(BlockState state, ServerLevel level, BlockPos pos) {
 		if (doDropFruit(state, level, pos)) {
-			if (state.getValue(LEAF) == Leaf.BARE) {
-				level.removeBlock(pos, false);
-			} else {
-				level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.NONE));
-			}
+			postDropFruit(state, level, pos);
+		}
+	}
+
+	protected void postDropFruit(BlockState state, ServerLevel level, BlockPos pos) {
+		if (state.getValue(LEAF) == Leaf.BARE) {
+			level.removeBlock(pos, false);
+		} else {
+			level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.NONE));
 		}
 	}
 
@@ -160,7 +176,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 					if (FDModConfig.COMMON.fruitsDropChance.get() < FDModConfig.COMMON.fruitsGrowChance.get()) {
 						level.setBlockAndUpdate(pos, state.setValue(FRUIT, Fruit.FRUITS));
 					} else {
-						dropFruit(state, level, pos, random);
+						dropFruit(state, level, pos);
 					}
 					ForgeHooks.onCropsGrowPost(level, pos, state);
 					return;
@@ -168,7 +184,7 @@ public class DurianLeavesBlock extends BaseLeavesBlock {
 			}
 			if (st == Fruit.FRUITS) {
 				if (random.nextDouble() < FDModConfig.COMMON.fruitsDropChance.get()) {
-					dropFruit(state, level, pos, random);
+					dropFruit(state, level, pos);
 					return;
 				}
 			}
