@@ -1,3 +1,6 @@
+1.2.2
+- Add 5 localization support
+
 1.2.1+5
 - Fix no leaves drop with shear
 
