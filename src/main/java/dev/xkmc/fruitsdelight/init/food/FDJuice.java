@@ -6,14 +6,12 @@ import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.RecipeGen;
 import dev.xkmc.fruitsdelight.init.entries.FruitFluid;
-import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.init.registrate.FDFluids;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import dev.xkmc.l2library.serial.ingredients.PotionIngredient;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -38,8 +36,7 @@ public enum FDJuice implements IFDFood {
 	MANGOSTEEN_TEA(FruitType.MANGOSTEEN, Type.TEA),
 	BAYBERRY_SOUP(FruitType.BAYBERRY, Type.SOUP),
 	KIWI_JUICE(FruitType.KIWI, Type.JUICE),
-	BELLINI_COCKTAIL(FruitType.PEACH, Type.ICED,
-			new EffectEntry(FDEffects.HEAL_AURA::get, 200),
+	BELLINI_COCKTAIL(FruitType.PEACH, Type.COCKTAIL,
 			new EffectEntry(() -> MobEffects.CONFUSION, 100)),
 
 	;
@@ -128,6 +125,7 @@ public enum FDJuice implements IFDFood {
 		SOUP(Category.SOUP),
 		TEA(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(ItemTags.LEAVES)),
 		ICED(Category.COLD_COOK, Ingredient.of(Items.SUGAR), Ingredient.of(Items.ICE)),
+		COCKTAIL(Category.COLD_COOK, Ingredient.of(Items.SUGAR), Ingredient.of(Items.ICE)),
 		CHERRY(Category.BOIL, Ingredient.of(Items.SUGAR), Ingredient.of(Items.CHERRY_LEAVES));
 
 		public final Category category;
@@ -136,6 +134,10 @@ public enum FDJuice implements IFDFood {
 		Type(Category category, Ingredient... list) {
 			this.category = category;
 			this.list = List.of(list);
+		}
+
+		public FoodType getType() {
+			return this == COCKTAIL ? FoodType.COCKTAIL : FoodType.JUICE;
 		}
 
 

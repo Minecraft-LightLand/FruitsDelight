@@ -84,7 +84,11 @@ public enum FDTreeType {
 
 	public BlockEntry<? extends BaseLeavesBlock> buildLeave(String name, FDTrees tree) {
 		return FruitsDelight.REGISTRATE
-				.block(name + "_leaves", p -> block.apply(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
+				.block(name + "_leaves", p -> block.apply(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)
+						.isSuffocating((a, b, c) -> false)
+						.isViewBlocking((a, b, c) -> false)
+						.isRedstoneConductor((a, b, c) -> false)
+				))
 				.blockstate((ctx, pvd) -> ctx.get().buildLeavesModel(ctx, pvd, name))
 				.loot((pvd, block) -> block.buildLoot(pvd, block, tree.getSapling(), tree.getFruit()))
 				.tag(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE)
