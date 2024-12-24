@@ -1,3 +1,7 @@
+1.0.15
+- Add forge:jams tag
+- Change kiwi to kiwifruit for en-nz
+
 1.0.14
 - Fix leaves suffocating player
 - Fix cocktail effect

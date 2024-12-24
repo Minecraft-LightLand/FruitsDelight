@@ -43,6 +43,8 @@ public class TagGen {
 		}
 		pvd.addTag(DietTagGen.GRAINS.tag).add(FDFood.MANGOSTEEN_CAKE.item.get());
 		pvd.addTag(DietTagGen.SUGARS.tag).add(FDFood.PEAR_WITH_ROCK_SUGAR.get());
+		pvd.addTag(ItemTags.create(new ResourceLocation("forge", "jams")))
+				.addTag(JELLY);
 	}
 
 }
