@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-28T22:54:03.533717	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2025-01-17T14:01:07.339123	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -889,6 +889,7 @@ a9a028ce67f2e4d8c95fd8ad5bcbc64c34390075 data/forge/tags/items/fruits/mango.json
 4c1e91ab13fae51882df9d3f17c3fb3727ecbfcf data/forge/tags/items/fruits/pear.json
 d4d831b1840aa3090c7738ca176fb1bffc09a166 data/forge/tags/items/fruits/persimmon.json
 ac35a8d069c7c70785c68127dc824a5bc0db5ff2 data/forge/tags/items/fruits/pineapple.json
+367aa42b761a00834aaf9bf940e7011917212c9b data/forge/tags/items/jams.json
 83aaf083d3cf476575c6808474dd3eb2e5d8a458 data/fruitsdelight/advancements/recipes/food/baked_durian_from_durian_flesh_campfire.json
 ac7ec6a24931815cfa11abb1a4126905c46e7a20 data/fruitsdelight/advancements/recipes/food/baked_durian_from_durian_flesh_smoking.json
 b0c97cfaf0e5e1d09704075a6f97d33809bfc612 data/fruitsdelight/advancements/recipes/food/baked_pear_from_pear_campfire.json
@@ -1674,6 +1675,7 @@ db0be5455533f2b1c2990d8beb091cb188e32b6e data/minecraft/tags/items/leaves.json
 40b164a0d0f9cd4449b5289f9b973d04e35a09ed data/sereneseasons/tags/blocks/autumn_crops.json
 f8ac1a90d24efa967f3503347776f0a38240e55d data/sereneseasons/tags/blocks/spring_crops.json
 a0fdf52b6c3b025d9147b832998c35f5981651d4 data/sereneseasons/tags/blocks/summer_crops.json
+e91b8f7b33c0b11026a97b6d7dabfcce5367a7cb data/sereneseasons/tags/blocks/unbreakable_infertile_crops.json
 5ec8424220d506e92c5270c0f6baff5739ccce1d data/sereneseasons/tags/blocks/winter_crops.json
 1403005c41e714e958b70d8a1e55f2ffb1200d1d data/sereneseasons/tags/items/autumn_crops.json
 b0ed53ff39672d830268f0d07479761233058cec data/sereneseasons/tags/items/spring_crops.json
