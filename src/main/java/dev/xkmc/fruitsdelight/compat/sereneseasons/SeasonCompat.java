@@ -8,6 +8,8 @@ import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 
 public class SeasonCompat {
@@ -67,6 +69,16 @@ public class SeasonCompat {
 			for (var t : PINEAPPLE.get(s)) {
 				block.add(t.getPlant());
 			}
+		}
+
+		var tag = pvd.addTag(BlockTags.create(
+				ResourceLocation.parse("sereneseasons:unbreakable_infertile_crops")));
+		for (var t : FDTrees.values()) {
+			tag.add(t.getLeaves());
+			tag.add(t.getSapling());
+		}
+		for (var t : FDBushes.values()) {
+			tag.add(t.getBush());
 		}
 	}
 
