@@ -10,7 +10,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -126,7 +125,9 @@ public abstract class DoubleBushBlock extends DoublePlantBlock implements Boneme
 				super.getStateForPlacement(ctx) : null;
 	}
 
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, ItemStack pStack) {
+	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState state, LivingEntity pPlacer, ItemStack pStack) {
+		if (state.getValue(AGE) >= getDoubleBlockStart())
+			super.setPlacedBy(pLevel, pPos, state, pPlacer, pStack);
 	}
 
 }

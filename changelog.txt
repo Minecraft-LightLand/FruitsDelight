@@ -1,4 +1,8 @@
-1.0.9
+0.5.10
+- Rework Lemon model and texture
+- Fix lemon bush place not having upper half
+
+0.5.9
 - Fix Durain flower culling
 - Allow bonemealing player-placed leaves to change stage
   - for decorations only. player can't pick up fruits even in fruit stage
