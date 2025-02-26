@@ -1,3 +1,7 @@
+1.2.4
+- Rework Lemon model and texture
+- Fix lemon bush place not having upper half
+
 1.2.3
 - Add tree saplings, leaves, and bushes to tag sereneseasons:unbreakable_infertile_crops
 

@@ -125,7 +125,9 @@ public abstract class DoubleBushBlock extends DoublePlantBlock implements Boneme
 				super.getStateForPlacement(ctx) : null;
 	}
 
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, ItemStack pStack) {
+	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState state, LivingEntity pPlacer, ItemStack pStack) {
+		if (state.getValue(AGE) >= getDoubleBlockStart())
+			super.setPlacedBy(pLevel, pPos, state, pPlacer, pStack);
 	}
 
 }
