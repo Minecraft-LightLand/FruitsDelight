@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 public class DoubleFruitBushBlock extends DoubleBushBlock implements HarvestableBlock {
 
 	private static final VoxelShape TALL_SMALL = Shapes.or(
-			Block.box(4.0D, 3.0D, 4.0D, 12.0D, 11.0D, 12.0D),
+			Block.box(2.0D, 3.0D, 2.0D, 14.0D, 15.0D, 14.0D),
 			Block.box(7.0D, 0.0D, 7.0D, 9.0D, 3.0D, 9.0D)
 	);
 
@@ -44,7 +44,7 @@ public class DoubleFruitBushBlock extends DoubleBushBlock implements Harvestable
 	);
 
 	private static final VoxelShape TALL_UPPER =
-			Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+			Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
 
 	private final Supplier<Item> item;

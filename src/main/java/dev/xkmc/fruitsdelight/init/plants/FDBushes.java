@@ -21,8 +21,6 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -201,39 +199,58 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 			});
 			return;
 		}
-		boolean tall = type == FDBushType.TALL;
+		if (type == FDBushType.BLOCK) {
+			pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
+				int age = state.getValue(FruitBushBlock.AGE);
+				String id = ctx.getName();
+				String parent = "bush";
+				if (age == 0) {
+					id += "_small";
+					parent += "_small";
+				}
+				if (age == 1) {
+					return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + id + "_small"))).build();
+				}
+				if (age == 3) id += "_flowers";
+				if (age == 4) id += "_fruits";
+				var model = pvd.models().getBuilder(id)
+						.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + parent)));
+				model.texture("face", "block/" + id + "_face");
+				model.texture("cross", "block/" + id + "_cross");
+				return ConfiguredModel.builder().modelFile(model).build();
+			});
+			return;
+		}
 		pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
 			int age = state.getValue(FruitBushBlock.AGE);
-			String id = ctx.getName();
-			if (tall && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+			String modelId = ctx.getName();
+			if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
 				return ConfiguredModel.builder().modelFile(pvd.models()
-						.withExistingParent(id + "_upper", pvd.mcLoc("block/air"))
-						.texture("particle", pvd.modLoc("block/" + id + "_top"))
+						.withExistingParent(modelId + "_upper", pvd.mcLoc("block/air"))
+						.texture("particle", pvd.modLoc("block/" + modelId + "_top"))
 				).build();
 			}
-			String parent = "bush";
-			if (tall) parent = "tall_" + parent;
+			String parent = "tall_bush";
+			String trunk = age <= 1 ? "_small_trunk" : "_trunk";
+			String tex = "";
 			if (age == 0) {
-				id += "_small";
+				modelId += "_small";
 				parent += "_small";
 			}
 			if (age == 1) {
-				if (tall) {
-					id += "_mid";
-					parent += "_mid";
-				} else {
-					return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + id + "_small"))).build();
-				}
+				modelId += "_mid";
+				parent += "_mid";
 			}
-			if (age == 3) id += "_flowers";
-			if (age == 4) id += "_fruits";
-			var model = pvd.models().getBuilder(id)
+			if (age == 3) tex = "_flowers";
+			if (age == 4) tex = "_fruits";
+			modelId += tex;
+			tex = ctx.getName() + tex;
+			var model = pvd.models().getBuilder(modelId)
 					.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + parent)));
-			model.texture("face", "block/" + id + "_face");
-			model.texture("cross", "block/" + id + "_cross");
-			if (tall) {
-				model.texture("top", "block/" + id + "_top");
-			}
+			model.texture("upper", "block/" + tex + "_upper");
+			model.texture("lower", "block/" + tex + "_lower");
+			model.texture("trunk", "block/" + ctx.getName() + trunk);
+			model.texture("top", "block/" + tex + "_top");
 			return ConfiguredModel.builder().modelFile(model).build();
 		});
 	}

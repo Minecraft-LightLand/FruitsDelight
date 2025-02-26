@@ -1,8 +1,9 @@
 {
   "parent": "fruitsdelight:block/tall_bush",
   "textures": {
-    "cross": "fruitsdelight:block/lemon_tree_cross",
-    "face": "fruitsdelight:block/lemon_tree_face",
-    "top": "fruitsdelight:block/lemon_tree_top"
+    "lower": "fruitsdelight:block/lemon_tree_lower",
+    "top": "fruitsdelight:block/lemon_tree_top",
+    "trunk": "fruitsdelight:block/lemon_tree_trunk",
+    "upper": "fruitsdelight:block/lemon_tree_upper"
   }
 }
