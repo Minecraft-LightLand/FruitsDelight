@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-26T10:47:20.730142	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2025-02-27T11:34:12.641593	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -98,7 +98,7 @@ b52a3c849513e4964069dc61b5b76bf41d27dc71 assets/fruitsdelight/blockstates/lemon_
 bf808393d1303891da2331e737d452bc675a30bf assets/fruitsdelight/blockstates/lemon_jelly.json
 42905a4e8d7e37ede44c8c613a6c17605e6e95d2 assets/fruitsdelight/blockstates/lemon_jelly_block.json
 14a3ff1438937ac04d9219c85d2c55ccb4a77070 assets/fruitsdelight/blockstates/lemon_jelly_cauldron.json
-4c39664984d963b0566666b19a049331cf41db20 assets/fruitsdelight/blockstates/lemon_tree.json
+5ba9f342b34090c68b6fbae5e258469bb082cb14 assets/fruitsdelight/blockstates/lemon_tree.json
 6ea714f4bf83355d76df746799624e4bf2a11c44 assets/fruitsdelight/blockstates/lemonade_cauldron.json
 843ae45545339ab835a97023f199cf5d19b2aa4e assets/fruitsdelight/blockstates/lychee_cauldron.json
 8f9185c1bab1558249fa616a743493dc07ed7351 assets/fruitsdelight/blockstates/lychee_crate.json
@@ -379,10 +379,14 @@ f75512a40753b7ae78b354279aaad1b85da3a512 assets/fruitsdelight/models/block/lemon
 49739a7083954c9430c508e93823e22f1feb62dd assets/fruitsdelight/models/block/lemon_jelly_cauldron_level2.json
 00ef4f9258aa1b4cee314014652e1effbe390ea4 assets/fruitsdelight/models/block/lemon_tree.json
 395a86b25686149f104be298d5d63c607ac574bc assets/fruitsdelight/models/block/lemon_tree_flowers.json
+20277798f6dda6f9aacbe1fa2b8c305431b5f786 assets/fruitsdelight/models/block/lemon_tree_flowers_upper.json
 d19708cb572d730bbe0011cfcb6807882449b034 assets/fruitsdelight/models/block/lemon_tree_fruits.json
+d77443c0531fc0cb18106af8c3393f5240e46f42 assets/fruitsdelight/models/block/lemon_tree_fruits_upper.json
 a529fae970eb1770f1de84b34bfb1dbb61751fde assets/fruitsdelight/models/block/lemon_tree_mid.json
+0eb53f7972bd8cdedf4c7548563b35806de7dded assets/fruitsdelight/models/block/lemon_tree_mid_upper.json
 206c1b1a7aa30cde1002b63c8e9a95181615ed16 assets/fruitsdelight/models/block/lemon_tree_small.json
-060f45ee9ad2f79de45d96268cc21047a2d4a6e5 assets/fruitsdelight/models/block/lemon_tree_upper.json
+0eb53f7972bd8cdedf4c7548563b35806de7dded assets/fruitsdelight/models/block/lemon_tree_small_upper.json
+0eb53f7972bd8cdedf4c7548563b35806de7dded assets/fruitsdelight/models/block/lemon_tree_upper.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/lemonade_cauldron.json
 9f83e640eb68eaff44d45c2a55c33666377cbfab assets/fruitsdelight/models/block/lychee_cauldron.json
 46bf4d1788ce158ec968218fb6f23a67a0bf6971 assets/fruitsdelight/models/block/lychee_crate.json
