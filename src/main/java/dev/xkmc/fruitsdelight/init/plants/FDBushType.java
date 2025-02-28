@@ -99,7 +99,14 @@ public enum FDBushType {
 					}))
 					.loot(bush::buildLoot)
 					.tag(BlockTags.MINEABLE_WITH_AXE, BlockTags.SWORD_EFFICIENT)
-					.item().build()
+					.item()
+					.model((ctx, pvd) -> pvd.getBuilder("item/" + ctx.getName())
+							.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/tall_bush_item")))
+							.texture("upper", "block/" + ctx.getName() + "_upper")
+							.texture("lower", "block/" + ctx.getName() + "_lower")
+							.texture("trunk", "block/" + ctx.getName() + "_trunk")
+							.texture("top", "block/" + ctx.getName() + "_top"))
+					.build()
 					.register();
 		};
 	}
