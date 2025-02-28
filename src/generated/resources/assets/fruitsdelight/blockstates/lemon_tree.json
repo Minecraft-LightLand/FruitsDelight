@@ -4,13 +4,13 @@
       "model": "fruitsdelight:block/lemon_tree_small"
     },
     "age=0,half=upper": {
-      "model": "fruitsdelight:block/lemon_tree_upper"
+      "model": "fruitsdelight:block/lemon_tree_small_upper"
     },
     "age=1,half=lower": {
       "model": "fruitsdelight:block/lemon_tree_mid"
     },
     "age=1,half=upper": {
-      "model": "fruitsdelight:block/lemon_tree_upper"
+      "model": "fruitsdelight:block/lemon_tree_mid_upper"
     },
     "age=2,half=lower": {
       "model": "fruitsdelight:block/lemon_tree"
@@ -22,13 +22,13 @@
       "model": "fruitsdelight:block/lemon_tree_flowers"
     },
     "age=3,half=upper": {
-      "model": "fruitsdelight:block/lemon_tree_upper"
+      "model": "fruitsdelight:block/lemon_tree_flowers_upper"
     },
     "age=4,half=lower": {
       "model": "fruitsdelight:block/lemon_tree_fruits"
     },
     "age=4,half=upper": {
-      "model": "fruitsdelight:block/lemon_tree_upper"
+      "model": "fruitsdelight:block/lemon_tree_fruits_upper"
     }
   }
 }

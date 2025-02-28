@@ -1,3 +1,6 @@
+0.5.11
+- Fix lemon tree lighting
+
 0.5.10
 - Rework Lemon model and texture
 - Fix lemon bush place not having upper half

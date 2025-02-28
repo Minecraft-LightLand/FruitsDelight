@@ -5,8 +5,6 @@ import dev.xkmc.fruitsdelight.content.block.BushFruitItem;
 import dev.xkmc.fruitsdelight.content.block.FruitBushBlock;
 import dev.xkmc.fruitsdelight.content.item.FDFoodItem;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
-import dev.xkmc.l2library.repack.registrate.providers.DataGenContext;
-import dev.xkmc.l2library.repack.registrate.providers.RegistrateBlockstateProvider;
 import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.l2library.repack.registrate.util.DataIngredient;
@@ -18,12 +16,9 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -44,8 +39,6 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 
 import java.util.List;
 import java.util.Locale;
@@ -183,78 +176,6 @@ public enum FDBushes implements FruitPlant<FDBushes> {
 	public Item getSeed() {
 		return seedItem.get();
 	}
-
-
-	public void buildBushModel(DataGenContext<Block, ? extends BushBlock> ctx, RegistrateBlockstateProvider pvd) {
-		if (type == FDBushType.CROSS) {
-			pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
-				int age = state.getValue(FruitBushBlock.AGE);
-				String id = ctx.getName();
-				if (age == 1) {
-					return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + id + "_0"))).build();
-				}
-				id += "_" + (age == 0 ? 0 : age - 1);
-				var model = pvd.models().cross(id, pvd.modLoc("block/" + id)).renderType("cutout");
-				return ConfiguredModel.builder().modelFile(model).build();
-			});
-			return;
-		}
-		if (type == FDBushType.BLOCK) {
-			pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
-				int age = state.getValue(FruitBushBlock.AGE);
-				String id = ctx.getName();
-				String parent = "bush";
-				if (age == 0) {
-					id += "_small";
-					parent += "_small";
-				}
-				if (age == 1) {
-					return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + id + "_small"))).build();
-				}
-				if (age == 3) id += "_flowers";
-				if (age == 4) id += "_fruits";
-				var model = pvd.models().getBuilder(id)
-						.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + parent)));
-				model.texture("face", "block/" + id + "_face");
-				model.texture("cross", "block/" + id + "_cross");
-				return ConfiguredModel.builder().modelFile(model).build();
-			});
-			return;
-		}
-		pvd.getVariantBuilder(ctx.get()).forAllStates(state -> {
-			int age = state.getValue(FruitBushBlock.AGE);
-			String modelId = ctx.getName();
-			if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
-				return ConfiguredModel.builder().modelFile(pvd.models()
-						.withExistingParent(modelId + "_upper", pvd.mcLoc("block/air"))
-						.texture("particle", pvd.modLoc("block/" + modelId + "_top"))
-				).build();
-			}
-			String parent = "tall_bush";
-			String trunk = age <= 1 ? "_small_trunk" : "_trunk";
-			String tex = "";
-			if (age == 0) {
-				modelId += "_small";
-				parent += "_small";
-			}
-			if (age == 1) {
-				modelId += "_mid";
-				parent += "_mid";
-			}
-			if (age == 3) tex = "_flowers";
-			if (age == 4) tex = "_fruits";
-			modelId += tex;
-			tex = ctx.getName() + tex;
-			var model = pvd.models().getBuilder(modelId)
-					.parent(new ModelFile.UncheckedModelFile(pvd.modLoc("block/" + parent)));
-			model.texture("upper", "block/" + tex + "_upper");
-			model.texture("lower", "block/" + tex + "_lower");
-			model.texture("trunk", "block/" + ctx.getName() + trunk);
-			model.texture("top", "block/" + tex + "_top");
-			return ConfiguredModel.builder().modelFile(model).build();
-		});
-	}
-
 
 	private static FoodProperties food(int food, float sat, boolean fast) {
 		var ans = new FoodProperties.Builder()
