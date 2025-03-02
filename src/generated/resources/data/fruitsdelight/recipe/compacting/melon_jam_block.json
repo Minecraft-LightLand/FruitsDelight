@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "type": "fluid_stack",
+      "amount": 1000,
+      "fluid": "fruitsdelight:melon_jam"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "id": "fruitsdelight:melon_jam_block"
+      }
+    }
+  ]
+}

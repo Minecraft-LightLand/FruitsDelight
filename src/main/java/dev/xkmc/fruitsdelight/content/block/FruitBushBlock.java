@@ -1,6 +1,8 @@
 package dev.xkmc.fruitsdelight.content.block;
 
 import dev.xkmc.fruitsdelight.init.plants.FDBushType;
+import dev.xkmc.l2harvester.api.HarvestResult;
+import dev.xkmc.l2harvester.api.HarvestableBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -18,10 +20,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Supplier;
 
-public class FruitBushBlock extends BaseBushBlock {
+public class FruitBushBlock extends BaseBushBlock implements HarvestableBlock {
 
 	private static final VoxelShape SMALL = Shapes.or(
 			Block.box(4.0D, 3.0D, 4.0D, 12.0D, 10.0D, 12.0D),
@@ -70,6 +74,14 @@ public class FruitBushBlock extends BaseBushBlock {
 			return age <= 1 ? SAPLING_SHAPE : age <= 3 ? MID_GROWTH_SHAPE : Shapes.block();
 		}
 		return age <= 1 ? SMALL : SHAPE;
+	}
+
+	@Override
+	public @Nullable HarvestResult getHarvestResult(Level level, BlockState state, BlockPos pos) {
+		int age = state.getValue(AGE);
+		if (age < MAX_AGE) return null;
+		int j = 1 + level.random.nextInt(2);
+		return new HarvestResult(state.setValue(AGE, 2), List.of(new ItemStack(item.get(), j)));
 	}
 
 }

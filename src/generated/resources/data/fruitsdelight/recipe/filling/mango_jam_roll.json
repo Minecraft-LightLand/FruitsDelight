@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hawberry_sheet"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 125,
+      "fluid": "fruitsdelight:mango_jam"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "components": {
+          "fruitsdelight:fruits": [
+            "MANGO"
+          ]
+        },
+        "id": "fruitsdelight:hawberry_roll"
+      }
+    }
+  ]
+}

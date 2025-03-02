@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 125,
+      "fluid": "fruitsdelight:mangosteen_jam"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "components": {
+          "fruitsdelight:fruits": [
+            "MANGOSTEEN"
+          ]
+        },
+        "id": "fruitsdelight:jam_bread"
+      }
+    }
+  ]
+}

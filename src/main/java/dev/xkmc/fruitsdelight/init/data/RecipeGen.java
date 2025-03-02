@@ -1,7 +1,9 @@
 package dev.xkmc.fruitsdelight.init.data;
 
+import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.fruitsdelight.compat.create.CreateRecipeGen;
 import dev.xkmc.fruitsdelight.content.recipe.JamCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.food.FDCrates;
@@ -21,6 +23,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.Tags;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
@@ -323,7 +326,7 @@ public class RecipeGen {
 
 		}
 
-		//TODO if (ModList.get().isLoaded(Create.ID)) CreateRecipeGen.onRecipeGen(pvd);
+		 if (ModList.get().isLoaded(Create.ID)) CreateRecipeGen.onRecipeGen(pvd);
 
 
 	}

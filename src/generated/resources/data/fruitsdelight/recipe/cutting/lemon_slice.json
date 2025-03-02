@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:lemon"
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "item": {
+        "id": "fruitsdelight:lemon_slice"
+      }
+    }
+  ]
+}

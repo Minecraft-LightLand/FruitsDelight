@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 125,
+      "fluid": "fruitsdelight:durian_jam"
+    }
+  ],
+  "results": [
+    {
+      "amount": 125,
+      "id": "fruitsdelight:durian_jello"
+    }
+  ]
+}

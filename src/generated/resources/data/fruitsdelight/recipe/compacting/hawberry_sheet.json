@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "id": "fruitsdelight:hawberry_sheet"
+      }
+    }
+  ]
+}

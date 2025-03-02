@@ -5,6 +5,8 @@ import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import dev.xkmc.fruitsdelight.init.data.FDModConfig;
 import dev.xkmc.l2core.serial.loot.LootHelper;
+import dev.xkmc.l2harvester.api.HarvestResult;
+import dev.xkmc.l2harvester.api.HarvestableBlock;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -29,10 +31,11 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.common.Tags;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
 
-public class PassableLeavesBlock extends BaseLeavesBlock implements BonemealableBlock {
+public class PassableLeavesBlock extends BaseLeavesBlock implements BonemealableBlock, HarvestableBlock {
 
 	public enum State implements StringRepresentable {
 		LEAVES, FLOWERS, FRUITS;
@@ -58,6 +61,13 @@ public class PassableLeavesBlock extends BaseLeavesBlock implements Bonemealable
 			return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.PASS;
+	}
+
+	@Override
+	public @Nullable HarvestResult getHarvestResult(Level level, BlockState state, BlockPos pos) {
+		if (state.getValue(PERSISTENT)) return null;
+		if (state.getValue(STATE) != State.FRUITS) return null;
+		return new HarvestResult(state.setValue(STATE, State.LEAVES), getDrops(state, (ServerLevel) level, pos, null));
 	}
 
 	@Override

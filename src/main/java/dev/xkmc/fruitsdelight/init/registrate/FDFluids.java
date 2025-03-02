@@ -30,7 +30,7 @@ public class FDFluids {
 		for (var e : FruitType.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
 			JAM[e.ordinal()] = virtualFluid(name + "_jam", jam, jam,
-					(a, b, c) -> new FruitFluidType(a.descriptionId(Util.makeDescriptionId("block", b)), b, c, e), p -> new FruitFluid(p, e))
+					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
 					.register();
 			JELLO[e.ordinal()] = virtualFluid(name + "_jello", jello, jello,
 					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))

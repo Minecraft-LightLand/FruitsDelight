@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 125,
+      "fluid": "fruitsdelight:hamimelon_jello"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "id": "fruitsdelight:hamimelon_jello"
+      }
+    }
+  ]
+}

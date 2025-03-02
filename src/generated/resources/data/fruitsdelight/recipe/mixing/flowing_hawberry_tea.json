@@ -1,0 +1,41 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "minecraft:leaves"
+    },
+    {
+      "tag": "c:foods/fruits/hawberry"
+    },
+    {
+      "tag": "c:foods/fruits/hawberry"
+    },
+    {
+      "tag": "c:foods/fruits/hawberry"
+    },
+    {
+      "tag": "c:foods/fruits/hawberry"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 250,
+      "fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "amount": 250,
+      "id": "fruitsdelight:hawberry_tea"
+    }
+  ]
+}

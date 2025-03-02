@@ -1,9 +1,11 @@
 package dev.xkmc.fruitsdelight.init;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.ghen.thirst.Thirst;
 import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
+import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
 import dev.xkmc.fruitsdelight.compat.thirst.ThirstCompat;
 import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
 import dev.xkmc.fruitsdelight.init.data.*;
@@ -79,7 +81,7 @@ public class FruitsDelight {
 			if (FDModConfig.COMMON.enableCauldronRecipe.get())
 				FDCauldrons.init();
 
-			//TODO if (ModList.get().isLoaded(Create.ID)) CreateCompat.init();
+			if (ModList.get().isLoaded(Create.ID)) CreateCompat.init();
 
 			if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)) ThirstCompat.init();
 		});

@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "tag": "c:foods/fruits/kiwi"
+    },
+    {
+      "tag": "c:foods/fruits/kiwi"
+    }
+  ],
+  "results": [
+    {
+      "amount": 250,
+      "id": "fruitsdelight:kiwi_juice"
+    }
+  ]
+}
