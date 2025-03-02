@@ -1,25 +1,23 @@
 package dev.xkmc.fruitsdelight.compat.create;
 
+import com.simibubi.create.api.effect.OpenPipeEffectHandler;
 import com.simibubi.create.content.fluids.OpenEndedPipe;
 import dev.xkmc.fruitsdelight.init.entries.FruitFluid;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.fluids.FluidStack;
 
 import java.util.List;
 
-public class JamEffectHandler implements OpenEndedPipe.IEffectHandler {
+public class JamEffectHandler implements OpenPipeEffectHandler {
 
 	@Override
-	public boolean canApplyEffects(OpenEndedPipe openEndedPipe, FluidStack fluidStack) {
-		return fluidStack.getFluid() instanceof FruitFluid;
-	}
-
-	@Override
-	public void applyEffects(OpenEndedPipe pipe, FluidStack fluid) {
+	public void apply(Level level, AABB aabb, FluidStack fluid) {
 		if (fluid.getFluid() instanceof FruitFluid fruit) {
-			List<LivingEntity> entities = pipe.getWorld().getEntitiesOfClass(LivingEntity.class, pipe.getAOE(), LivingEntity::isAffectedByPotions);
+			List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, aabb, LivingEntity::isAffectedByPotions);
 			for (LivingEntity entity : entities) {
 				for (var eff : fruit.type.eff) {
 					MobEffectInstance effectInstance = eff.getEffect(10);
