@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-27T12:19:37.378082	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2025-05-06T09:29:33.437572	Registrate Provider for fruitsdelight [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 9ccd87896e672daf413f09573cd78e0c52e083e1 assets/fruitsdelight/blockstates/apple_cauldron.json
 f7f19e1fe4b85b39da405bbdb3b6ab9ae4ce37e3 assets/fruitsdelight/blockstates/apple_crate.json
 225ce9ae4992ff568f517ee8d248da4f45614e89 assets/fruitsdelight/blockstates/apple_jello_block.json
@@ -876,6 +876,7 @@ a122ec812f47f79eb92d42a2cc7ee9f7566feaa5 data/farmersdelight/recipes/cooking/per
 47c1b2632d6912f9d2b0b2bb420febb73bb6147b data/farmersdelight/recipes/cooking/pineapple_marinated_pork.json
 545a9cb85de4635ff1ea0ec4cb23fdd6b81a85b1 data/farmersdelight/recipes/cooking/pineapple_pie.json
 4ac0e8f25279e0a7829b0e686cc6cd27eeb54b27 data/farmersdelight/recipes/cooking/sweetberry_jelly.json
+4ecf43c89fb16995754612809d9ae349207fb65d data/forge/tags/blocks/storage_blocks.json
 8898906b3e956fea2fc79095ca4fb1458e36db23 data/forge/tags/items/berries.json
 627a815d9d5bc406904790c3622a2c81add6ae31 data/forge/tags/items/fruits.json
 10fc5e80baf18e57f43c2ceacaeb8287399cf6bf data/forge/tags/items/fruits/bayberry.json
@@ -894,6 +895,7 @@ a9a028ce67f2e4d8c95fd8ad5bcbc64c34390075 data/forge/tags/items/fruits/mango.json
 d4d831b1840aa3090c7738ca176fb1bffc09a166 data/forge/tags/items/fruits/persimmon.json
 ac35a8d069c7c70785c68127dc824a5bc0db5ff2 data/forge/tags/items/fruits/pineapple.json
 367aa42b761a00834aaf9bf940e7011917212c9b data/forge/tags/items/jams.json
+4ecf43c89fb16995754612809d9ae349207fb65d data/forge/tags/items/storage_blocks.json
 83aaf083d3cf476575c6808474dd3eb2e5d8a458 data/fruitsdelight/advancements/recipes/food/baked_durian_from_durian_flesh_campfire.json
 ac7ec6a24931815cfa11abb1a4126905c46e7a20 data/fruitsdelight/advancements/recipes/food/baked_durian_from_durian_flesh_smoking.json
 b0c97cfaf0e5e1d09704075a6f97d33809bfc612 data/fruitsdelight/advancements/recipes/food/baked_pear_from_pear_campfire.json

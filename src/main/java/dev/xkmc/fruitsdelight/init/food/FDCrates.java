@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.common.Tags;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +58,8 @@ public class FDCrates {
 						pvd.modLoc("block/" + name + "_side"),
 						pvd.modLoc("block/crate_bottom"),
 						pvd.modLoc("block/" + name + "_top"))))
-				.tag(BlockTags.MINEABLE_WITH_AXE)
-				.simpleItem()
+				.tag(BlockTags.MINEABLE_WITH_AXE, Tags.Blocks.STORAGE_BLOCKS)
+				.item().tag(Tags.Items.STORAGE_BLOCKS).build()
 				.register();
 	}
 
