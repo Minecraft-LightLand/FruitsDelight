@@ -1,3 +1,6 @@
+1.2.8
+- Add storage block tag for crates
+
 1.2.7
 - Add Create harvester, recipe, and pipe integration
 
