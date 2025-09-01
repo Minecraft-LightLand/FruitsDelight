@@ -1,8 +1,8 @@
 package dev.xkmc.fruitsdelight.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.fruitsdelight.events.FoodDataAccessor;
+import dev.xkmc.fruitsdelight.init.registrate.FDEffects;
 import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,7 +27,8 @@ public abstract class PlayerMixin extends LivingEntity {
 
 	@ModifyReturnValue(at = @At("RETURN"), method = "getFoodData")
 	public FoodData fruitsdelight$getFoodData(FoodData prev) {
-		((FoodDataAccessor) prev).fruitsdelight$setPlayer(Wrappers.cast(this));
+		if (prev != null)
+			((FoodDataAccessor) prev).fruitsdelight$setPlayer(Wrappers.cast(this));
 		return prev;
 	}
 

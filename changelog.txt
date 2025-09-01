@@ -1,3 +1,6 @@
+1.1.0
+- Be compatible with both Create 0.5.x and Create 6.0.x
+
 1.0.22
 - Add storage block tag for crates
 
