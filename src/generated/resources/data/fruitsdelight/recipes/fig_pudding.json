@@ -6,7 +6,7 @@
       "tag": "forge:dough"
     },
     "E": {
-      "item": "minecraft:egg"
+      "tag": "forge:eggs"
     },
     "F": {
       "tag": "forge:fruits/fig"

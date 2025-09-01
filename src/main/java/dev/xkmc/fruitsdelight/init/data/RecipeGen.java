@@ -183,7 +183,7 @@ public class RecipeGen {
 						.pattern("MSM").pattern("EJE").pattern("FDF")
 						.define('D', ForgeTags.DOUGH)
 						.define('F', FDFood.FIG_PUDDING_SLICE.getFruitTag())
-						.define('E', Items.EGG)
+						.define('E', Tags.Items.EGGS)
 						.define('M', ForgeTags.MILK_BOTTLE)
 						.define('J', FruitType.ORANGE.getJelly())
 						.define('S', Items.SWEET_BERRIES)
