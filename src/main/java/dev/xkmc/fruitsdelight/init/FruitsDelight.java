@@ -7,6 +7,7 @@ import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.ghen.thirst.Thirst;
 import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
+import dev.xkmc.fruitsdelight.compat.create.CreateVersionChecker;
 import dev.xkmc.fruitsdelight.compat.thirst.ThirstCompat;
 import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
 import dev.xkmc.fruitsdelight.init.data.*;
@@ -76,14 +77,14 @@ public class FruitsDelight {
 			if (FDModConfig.COMMON.enableCauldronRecipe.get())
 				FDCauldrons.init();
 
-			if (ModList.get().isLoaded(Create.ID)) {
+			if (ModList.get().isLoaded(Create.ID) && CreateVersionChecker.isCreate6()) {
 				CreateCompat.init();
 			}
 
 			EffectSyncEvents.TRACKED.add(FDEffects.RAGE_AURA.get());
 			EffectSyncEvents.TRACKED.add(FDEffects.HEAL_AURA.get());
 
-			if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)){
+			if (FDModConfig.COMMON.enableThirstCompat.get() && ModList.get().isLoaded(Thirst.ID)) {
 				ThirstCompat.init();
 			}
 		});
