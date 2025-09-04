@@ -3,6 +3,7 @@ package dev.xkmc.fruitsdelight.init.data;
 import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateRecipeGen;
 import dev.xkmc.fruitsdelight.content.recipe.JamCraftShapelessBuilder;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
@@ -326,7 +327,8 @@ public class RecipeGen {
 
 		}
 
-		 if (ModList.get().isLoaded(Create.ID)) CreateRecipeGen.onRecipeGen(pvd);
+		if (ModList.get().isLoaded(Create.ID)) CreateRecipeGen.onRecipeGen(pvd);
+		if (ModList.get().isLoaded("botanypots")) BotanyGen.onRecipeGen(pvd);
 
 
 	}

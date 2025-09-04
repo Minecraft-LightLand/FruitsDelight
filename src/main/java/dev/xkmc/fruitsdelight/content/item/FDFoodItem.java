@@ -6,6 +6,7 @@ import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.IFDFood;
+import dev.xkmc.fruitsdelight.init.food.IFruitType;
 import dev.xkmc.fruitsdelight.init.registrate.FDItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -31,8 +32,10 @@ import java.util.Map;
 
 public class FDFoodItem extends Item implements IFDFoodItem {
 
-	private static List<FruitType> getFruits(ItemStack stack) {
-		return FDItems.FRUITS.getOrDefault(stack, List.of());
+	public static List<IFruitType> getFruits(ItemStack stack) {
+		var ans = new ArrayList<IFruitType>();
+		ans.addAll(FDItems.FRUITS.getOrDefault(stack, List.of()));
+		return ans;
 	}
 
 	private static Component getTooltip(MobEffectInstance eff) {
@@ -72,7 +75,7 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 	public static int color(ItemStack stack, int layer) {
 		var list = getFruits(stack);
 		if (layer == 0 || list.isEmpty()) return -1;
-		return list.get(layer % list.size()).color;
+		return list.get(layer % list.size()).color();
 	}
 
 	public static ItemStack setContent(FDFoodItem item, FruitType e) {
@@ -87,18 +90,18 @@ public class FDFoodItem extends Item implements IFDFoodItem {
 			if (old == null) return null;
 			var builder = new FoodProperties.Builder();
 			builder.nutrition(old.nutrition());
-			builder.saturationModifier(old.saturation());
+			builder.saturationModifier(old.saturation() / old.nutrition() / 2);
 			if (old.canAlwaysEat()) builder.alwaysEdible();
 			if (old.eatSeconds() < 1) builder.fast();
 			if (food == null) return null;
-			Map<FruitType, Integer> map = new LinkedHashMap<>();
+			Map<IFruitType, Integer> map = new LinkedHashMap<>();
 			map.put(food.fruit(), food.getType().effectLevel);
 			int lv = FoodType.JAM.effectLevel;
 			for (var type : list) {
 				map.compute(type, (k, v) -> v == null ? lv : v + lv);
 			}
 			for (var ent : map.entrySet()) {
-				for (var e : ent.getKey().eff) {
+				for (var e : ent.getKey().getFruitEffects()) {
 					builder.effect(() -> e.getEffect(ent.getValue()), e.getChance(ent.getValue()));
 				}
 			}

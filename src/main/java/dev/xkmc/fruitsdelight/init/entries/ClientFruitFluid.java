@@ -15,7 +15,7 @@ public record ClientFruitFluid(FruitFluidType type) implements IClientFluidTypeE
 
 	@Override
 	public int getTintColor() {
-		return type.type.color;
+		return type.type.color();
 	}
 
 }

@@ -114,7 +114,6 @@ public class FruitsDelight {
 		PackOutput output = gen.getPackOutput();
 		var pvd = event.getLookupProvider();
 		var helper = event.getExistingFileHelper();
-		gen.addProvider(server, new BotanyGen(output, pvd));
 		gen.addProvider(server, new FDConfigGen(gen, pvd));
 		gen.addProvider(server, new FDBiomeTagsProvider(output, pvd, helper));
 		gen.addProvider(server, new FDGLMProvider(output, pvd));

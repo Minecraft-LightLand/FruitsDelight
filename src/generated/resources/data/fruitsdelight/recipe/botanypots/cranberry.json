@@ -6,65 +6,37 @@
     }
   ],
   "type": "botanypots:crop",
-  "categories": [
-    "dirt"
-  ],
   "display": {
-    "type": "botanypots:transitional",
-    "phases": [
+    "type": "botanypots:simple",
+    "block_state": {
+      "block": "fruitsdelight:cranberry_bush",
+      "properties": {
+        "age": "2"
+      }
+    },
+    "options": {}
+  },
+  "drops": {
+    "type": "botanypots:items",
+    "items": [
       {
-        "block": "fruitsdelight:cranberry_bush",
-        "properties": {
-          "age": 0
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:cranberry"
         }
       },
       {
-        "block": "fruitsdelight:cranberry_bush",
-        "properties": {
-          "age": 1
-        }
-      },
-      {
-        "block": "fruitsdelight:cranberry_bush",
-        "properties": {
-          "age": 2
-        }
-      },
-      {
-        "block": "fruitsdelight:cranberry_bush",
-        "properties": {
-          "age": 3
-        }
-      },
-      {
-        "block": "fruitsdelight:cranberry_bush",
-        "properties": {
-          "age": 4
+        "chance": 0.05,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:cranberry"
         }
       }
     ]
   },
-  "drops": [
-    {
-      "chance": 1.0,
-      "maxRolls": 1,
-      "minRolls": 1,
-      "output": {
-        "item": "fruitsdelight:cranberry"
-      }
-    },
-    {
-      "chance": 0.05,
-      "maxRolls": 1,
-      "minRolls": 1,
-      "output": {
-        "item": "fruitsdelight:cranberry"
-      }
-    }
-  ],
-  "growthTicks": 1200,
-  "lightLevel": 12,
-  "seed": {
+  "input": {
     "item": "fruitsdelight:cranberry"
-  }
+  },
+  "light_level": 12,
+  "yield_scale": 0.0
 }

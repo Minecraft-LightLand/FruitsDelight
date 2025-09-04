@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Supplier;
 
-public enum FruitType {
+public enum FruitType implements IFruitType {
 	APPLE(2, 0xC3833D, () -> Items.APPLE, List.of(new EffectFunc(MobEffects.ABSORPTION, lv -> lv * 20))),
 	BLUEBERRY(4, 0x5A32BF, FDBushes.BLUEBERRY, List.of(
 			new EffectFunc(MobEffects.NIGHT_VISION, lv -> lv * 20),
@@ -96,4 +96,17 @@ public enum FruitType {
 	public Item getJello() {
 		return FDItems.JELLO[ordinal()].get();
 	}
+
+	@Override
+	public List<EffectFunc> getFruitEffects() {
+		return eff;
+	}
+
+	@Override
+	public int color() {
+		return color;
+	}
+
+
+
 }

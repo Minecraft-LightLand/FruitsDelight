@@ -6,25 +6,48 @@
     }
   ],
   "type": "botanypots:crop",
-  "categories": [
-    "dirt",
-    "farmland"
-  ],
   "display": {
-    "block": "fruitsdelight:hamimelon"
+    "type": "botanypots:simple",
+    "block_state": {
+      "block": "fruitsdelight:hamimelon"
+    },
+    "options": {}
   },
-  "drops": [
-    {
-      "chance": 1.0,
-      "maxRolls": 6,
-      "minRolls": 3,
-      "output": {
-        "item": "fruitsdelight:hamimelon_slice"
+  "drops": {
+    "type": "botanypots:items",
+    "items": [
+      {
+        "result": {
+          "count": 3,
+          "id": "fruitsdelight:hamimelon_slice"
+        }
+      },
+      {
+        "chance": 0.5,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:hamimelon_slice"
+        }
+      },
+      {
+        "chance": 0.5,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:hamimelon_slice"
+        }
+      },
+      {
+        "chance": 0.5,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:hamimelon_slice"
+        }
       }
-    }
-  ],
-  "growthTicks": 1200,
-  "seed": {
+    ]
+  },
+  "input": {
     "item": "fruitsdelight:hamimelon_seeds"
-  }
+  },
+  "light_level": 7,
+  "yield_scale": 0.0
 }

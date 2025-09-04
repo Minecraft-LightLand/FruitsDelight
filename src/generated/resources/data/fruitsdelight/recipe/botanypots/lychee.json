@@ -6,40 +6,58 @@
     }
   ],
   "type": "botanypots:crop",
-  "categories": [
-    "dirt"
-  ],
   "display": {
-    "block": "fruitsdelight:lychee_sapling"
+    "type": "botanypots:simple",
+    "block_state": {
+      "block": "fruitsdelight:lychee_sapling",
+      "properties": {
+        "stage": "0"
+      }
+    },
+    "options": {}
   },
-  "drops": [
-    {
-      "chance": 1.0,
-      "maxRolls": 2,
-      "minRolls": 1,
-      "output": {
-        "item": "minecraft:jungle_log"
+  "drops": {
+    "type": "botanypots:items",
+    "items": [
+      {
+        "result": {
+          "count": 1,
+          "id": "minecraft:jungle_log"
+        }
+      },
+      {
+        "chance": 0.5,
+        "result": {
+          "count": 1,
+          "id": "minecraft:jungle_log"
+        }
+      },
+      {
+        "result": {
+          "count": 2,
+          "id": "fruitsdelight:lychee"
+        }
+      },
+      {
+        "chance": 0.5,
+        "result": {
+          "count": 2,
+          "id": "fruitsdelight:lychee"
+        }
+      },
+      {
+        "chance": 0.15,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:lychee_sapling"
+        }
       }
-    },
-    {
-      "chance": 1.0,
-      "maxRolls": 4,
-      "minRolls": 2,
-      "output": {
-        "item": "fruitsdelight:lychee"
-      }
-    },
-    {
-      "chance": 0.15,
-      "maxRolls": 1,
-      "minRolls": 1,
-      "output": {
-        "item": "fruitsdelight:lychee_sapling"
-      }
-    }
-  ],
-  "growthTicks": 2400,
-  "seed": {
+    ]
+  },
+  "grow_time": 2400,
+  "input": {
     "item": "fruitsdelight:lychee_sapling"
-  }
+  },
+  "light_level": 7,
+  "yield_scale": 0.0
 }

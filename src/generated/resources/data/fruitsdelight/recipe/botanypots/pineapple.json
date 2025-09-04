@@ -6,65 +6,51 @@
     }
   ],
   "type": "botanypots:crop",
-  "categories": [
-    "dirt"
-  ],
   "display": {
-    "type": "botanypots:transitional",
-    "phases": [
+    "type": "botanypots:simple",
+    "block_state": {
+      "block": "fruitsdelight:pineapple",
+      "properties": {
+        "age": "0"
+      }
+    },
+    "options": {}
+  },
+  "drops": {
+    "type": "botanypots:items",
+    "items": [
       {
-        "block": "fruitsdelight:pineapple",
-        "properties": {
-          "age": 0
+        "result": {
+          "count": 2,
+          "id": "fruitsdelight:pineapple_slice"
         }
       },
       {
-        "block": "fruitsdelight:pineapple",
-        "properties": {
-          "age": 1
+        "chance": 0.5,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:pineapple_slice"
         }
       },
       {
-        "block": "fruitsdelight:pineapple",
-        "properties": {
-          "age": 2
+        "chance": 0.5,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:pineapple_slice"
         }
       },
       {
-        "block": "fruitsdelight:pineapple",
-        "properties": {
-          "age": 3
-        }
-      },
-      {
-        "block": "fruitsdelight:pineapple",
-        "properties": {
-          "age": 4
+        "chance": 0.1,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:pineapple"
         }
       }
     ]
   },
-  "drops": [
-    {
-      "chance": 1.0,
-      "maxRolls": 4,
-      "minRolls": 2,
-      "output": {
-        "item": "fruitsdelight:pineapple_slice"
-      }
-    },
-    {
-      "chance": 0.1,
-      "maxRolls": 1,
-      "minRolls": 1,
-      "output": {
-        "item": "fruitsdelight:pineapple"
-      }
-    }
-  ],
-  "growthTicks": 1200,
-  "lightLevel": 12,
-  "seed": {
+  "input": {
     "item": "fruitsdelight:pineapple_sapling"
-  }
+  },
+  "light_level": 12,
+  "yield_scale": 0.0
 }

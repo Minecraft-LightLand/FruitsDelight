@@ -1,3 +1,9 @@
+1.2.10
+- Fix Botany Pots compat
+
+1.2.9
+- Fix Jelly Bread saturation
+
 1.2.8
 - Add storage block tag for crates
 

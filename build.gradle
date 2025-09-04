@@ -170,6 +170,11 @@ dependencies {
     implementation "curse.maven:farmers-delight-398521:5566383"
     compileOnly "curse.maven:thirst-was-taken-679270:5568715"
     implementation "curse.maven:create-328085:6255497"
+    implementation "curse.maven:appleskin-248787:6616291"
+    implementation "curse.maven:prickle-1023259:6961457"
+    implementation "curse.maven:bookshelf-228525:6951065"
+    implementation "curse.maven:botany-pots-353928:6930713"
+    implementation "curse.maven:botany-trees-411357:6895799"
 
     compileOnly("com.simibubi.create:create-1.21.1:6.0.1-13") { transitive = false }
     compileOnly("net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.39") { transitive = false }

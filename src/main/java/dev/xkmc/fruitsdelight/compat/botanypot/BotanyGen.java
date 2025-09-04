@@ -1,57 +1,105 @@
 package dev.xkmc.fruitsdelight.compat.botanypot;
 
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.plants.FDBushes;
 import dev.xkmc.fruitsdelight.init.plants.FDMelons;
 import dev.xkmc.fruitsdelight.init.plants.FDPineapple;
 import dev.xkmc.fruitsdelight.init.plants.FDTrees;
-import dev.xkmc.l2core.serial.config.RecordDataProvider;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.darkhax.botanypots.common.impl.data.display.types.BasicOptions;
+import net.darkhax.botanypots.common.impl.data.display.types.SimpleDisplayState;
+import net.darkhax.botanypots.common.impl.data.itemdrops.SimpleDropProvider;
+import net.darkhax.botanypots.common.impl.data.recipe.crop.BasicCrop;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.BiConsumer;
+import java.util.Optional;
 
-public class BotanyGen extends RecordDataProvider {
+public class BotanyGen {
 
-	private static final String PATH = FruitsDelight.MODID + "/recipe/botanypots/";
-
-	public BotanyGen(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd) {
-		super(output, pvd, "Botany Tree Gen");
-	}
-
-	@Override
-	public void add(BiConsumer<String, Record> con) {
+	public static void onRecipeGen(RegistrateRecipeProvider pvd) {
 		for (var tree : FDTrees.values()) {
-			con.accept(PATH + tree.getName(),
-					PotRecipeSimple.of(tree.getSapling().asItem(), tree.getSapling(), 2400,
-							PotResult.of(1, 1, 2, tree.log.get().asItem()),
-							PotResult.of(1, 2, 4, tree.getFruit()),
-							PotResult.of(0.15, 1, 1, tree.getSapling().asItem())
-					));
+			pvd.accept(FruitsDelight.loc("botanypots/" + tree.getName()),
+					new BasicCrop(new BasicCrop.Properties(
+							Ingredient.of(tree.getSapling().asItem()),
+							BasicCrop.DIRT, 2400,
+							List.of(new SimpleDisplayState(tree.getSapling().defaultBlockState(), BasicOptions.ofDefault())), 7,
+							List.of(new SimpleDropProvider(List.of(
+									of(tree.log.get(), 1, 1),
+									of(tree.log.get(), 1, 0.5f),
+									of(tree.getFruit(), 2, 1),
+									of(tree.getFruit(), 2, 0.5f),
+									of(tree.getSapling(), 1, 0.15f)
+							))),
+							Optional.empty(),
+							Optional.empty(),
+							1, 0)),
+					null, new ModLoadedCondition("botanypots")
+			);
 		}
 		for (var bush : FDBushes.values()) {
-			con.accept(PATH + bush.getName(),
-					PotRecipeBush.of(bush.getSeed(), bush.getBush(), 1200, 12,
-							PotResult.of(1, 1, 1, bush.getFruit()),
-							PotResult.of(0.05, 1, 1, bush.getFruit())
-					));
+			pvd.accept(FruitsDelight.loc("botanypots/" + bush.getName()),
+					new BasicCrop(new BasicCrop.Properties(
+							Ingredient.of(bush.getSeed()),
+							BasicCrop.DIRT, 1200,
+							List.of(new SimpleDisplayState(bush.getBush().defaultBlockState(), BasicOptions.ofDefault())), 12,
+							List.of(new SimpleDropProvider(List.of(
+									of(bush.getFruit(), 1, 1),
+									of(bush.getFruit(), 1, 0.05f)
+							))),
+							Optional.empty(),
+							Optional.empty(),
+							1, 0)),
+					null, new ModLoadedCondition("botanypots")
+			);
 		}
 		for (var melon : FDMelons.values()) {
-			con.accept(PATH + melon.getName(),
-					PotRecipeSimple.of(melon.getSeed(), melon.getMelonBlock(), 1200,
-							List.of("dirt", "farmland"),
-							PotResult.of(1, 3, 6, melon.getSlice())
-					));
+			pvd.accept(FruitsDelight.loc("botanypots/" + melon.getName()),
+					new BasicCrop(new BasicCrop.Properties(
+							Ingredient.of(melon.getSeed()),
+							BasicCrop.DIRT, 1200,
+							List.of(new SimpleDisplayState(melon.getMelonBlock().defaultBlockState(), BasicOptions.ofDefault())), 7,
+							List.of(new SimpleDropProvider(List.of(
+									of(melon.getSlice(), 3, 1),
+									of(melon.getSlice(), 1, 0.5f),
+									of(melon.getSlice(), 1, 0.5f),
+									of(melon.getSlice(), 1, 0.5f)
+							))),
+							Optional.empty(),
+							Optional.empty(),
+							1, 0)),
+					null, new ModLoadedCondition("botanypots")
+			);
 		}
 		for (var pineapple : FDPineapple.values()) {
-			con.accept(PATH + pineapple.getName(),
-					PotRecipeBush.of(pineapple.getSapling(), pineapple.getPlant(), 1200, 12,
-							PotResult.of(1, 2, 4, pineapple.getSlice()),
-							PotResult.of(0.1, 1, 1, pineapple.getWholeFruit())
-					));
+			pvd.accept(FruitsDelight.loc("botanypots/" + pineapple.getName()),
+					new BasicCrop(new BasicCrop.Properties(
+							Ingredient.of(pineapple.getSapling()),
+							BasicCrop.DIRT, 1200,
+							List.of(new SimpleDisplayState(pineapple.getPlant().defaultBlockState(), BasicOptions.ofDefault())), 12,
+							List.of(new SimpleDropProvider(List.of(
+									of(pineapple.getSlice(), 2, 1),
+									of(pineapple.getSlice(), 1, 0.5f),
+									of(pineapple.getSlice(), 1, 0.5f),
+									of(pineapple.getWholeFruit(), 1, 0.1f)
+							))),
+							Optional.empty(),
+							Optional.empty(),
+							1, 0)),
+					null, new ModLoadedCondition("botanypots")
+			);
 		}
+	}
+
+	private static SimpleDropProvider.SimpleDrop of(ItemLike item, int count, float chance) {
+		return new SimpleDropProvider.SimpleDrop(
+				item.asItem().getDefaultInstance().copyWithCount(count), chance
+		);
 	}
 
 }

@@ -6,65 +6,38 @@
     }
   ],
   "type": "botanypots:crop",
-  "categories": [
-    "dirt"
-  ],
   "display": {
-    "type": "botanypots:transitional",
-    "phases": [
+    "type": "botanypots:simple",
+    "block_state": {
+      "block": "fruitsdelight:lemon_tree",
+      "properties": {
+        "age": "2",
+        "half": "lower"
+      }
+    },
+    "options": {}
+  },
+  "drops": {
+    "type": "botanypots:items",
+    "items": [
       {
-        "block": "fruitsdelight:lemon_tree",
-        "properties": {
-          "age": 0
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:lemon"
         }
       },
       {
-        "block": "fruitsdelight:lemon_tree",
-        "properties": {
-          "age": 1
-        }
-      },
-      {
-        "block": "fruitsdelight:lemon_tree",
-        "properties": {
-          "age": 2
-        }
-      },
-      {
-        "block": "fruitsdelight:lemon_tree",
-        "properties": {
-          "age": 3
-        }
-      },
-      {
-        "block": "fruitsdelight:lemon_tree",
-        "properties": {
-          "age": 4
+        "chance": 0.05,
+        "result": {
+          "count": 1,
+          "id": "fruitsdelight:lemon"
         }
       }
     ]
   },
-  "drops": [
-    {
-      "chance": 1.0,
-      "maxRolls": 1,
-      "minRolls": 1,
-      "output": {
-        "item": "fruitsdelight:lemon"
-      }
-    },
-    {
-      "chance": 0.05,
-      "maxRolls": 1,
-      "minRolls": 1,
-      "output": {
-        "item": "fruitsdelight:lemon"
-      }
-    }
-  ],
-  "growthTicks": 1200,
-  "lightLevel": 12,
-  "seed": {
+  "input": {
     "item": "fruitsdelight:lemon_seeds"
-  }
+  },
+  "light_level": 12,
+  "yield_scale": 0.0
 }

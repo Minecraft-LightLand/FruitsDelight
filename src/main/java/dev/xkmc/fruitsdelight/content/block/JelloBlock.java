@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.content.block;
 
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
+import dev.xkmc.fruitsdelight.init.food.IFruitType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
@@ -16,9 +17,9 @@ import java.util.List;
 
 public class JelloBlock extends SlimeBlock {
 
-	public final FruitType fruit;
+	public final IFruitType fruit;
 
-	public JelloBlock(Properties properties, FruitType fruit) {
+	public JelloBlock(Properties properties, IFruitType fruit) {
 		super(properties);
 		this.fruit = fruit;
 	}

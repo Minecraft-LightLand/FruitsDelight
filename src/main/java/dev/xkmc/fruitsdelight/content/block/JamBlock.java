@@ -4,6 +4,7 @@ import dev.xkmc.fruitsdelight.events.BlockEffectToClient;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
+import dev.xkmc.fruitsdelight.init.food.IFruitType;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -18,9 +19,9 @@ import java.util.List;
 
 public class JamBlock extends HoneyBlock {
 
-	public final FruitType fruit;
+	public final IFruitType fruit;
 
-	public JamBlock(Properties properties, FruitType fruit) {
+	public JamBlock(Properties properties, IFruitType fruit) {
 		super(properties);
 		this.fruit = fruit;
 	}
