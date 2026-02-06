@@ -1,3 +1,6 @@
+1.2.12
+- fix eating jelly/jello giving container twice
+
 1.2.11
 - Completely disable possible modded enchantment descriptions added by this mod
 - update ptbr translation
