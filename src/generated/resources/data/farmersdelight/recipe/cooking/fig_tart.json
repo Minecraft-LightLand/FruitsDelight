@@ -3,7 +3,7 @@
   "experience": 0.1,
   "ingredients": [
     {
-      "tag": "c:foods/fruits/fig"
+      "tag": "c:fruits/fig"
     },
     {
       "item": "farmersdelight:pie_crust"

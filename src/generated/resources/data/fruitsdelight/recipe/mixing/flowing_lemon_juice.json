@@ -11,10 +11,10 @@
       "item": "minecraft:sugar"
     },
     {
-      "tag": "c:foods/fruits/lemon"
+      "tag": "c:fruits/lemon"
     },
     {
-      "tag": "c:foods/fruits/lemon"
+      "tag": "c:fruits/lemon"
     },
     {
       "type": "fluid_stack",

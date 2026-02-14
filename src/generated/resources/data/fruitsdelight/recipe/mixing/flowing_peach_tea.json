@@ -15,10 +15,10 @@
       "tag": "minecraft:leaves"
     },
     {
-      "tag": "c:foods/fruits/peach"
+      "tag": "c:fruits/peach"
     },
     {
-      "tag": "c:foods/fruits/peach"
+      "tag": "c:fruits/peach"
     },
     {
       "type": "fluid_stack",

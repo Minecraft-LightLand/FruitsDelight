@@ -9,16 +9,16 @@
   "heat_requirement": "heated",
   "ingredients": [
     {
-      "tag": "c:foods/fruits/bayberry"
+      "tag": "c:fruits/bayberry"
     },
     {
-      "tag": "c:foods/fruits/bayberry"
+      "tag": "c:fruits/bayberry"
     },
     {
-      "tag": "c:foods/fruits/bayberry"
+      "tag": "c:fruits/bayberry"
     },
     {
-      "tag": "c:foods/fruits/bayberry"
+      "tag": "c:fruits/bayberry"
     },
     {
       "type": "fluid_stack",

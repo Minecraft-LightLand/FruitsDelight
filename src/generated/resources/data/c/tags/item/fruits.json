@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#c:fruits/blueberry",
+    "#c:fruits/cranberry",
+    "#c:fruits/pear",
+    "#c:fruits/hawberry",
+    "#c:fruits/lychee",
+    "#c:fruits/mango",
+    "#c:fruits/persimmon",
+    "#c:fruits/peach",
+    "#c:fruits/orange",
+    "#c:fruits/mangosteen",
+    "#c:fruits/bayberry",
+    "#c:fruits/kiwi",
+    "#c:fruits/fig",
+    "#c:fruits/blueberry",
+    "#c:fruits/lemon",
+    "#c:fruits/cranberry",
+    "#c:fruits/pineapple"
+  ]
+}
