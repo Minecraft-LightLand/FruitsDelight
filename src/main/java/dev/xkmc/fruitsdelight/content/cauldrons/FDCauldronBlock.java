@@ -2,6 +2,7 @@ package dev.xkmc.fruitsdelight.content.cauldrons;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
+import dev.xkmc.fruitsdelight.init.data.TagRef;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -37,7 +38,7 @@ public class FDCauldronBlock extends AbstractCauldronBlock {
 
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-		if (!level.getBlockState(pos.below()).is(ModTags.HEAT_SOURCES))
+		if (!level.getBlockState(pos.below()).is(TagRef.HEAT_SOURCES))
 			return;
 		{
 			double x;

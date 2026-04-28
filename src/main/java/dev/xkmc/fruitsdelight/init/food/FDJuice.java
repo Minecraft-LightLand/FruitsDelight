@@ -106,7 +106,7 @@ public enum FDJuice implements IFDFood {
 			var e = CookingPotRecipeBuilder.cookingPotRecipe(item, 1, 200, 0.1f, Items.GLASS_BOTTLE);
 			type.list.forEach(e::addIngredient);
 			e.addIngredient(getFruitTag(), count);
-			e.build(pvd);
+			e.save(pvd);
 		} else {
 			var e = RecipeGen.unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item)::unlockedBy, getFruit());
 			if (type.category.waterCraft) {

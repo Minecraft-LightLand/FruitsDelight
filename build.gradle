@@ -15,7 +15,7 @@ buildscript {
 }
 
 plugins {
-    id 'net.darkhax.curseforgegradle' version '[1.1.24,)'
+    id 'net.darkhax.curseforgegradle' version '[1.1.24,1.2)'
     id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
     id "com.modrinth.minotaur" version "2.+"
 }
@@ -153,7 +153,7 @@ dependencies {
 
     implementation fg.deobf("dev.xkmc.cuisinedelight:cuisinedelight:1.1.12-slim")
 
-    implementation fg.deobf("curse.maven:farmers-delight-398521:4679319")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:8000996")
     implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
     implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:4599236")
@@ -161,7 +161,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:badpackets-615134:4438956")
     runtimeOnly fg.deobf("curse.maven:wthit-forge-455982:4596739")
 
-    implementation fg.deobf("curse.maven:create-328085:6247663")
+    implementation fg.deobf("curse.maven:create-328085:7178761")
 
     runtimeOnly fg.deobf("curse.maven:appleskin-248787:4605078")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:4633797")

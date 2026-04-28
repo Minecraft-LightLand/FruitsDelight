@@ -6,6 +6,7 @@ import dev.xkmc.fruitsdelight.init.data.TagGen;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.fruitsdelight.init.food.IFDFood;
+import dev.xkmc.fruitsdelight.util.FDConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -190,7 +191,7 @@ public class FDFoodItem extends Item implements IFDFoodItem{
 		} else if (stack.is(TagGen.ALLOW_JELLY)) {
 			list.add(LangData.ALLOW_JELLY.get());
 		}
-		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
+		if (FDConfig.addTooltip())
 			getFoodEffects(stack, list);
 	}
 

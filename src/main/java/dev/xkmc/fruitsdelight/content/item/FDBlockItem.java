@@ -3,6 +3,7 @@ package dev.xkmc.fruitsdelight.content.item;
 import dev.xkmc.fruitsdelight.init.data.LangData;
 import dev.xkmc.fruitsdelight.init.food.FoodType;
 import dev.xkmc.fruitsdelight.init.food.IFDFood;
+import dev.xkmc.fruitsdelight.util.FDConfig;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -83,7 +84,7 @@ public class FDBlockItem extends BlockItem implements IFDFoodItem {
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
 		list.add(LangData.TOOLTIP_PLACE.get());
-		if (Configuration.FOOD_EFFECT_TOOLTIP.get())
+		if (FDConfig.addTooltip())
 			getFoodEffects(stack, list);
 	}
 

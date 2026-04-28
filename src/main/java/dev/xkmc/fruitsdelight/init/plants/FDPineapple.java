@@ -10,6 +10,7 @@ import dev.xkmc.fruitsdelight.content.block.BaseBushBlock;
 import dev.xkmc.fruitsdelight.content.block.PineappleBlock;
 import dev.xkmc.fruitsdelight.content.block.WildPineappleBlock;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.data.TagRef;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -46,7 +47,6 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import java.util.Locale;
@@ -129,10 +129,10 @@ public enum FDPineapple implements PlantDataEntry<FDPineapple> {
 
 	public void genRecipe(RegistrateRecipeProvider pvd) {
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getWholeFruit()),
-						Ingredient.of(ForgeTags.TOOLS_KNIVES), getSlice(), 6, 1)
+						Ingredient.of(TagRef.TOOLS_KNIVES), getSlice(), 6, 1)
 				.addResult(getSapling())
 				.addResultWithChance(getSapling(), 0.5f)
-				.build(pvd, new ResourceLocation(FruitsDelight.MODID, getName() + "_cutting"));
+				.save(pvd);
 	}
 
 	public BaseBushBlock getPlant() {
