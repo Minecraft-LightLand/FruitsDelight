@@ -8,6 +8,7 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.fruitsdelight.init.FruitsDelight;
+import dev.xkmc.fruitsdelight.init.data.TagRef;
 import dev.xkmc.l2core.serial.loot.LootHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -45,7 +46,6 @@ import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import javax.annotation.Nullable;
@@ -167,8 +167,7 @@ public enum FDMelons implements PlantDataEntry<FDMelons> {
 		pvd.singleItem(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getSeed, 1, 1);
 		pvd.square(DataIngredient.items(getSlice()), RecipeCategory.MISC, this::getMelonBlock, false);
 		CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(getMelonBlock()),
-				Ingredient.of(CommonTags.TOOLS_KNIFE), getSlice(), 9, 1).build(pvd,
-				FruitsDelight.loc(getName() + "_cutting"));
+				Ingredient.of(TagRef.KNIFE), getSlice(), 9, 1).save(pvd);
 	}
 
 	private void buildMelonModel(DataGenContext<Block, Block> ctx, RegistrateBlockstateProvider pvd) {

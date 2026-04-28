@@ -6,13 +6,13 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.0.165'
-    id 'net.darkhax.curseforgegradle' version '[1.1.24,)'
+    id 'net.darkhax.curseforgegradle' version '[1.1.24,1.2)'
     id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
     id "com.modrinth.minotaur" version "2.+"
 }
 
 version = mod_version
-group = 'dev.kxmc'
+group = 'dev.xkmc'
 
 repositories {
     mavenLocal()
@@ -167,7 +167,7 @@ dependencies {
     implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 
     implementation "dev.xkmc:cuisinedelight:1.2.1-slim"
-    implementation "curse.maven:farmers-delight-398521:5566383"
+    implementation "curse.maven:farmers-delight-398521:8001010"
     compileOnly "curse.maven:thirst-was-taken-679270:5568715"
     implementation "curse.maven:create-328085:6255497"
     implementation "curse.maven:appleskin-248787:6616291"

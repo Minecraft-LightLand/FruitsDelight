@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  },
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "c:foods/fruits/mangosteen"
+    },
+    {
+      "tag": "c:foods/fruits/mangosteen"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "fruitsdelight:lemon_slice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "fruitsdelight:mangosteen_jam"
+  }
+}

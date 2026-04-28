@@ -1,3 +1,6 @@
+1.2.13
+- Compatible with Farmer's Delight 1.3
+
 1.2.12
 - fix eating jelly/jello giving container twice
 

@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.cauldrons;
 
+import dev.xkmc.fruitsdelight.init.data.TagRef;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvent;
@@ -60,7 +61,7 @@ public record FDCauldronInteraction(SimpleInteraction action, ItemStack result,
 	public boolean perform(BlockState state, Level level, BlockPos pos, ItemStack stack) {
 		if (!pred.test(stack)) return false;
 		if (requiresHeat) {
-			if (!level.getBlockState(pos.below()).is(ModTags.HEAT_SOURCES)) {
+			if (!level.getBlockState(pos.below()).is(TagRef.HEAT_SOURCES)) {
 				return false;
 			}
 		}

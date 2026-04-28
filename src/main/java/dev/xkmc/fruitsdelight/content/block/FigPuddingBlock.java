@@ -1,5 +1,6 @@
 package dev.xkmc.fruitsdelight.content.block;
 
+import dev.xkmc.fruitsdelight.init.data.TagRef;
 import dev.xkmc.fruitsdelight.init.food.FDFood;
 import dev.xkmc.l2modularblock.core.VoxelBuilder;
 import net.minecraft.core.BlockPos;
@@ -75,7 +76,7 @@ public class FigPuddingBlock extends BaseCakeBlock {
 
 	@Override
 	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-		if (stack.is(CommonTags.TOOLS_KNIFE)) {
+		if (stack.is(TagRef.KNIFE)) {
 			int i = state.getValue(bite);
 			if (i > 0) {
 				level.setBlockAndUpdate(pos, state.setValue(bite, i - 1));
