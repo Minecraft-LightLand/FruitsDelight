@@ -1,3 +1,6 @@
+1.2.14
+- Fix digesting effect
+
 1.2.13
 - Compatible with Farmer's Delight 1.3
 
