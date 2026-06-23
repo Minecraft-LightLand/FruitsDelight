@@ -1,25 +1,26 @@
 {
-  "required": true,
-  "priority": 1000,
-  "package": "dev.xkmc.fruitsdelight.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "refmap": "fruitsdelight.refmap.json",
-  "mixins": [
-	"AbstractArrowMixin",
-	"AbstractCauldronBlockAccessor",
-	"AnimalMixin",
-	"BlockStateBaseMixin",
-	"BoatMixin",
-	"BrushableBlockMixin",
-	"FoodDataMixin",
-	"HoneyBlockMixin",
-	"LivingEntityMixin",
-	"PlayerMixin"
-  ],
-  "client": [
-  ],
-  "injectors": {
-	"defaultRequire": 1
-  },
-  "minVersion": "0.8"
+	"required": true,
+	"priority": 1000,
+	"package": "dev.xkmc.fruitsdelight.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"refmap": "fruitsdelight.refmap.json",
+	"mixins": [
+		"AbstractArrowMixin",
+		"AbstractCauldronBlockAccessor",
+		"AnimalMixin",
+		"BlockStateBaseMixin",
+		"BoatMixin",
+		"BrushableBlockMixin",
+		"FoodDataMixin",
+		"HoneyBlockMixin",
+		"LivingEntityMixin",
+		"PlayerMixin"
+	],
+	"client": [
+		"SimpleBakedModelMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"minVersion": "0.8"
 }
