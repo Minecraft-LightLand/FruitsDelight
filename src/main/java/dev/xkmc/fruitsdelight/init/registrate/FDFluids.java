@@ -30,10 +30,12 @@ public class FDFluids {
 		for (var e : FruitType.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
 			JAM[e.ordinal()] = virtualFluid(name + "_jam", jam, jam,
-					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
+					(a, b, c) -> new FruitFluidType(a, b, c, e),
+					p -> new FruitFluid(p, e, true),p -> new FruitFluid(p, e))
 					.register();
 			JELLO[e.ordinal()] = virtualFluid(name + "_jello", jello, jello,
-					(a, b, c) -> new FruitFluidType(a, b, c, e), p -> new FruitFluid(p, e))
+					(a, b, c) -> new FruitFluidType(a, b, c, e),
+					p -> new FruitFluid(p, e, true), p -> new FruitFluid(p, e))
 					.lang("Melted " + FDItems.toEnglishName(name) + " Jello")
 					.register();
 		}
@@ -47,7 +49,8 @@ public class FDFluids {
 		for (var e : FDJuice.values()) {
 			String name = e.name().toLowerCase(Locale.ROOT);
 			JUICE[e.ordinal()] = virtualFluid(name, still, flow,
-					(a, b, c) -> new FruitFluidType(a, b, c, e.fruit()), p -> new FruitFluid(p, e.fruit))
+					(a, b, c) -> new FruitFluidType(a, b, c, e.fruit()),
+					p -> new FruitFluid(p, e.fruit, true),p -> new FruitFluid(p, e.fruit))
 					.lang(FDItems.toEnglishName(name))
 					.register();
 		}
@@ -56,10 +59,11 @@ public class FDFluids {
 	private static <T extends FruitFluid> FluidBuilder<T, L2Registrate>
 	virtualFluid(String id, ResourceLocation still, ResourceLocation flow,
 				 FluidBuilder.FluidTypeFactory typeFactory,
-				 NonNullFunction<BaseFlowingFluid.Properties, T> factory) {
+				 NonNullFunction<BaseFlowingFluid.Properties, T> sourceFactory,
+				 NonNullFunction<BaseFlowingFluid.Properties, T> flowingFactory) {
 		return FruitsDelight.REGISTRATE.entry(id, (c) -> new VirtualFluidBuilder<>(
 				FruitsDelight.REGISTRATE, FruitsDelight.REGISTRATE,
-				id, c, still, flow, typeFactory, factory));
+				id, c, still, flow, typeFactory, sourceFactory, flowingFactory));
 	}
 
 	public static void register() {
