@@ -13,9 +13,16 @@ public class FruitFluid extends BaseFlowingFluid {
 
 	public final FruitType type;
 
+	private final boolean source;
+
 	public FruitFluid(Properties properties, FruitType type) {
+		this(properties,type,false);
+	}
+
+	public FruitFluid(Properties properties, FruitType type, boolean source){
 		super(properties);
 		this.type = type;
+		this.source = source;
 	}
 
 	public Fluid getSource() {
@@ -35,7 +42,7 @@ public class FruitFluid extends BaseFlowingFluid {
 	}
 
 	public boolean isSource(FluidState state) {
-		return false;
+		return source;
 	}
 
 	public int getAmount(FluidState state) {
