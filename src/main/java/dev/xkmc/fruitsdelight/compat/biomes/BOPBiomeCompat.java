@@ -59,7 +59,7 @@ public class BOPBiomeCompat {
 	}
 
 	private static ResourceLocation bop(String str) {
-		return new ResourceLocation("biomesoplenty", str);
+		return ResourceLocation.fromNamespaceAndPath("biomesoplenty", str);
 	}
 
 /*
