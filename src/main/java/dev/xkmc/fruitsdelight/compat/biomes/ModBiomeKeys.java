@@ -24,6 +24,7 @@ public enum ModBiomeKeys {
 	public static void generate(Function<TagKey<Biome>, TagsProvider.TagAppender<Biome>> pvd) {
 		BOPBiomeCompat.register();
 		TerralithBiomeCompat.register();
+		RUBiomeCompat.register();
 		for (var e : ModBiomeKeys.values()) {
 			var tag = pvd.apply(e.asTag());
 			for (var x : e.list) {
