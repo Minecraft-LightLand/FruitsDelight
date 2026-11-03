@@ -58,7 +58,7 @@ public class TerralithBiomeCompat {
 	}
 
 	private static ResourceLocation tl(String str) {
-		return new ResourceLocation("terralith", str);
+		return ResourceLocation.fromNamespaceAndPath("terralith", str);
 	}
 
 
