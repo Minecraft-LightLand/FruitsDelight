@@ -67,6 +67,50 @@
     {
       "id": "terralith:moonlight_valley",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:autumnal_maple_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:maple_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:old_growth_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:orchard",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:poppy_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:silver_birch_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:willow_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:windswept_maple_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:shrubland",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:highland_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:grassland",
+      "required": false
     }
   ]
 }
