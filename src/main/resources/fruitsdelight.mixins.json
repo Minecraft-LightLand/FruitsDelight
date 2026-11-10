@@ -10,6 +10,7 @@
 	"BlockStateBaseMixin",
 	"BoatMixin",
 	"BrushableBlockMixin",
+	"CauldronWrapperMixin",
 	"FoodDataMixin",
 	"HoneyBlockMixin",
 	"LivingEntityMixin",
