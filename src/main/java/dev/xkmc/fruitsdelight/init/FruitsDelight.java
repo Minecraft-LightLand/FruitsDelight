@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
 import com.tterrag.registrate.providers.ProviderType;
 import dev.ghen.thirst.Thirst;
+import dev.xkmc.fruitsdelight.content.cauldrons.JamCauldronBlock;
 import dev.xkmc.fruitsdelight.compat.botanypot.BotanyGen;
 import dev.xkmc.fruitsdelight.compat.create.CreateCompat;
 import dev.xkmc.fruitsdelight.compat.thirst.ThirstCompat;
@@ -90,8 +91,8 @@ public class FruitsDelight {
 	@SubscribeEvent
 	public static void onCauldronRegistration(RegisterCauldronFluidContentEvent event) {
 		for (var e : FruitType.values()) {
-			event.register(FDCauldrons.JAM[e.ordinal()].get(), FDFluids.JAM[e.ordinal()].get(), 1000, null);
-			event.register(FDCauldrons.JELLO[e.ordinal()].get(), FDFluids.JELLO[e.ordinal()].get(), 1000, null);
+			event.register(FDCauldrons.JAM[e.ordinal()].get(), FDFluids.JAM[e.ordinal()].get(), 1000, JamCauldronBlock.LEVEL);
+			event.register(FDCauldrons.JELLO[e.ordinal()].get(), FDFluids.JELLO[e.ordinal()].get(), 1000, JamCauldronBlock.LEVEL);
 		}
 	}
 
