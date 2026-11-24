@@ -35,7 +35,7 @@ public class FruitFluid extends BaseFlowingFluid {
 	}
 
 	public boolean isSource(FluidState state) {
-		return false;
+		return true;
 	}
 
 	public int getAmount(FluidState state) {

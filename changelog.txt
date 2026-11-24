@@ -1,3 +1,7 @@
+1.2.15
+- Add sapling and bush fruits into wandering trader trades and loot chests
+- fix JEI compatibility for fluid rendering
+
 1.2.14
 - Fix digesting effect
 
