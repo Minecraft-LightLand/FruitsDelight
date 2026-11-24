@@ -11,9 +11,9 @@
       "item": "minecraft:bread"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 125,
-      "fluid": "fruitsdelight:hamimelon_jam"
+      "fluid_tag": "fruitsdelight:hamimelon_jam"
     }
   ],
   "results": [

@@ -11,9 +11,9 @@
       "item": "minecraft:bowl"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 125,
-      "fluid": "fruitsdelight:glowberry_jello"
+      "fluid_tag": "fruitsdelight:glowberry_jello"
     }
   ],
   "results": [

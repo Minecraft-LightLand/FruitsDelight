@@ -11,9 +11,9 @@
       "item": "fruitsdelight:hawberry_sheet"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 125,
-      "fluid": "fruitsdelight:chorus_jam"
+      "fluid_tag": "fruitsdelight:chorus_jam"
     }
   ],
   "results": [

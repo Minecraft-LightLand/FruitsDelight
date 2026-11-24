@@ -8,9 +8,9 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 1000,
-      "fluid": "fruitsdelight:hamimelon_jam"
+      "fluid_tag": "fruitsdelight:hamimelon_jam"
     }
   ],
   "results": [

@@ -11,9 +11,9 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 125,
-      "fluid": "fruitsdelight:bayberry_jam"
+      "fluid_tag": "fruitsdelight:bayberry_jam"
     }
   ],
   "results": [

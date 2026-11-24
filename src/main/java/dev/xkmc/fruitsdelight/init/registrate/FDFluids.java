@@ -11,10 +11,15 @@ import dev.xkmc.fruitsdelight.init.food.FDJuice;
 import dev.xkmc.fruitsdelight.init.food.FruitType;
 import dev.xkmc.l2core.init.reg.registrate.L2Registrate;
 import net.minecraft.Util;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class FDFluids {
 
@@ -58,8 +63,17 @@ public class FDFluids {
 				 FluidBuilder.FluidTypeFactory typeFactory,
 				 NonNullFunction<BaseFlowingFluid.Properties, T> factory) {
 		return FruitsDelight.REGISTRATE.entry(id, (c) -> new VirtualFluidBuilder<>(
-				FruitsDelight.REGISTRATE, FruitsDelight.REGISTRATE,
-				id, c, still, flow, typeFactory, factory));
+						FruitsDelight.REGISTRATE, FruitsDelight.REGISTRATE,
+						id, c, still, flow, typeFactory, factory))
+				.tag(FluidTags.create(FruitsDelight.loc(id)));
+	}
+
+	public static ResourceLocation sourceId(FluidEntry<?> entry) {
+		return Objects.requireNonNull(BuiltInRegistries.FLUID.getKey(entry.getSource()));
+	}
+
+	public static TagKey<Fluid> sourceTag(FluidEntry<?> entry) {
+		return FluidTags.create(sourceId(entry));
 	}
 
 	public static void register() {

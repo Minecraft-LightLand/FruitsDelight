@@ -32,6 +32,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.ArrayList;
@@ -48,32 +49,32 @@ public class CreateRecipeGen {
 			var jelloItem = FDItems.JELLO[e.ordinal()];
 			int cost = e.jamCost;
 
-			var b = mixing(jamFluid.getId());
+			var b = mixing(FDFluids.sourceId(jamFluid));
 			b.withFluidIngredients(FluidIngredient.fromFluid(Fluids.WATER, 100));
 			List<Ingredient> list = new ArrayList<>(List.of(
 					Ingredient.of(FDFood.LEMON_SLICE.get()), Ingredient.of(Items.SUGAR)));
 			for (int i = 0; i < cost; i++)
 				list.add(e.getFruitTag());
 			b.withItemIngredients(list.toArray(Ingredient[]::new));
-			b.output(jamFluid.get(), 125);
+			b.output((Fluid) jamFluid.getSource(), 125);
 			b.requiresHeat(HeatCondition.HEATED);
 			b.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
-			mixing(jelloFluid.getId())
-					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
+			mixing(FDFluids.sourceId(jelloFluid))
+					.withFluidIngredients(FluidIngredient.fromTag(FDFluids.sourceTag(jamFluid), 125))
 					.withItemIngredients(Ingredient.of(Items.SLIME_BALL))
 					.requiresHeat(HeatCondition.HEATED)
-					.output(jelloFluid.get(), 125)
+					.output((Fluid) jelloFluid.getSource(), 125)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			filling(jamItem.getId().withSuffix("_bread"))
-					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
+					.withFluidIngredients(FluidIngredient.fromTag(FDFluids.sourceTag(jamFluid), 125))
 					.withItemIngredients(Ingredient.of(Items.BREAD))
 					.output(FDFoodItem.setContent(FDFood.JAM_BREAD.get(), e))
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			filling(jamItem.getId().withSuffix("_roll"))
-					.withFluidIngredients(FluidIngredient.fromFluid(jamFluid.get(), 125))
+					.withFluidIngredients(FluidIngredient.fromTag(FDFluids.sourceTag(jamFluid), 125))
 					.withItemIngredients(Ingredient.of(FDFood.HAWBERRY_SHEET.get()))
 					.output(FDFoodItem.setContent(FDFood.HAWBERRY_ROLL.get(), e))
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
@@ -84,7 +85,7 @@ public class CreateRecipeGen {
 
 		for (var e : FDJuice.values()) {
 			var juice = FDFluids.JUICE[e.ordinal()];
-			var builder = mixing(juice.getId());
+			var builder = mixing(FDFluids.sourceId(juice));
 			if (e.type.category.waterMix) {
 				builder.withFluidIngredients(FluidIngredient.fromFluid(Fluids.WATER, 250));
 			}
@@ -92,13 +93,13 @@ public class CreateRecipeGen {
 			for (int i = 0; i < e.fruit.jamCost; i++)
 				list.add(e.getFruitTag());
 			builder.withItemIngredients(list.toArray(Ingredient[]::new));
-			builder.output(juice.get(), 250);
+			builder.output((Fluid) juice.getSource(), 250);
 			if (e.type.category.heated)
 				builder.requiresHeat(HeatCondition.HEATED);
 			builder.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			filling(e.item.getId())
-					.withFluidIngredients(FluidIngredient.fromFluid(juice.get(), 250))
+					.withFluidIngredients(FluidIngredient.fromTag(FDFluids.sourceTag(juice), 250))
 					.withItemIngredients(Ingredient.of(Items.GLASS_BOTTLE))
 					.output(e.item)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
@@ -106,7 +107,7 @@ public class CreateRecipeGen {
 			emptying(e.item.getId().withSuffix("_emptying"))
 					.withItemIngredients(Ingredient.of(e.item.get()))
 					.output(Items.GLASS_BOTTLE)
-					.output(juice.get(), 250)
+					.output((Fluid) juice.getSource(), 250)
 					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 		}
 
@@ -151,12 +152,12 @@ public class CreateRecipeGen {
 									 Item container) {
 
 		compacting(block.getId())
-				.withFluidIngredients(FluidIngredient.fromFluid(fluid.get(), 1000))
+				.withFluidIngredients(FluidIngredient.fromTag(FDFluids.sourceTag(fluid), 1000))
 				.output(block)
 				.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 		filling(item.getId())
-				.withFluidIngredients(FluidIngredient.fromFluid(fluid.get(), 125))
+				.withFluidIngredients(FluidIngredient.fromTag(FDFluids.sourceTag(fluid), 125))
 				.withItemIngredients(Ingredient.of(container))
 				.output(item)
 				.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
@@ -164,7 +165,7 @@ public class CreateRecipeGen {
 		emptying(item.getId().withSuffix("_emptying"))
 				.withItemIngredients(Ingredient.of(item.get()))
 				.output(container)
-				.output(fluid.get(), 125)
+				.output((Fluid) fluid.getSource(), 125)
 				.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 	}
 

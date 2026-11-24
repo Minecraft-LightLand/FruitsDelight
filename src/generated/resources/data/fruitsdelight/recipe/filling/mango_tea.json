@@ -11,9 +11,9 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 250,
-      "fluid": "fruitsdelight:mango_tea"
+      "fluid_tag": "fruitsdelight:mango_tea"
     }
   ],
   "results": [

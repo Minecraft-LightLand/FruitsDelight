@@ -86,7 +86,7 @@ public enum FDJuice implements IFDFood {
 	}
 
 	public FruitFluid getFluid() {
-		return FDFluids.JUICE[ordinal()].get();
+		return FDFluids.JUICE[ordinal()].getSource();
 	}
 
 	@Override

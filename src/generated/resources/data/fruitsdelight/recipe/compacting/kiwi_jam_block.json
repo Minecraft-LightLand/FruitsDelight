@@ -8,9 +8,9 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 1000,
-      "fluid": "fruitsdelight:kiwi_jam"
+      "fluid_tag": "fruitsdelight:kiwi_jam"
     }
   ],
   "results": [

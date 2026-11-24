@@ -11,9 +11,9 @@
       "item": "minecraft:bowl"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 125,
-      "fluid": "fruitsdelight:chorus_jello"
+      "fluid_tag": "fruitsdelight:chorus_jello"
     }
   ],
   "results": [

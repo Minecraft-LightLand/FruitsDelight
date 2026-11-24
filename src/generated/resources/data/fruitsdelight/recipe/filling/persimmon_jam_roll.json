@@ -11,9 +11,9 @@
       "item": "fruitsdelight:hawberry_sheet"
     },
     {
-      "type": "fluid_stack",
+      "type": "fluid_tag",
       "amount": 125,
-      "fluid": "fruitsdelight:persimmon_jam"
+      "fluid_tag": "fruitsdelight:persimmon_jam"
     }
   ],
   "results": [
