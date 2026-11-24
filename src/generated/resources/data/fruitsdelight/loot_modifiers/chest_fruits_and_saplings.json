@@ -1,0 +1,77 @@
+{
+  "type": "fruitsdelight:add_item",
+  "chance": 0.05,
+  "conditions": [
+    {
+      "condition": "minecraft:any_of",
+      "terms": [
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/igloo_chest"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/pillager_outpost"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/shipwreck_supply"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/spawn_bonus_chest"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/stronghold_corridor"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/stronghold_crossing"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/village/village_fisher"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/village/village_plains_house"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/village/village_savanna_house"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/village/village_snowy_house"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/village/village_taiga_house"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "minecraft:chests/village/village_weaponsmith"
+        }
+      ]
+    }
+  ],
+  "items": [
+    "fruitsdelight:pear_sapling",
+    "fruitsdelight:hawberry_sapling",
+    "fruitsdelight:lychee_sapling",
+    "fruitsdelight:mango_sapling",
+    "fruitsdelight:persimmon_sapling",
+    "fruitsdelight:peach_sapling",
+    "fruitsdelight:orange_sapling",
+    "fruitsdelight:apple_sapling",
+    "fruitsdelight:mangosteen_sapling",
+    "fruitsdelight:bayberry_sapling",
+    "fruitsdelight:kiwi_sapling",
+    "fruitsdelight:fig_sapling",
+    "fruitsdelight:durian_sapling",
+    "fruitsdelight:blueberry",
+    "fruitsdelight:lemon",
+    "fruitsdelight:cranberry"
+  ]
+}

@@ -1,3 +1,4 @@
-// 1.20.1	2024-02-08T20:45:18.767176	Global Loot Modifiers : fruitsdelight
-e1e5fd527f138a72ee7ac7fe9869367e1cacf147 data/forge/loot_modifiers/global_loot_modifiers.json
+// 1.20.1	2026-11-24T13:24:49.847997	Global Loot Modifiers : fruitsdelight
+9f0d2f231db0d80d16bb8350e203ceb4e8d9fbe5 data/forge/loot_modifiers/global_loot_modifiers.json
+8920fedbc65e743a7d93f2b6b8432d4949abd2fe data/fruitsdelight/loot_modifiers/chest_fruits_and_saplings.json
 cf2b32e2b788213fbec0589052b5413aa98d44e7 data/fruitsdelight/loot_modifiers/durian_sapling.json
