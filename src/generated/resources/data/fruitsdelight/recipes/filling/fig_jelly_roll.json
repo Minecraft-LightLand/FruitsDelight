@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:fig_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:fig_jam"
     }
   ],
   "results": [

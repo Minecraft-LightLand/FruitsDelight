@@ -12,8 +12,7 @@
     },
     {
       "amount": 250,
-      "fluid": "fruitsdelight:kiwi_juice",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:kiwi_juice"
     }
   ],
   "results": [

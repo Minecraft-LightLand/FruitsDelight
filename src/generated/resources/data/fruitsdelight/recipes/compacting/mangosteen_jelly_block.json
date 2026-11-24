@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:mangosteen_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:mangosteen_jam"
     }
   ],
   "results": [

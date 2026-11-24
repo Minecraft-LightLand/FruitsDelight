@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:fig_jello",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:fig_jello"
     }
   ],
   "results": [

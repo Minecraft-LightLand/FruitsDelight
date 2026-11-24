@@ -12,8 +12,7 @@
     },
     {
       "amount": 250,
-      "fluid": "fruitsdelight:mangosteen_tea",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:mangosteen_tea"
     }
   ],
   "results": [

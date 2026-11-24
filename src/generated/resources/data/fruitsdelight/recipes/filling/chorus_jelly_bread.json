@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:chorus_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:chorus_jam"
     }
   ],
   "results": [

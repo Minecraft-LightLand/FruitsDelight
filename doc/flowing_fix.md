@@ -61,7 +61,7 @@ It exists because Registrate's `FluidBuilder` always registers it, and because t
 source `Properties` references it as the flowing supplier (which `FruitFluid` then
 ignores).
 
-## Current call sites using the flowing fluid
+## Original call sites (before the fix)
 
 ### 1.20 branch
 
@@ -75,7 +75,7 @@ ignores).
 
 - `src/main/java/dev/xkmc/fruitsdelight/compat/create/CreateRecipeGen.java`
 
-  All fluid arguments currently use `.get()`:
+  All fluid arguments used `.get()`:
 
   - lines 58, 63, 66, 70, 76, 95, 101, 109
   - lines 154, 159, 167 inside `fluidRecipes(...)`
@@ -93,7 +93,7 @@ The same `FDJuice` and `CreateRecipeGen` usages exist, plus:
                  FDFluids.JELLO[e.ordinal()].get(), 1000, null);
   ```
 
-  These should pass `.getSource()` for the fluid argument.
+  These now pass `.getSource()` for the fluid argument.
 
 ## Important nuance about Create
 
@@ -236,8 +236,8 @@ caveats are in "Old save compatibility" below.
 
 The same `FluidBuilder#tag(...)` and `FluidIngredient.fromTag(...)` APIs exist in the
 1.21 Registrate/Create versions used by Youkais Feasts, so the tag approach ports
-directly. Only the generated data-pack folder layout differs between loader versions;
-datagen writes the correct path automatically.
+directly. Verified output paths: `tags/fluids/` in 1.20 and `tags/fluid/` in 1.21.
+Datagen writes the correct path automatically.
 
 ### 3. Recipe IDs can move to source-based IDs
 
@@ -275,14 +275,12 @@ recipe already uses the same base id in a different recipe-type folder; Create p
 the recipe type, so the final ids do not collide
 (`fruitsdelight:filling/orange_juice` vs `fruitsdelight:mixing/orange_juice`).
 
-Datagen does not delete stale files. After changing IDs, delete the existing
-`src/generated/resources/data/fruitsdelight/recipes/mixing/flowing_*.json` files
-(56 of them currently); `runData` writes the new names. All `flowing_*` recipe files
-are under `mixing/`.
+`runData` removes stale generated files automatically (`HashCache` logs
+`removed stale: 56`), so the old `mixing/flowing_*.json` files were deleted without
+manual cleanup. All old `flowing_*` recipe files were under `mixing/`.
 
-Expected datagen result after the fluid change alone: no diff in fluid values, because
-Create already normalizes passed fluids to source. Recipe names change only if IDs are
-changed.
+Fluid values generated the same as before (Create already normalized them to source).
+Recipe names, tag ingredients, and the new fluid tags are the actual diff.
 
 ## Old save compatibility
 
@@ -356,7 +354,8 @@ FluidIngredient.fromTag(FDFluids.sourceTag(juice), 250)
 FluidIngredient.fromTag(FDFluids.sourceTag(fluid), 1000)
 ```
 
-Why this works (verified against Create 0.5.1 bytecode):
+Why this works (verified against Create 6.0.8 for 1.20.1, the version this project
+builds against):
 
 - `FluidIngredient.FluidTagIngredient#testInternal` uses
   `FluidHelper.isTag(stack, tag)` -> `stack.getFluid().is(tag)`. Both source and flowing
@@ -441,6 +440,52 @@ Risks:
 - 1.21/NeoForge has no equivalent remapping event, so the 1.20 solution would not port.
 - Keeping both ids registered is much safer; the tag approach solves matching.
 
+## Implementation status
+
+Both the 1.20 and 1.21 branches are implemented and verified.
+
+### 1.20
+
+- `FDFluids`:
+  - every virtual fluid builder now calls `.tag(FluidTags.create(sourceId))`, so each
+    source fluid id also names a fluid tag containing both source and flowing;
+  - added `FDFluids.sourceId(FluidEntry<?>)` and `FDFluids.sourceTag(FluidEntry<?>)`.
+- `FDJuice#getFluid()` returns `.getSource()`.
+- `CreateRecipeGen`:
+  - recipe ids use `FDFluids.sourceId(...)`;
+  - fluid inputs use `FluidIngredient.fromTag(FDFluids.sourceTag(...), amount)`;
+  - fluid outputs use `getSource()`.
+- `runData` generated 56 fluid tags (e.g.
+  `data/fruitsdelight/tags/fluids/apple_jam.json` with
+  `flowing_apple_jam` + `apple_jam`) and renamed the 56 mixing recipes; stale files were
+  removed by `HashCache`.
+- `./gradlew build` passes.
+
+Compile gotcha: `FluidEntry#getSource()` is generic (`<S extends ForgeFlowingFluid> S`),
+so `ProcessingRecipeBuilder.output(fluid.getSource(), amount)` is ambiguous between
+`output(Fluid,int)` and `output(ItemLike,int)`. Cast the value to `Fluid` at output
+sites, or assign it to a `Fluid` local first.
+
+Generated result examples:
+
+- `mixing/apple_jello.json`: input `{"fluidTag": "fruitsdelight:apple_jam"}`,
+  output `{"fluid": "fruitsdelight:apple_jello"}`.
+- `filling/apple_jelly.json`: input `fluidTag`, output item.
+- `compacting/apple_jelly_block.json`: input `fluidTag`.
+- `emptying/apple_jelly_emptying.json`: output `{"fluid": "fruitsdelight:apple_jam"}`.
+
+### 1.21
+
+Same changes, adapted to NeoForge/Registrate 1.21:
+
+- `FDFluids.sourceId` uses `BuiltInRegistries.FLUID.getKey(...)`.
+- `FruitsDelight.onCauldronRegistration` passes `.getSource()` to
+  `RegisterCauldronFluidContentEvent`.
+- Generated tags live in `data/fruitsdelight/tags/fluid/*.json`.
+- Generated recipes live in `data/fruitsdelight/recipe/mixing/*.json`; Create 6 writes
+  tag inputs as `{"type": "fluid_tag", "fluid_tag": "fruitsdelight:apple_jam"}`.
+- `runData` and `build` both pass; `HashCache` again removed the 56 stale files.
+
 ## Validation checklist
 
 - Run `./gradlew runData`.
@@ -448,7 +493,7 @@ Risks:
     and `flowing_` ids.
   - Confirm Create recipe ingredients use `fluidTag` where tags are used, and outputs
     still use source fluid ids.
-  - Confirm recipe IDs changed as intended and delete stale `mixing/flowing_*.json`.
+  - Confirm stale `mixing/flowing_*.json` files are gone.
 - Run `./gradlew build`.
 - Test a new world:
   - Create mixing, filling, emptying, and compacting recipes.

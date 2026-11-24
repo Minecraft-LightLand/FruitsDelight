@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:durian_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:durian_jam"
     }
   ],
   "results": [

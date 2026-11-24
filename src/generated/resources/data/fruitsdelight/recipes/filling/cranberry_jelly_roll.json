@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:cranberry_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:cranberry_jam"
     }
   ],
   "results": [

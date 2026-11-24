@@ -12,8 +12,7 @@
     },
     {
       "amount": 250,
-      "fluid": "fruitsdelight:bayberry_soup",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:bayberry_soup"
     }
   ],
   "results": [

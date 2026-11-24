@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:lemon_jello",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:lemon_jello"
     }
   ],
   "results": [

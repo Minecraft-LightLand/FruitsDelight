@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:mango_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:mango_jam"
     }
   ],
   "results": [

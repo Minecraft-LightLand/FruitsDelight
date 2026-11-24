@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:glowberry_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:glowberry_jam"
     }
   ],
   "results": [

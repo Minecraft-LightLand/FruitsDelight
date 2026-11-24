@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:mangosteen_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:mangosteen_jam"
     }
   ],
   "results": [

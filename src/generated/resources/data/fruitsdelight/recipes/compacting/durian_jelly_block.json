@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:durian_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:durian_jam"
     }
   ],
   "results": [

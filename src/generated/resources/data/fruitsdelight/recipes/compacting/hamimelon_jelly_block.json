@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:hamimelon_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:hamimelon_jam"
     }
   ],
   "results": [

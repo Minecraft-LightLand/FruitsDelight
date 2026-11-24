@@ -12,8 +12,7 @@
     },
     {
       "amount": 125,
-      "fluid": "fruitsdelight:hamimelon_jello",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:hamimelon_jello"
     }
   ],
   "results": [

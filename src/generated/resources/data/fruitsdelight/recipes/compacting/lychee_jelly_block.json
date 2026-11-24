@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:lychee_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:lychee_jam"
     }
   ],
   "results": [

@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:mango_jello",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:mango_jello"
     }
   ],
   "results": [

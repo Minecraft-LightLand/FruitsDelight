@@ -12,8 +12,7 @@
     },
     {
       "amount": 250,
-      "fluid": "fruitsdelight:bellini_cocktail",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:bellini_cocktail"
     }
   ],
   "results": [

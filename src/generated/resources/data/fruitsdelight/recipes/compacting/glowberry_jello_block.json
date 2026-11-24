@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:glowberry_jello",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:glowberry_jello"
     }
   ],
   "results": [

@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:cranberry_jello",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:cranberry_jello"
     }
   ],
   "results": [

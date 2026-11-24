@@ -12,8 +12,7 @@
     },
     {
       "amount": 250,
-      "fluid": "fruitsdelight:hawberry_tea",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:hawberry_tea"
     }
   ],
   "results": [

@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:melon_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:melon_jam"
     }
   ],
   "results": [

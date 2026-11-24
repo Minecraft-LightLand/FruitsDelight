@@ -9,8 +9,7 @@
   "ingredients": [
     {
       "amount": 1000,
-      "fluid": "fruitsdelight:bayberry_jam",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:bayberry_jam"
     }
   ],
   "results": [

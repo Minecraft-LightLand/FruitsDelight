@@ -12,8 +12,7 @@
     },
     {
       "amount": 250,
-      "fluid": "fruitsdelight:lemon_juice",
-      "nbt": {}
+      "fluidTag": "fruitsdelight:lemon_juice"
     }
   ],
   "results": [
