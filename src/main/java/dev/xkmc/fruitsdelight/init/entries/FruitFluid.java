@@ -35,7 +35,7 @@ public class FruitFluid extends ForgeFlowingFluid {
 	}
 
 	public boolean isSource(FluidState state) {
-		return false;
+		return true;
 	}
 
 	public int getAmount(FluidState state) {
